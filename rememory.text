@@ -1,0 +1,28 @@
+Static Data
+-----------
+All of the data for the main part of the "Tennis Canada Rankings Explained" site
+is static and lives in the assets directory.
+
+It could be migrated to a database, but there really is no need.
+
+Annual updates
+--------------
+
+Provincial ratings for juniors need to be updated here: assets/provinces/ratings
+
+Anything else is optional.  Newly supported events, regrouping of concepts, other
+ratings changes all can be done at pretty much any time in the assets directory.
+
+Year over year versions.
+------------------------
+A lot of things support year over year versions so that when the user selects a
+particular rankings year, they are presented with what was accurate in that particular
+year.  You do not have to create a separate version for each ranking year if the thing
+in question does not change.  You only need to create a version in the year in which
+it changes.  That's pretty rough, but look at
+assets/event-groups/junior/junior-provincial-event-groups.js to get the idea.
+
+
+Build
+-----
+ng build --prod --base-href=/alphaRR2/
