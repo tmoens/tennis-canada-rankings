@@ -26,3 +26,5 @@ assets/event-groups/junior/junior-provincial-event-groups.js to get the idea.
 Build
 -----
 ng build --prod --base-href=/alphaRR2/
+
+
