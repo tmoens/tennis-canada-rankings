@@ -1,0 +1,34 @@
+.pointsTable {
+  border: 2px solid black;
+  border-collapse: collapse;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  min-width: 450px;
+}
+
+.pointsTable   td {
+  font-size: 12px;
+  text-align: right;
+  padding: 4px;
+  min-width: 30px;
+  border: 1px solid black;
+}
+.pointsTable thead th {
+  text-align: center;
+  padding: 4px;
+  font-size: 12px;
+  border: 1px solid black;
+}
+.pointsTable tbody th {
+  text-align: right;
+  padding: 4px;
+  font-size: 12px;
+  border: 1px solid black;
+}
+
+.table-striped tbody > tr:nth-child(odd) > td,
+.table-striped tbody > tr:nth-child(odd) > th {
+  background-color: lightgray;
+}
+

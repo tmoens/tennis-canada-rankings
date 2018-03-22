@@ -1,0 +1,16 @@
+.en-bg{
+  background-color: #000000;
+  background-image: url("../../assets/images/Splash/en/background.jpg");
+  background-repeat: no-repeat;
+  background-position: center top;
+  min-height: 840px;
+  margin: 0 auto;
+}
+.fr-bg{
+  background-color: #000000;
+  background-image: url("../../assets/images/Splash/fr/background.jpg");
+  background-repeat: no-repeat;
+  background-position: center top;
+  min-height: 840px;
+  margin: 0 auto;
+}

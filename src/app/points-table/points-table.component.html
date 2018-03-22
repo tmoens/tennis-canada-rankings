@@ -1,0 +1,92 @@
+<!--
+   Most points tables have events on the top row.
+   In some cases, the top row contains draw sizes for a single event.
+   This div is for the draw size variant.
+-->
+<div *ngIf="!isDrawSizeTable">
+  <div fxLayout="column" fxLayoutAlign="center">
+    <table class="pointsTable table-striped">
+      <thead>
+      <tr>
+        <th></th>
+        <th class="mat-body-2" *ngFor="let e of eg.rankingEvents" translate>{{e.name + 'abbrv_' }}</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let fp of eg.finishPositionsToDisplay">
+        <th class="mat-body-2">{{fpLabeler.getLabel(fp)}}</th>
+        <td class="mat-body" *ngFor="let e of eg.rankingEvents">{{calc(e.rating,fp) | number:'1.0-0'}}</td>
+      </tr>
+      <tr>
+        <th class="mat-body-2">{{fpLabeler.getLabel(magicFP)}}</th>
+        <td class="mat-body" *ngFor="let e of eg.rankingEvents">{{calc(e.rating,magicFP) | number:'1.0-0'}}</td>
+      </tr>
+      </tbody>
+    </table>
+    <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="10px">
+      <mat-form-field>
+        <input matInput type="number" [(ngModel)]="magicFP" [placeholder]="'_custom_fp_'| translate"
+               maxlength="3" min="2" max="256">
+      </mat-form-field>
+      <span class="fill-remaining-space"></span>
+      <div *ngIf="isJuniorRegional">
+        <button mat-button color="primary" (click)="onShowEventStructureDialog()">
+          {{"_junior_competitive_structure_" | translate}}
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!--
+ Most points tables have events on the top row.
+ In some cases, the top row contains draw sizes for a single event.
+ This div is for the multiple events variant.
+-->
+<div *ngIf="isDrawSizeTable" >
+  <div *ngFor="let e of eg.rankingEvents">
+    <table class="pointsTable table-striped">
+      <thead>
+      <tr>
+        <th translate>_Draw_Size_</th>
+        <th class="mat-body-2" *ngFor="let ds of e.drawSizeRating.displayedDrawSizes" translate>{{ds}}</th>
+        <th class="mat-body-2">{{magicDS}}</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let fp of eg.finishPositionsToDisplay">
+        <th class="mat-body-2">{{fpLabeler.getLabel(fp)}}</th>
+        <td class="mat-body" *ngFor="let ds of e.drawSizeRating.displayedDrawSizes">
+          <div *ngIf="fp > ds"> - </div>
+          <div *ngIf="fp <= ds">{{ds_calc(ds,e.rating,fp) | number:'1.0-0'}}</div>
+        </td>
+        <td class="mat-body">
+          <div *ngIf="fp > magicDS"> - </div>
+          <div *ngIf="fp <= magicDS">{{ds_calc(magicDS,e.rating,fp) | number:'1.0-0'}}</div>
+        </td>
+      </tr>
+      <tr>
+        <th class="mat-body-2">{{fpLabeler.getLabel(magicFP)}}</th>
+        <td class="mat-body" *ngFor="let ds of e.drawSizeRating.displayedDrawSizes">
+          <div *ngIf="magicFP > ds"> - </div>
+          <div *ngIf="magicFP <= ds">{{ds_calc(ds,e.rating,magicFP) | number:'1.0-0'}}</div>
+        </td>
+        <td class="mat-body">
+          <div *ngIf="magicFP > magicDS"> - </div>
+          <div *ngIf="magicFP <= magicDS">{{ds_calc(magicDS,e.rating,magicFP) | number:'1.0-0'}}</div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="10px">
+      <mat-form-field>
+        <input matInput type="number" [(ngModel)]="magicFP" [placeholder]="'_custom_fp_'| translate"
+               maxlength="3" min="1" max="256">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type="number" [(ngModel)]="magicDS" [placeholder]="'_custom_ds_'| translate"
+               maxlength="3" min="8" max="256">
+      </mat-form-field>
+    </div>
+  </div>
+</div>

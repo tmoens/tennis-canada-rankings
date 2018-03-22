@@ -1,0 +1,51 @@
+<div>
+  <button mat-button color="primary" [matMenuTriggerFor]="menu">
+    <span>{{rankingGroup.name | translate}}</span>
+    <mat-icon>arrow_drop_down</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu" class="rg-menu">
+    <div fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="center center">
+      <div fxLayout="row" fxLayoutGap="3px">
+        <div>
+          <a mat-button color="primary" [routerLink]="['/rankings', rankingGroup.name]">
+            {{"_About_" | translate }} {{rankingGroup.name | translate}} {{'_Rankings_' | translate}}
+          </a>
+        </div>
+        <div><a mat-button [href]="rankingGroup.getURL(appState.selectedProvince)" color="primary" target="_blank">{{"_Top_10_" | translate }}</a></div>
+      </div>
+      <div><mat-divider></mat-divider></div>
+
+      <div *ngIf="!appState.selectedProvince.isCanada()">
+        <button mat-button disabled>
+          <img [src]="appState.selectedProvince.getFlagPath()">
+          {{appState.selectedProvince.name | translate}} {{"_Rankings_" | translate}}
+        </button>
+      </div>
+      <div fxLayout="row">
+        <mat-grid-list fxFlex="280px" cols="4" rowHeight="20px" *ngIf="!appState.selectedProvince.isCanada()">
+          <mat-grid-tile *ngFor="let rc of rankingGroup.rankingCategories" >
+            <a mat-button   [href]="rc.getVRURL(appState.selectedProvince, rankingGroup)" color="primary" target="_blank">
+              {{rc.name |translate }}
+            </a>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </div>
+      <div>
+        <button mat-button disabled>
+          <img [src]="canada.getFlagPath()">
+          {{"_National_" | translate}}
+          {{"_Rankings_" | translate}}
+        </button>
+      </div>
+      <div fxLayout="row">
+        <mat-grid-list fxFlex="280px" cols="4" rowHeight="20px">
+          <mat-grid-tile *ngFor="let rc of rankingGroup.rankingCategories" >
+            <a mat-button   [href]="rc.getVRURL(canada, rankingGroup)" color="primary" target="_blank">
+              {{rc.name |translate }}
+            </a>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </div>
+    </div>
+  </mat-menu>
+</div>

@@ -1,0 +1,10 @@
+/* You can add global styles to this file, and also import other style files */
+.fill-remaining-space {
+  flex: 1 1 auto; }
+
+img.tclogo {
+  height: 84px;
+  margin: 0;
+  padding: 0; }
+
+/*# sourceMappingURL=styles.css.map */

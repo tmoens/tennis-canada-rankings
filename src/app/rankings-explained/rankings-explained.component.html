@@ -1,0 +1,47 @@
+<!--
+  This is used for all the rankings groups to tell all the gorey details
+  It is organized differently for screens and phones.
+  But there are really only tow main areas.  One for points table(s).
+  The other is a set of tabs for explaining all the concepts and rules
+  for the selected ranking group.
+-->
+<div fxLayout="column" style="background: white"
+     fxLayoutGap="10px" fxLayoutAlign="space-around" *ngIf="appState.selectedRankingGroup">
+
+  <!-- Spacer.  Sorry Should be done with fxFlex, but failed to.-->
+  <div></div>
+
+  <!-- logo area  (not shown on phone) -->
+  <div fxLayout="row" fxLayoutGap="60px" fxLayoutAlign="center" fxHide.lt-lg>
+    <img class="tclogo" [src]="canada.getLogoPath()">
+    <img class="tclogo" *ngIf="appState.selectedProvince.abbrv != 'CAN'"
+         [src]="appState.selectedProvince.getLogoPath()">
+    <img class="tclogo" [src]="appState.selectedRankingGroup.getLogoPath(appState.selectedLanguage.prefix)">
+  </div>
+  <!--
+    Points table and rankings concepts - side by side on big screen
+    arranged vertically on a small one
+  -->
+  <div fxLayout="column" fxLayout.gt-md="row" fxLayoutGap="15px">
+    <div class="pointsTableArea" fxFlex.gt-md="45%">
+      <!-- This part is for showing the various points tables for the selected ranking group -->
+      <app-event-selector></app-event-selector>
+    </div>
+    <!--
+      The "rankings concepts" tabs.
+    -->
+    <div fxFlex>
+      <mat-tab-group (selectedTabChange)="onConceptGroupChange($event)" [selectedIndex]="selectedConceptIndex">
+        <mat-tab *ngFor="let cg of rankingGroup.conceptGroups">
+          <ng-template mat-tab-label>{{cg.title | translate}}</ng-template>
+        </mat-tab>
+      </mat-tab-group>
+      <div *ngIf="rankingGroup">
+        <app-concept-display
+          [rankingGroupName]="rankingGroup.name"
+          [conceptGroupName]="rankingConceptGroup.name">
+        </app-concept-display>
+      </div>
+    </div>
+  </div>
+</div>

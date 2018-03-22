@@ -1,0 +1,14 @@
+<div mat-dialog-header>
+  <h1 mat-dialog-title>{{parentConcept.readmoreTitleToken | translate}}</h1>
+</div>
+<div mat-dialog-content>
+  <app-concept-display
+    [rankingGroupName]="parentConcept.rankingGroupName"
+    [conceptGroupName]="parentConcept.readMoreConceptGroupName">
+  </app-concept-display>
+</div>
+<div fxLayout="row" fxLayoutAlign="end">
+  <div mat-dialog-actions>
+    <button mat-button color="primary" [mat-dialog-close] cdkFocusInitial>{{'_Done_'|translate}}</button>
+  </div>
+</div>

@@ -1,0 +1,69 @@
+<div fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="center center">
+
+  <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="7px">
+    <div class="mat-body-2">
+      {{'_Point_Awards_' | translate}} {{'_for_' | translate }} {{rankingGroup.name|translate}}
+    </div>
+    <div class="mat-body-2" *ngIf="eventGroups.length == 1">
+      {{'_Events_' | translate}}
+    </div>
+    <div *ngIf="eventGroups.length > 1">
+      <button mat-button color="primary" [matMenuTriggerFor]="egMenu" class="narrow-button">
+        {{selectedEventGroup.name | translate}}
+        <mat-icon>arrow_drop_down</mat-icon>
+      </button>
+      <mat-menu #egMenu="matMenu">
+        <div fxLayout="column" fxLayoutAlign="start start" fxFlexOffset="10px">
+          <button mat-button color="primary" class="narrow-button"
+                  *ngFor="let eg of eventGroups"
+                  (click)="onSelectEventGroup(eg)">
+            {{eg.name|translate}}
+          </button>
+        </div>
+      </mat-menu>
+    </div>
+    <div *ngIf="eventSubGroups.length > 1">
+      <button mat-button color="primary" [matMenuTriggerFor]="esgMenu" class="narrow-button">
+        {{selectedEventSubGroup.name | translate}}
+        <mat-icon>arrow_drop_down</mat-icon>
+      </button>
+      <mat-menu #esgMenu="matMenu">
+        <div fxLayout="column" fxLayoutAlign="start start" fxFlexOffset="10px">
+          <button mat-button color="primary" class="narrow-button"
+                  *ngFor="let eg of eventSubGroups"
+                  (click)="onSelectEventSubGroup(eg)">
+            {{eg.name|translate}}
+          </button>
+        </div>
+      </mat-menu>
+    </div>
+    <div *ngIf="isJuniorRegional">
+      <button mat-button color="primary" [matMenuTriggerFor]="agMenu" class="narrow-button">
+        {{selectedAgeGroup.name}}
+        <mat-icon>arrow_drop_down</mat-icon>
+      </button>
+      <mat-menu #agMenu="matMenu">
+        <div fxLayout="column" fxLayoutAlign="start start" fxFlexOffset="10px">
+          <button mat-button color="primary" class="narrow-button"
+                  *ngFor="let ag of  juniorAgeGroups"
+                  (click)="onSelectAgeGroup(ag)">
+            {{ag.name}}
+          </button>
+        </div>
+      </mat-menu>
+    </div>
+  </div>
+  <app-points-table [eg]="pointTableEG"
+                    [year]="year"
+                    [ratingFactor]="regionalRF * ageGroupGenderRF"
+                    [isJuniorRegional]="isJuniorRegional">
+  </app-points-table>
+  <div *ngIf="isJuniorRegional" fxFlex="100%">
+    {{year}}
+    {{'_RSF_' | translate}}
+    {{ '_for_'|translate}} {{ province.name|translate }}:
+    {{ '_Girls_'|translate}} {{ province.girlsRating.getRating(year)}},
+    {{ '_Boys_'|translate}} {{ province.boysRating.getRating(year)}}
+  </div>
+
+</div>

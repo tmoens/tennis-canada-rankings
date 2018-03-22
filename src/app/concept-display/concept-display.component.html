@@ -1,0 +1,14 @@
+<div *ngFor="let c of concepts">
+  <div class="mat-body-2" *ngIf="c.headerTextToken">{{c.headerTextToken | translate}}</div>
+  <p class="mat-body-1">
+    <span class="mat-body-1" *ngFor="let dtt of c.detailTextTokens">
+    {{dtt | translate}}
+    </span>
+    <span *ngIf="c.readMoreConceptGroupName">
+      {{ c.readMoreTextToken |translate}}
+      <button mat-icon-button color="primary" (click)="onReadMore(c)">
+        <mat-icon>more_horiz</mat-icon>
+      </button>
+    </span>
+  </p>
+</div>

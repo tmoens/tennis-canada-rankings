@@ -1,0 +1,10 @@
+.pointsTableArea {
+  min-width: 450px;
+}
+
+//This is how I made the tabs smaller.  It displays a remarkable lack of
+//understanding about how to do this stuff right
+/deep/.mat-tab-label, /deep/.mat-tab-label-active{
+  min-width: 100px!important;
+  padding: 0 20px!important;
+}

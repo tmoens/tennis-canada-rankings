@@ -1,0 +1,25 @@
+<!--
+  This all works using the convention established to describe an event
+  group. The "selected event group" always has a list of events.
+  Each event has a name (like _ON_3_star_) which is a translation token for that event.
+  By convention we always have an additional translation token suffixed with "_description"
+  That translates into a description of the event.
+-->
+<div mat-dialog-header>
+  <div fxLayout="row" fxLayoutGap="7px" fxLayoutAlign="start center">
+    <span class="mat-h2">{{eventGroup.name | translate}}
+      {{ "_junior_competitive_structure_" | translate}}
+      </span>
+  </div>
+</div>
+<div mat-dialog-content>
+  <div *ngFor="let rankingEvent of eventGroup.rankingEvents">
+    <div class="mat-body-2">{{rankingEvent.name |translate}}</div>
+    <div class="mat-body-1">{{rankingEvent.name + "description_" |translate}}</div>
+  </div>
+</div>
+<div fxLayout="row" fxLayoutAlign="end">
+  <div mat-dialog-actions>
+    <button mat-button color="primary" [mat-dialog-close] cdkFocusInitial>{{'_Done_'|translate}}</button>
+  </div>
+</div>
