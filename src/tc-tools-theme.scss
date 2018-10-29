@@ -1,9 +1,8 @@
 @import '../node_modules/@angular/material/theming';
 @import './app/app.component';
-@import "./app/points-table/points-table.component";
+// Note to self - import component .scss files here if you have component specific scss
 
-// From the documentation - this file should not be imported in other
-// scss files
+// From the documentation - mat-core should not be imported in other scss files
 @include mat-core();
 
 $tcred: (
@@ -78,4 +77,4 @@ $tc-tools: mat-light-theme($tc-tools-primary, $tc-tools-accent, $tc-tools-warn);
 
 @include angular-material-theme($tc-tools);
 @include rogers-rankings($tc-tools);
-//@include point-table($tc-tools);
+

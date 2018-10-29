@@ -1,49 +1,50 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
-import { EventGroup} from "../ranking-event";
-import { Rating } from "../rating";
+import {EventGroup, RankingEvent} from "../ranking-event";
 import { FinishPositionLabeler } from "../finish-positions";
 import { AppState } from "../app-state";
-import { DrawSizeRating } from "../draw-size-rating";
 import { EventStructureDialog } from "../event-structure-dialog/event-structure.component";
 import { MatDialog } from "@angular/material";
+import {AgeGroup} from "../age-group";
+import {Province} from "../province";
 
 // The round over round reduction in points.  So, finalist gets .6 of winner,
 // semifinalist gets .6 of finalist and so on.
 const r = .6;
-
+const baselineFPs = [1,2,3,4,5,6,8,12,16,24,32,48,64,96,128];
 @Component({
   selector: 'app-points-table',
   templateUrl: './points-table.component.html',
   styleUrls: ['./points-table.component.scss']
 })
 export class PointsTableComponent implements OnInit {
-  @Input() eg: EventGroup;
-  @Input() ratingFactor:number;
-  @Input() year;
-  @Input() isJuniorRegional:boolean;
+  @Input() eventGroup: EventGroup;
+  @Input() eventSubGroup: EventGroup;
+  @Input() event: RankingEvent;
+  @Input() ageGroup: AgeGroup;
+  @Input() drawSize: number = 128;
+  @Input() province: Province;
+  @Input() isJuniorRegional: boolean = true;
+  @Input() magicFP = 17;
+
+  // For the mat-table display
+  pointTable: any[];
+  displayedColumns: string[] = ['shortLabel', 'points'];
 
   // For calculating ranking points.  Ratings are expressed as a factor of
   // the baseline. The baseline differs between ranking groups, so we make
   // a note of the baseline points of the selected ranking group.
-  baselinePoints:number;
+  baselinePoints: number;
 
   // The Magic Finishing Position - the user can enter whatever finish
   // position she wants in order to see points for unusual finishing
   // positions. For example, with sufficient playoffs, a player could
   // finish 23rd in a draw with 52 players.
-  magicFP:number;
 
-  // The Magic Draw size - the user can see the points allocation for any
-  // arbitrary draw size
-  magicDS: number;
+  // The rating of the event in question with all factors built in
+  rating: number;
 
-  // Some points tables have events on the top row, others have draw sizes
-  // This distinguishes the two cases
-  isDrawSizeTable:boolean;
-
-  // And if it is a draw size table, we need to know the draw size at which the
-  // winner gets 100% of the rated points.
-  baseDrawSize: number;
+  // are we using the event group or the sub-group
+  egInUse: EventGroup;
 
   constructor(public appState: AppState,
               public fpLabeler: FinishPositionLabeler,
@@ -51,59 +52,92 @@ export class PointsTableComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.ngOnChanges();
   }
 
+  // Whenever one of the inputs changes...
   ngOnChanges() {
-    if (this.eg) {
-      // The points table component uses draw size variant if there is exactly one RankedEvent
-      // in rankedEvents AND that event has a drawSizeRating.
-      this.isDrawSizeTable = false;
-      if (this.eg.rankingEvents.length == 1 &&
-        this.eg.rankingEvents[0].drawSizeRating) {
-        this.isDrawSizeTable = true;
-        let drawSizeRating: DrawSizeRating = this.eg.rankingEvents[0].drawSizeRating;
-        this.baseDrawSize = drawSizeRating.baseDrawSize;
-        // for the "Magic" draw size choose double the largest draw size to display
-        this.magicDS = 2 * drawSizeRating.displayedDrawSizes[drawSizeRating.displayedDrawSizes.length - 1];
+    // for convenience:
+    const year = this.appState.selectedRankingYear;
+
+    // are we using the event group or the sub-group
+    this.egInUse = (this.eventSubGroup) ? this.eventSubGroup : this.eventGroup;
+
+    // Calculate the rating of the event in question
+    let rating: number = 1;
+    // use the event's rating.
+    if (this.event) {
+      rating = rating * this.event.rating.getRating(year);
+      if (this.isJuniorRegional) {
+        if (this.ageGroup) {
+          rating = rating * this.ageGroup.rating.getRating(year);
+          if (this.ageGroup.gender == "M") {
+            rating = rating * this.province.boysRating.getRating(year);
+          } else {
+            rating = rating * this.province.girlsRating.getRating(year);
+          }
+        }
       }
 
-      // For the "Magic" finishing position choose double the
-      // finishing last finishing position for the eventGroup.
-      this.magicFP = 2 * this.eg.finishPositionsToDisplay[this.eg.finishPositionsToDisplay.length - 1];
-
-
-      // Fetch the baseline points from the selected ranking group.
-      if (this.appState.selectedRankingGroup) {
-        this.baselinePoints = this.appState.selectedRankingGroup.baselinePoints;
+      /**
+       * rating adjustment for draw-size events
+       *
+       * A tournament where drawSize = baseDrawSize has a ratings adjustment factor of 1
+       * Larger draws - higher adjustment factor.  Smaller draws - lower adjustment.
+       * The following formula makes it so that the winner points in a draw of 16 are the same as
+       * runner up points in a draw of 32.
+       */
+      if (this.event.baseDrawSize) {
+        rating = rating *
+          (Math.pow(r,Math.log(this.event.baseDrawSize)/Math.log(2) -
+            Math.log(this.drawSize)/Math.log(2)));
       }
     }
+
+    // Fetch the baseline points from the selected ranking group.
+    if (this.appState.selectedRankingGroup) {
+      this.baselinePoints = this.appState.selectedRankingGroup.baselinePoints;
+    }
+    this.rating = rating;
+
+    // now build an array to use as the data source of the table
+    const table = [];
+    for (const fp of this.fpsToDisplay(this.drawSize, this.magicFP)) {
+      table.push({
+        longLabel:   this.fpLabeler.getLabelLong(fp),
+        shortLabel: this.fpLabeler.getLabel(fp),
+        points: this.calc(fp)});
+    }
+    this.pointTable = table;
   }
 
-  // Point calculation for most events
-  calc(eventRating:Rating, fp:number):number {
+
+  calc(fp:number):number {
     return this.baselinePoints *
-      this.ratingFactor *
-      eventRating.getRating(this.year) *
+      this.rating *
       Math.pow(r, Math.log2(fp));
   }
 
-  /**
-   * Point calculation for draw-size events
-   *
-   * A tournament where drawSize = baseDrawSize has a ratings adjustment factor of 1
-   * Larger draws - higher adjustment factor.  Smaller draws - lower adjustment.
-   * The following formula makes it so that the winner points in a draw of 16 are the same as
-   * runner up points in a draw of 32.
-   */
-  ds_calc(drawSize, eventRating:Rating, fp:number):number {
-    let dsAdjustment = Math.pow(r,Math.log(this.baseDrawSize)/Math.log(2) - Math.log(drawSize)/Math.log(2));
-    return this.calc(eventRating,fp) * dsAdjustment;
+  fpsToDisplay(drawSize, magicFP): number[] {
+    let list = [];
+    let prevFP = 0;
+    for (const fp of baselineFPs) {
+      if (magicFP > prevFP && magicFP < fp && magicFP < drawSize) list.push(this.magicFP);
+      if (fp < drawSize) {
+        list.push(fp);
+        prevFP = fp;
+      }  else {
+        list.push(drawSize);
+        break;
+      }
+    }
+    return list;
   }
 
   onShowEventStructureDialog() {
-    let dialogRef = this.dialog.open(EventStructureDialog, {
-      width: '800px',
-      data: {eventGroup: this.eg}
-    })
+    // let dialogRef = this.dialog.open(EventStructureDialog, {
+    //   width: '800px',
+    //   data: {eventGroup: this.eg}
+    // })
   }
 }

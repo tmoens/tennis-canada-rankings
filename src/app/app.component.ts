@@ -18,7 +18,6 @@ import {ENGLISH, FRENCH} from "./language";
 })
 export class AppComponent {
   title = 'RogersRankings';
-  rankingsYears: number[];
   rankingGroups: KeyedStaticCollection<RankingGroup>;
   provinces:KeyedStaticCollection<Province>;
   sideMenuOpen: boolean;

@@ -23,7 +23,7 @@
     arranged vertically on a small one
   -->
   <div fxLayout="column" fxLayout.gt-md="row" fxLayoutGap="15px">
-    <div class="pointsTableArea" fxFlex.gt-md="45%">
+    <div fxFlex.gt-md="45%">
       <!-- This part is for showing the various points tables for the selected ranking group -->
       <app-event-selector></app-event-selector>
     </div>
@@ -33,13 +33,12 @@
     <div fxFlex>
       <mat-tab-group (selectedTabChange)="onConceptGroupChange($event)" [selectedIndex]="selectedConceptIndex">
         <mat-tab *ngFor="let cg of rankingGroup.conceptGroups">
-          <ng-template mat-tab-label>{{cg.title | translate}}</ng-template>
+          <ng-template mat-tab-label>{{cg.headerTextToken | translate}}</ng-template>
         </mat-tab>
       </mat-tab-group>
       <div *ngIf="rankingGroup">
         <app-concept-display
-          [rankingGroupName]="rankingGroup.name"
-          [conceptGroupName]="rankingConceptGroup.name">
+          [conceptGroup]="conceptGroup">
         </app-concept-display>
       </div>
     </div>

@@ -1,69 +1,86 @@
-<div fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="center center">
-
-  <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="7px">
-    <div class="mat-body-2">
-      {{'_Point_Awards_' | translate}} {{'_for_' | translate }} {{rankingGroup.name|translate}}
+<div fxLayout="column" fxLayoutGap="20px" fxLayoutAlign="start start" fxFlexOffset="20px">
+  <div class="mat-subheading-1" fxFlexAlign="center">
+    {{'_Point_Awards_' | translate}} {{'_for_' | translate }}
+    {{rankingGroup.name|translate}} {{'_Events_' | translate}}
+  </div>
+  <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="15px">
+    <div>
+      <div *ngIf="eventGroups.length > 1">
+        <mat-form-field class="adjustment">
+          <mat-select [placeholder]="'_event_group_' | translate"
+                      [(value)]="selectedEventGroup" name="item"
+                      (selectionChange)="onSelectEventGroup($event.value)">
+            <mat-option *ngFor="let item of eventGroups" [value]="item">{{item.name | translate}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div *ngIf="eventSubGroups && eventSubGroups.length > 1">
+        <mat-form-field>
+          <mat-select [placeholder]="'_event_sub_group_' | translate"
+                      [(value)]="selectedEventSubGroup" name="item"
+                      (selectionChange)="onSelectEventSubGroup($event.value)">
+            <mat-option *ngFor="let item of eventSubGroups" [value]="item">{{item.name | translate}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div *ngIf="events && events.length > 1">
+        <mat-form-field>
+          <mat-select [placeholder]="'_event_type_' | translate"
+                      [(value)]="selectedEvent" name="item"
+                      (selectionChange)="onSelectEvent($event.value)">
+            <mat-option *ngFor="let item of events" [value]="item">{{item.name | translate}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div *ngIf="isJuniorRegional">
+        <mat-form-field>
+          <mat-select [placeholder]="'_Age_Group_' | translate"
+                      [(value)]="selectedAgeGroup" name="item"
+                      (selectionChange)="onSelectAgeGroup($event.value)">
+            <mat-option *ngFor="let item of juniorAgeGroups" [value]="item">{{item.name | translate}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div *ngIf="baseDrawSize">
+        <mat-form-field>
+          <input matInput type="number" [(ngModel)]="selectedDrawSize"
+                 [placeholder]="'_custom_ds_'| translate"
+                 maxlength="3" min="1" max="128" (change)="onDrawSizeChange()">
+        </mat-form-field>
+      </div>
+      <mat-form-field>
+        <input matInput type="number" [(ngModel)]="selectedFinishPosition"
+               [placeholder]="'_custom_fp_'| translate"
+               maxlength="3" min="1" [max]="selectedDrawSize">
+      </mat-form-field>
+      <div *ngIf="selectedEventSubGroup.groupType">
+        <span class="mat-body color-primary pointer-the-cursor" (click)="onReadMore()">
+          {{selectedEventSubGroup.conceptGroup.headerTextToken | translate}}
+        </span>
+      </div>
+      <div *ngIf="isJuniorRegional">
+        <p class="mat-body color-primary pointer-the-cursor" style="width: 180px" (click)="onShowEventStructure(selectedEventSubGroup)">
+          {{'_event_structure_rm_' | translate }} {{selectedProvince.name |translate }}
+        </p>
+        <p class="mat-body" style="width: 180px">{{year}}
+          {{'_RSF_' | translate}}
+          {{ '_for_'|translate}} {{ selectedProvince.name|translate }}:
+          {{ '_Girls_'|translate}} {{ selectedProvince.girlsRating.getRating(year)}},
+          {{ '_Boys_'|translate}} {{ selectedProvince.boysRating.getRating(year)}}
+        </p>
+      </div>
     </div>
-    <div class="mat-body-2" *ngIf="eventGroups.length == 1">
-      {{'_Events_' | translate}}
-    </div>
-    <div *ngIf="eventGroups.length > 1">
-      <button mat-button color="primary" [matMenuTriggerFor]="egMenu" class="narrow-button">
-        {{selectedEventGroup.name | translate}}
-        <mat-icon>arrow_drop_down</mat-icon>
-      </button>
-      <mat-menu #egMenu="matMenu">
-        <div fxLayout="column" fxLayoutAlign="start start" fxFlexOffset="10px">
-          <button mat-button color="primary" class="narrow-button"
-                  *ngFor="let eg of eventGroups"
-                  (click)="onSelectEventGroup(eg)">
-            {{eg.name|translate}}
-          </button>
-        </div>
-      </mat-menu>
-    </div>
-    <div *ngIf="eventSubGroups.length > 1">
-      <button mat-button color="primary" [matMenuTriggerFor]="esgMenu" class="narrow-button">
-        {{selectedEventSubGroup.name | translate}}
-        <mat-icon>arrow_drop_down</mat-icon>
-      </button>
-      <mat-menu #esgMenu="matMenu">
-        <div fxLayout="column" fxLayoutAlign="start start" fxFlexOffset="10px">
-          <button mat-button color="primary" class="narrow-button"
-                  *ngFor="let eg of eventSubGroups"
-                  (click)="onSelectEventSubGroup(eg)">
-            {{eg.name|translate}}
-          </button>
-        </div>
-      </mat-menu>
-    </div>
-    <div *ngIf="isJuniorRegional">
-      <button mat-button color="primary" [matMenuTriggerFor]="agMenu" class="narrow-button">
-        {{selectedAgeGroup.name}}
-        <mat-icon>arrow_drop_down</mat-icon>
-      </button>
-      <mat-menu #agMenu="matMenu">
-        <div fxLayout="column" fxLayoutAlign="start start" fxFlexOffset="10px">
-          <button mat-button color="primary" class="narrow-button"
-                  *ngFor="let ag of  juniorAgeGroups"
-                  (click)="onSelectAgeGroup(ag)">
-            {{ag.name}}
-          </button>
-        </div>
-      </mat-menu>
+    <div>
+      <app-points-table
+        [eventGroup]="selectedEventGroup"
+        [eventSubGroup]="selectedEventSubGroup"
+        [event]="selectedEvent"
+        [ageGroup]="selectedAgeGroup"
+        [drawSize]="selectedDrawSize"
+        [province]="selectedProvince"
+        [isJuniorRegional]="isJuniorRegional"
+        [magicFP]="selectedFinishPosition">
+      </app-points-table>
     </div>
   </div>
-  <app-points-table [eg]="pointTableEG"
-                    [year]="year"
-                    [ratingFactor]="regionalRF * ageGroupGenderRF"
-                    [isJuniorRegional]="isJuniorRegional">
-  </app-points-table>
-  <div *ngIf="isJuniorRegional" fxFlex="100%">
-    {{year}}
-    {{'_RSF_' | translate}}
-    {{ '_for_'|translate}} {{ province.name|translate }}:
-    {{ '_Girls_'|translate}} {{ province.girlsRating.getRating(year)}},
-    {{ '_Boys_'|translate}} {{ province.boysRating.getRating(year)}}
-  </div>
-
 </div>

@@ -1,6 +1,6 @@
 {
 "version": 3,
-"mappings": "AAAA,gBAAiB;EACf,SAAS,EAAE,KAAK;;AAKlB,mDAAiD;EAC/C,SAAS,EAAE,gBAAe;EAC1B,OAAO,EAAE,iBAAgB",
+"mappings": "AAGA,mDAAiD;EAC/C,SAAS,EAAE,gBAAe;EAC1B,OAAO,EAAE,iBAAgB",
 "sources": ["rankings-explained.component.scss"],
 "names": [],
 "file": "rankings-explained.component.css"

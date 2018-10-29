@@ -3,7 +3,7 @@ import { RankingGroup } from "./ranking-group";
 import { Province } from "./province";
 import {EventGroup} from "./ranking-event";
 import {Language} from "./language";
-import {BehaviorSubject} from "rxjs/BehaviorSubject";
+import {BehaviorSubject} from "rxjs";
 
 @Injectable()
 export class AppState {

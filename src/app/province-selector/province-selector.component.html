@@ -6,7 +6,7 @@
   </button>
   <mat-menu #provinceMenu="matMenu">
     <div fxLayout="column" fxLayoutAlign="start start" fxFlexOffset="10px">
-      <button mat-button *ngFor="let k of provinces.getKeys()" color="primary"
+      <button mat-menu-item *ngFor="let k of provinces.getKeys()" color="primary"
               (click)="onSelectProvince(k)">
         <img [src]='provinces.getItem(k).getFlagPath()'>
         {{provinces.getItem(k).name|translate}}

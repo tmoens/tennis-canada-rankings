@@ -1,10 +1,8 @@
 <div mat-dialog-header>
-  <h1 mat-dialog-title>{{parentConcept.readmoreTitleToken | translate}}</h1>
+  <h1 mat-dialog-title>{{conceptGroup.headerTextToken | translate}}</h1>
 </div>
 <div mat-dialog-content>
-  <app-concept-display
-    [rankingGroupName]="parentConcept.rankingGroupName"
-    [conceptGroupName]="parentConcept.readMoreConceptGroupName">
+  <app-concept-display [conceptGroup]="conceptGroup">
   </app-concept-display>
 </div>
 <div fxLayout="row" fxLayoutAlign="end">

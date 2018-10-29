@@ -1,6 +1,3 @@
-.pointsTableArea {
-  min-width: 450px; }
-
 /deep/ .mat-tab-label, /deep/ .mat-tab-label-active {
   min-width: 100px !important;
   padding: 0 20px !important; }

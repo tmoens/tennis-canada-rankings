@@ -1,13 +1,12 @@
 import { Component, OnInit, OnChanges} from '@angular/core';
 import { MatTabChangeEvent } from '@angular/material/tabs';
 import { RankingGroup} from "../ranking-group";
-import { RankingConceptGroup } from "../ranking-concepts";
 import { AppState} from "../app-state";
-import { EventGroup } from "../ranking-event";
 import {PROVINCES} from "../../assets/provinces/province-data";
 import {Province} from "../province";
 import {RANKING_GROUPS} from "../../assets/ranking-groups";
 import {ActivatedRoute} from "@angular/router";
+import {ConceptGroup} from "../concept";
 
 @Component({
   selector: 'app-rankings-explained',
@@ -15,7 +14,6 @@ import {ActivatedRoute} from "@angular/router";
   styleUrls: ['./rankings-explained.component.scss']
 })
 export class RankingsExplainedComponent implements OnChanges, OnInit {
-  debug:number;
   // This is the ranking group (i.e. junior/senior/open/adult/wheelchair)
   // that is being "explained" right now.
   rankingGroup: RankingGroup;
@@ -31,29 +29,19 @@ export class RankingsExplainedComponent implements OnChanges, OnInit {
   // concept groups within the ranking group.
   // So the n'th tab corresponds to the n'th concept group.
   // Track which tab is selected.
-  rankingConceptGroup: RankingConceptGroup;
+  conceptGroup: ConceptGroup;
   selectedConceptIndex = 0;
-
-  // // The event groups for the selected ranking group
-  // // are presented as tabs (on the left) in the order of
-  // // event groups for the ranking group.
-  // // In practice, only the juniors have multiple event groups.
-  // selectedEventGroupIndex = 0;
-  // eventGroup: EventGroup;
 
   constructor(public appState: AppState,
               private route: ActivatedRoute) {
     this.canada = PROVINCES.getItem("_CAN_");
-    this.debug = Math.random();
+
     // Watch for the ranking year to change and act accordingly.
     this.appState.selectedRankingYear$.subscribe(y => {
       this.rankingYear = y;
-      // this.loadEventGroup();
       this.loadConceptGroup();
     });
     this.route.params.subscribe(params => {
-        console.log(this.debug + " params: " + params);
-
         if (params.rankingGroupName) {
           this.rankingGroup = RANKING_GROUPS.getItem(params.rankingGroupName);
         } else {
@@ -69,8 +57,6 @@ export class RankingsExplainedComponent implements OnChanges, OnInit {
   }
 
   ngOnChanges() {
-    // this.selectedEventGroupIndex = 0;
-    // this.loadEventGroup();
     this.selectedConceptIndex = 0;
     this.loadConceptGroup();
   }
@@ -84,26 +70,9 @@ export class RankingsExplainedComponent implements OnChanges, OnInit {
     }
   }
 
-  // // When the user chooses a different event group we need
-  // // to load the corresponding data.
-  // onEventGroupChange(e: MatTabChangeEvent) {
-  //   if (e.index !== this.selectedEventGroupIndex) {
-  //     this.selectedEventGroupIndex = e.index;
-  //     this.loadEventGroup();
-  //     this.loadConceptGroup();
-  //   }
-  // }
-
-  // loadEventGroup() {
-  //   if (this.rankingGroup) {
-  //     this.eventGroup =
-  //       this.rankingGroup.eventGroups[this.selectedEventGroupIndex].getVersion(this.appState.selectedRankingYear);
-  //   }
-  // }
-
   loadConceptGroup() {
     if (this.rankingGroup) {
-      this.rankingConceptGroup = this.rankingGroup.conceptGroups[this.selectedConceptIndex];
+      this.conceptGroup = this.rankingGroup.conceptGroups[this.selectedConceptIndex];
     }
   }
 }

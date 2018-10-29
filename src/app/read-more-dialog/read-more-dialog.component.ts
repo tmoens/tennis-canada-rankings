@@ -1,8 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
 import {AppState} from "../app-state";
-import {RankingConcept} from "../ranking-concept";
-import {RankingConcepts} from "../ranking-concepts";
+import {ConceptGroup} from "../concept";
 
 @Component({
   selector: 'app-read-more-dialog',
@@ -10,13 +9,12 @@ import {RankingConcepts} from "../ranking-concepts";
   styleUrls: ['./read-more-dialog.component.scss']
 })
 export class ReadMoreDialogComponent implements OnInit {
-  parentConcept: RankingConcept;
+  conceptGroup: ConceptGroup;
 
   constructor(public appState: AppState,
-              public rankingConcepts: RankingConcepts,
-              public dialogRef:MatDialogRef<ReadMoreDialogComponent>,
+              public dialogRef: MatDialogRef<ReadMoreDialogComponent>,
               @Inject(MAT_DIALOG_DATA) public data: any) {
-    this.parentConcept = data.rankingConcept as RankingConcept;
+    this.conceptGroup = data.conceptGroup as ConceptGroup;
   }
   ngOnInit() {
   }

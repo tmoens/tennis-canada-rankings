@@ -6,7 +6,6 @@ export const OPEN_EVENT_GROUP: KeyedStaticCollection<EventGroup> =
   new KeyedStaticCollection<EventGroup>({
     '2013': new EventGroup(
       '_open_eg_',
-      [1, 2, 3, 4, 8, 16, 32, 64],
       [
         new RankingEvent("_o_m1000_", new Rating(1000)),
         new RankingEvent("_o_m350_", new Rating(350)),

@@ -12,54 +12,40 @@ import {SENIOR_EVENT_GROUP} from "./event-groups/senior-event-group";
 import {JUNIORS_IN_PROS_EVENT_GROUP} from "./event-groups/junior/juniors-in-open-event-groups";
 import {JUNIOR_INTERNATIONAL_GROUP} from "./event-groups/junior/junior-international-event-groups";
 import {JUNIOR_REGIONAL_GROUP} from "./event-groups/junior/junior-provincial-event-groups";
-import {JUNIOR_NATIONAL_GROUP} from "./event-groups/junior/junior-national-event-groups";
 import {OPEN_EVENT_GROUP} from "./event-groups/open-event-group";
 import {ADULT_EVENT_GROUP} from "./event-groups/adult-event-group";
 import { WHEELCHAIR_EVENT_GROUP } from "./event-groups/wheelchair-event-group";
+import {JUNIOR_EVENT_CAT_CG, JUNIOR_KEY_CONCEPTS_CG, JUNIOR_RATINGS_CG,} from "./event-groups/Concepts/junior-concepts";
+import {ADULT_KEY_CONCEPTS_CG, ADULT_OTHER_CG} from "./event-groups/Concepts/adult-concepts";
+import {OPEN_KEY_CONCEPTS_CG, OPEN_OTHER_CG} from "./event-groups/Concepts/open-concepts";
+import {SENIOR_KEY_CONCEPTS_CG, SENIOR_OTHER_CG, SENIOR_RATINGS_AND_POINTS_GC} from "./event-groups/Concepts/senior-concepts";
+import {WHEELCHAIR_KEY_CONCEPTS_CG, WHEELCHAIR_OTHER_CG} from "./event-groups/Concepts/wheelchair-concepts";
 
 export const RANKING_GROUPS: KeyedStaticCollection<RankingGroup> =
   new KeyedStaticCollection<RankingGroup>(
     {
       '_Adult_': new RankingGroup('_Adult_', '127', 1,
         ADULT_RANKING_CATEGORIES,
-        [
-          {name: 'kc', title: '_KCT_Title_'},
-          {name: 'other', title: '_Other_Concepts_Title_'}
-        ],
+        [ADULT_KEY_CONCEPTS_CG, ADULT_OTHER_CG],
         [ADULT_EVENT_GROUP]),
       '_Junior_': new RankingGroup('_Junior_', '143', 10000,
         JUNIOR_RANKING_CATEGORIES,
+        [JUNIOR_KEY_CONCEPTS_CG, JUNIOR_RATINGS_CG, JUNIOR_EVENT_CAT_CG],
         [
-          {name: 'kc', title: '_KCT_Title_'},
-          {name: 'rap', title: '_RAP_Title_'},
-          {name: 're', title: '_Ranked_Events_'}
-        ],
-        [
+          JUNIOR_REGIONAL_GROUP,
           JUNIORS_IN_PROS_EVENT_GROUP,
           JUNIOR_INTERNATIONAL_GROUP,
-          JUNIOR_REGIONAL_GROUP,
-          JUNIOR_NATIONAL_GROUP,
         ]),
       '_Open_': new RankingGroup('_Open_', '127', 1,
         OPEN_RANKING_CATEGORIES,
-        [
-          {name: 'kc', title: '_KCT_Title_'},
-          {name: 'other', title: '_Other_Concepts_Title_'}
-        ],
+        [OPEN_KEY_CONCEPTS_CG, OPEN_OTHER_CG],
         [OPEN_EVENT_GROUP]),
       '_Senior_': new RankingGroup('_Senior_', '144', 1,
         SENIOR_RANKING_CATEGORIES,
-        [
-          {name: 'esr', title: '_ESR_Tab_Title_'},
-          {name: 'kc', title: '_KCT_Title_'},
-          {name: 'other', title: '_Other_Concepts_Title_'}
-        ],
+        [SENIOR_KEY_CONCEPTS_CG, SENIOR_OTHER_CG, SENIOR_RATINGS_AND_POINTS_GC],
         [SENIOR_EVENT_GROUP],),
       '_Wheelchair_': new RankingGroup('_Wheelchair_', '174', 1,
         WHEELCHAIR_RANKING_CATEGORIES,
-        [
-          {name: 'kc', title: '_KCT_Title_'},
-          {name: 'other', title: '_Other_Concepts_Title_'}
-        ],
+        [WHEELCHAIR_KEY_CONCEPTS_CG, WHEELCHAIR_OTHER_CG],
         [WHEELCHAIR_EVENT_GROUP],)
     });

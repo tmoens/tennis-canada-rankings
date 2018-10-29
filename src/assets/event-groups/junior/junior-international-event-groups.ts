@@ -2,13 +2,11 @@ import {KeyedStaticCollection} from "../../../app/keyed-static-collection";
 import {Rating} from "../../../app/rating";
 import {EventGroup, RankingEvent} from "../../../app/ranking-event";
 
-const INTERNATIONAL_FINISH_POSITIONS: number[] = [1,2,3,4,8,16,32,64];
-
 
 const INTERNATIONAL_U18_BOYS_EVENT_GROUP: KeyedStaticCollection<EventGroup> =
   new KeyedStaticCollection<EventGroup>({
     '2013': new EventGroup(
-      "_U18_b_int_eg_", INTERNATIONAL_FINISH_POSITIONS,
+      "_U18_b_int_eg_",
       [
         new RankingEvent("_ITF_GS_", new Rating(12.5)),
         new RankingEvent("_ITF_A+_", new Rating(11)),
@@ -26,7 +24,7 @@ const INTERNATIONAL_U18_BOYS_EVENT_GROUP: KeyedStaticCollection<EventGroup> =
 const INTERNATIONAL_U18_GIRLS_EVENT_GROUP: KeyedStaticCollection<EventGroup> =
   new KeyedStaticCollection<EventGroup>({
     '2013': new EventGroup(
-      "_U18_g_int_eg_", INTERNATIONAL_FINISH_POSITIONS,
+      "_U18_g_int_eg_",
       [
         new RankingEvent("_ITF_GS_", new Rating(11.5)),
         new RankingEvent("_ITF_A+_", new Rating(9)),
@@ -44,7 +42,7 @@ const INTERNATIONAL_U18_GIRLS_EVENT_GROUP: KeyedStaticCollection<EventGroup> =
 const INTERNATIONAL_U16_BOYS_EVENT_GROUP: KeyedStaticCollection<EventGroup> =
   new KeyedStaticCollection<EventGroup>({
     '2013': new EventGroup(
-      "_U16_b_int_eg_", INTERNATIONAL_FINISH_POSITIONS,
+      "_U16_b_int_eg_",
       [
         new RankingEvent("_Orange_Bowl_", new Rating(2.3)),
         new RankingEvent("_TE_Ctgy1_", new Rating(2)),
@@ -56,7 +54,7 @@ const INTERNATIONAL_U16_BOYS_EVENT_GROUP: KeyedStaticCollection<EventGroup> =
 const INTERNATIONAL_U16_GIRLS_EVENT_GROUP: KeyedStaticCollection<EventGroup> =
   new KeyedStaticCollection<EventGroup>({
     '2013': new EventGroup(
-      "_U16_g_int_eg_", INTERNATIONAL_FINISH_POSITIONS,
+      "_U16_g_int_eg_",
       [
         new RankingEvent("_Orange_Bowl_", new Rating(2.3)),
         new RankingEvent("_TE_Ctgy1_", new Rating(2)),
@@ -68,7 +66,7 @@ const INTERNATIONAL_U16_GIRLS_EVENT_GROUP: KeyedStaticCollection<EventGroup> =
 const INTERNATIONAL_U14_BOYS_EVENT_GROUP: KeyedStaticCollection<EventGroup> =
   new KeyedStaticCollection<EventGroup>({
     '2013': new EventGroup(
-      "_U14_b_int_eg_", INTERNATIONAL_FINISH_POSITIONS,
+      "_U14_b_int_eg_",
       [
         new RankingEvent("_U14_T1_", new Rating(0.6)),
         new RankingEvent("_U14_T2_", new Rating(0.5)),
@@ -81,7 +79,7 @@ const INTERNATIONAL_U14_BOYS_EVENT_GROUP: KeyedStaticCollection<EventGroup> =
 const INTERNATIONAL_U14_GIRLS_EVENT_GROUP: KeyedStaticCollection<EventGroup> =
   new KeyedStaticCollection<EventGroup>({
     '2013': new EventGroup(
-      "_U14_g_int_eg_", INTERNATIONAL_FINISH_POSITIONS,
+      "_U14_g_int_eg_",
       [
         new RankingEvent("_U14_T1_", new Rating(1.4)),
         new RankingEvent("_U14_T2_", new Rating(0.9)),
@@ -94,7 +92,7 @@ const INTERNATIONAL_U14_GIRLS_EVENT_GROUP: KeyedStaticCollection<EventGroup> =
 const INTERNATIONAL_U12_BOYS_EVENT_GROUP: KeyedStaticCollection<EventGroup> =
   new KeyedStaticCollection<EventGroup>({
     '2013': new EventGroup(
-      "_U12_b_int_eg_", INTERNATIONAL_FINISH_POSITIONS,
+      "_U12_b_int_eg_",
       [
         new RankingEvent("_Orange_Bowl_", new Rating(0.17)),
         new RankingEvent("_Eddie_Herr_", new Rating(0.106)),
@@ -106,7 +104,7 @@ const INTERNATIONAL_U12_BOYS_EVENT_GROUP: KeyedStaticCollection<EventGroup> =
 const INTERNATIONAL_U12_GIRLS_EVENT_GROUP: KeyedStaticCollection<EventGroup> =
   new KeyedStaticCollection<EventGroup>({
     '2013': new EventGroup(
-      "_U12_g_int_eg_", INTERNATIONAL_FINISH_POSITIONS,
+      "_U12_g_int_eg_",
       [
         new RankingEvent("_Orange_Bowl_", new Rating(0.17)),
         new RankingEvent("_Eddie_Herr_", new Rating(0.106)),
@@ -118,7 +116,7 @@ const INTERNATIONAL_U12_GIRLS_EVENT_GROUP: KeyedStaticCollection<EventGroup> =
 export const JUNIOR_INTERNATIONAL_GROUP: KeyedStaticCollection<EventGroup> =
   new KeyedStaticCollection<EventGroup>({
     '2013': new EventGroup(
-      '_jr_int_eg_', INTERNATIONAL_FINISH_POSITIONS,
+      '_jr_int_eg_',
       [],
       [
         INTERNATIONAL_U18_BOYS_EVENT_GROUP,

@@ -1,14 +1,17 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
-import { RankingConcepts } from "../ranking-concepts";
-import { RankingConcept } from "../ranking-concept";
 import { MatDialog } from "@angular/material";
 import { ReadMoreDialogComponent } from "../read-more-dialog/read-more-dialog.component";
+import {AppState} from "../app-state";
+import {Concept, ConceptGroup} from "../concept";
 /*
   This component displays a set of rankings concepts. That is text describing
   some aspect of the ranking system.  For example Key Concepts of Adult rankings,
   or Rationale for juniors including 5 tournament results in their ranking.
 
   This can happen in several places, so the code is factored out to here.
+
+  2018-10-24 things change from year to year - so when a person looks at 2014
+  rankings - the text should show what was correct in 2014. Gonna try to make it work.
 */
 @Component({
   selector: 'app-concept-display',
@@ -19,26 +22,30 @@ export class ConceptDisplayComponent implements OnInit {
 
   // These two variables are essentially the query criteria to fetch
   // the set of concepts to be displayed.
-  @Input() conceptGroupName:string;
-  @Input() rankingGroupName:string;
+  @Input() conceptGroup: ConceptGroup;
 
   // these are the fetched concepts
-  concepts: RankingConcept[];
+  concepts: Concept[];
 
-  constructor(public rankingConcepts: RankingConcepts,
-              public readMore:MatDialog) { }
+  constructor(public appState: AppState,
+              public readMore: MatDialog) { }
 
   ngOnInit() {
+    // Watch for changes to the the selected or ranking year in which case
+    // we reset the concepts that are valid for the selected year.
+    this.appState.selectedRankingYear$.subscribe(y => {
+      this.ngOnChanges();
+    });
   }
 
   ngOnChanges() {
-    this.concepts = this.rankingConcepts.getConceptsByName(this.rankingGroupName, this.conceptGroupName);
+    this.concepts = this.conceptGroup.getValidConcepts(parseInt(this.appState.selectedRankingYear,10));
   }
 
-  onReadMore(concept:RankingConcept) {
+  onReadMore(concept:Concept) {
     this.readMore.open(ReadMoreDialogComponent, {
       width: '600px',
-      data: { rankingConcept: concept } ,
+      data: { conceptGroup: concept.expansionGroup } ,
     })
   }
 }

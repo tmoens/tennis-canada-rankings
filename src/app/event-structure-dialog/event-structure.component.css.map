@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "AAAA,QAAS;EACP,MAAM,EAAC,KAAK;EACZ,aAAa,EAAE,IAAI;EACnB,OAAO,EAAE,CAAC",
-"sources": ["concept-display.component.scss"],
+"mappings": "AAAA,QAAS;EACP,MAAM,EAAC,KAAK;EACZ,aAAa,EAAE,IAAI;EACnB,OAAO,EAAE,CAAC;;AAGZ,WAAY;EACV,UAAU,EAAE,IAAI;;AAElB,WAAY;EACV,UAAU,EAAE,KAAK;EACjB,aAAa,EAAE,KAAK;;AAItB,mBAAoB;EAClB,MAAM,EAAE,OAAO",
+"sources": ["event-structure.component.scss"],
 "names": [],
-"file": "concept-display.component.css"
+"file": "event-structure.component.css"
 }

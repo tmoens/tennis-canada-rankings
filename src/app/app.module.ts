@@ -4,8 +4,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from "@angular/forms";
 import { HttpClientModule, HttpClient } from '@angular/common/http';
-import { NgClass } from '@angular/common';
-
 
 import { MatButtonModule} from '@angular/material/button';
 import { MatCardModule} from '@angular/material/card';
@@ -14,20 +12,19 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
-import { MatInputModule } from "@angular/material";
+import { MatInputModule, MatListModule, MatTableModule } from "@angular/material";
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule} from '@angular/material/toolbar';
 
-import { TranslateModule, TranslateLoader, TranslatePipe } from '@ngx-translate/core';
-import { MultiTranslateHttpLoader} from './multi-translate-http-loader';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { MultiTranslateHttpLoader} from 'ngx-translate-multi-http-loader';
 
 // Service for access to application state and data.
 import { AppState } from "./app-state";
 import { FinishPositionLabeler } from "./finish-positions";
-import { RankingConcepts} from "./ranking-concepts";
 import { RankingYears } from './ranking-years';
 
 import { AppComponent } from './app.component';
@@ -51,7 +48,12 @@ export function HttpLoaderFactory(http: HttpClient) {
   return new MultiTranslateHttpLoader(http, [
     {prefix: './assets/i18n/general/', suffix: '.json'},
     {prefix: './assets/i18n/junior/', suffix: '.json'},
+    {prefix: './assets/i18n/junior/InternationalEvents/', suffix: '.json'},
+    {prefix: './assets/i18n/junior/DomesticEvents/', suffix: '.json'},
+    {prefix: './assets/i18n/junior/ProEvents/', suffix: '.json'},
     {prefix: './assets/i18n/adult/', suffix: '.json'},
+    {prefix: './assets/i18n/open/', suffix: '.json'},
+    {prefix: './assets/i18n/senior/', suffix: '.json'},
     {prefix: './assets/i18n/wheelchair/', suffix: '.json'}
   ]);
 }
@@ -86,9 +88,11 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatGridListModule,
     MatIconModule,
     MatInputModule,
+    MatListModule,
     MatMenuModule,
     MatSelectModule,
     MatSidenavModule,
+    MatTableModule,
     MatTabsModule,
     MatToolbarModule,
     TranslateModule.forRoot({
@@ -107,7 +111,6 @@ export function HttpLoaderFactory(http: HttpClient) {
   providers: [
     AppState,
     FinishPositionLabeler,
-    RankingConcepts,
     RankingYears,
   ],
   bootstrap: [AppComponent]

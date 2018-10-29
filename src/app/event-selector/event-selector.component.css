@@ -1,4 +1,16 @@
-.narrow-button {
-  padding: 2px;
-  min-width: 30px;
-}
+.mat-select-panel {
+  max-height: 600px !important; }
+
+.mat-option {
+  height: 34px !important; }
+
+.adjustment {
+  font-size: small; }
+
+.mat-form-field {
+  font-size: 12px !important; }
+
+.pointer-the-cursor {
+  cursor: pointer; }
+
+/*# sourceMappingURL=event-selector.component.css.map */
