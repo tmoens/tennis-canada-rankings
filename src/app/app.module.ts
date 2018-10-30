@@ -12,7 +12,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
-import { MatInputModule, MatListModule, MatTableModule } from "@angular/material";
+import {MatInputModule, MatListModule, MatSortModule, MatTableModule} from "@angular/material";
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -42,6 +42,7 @@ import { RankingYearSelectorComponent } from './ranking-year-selector/ranking-ye
 import { SplashComponent } from './splash/splash.component';
 import { SplashImageSelectorComponent } from './splash-image-selector/splash-image-selector.component';
 import { EventSelectorComponent } from './event-selector/event-selector.component';
+import { OpenEventListComponent } from './open-event-list/open-event-list.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -73,6 +74,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     SplashComponent,
     SplashImageSelectorComponent,
     EventSelectorComponent,
+    OpenEventListComponent,
   ],
   imports: [
     BrowserModule,
@@ -92,6 +94,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatMenuModule,
     MatSelectModule,
     MatSidenavModule,
+    MatSortModule,
     MatTableModule,
     MatTabsModule,
     MatToolbarModule,

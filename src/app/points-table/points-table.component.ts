@@ -2,8 +2,6 @@ import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import {EventGroup, RankingEvent} from "../ranking-event";
 import { FinishPositionLabeler } from "../finish-positions";
 import { AppState } from "../app-state";
-import { EventStructureDialog } from "../event-structure-dialog/event-structure.component";
-import { MatDialog } from "@angular/material";
 import {AgeGroup} from "../age-group";
 import {Province} from "../province";
 
@@ -48,7 +46,7 @@ export class PointsTableComponent implements OnInit {
 
   constructor(public appState: AppState,
               public fpLabeler: FinishPositionLabeler,
-              public dialog: MatDialog) {
+              ) {
   }
 
   ngOnInit() {
@@ -132,12 +130,5 @@ export class PointsTableComponent implements OnInit {
       }
     }
     return list;
-  }
-
-  onShowEventStructureDialog() {
-    // let dialogRef = this.dialog.open(EventStructureDialog, {
-    //   width: '800px',
-    //   data: {eventGroup: this.eg}
-    // })
   }
 }

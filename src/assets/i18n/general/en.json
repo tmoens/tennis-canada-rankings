@@ -213,7 +213,6 @@
   "_event_group_":  "Event Group",
   "_event_sub_group_":  "Sub-group",
   "_event_type_":  "Event Type",
-
   "_Rankings_Eligibility_":  "Rankings Eligibility",
   "_Rankings_Eligibility_Detail_":  "Players can only earn points when they have a valid membership with their provincial tennis association.  Ranking points expire after a year.  Players will appear on the rankings as long as they have points which have not expired.",
   "_First_Round_Byes_":  "Byes, Walkovers, Defaults, Retirements, etc.",
@@ -238,5 +237,6 @@
   "_DPC_Formula_Detail_":  "For the curious, the following equation shows how the ranking system calculates the number of points “p” received for a given finish position “fp” in a draw in which the winner receives winner points “wp”. The .6 in the formula represents the fact that each round gets 60% of the previous round in a straight elimination draw. This formula works correctly for any finish position and not just for elimination draws. ",
   "_DPC_Formula_Itself_":  "p = wp * .6^(log2(fp))",
   "_rolling_52_weeks_":  "Ranking is Based on a Rolling 52 Week Point Accumulation",
-  "_rolling_52_weeks_detail_":  "Points are accumulated from a player's results over the past 52 weeks. Results from each new week will be added and the results from the corresponding week of the previous year will be dropped. Players receive a ranking by playing at least one of the specified ranking events. "
+  "_rolling_52_weeks_detail_":  "Points are accumulated from a player's results over the past 52 weeks. Results from each new week will be added and the results from the corresponding week of the previous year will be dropped. Players receive a ranking by playing at least one of the specified ranking events. ",
+  "_filter_":  "Filter"
 }

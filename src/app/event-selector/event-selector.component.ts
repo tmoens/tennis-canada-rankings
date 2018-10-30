@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {AppState} from "../app-state";
-import {EventGroup, EventGroupType, RankingEvent} from "../ranking-event";
+import {EventGroup, RankingEvent} from "../ranking-event";
 import {RankingGroup} from "../ranking-group";
 import {Province} from "../province";
 import {AgeGroup} from "../age-group";
@@ -9,7 +9,6 @@ import {PROVINCES} from "../../assets/provinces/province-data";
 import {MatDialog} from "@angular/material";
 import {EventStructureDialog} from "../event-structure-dialog/event-structure.component";
 import {ReadMoreDialogComponent} from "../read-more-dialog/read-more-dialog.component";
-import {ConceptGroup} from "../concept";
 
 @Component({
   selector: 'app-event-selector',

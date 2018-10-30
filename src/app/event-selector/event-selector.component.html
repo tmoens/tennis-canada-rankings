@@ -53,7 +53,7 @@
                [placeholder]="'_custom_fp_'| translate"
                maxlength="3" min="1" [max]="selectedDrawSize">
       </mat-form-field>
-      <div *ngIf="selectedEventSubGroup.groupType">
+      <div *ngIf="selectedEventSubGroup && selectedEventSubGroup.groupType">
         <span class="mat-body color-primary pointer-the-cursor" (click)="onReadMore()">
           {{selectedEventSubGroup.conceptGroup.headerTextToken | translate}}
         </span>

@@ -19,6 +19,10 @@ export class RankingsExplainedComponent implements OnChanges, OnInit {
   rankingGroup: RankingGroup;
   canada: Province;
 
+  // special case for "open" where there is an extra tab for
+  // open events
+  showingOpenEvents:boolean = false;
+
   // The app allows the user to look at rankings history.
   // This is a local rememory of the selected ranking year
   rankingYear: string;
@@ -65,8 +69,13 @@ export class RankingsExplainedComponent implements OnChanges, OnInit {
   // corresponding rankingConceptGroup
   onConceptGroupChange(e: MatTabChangeEvent) {
     if (e.index !== this.selectedConceptIndex) {
-      this.selectedConceptIndex = e.index;
-      this.loadConceptGroup();
+      if (e.index === this.rankingGroup.conceptGroups.length) {
+        this.showingOpenEvents = true;
+      } else {
+        this.showingOpenEvents = false;
+        this.selectedConceptIndex = e.index;
+        this.loadConceptGroup();
+      }
     }
   }
 

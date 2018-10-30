@@ -35,11 +35,18 @@
         <mat-tab *ngFor="let cg of rankingGroup.conceptGroups">
           <ng-template mat-tab-label>{{cg.headerTextToken | translate}}</ng-template>
         </mat-tab>
+        <mat-tab *ngIf="rankingGroup.name == '_Open_'">
+          <ng-template mat-tab-label>{{'_Open_Events_' | translate}}</ng-template>
+        </mat-tab>
       </mat-tab-group>
       <div *ngIf="rankingGroup">
-        <app-concept-display
-          [conceptGroup]="conceptGroup">
+        <div *ngIf="showingOpenEvents; else showConcept">
+          <app-open-event-list></app-open-event-list>
+        </div>
+        <ng-template #showConcept>
+          <app-concept-display [conceptGroup]="conceptGroup">
         </app-concept-display>
+        </ng-template>
       </div>
     </div>
   </div>
