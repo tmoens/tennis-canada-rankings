@@ -1,7 +1,7 @@
 import { RankingCategory } from '../app/ranking-category';
 
 export const OPEN_RANKING_CATEGORIES: RankingCategory[] = [
-  new RankingCategory('MSAOpen', 'MS Open', '1262', 'm', 'Open', 'open'),
+  new RankingCategory('BCE13EE4-BE4C-4BA5-BC6A-FC5B01F84674', 'MS Open', '1262', 'm', 'Open', 'open'),
   new RankingCategory('WSAOpen', 'WS Open', '1263', 'f', 'Open', 'open'),
   new RankingCategory('MDAOpen', 'MD Open', '1264', 'm', 'Open', 'open'),
   new RankingCategory('WDAOpen', 'WD Open', '1265', 'f', 'Open', 'open'),
@@ -108,7 +108,7 @@ export const JUNIOR_RANKING_CATEGORIES: RankingCategory[] = [
   new RankingCategory('BSU18', 'BS U18', '1687', 'm', '18', 'junior'),
   new RankingCategory('GSU18', 'GS U18', '1688', 'f', '18', 'junior'),
   new RankingCategory('BDU18', 'BD U18', '1689', 'm', '18', 'junior'),
-  new RankingCategory('GDU18', 'GD U18', '1690', 'f', '18', 'junior'),
+  new RankingCategory('BLAHBLAH', 'GD U18', '1690', 'f', '18', 'junior'),
   new RankingCategory('BSU16', 'BS U16', '1692', 'm', '16', 'junior'),
   new RankingCategory('GSU16', 'GS U16', '1693', 'f', '16', 'junior'),
   new RankingCategory('BDU16', 'BD U16', '1694', 'm', '16', 'junior'),
@@ -121,6 +121,26 @@ export const JUNIOR_RANKING_CATEGORIES: RankingCategory[] = [
   new RankingCategory('GSU12', 'GS U12', '1703', 'f', '12', 'junior'),
   new RankingCategory('BDU12', 'BD U12', '1704', 'm', '12', 'junior'),
   new RankingCategory('GDU12', 'GD U12', '1705', 'f', '12', 'junior'),
+];
+
+export const JUNIOR_STRICT_CATEGORIES: RankingCategory[] = [
+  new RankingCategory('BSU17-18', 'BS 17-18', '1687', 'm', '18', 'junior', 17),
+  new RankingCategory('GSU17-18', 'GS 17-18', '1688', 'f', '18', 'junior', 17),
+  new RankingCategory('BDU17-18', 'BD 17-18', '1689', 'm', '18', 'junior', 17),
+  new RankingCategory('GDU17-18', 'GD 17-18', '1690', 'f', '18', 'junior', 17),
+  new RankingCategory('BSU15-16', 'BS 15-16', '1692', 'm', '16', 'junior', 15),
+  new RankingCategory('GSU15-16', 'GS 15-16', '1693', 'f', '16', 'junior', 15),
+  new RankingCategory('BDU15-16', 'BD 15-16', '1694', 'm', '16', 'junior', 15),
+  new RankingCategory('GDU15-16', 'GD 15-16', '1695', 'f', '16', 'junior', 15),
+  new RankingCategory('BSU13-14', 'BS 13-14', '1697', 'm', '14', 'junior', 13),
+  new RankingCategory('GSU13-14', 'GS 13-14', '1698', 'f', '14', 'junior', 13),
+  new RankingCategory('BDU13-14', 'BD 13-14', '1699', 'm', '14', 'junior', 13),
+  new RankingCategory('GDU13-14', 'GD 13-14', '1700', 'f', '14', 'junior', 13),
+  new RankingCategory('BSU11-12', 'BS 11-12', '1702', 'm', '12', 'junior', 11),
+  new RankingCategory('GSU11-12', 'GS 11-12', '1703', 'f', '12', 'junior', 11),
+  new RankingCategory('BDU11-12', 'BD 11-12', '1704', 'm', '12', 'junior', 11),
+  new RankingCategory('GDU11-12', 'GD 11-12', '1705', 'f', '12', 'junior', 11),
+
 ];
 
 export const WHEELCHAIR_RANKING_CATEGORIES: RankingCategory[] = [

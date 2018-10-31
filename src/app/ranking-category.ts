@@ -1,26 +1,22 @@
 import { Province } from "./province";
 import { RankingGroup } from "./ranking-group";
 
+/*
+ id   - is just an id, but is also used to look up a textual name in english or french
+ name - is going to go away
+ vrid - is used to build a URL to go to navigate to the corresponding VR rankings page
+ gender - also used in 
+
+ */
 export class RankingCategory {
-  id: string;
-  name: string;
-  vrid: string;
-  gender: string;
-  category: string;
-  group:string;
-  constructor(  id: string,
-                name: string,
-                vrid: string,
-                gender: string,
-                category: string,
-                group:string,
+  constructor(  public id: string,
+                public name: string,
+                public vrid: string,
+                public gender: string,
+                public category: string,
+                public group:string,
+                public lower: number = 0,
   ) {
-    this.id = id;
-    this.name = name;
-    this.vrid = vrid;
-    this.gender = gender;
-    this.category = category;
-    this.group = group;
   }
 
   // depending on the province, the url may differ somewhat

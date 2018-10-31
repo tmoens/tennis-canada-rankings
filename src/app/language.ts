@@ -1,5 +1,3 @@
-import {KeyedStaticCollection} from "./keyed-static-collection";
-
 export interface Language {
   fr: boolean;
   prefix: string;
