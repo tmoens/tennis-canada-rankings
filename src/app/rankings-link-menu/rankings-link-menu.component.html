@@ -25,7 +25,7 @@
         <mat-grid-list fxFlex="280px" cols="4" rowHeight="20px" *ngIf="!appState.selectedProvince.isCanada()">
           <mat-grid-tile *ngFor="let rc of rankingGroup.rankingCategories" >
             <a mat-button   [href]="rc.getVRURL(appState.selectedProvince, rankingGroup)" color="primary" target="_blank">
-              {{rc.name |translate }}
+              {{rc.id |translate }}
             </a>
           </mat-grid-tile>
         </mat-grid-list>
@@ -41,7 +41,7 @@
         <mat-grid-list fxFlex="280px" cols="4" rowHeight="20px">
           <mat-grid-tile *ngFor="let rc of rankingGroup.rankingCategories" >
             <a mat-button   [href]="rc.getVRURL(canada, rankingGroup)" color="primary" target="_blank">
-              {{rc.name |translate }}
+              {{rc.id |translate }}
             </a>
           </mat-grid-tile>
         </mat-grid-list>

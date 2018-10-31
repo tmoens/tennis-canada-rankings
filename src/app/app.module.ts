@@ -55,7 +55,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     {prefix: './assets/i18n/adult/', suffix: '.json'},
     {prefix: './assets/i18n/open/', suffix: '.json'},
     {prefix: './assets/i18n/senior/', suffix: '.json'},
-    {prefix: './assets/i18n/wheelchair/', suffix: '.json'}
+    {prefix: './assets/i18n/wheelchair/', suffix: '.json'},
+    {prefix: './assets/i18n/categories/', suffix: '.json'}
   ]);
 }
 
