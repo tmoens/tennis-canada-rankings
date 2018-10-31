@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
-import {EventGroup} from "../ranking-event";
-import {Province} from "../province";
+import {EventGroup} from "../../utils/ranking-event";
+import {Province} from "../../utils/province";
 
 @Component({
   selector: 'event-structure-dialog',

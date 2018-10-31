@@ -1,6 +1,6 @@
-import {KeyedStaticCollection} from "../../../app/keyed-static-collection";
-import {Rating} from "../../../app/rating";
-import {EventGroup, EventGroupType, RankingEvent} from "../../../app/ranking-event";
+import {KeyedStaticCollection} from "../../../app/utils/keyed-static-collection";
+import {Rating} from "../../../app/utils/rating";
+import {EventGroup, EventGroupType, RankingEvent} from "../../../app/utils/ranking-event";
 import {JUNIOR_CDN_OPEN_CG, JUNIOR_FEMALE_PRO_CG, JUNIOR_MALE_PRO_CG} from "../Concepts/junior-concepts";
 
 // Conversion from Junior Girls nationals to ITF $25,000

@@ -1,5 +1,3 @@
-import {KeyedStaticCollection} from "./keyed-static-collection";
-import {EventGroup} from "./ranking-event";
 import {Rating} from "./rating";
 
 export class Province {

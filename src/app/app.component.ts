@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
-import { Province } from './province';
-import { RankingGroup} from "./ranking-group";
-import { RankingYears } from './ranking-years';
-import { KeyedStaticCollection } from "./keyed-static-collection";
-import { AppState } from "./app-state";
+import { Province } from './utils/province';
+import { RankingGroup} from "./utils/ranking-group";
+import { RankingYears } from './utils/ranking-years';
+import { KeyedStaticCollection } from "./utils/keyed-static-collection";
+import { AppState } from "./utils/app-state";
 
 import { PROVINCES } from "../assets/provinces/province-data";
 import { RANKING_GROUPS } from "../assets/ranking-groups";
-import {ENGLISH, FRENCH} from "./language";
+import {ENGLISH, FRENCH} from "./utils/language";
 
 @Component({
   selector: 'app-root',

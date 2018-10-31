@@ -1,4 +1,4 @@
-import {Concept, ConceptGroup} from "../../../app/concept";
+import {Concept, ConceptGroup} from "../../../app/utils/concept";
 export const LB = "__lb__";
 
 // ------------------ Generic Point Calculation Dialog -----

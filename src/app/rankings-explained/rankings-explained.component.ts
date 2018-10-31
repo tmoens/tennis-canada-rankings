@@ -1,12 +1,12 @@
 import { Component, OnInit, OnChanges} from '@angular/core';
 import { MatTabChangeEvent } from '@angular/material/tabs';
-import { RankingGroup} from "../ranking-group";
-import { AppState} from "../app-state";
+import { RankingGroup} from "../utils/ranking-group";
+import { AppState} from "../utils/app-state";
 import {PROVINCES} from "../../assets/provinces/province-data";
-import {Province} from "../province";
+import {Province} from "../utils/province";
 import {RANKING_GROUPS} from "../../assets/ranking-groups";
 import {ActivatedRoute} from "@angular/router";
-import {ConceptGroup} from "../concept";
+import {ConceptGroup} from "../utils/concept";
 
 @Component({
   selector: 'app-rankings-explained',

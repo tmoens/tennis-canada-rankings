@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {KeyedStaticCollection} from "../keyed-static-collection";
-import {AppState} from "../app-state";
-import {Province} from "../province";
-import {PROVINCES} from "../../assets/provinces/province-data";
+import {KeyedStaticCollection} from "../../utils/keyed-static-collection";
+import {AppState} from "../../utils/app-state";
+import {Province} from "../../utils/province";
+import {PROVINCES} from "../../../assets/provinces/province-data";
 
 @Component({
   selector: 'app-province-selector',

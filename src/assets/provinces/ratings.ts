@@ -1,5 +1,5 @@
-import {Rating} from "../../app/rating";
-import {KeyedStaticCollection} from "../../app/keyed-static-collection";
+import {Rating} from "../../app/utils/rating";
+import {KeyedStaticCollection} from "../../app/utils/keyed-static-collection";
 
 // These are the provincial rating factors.  They are grouped for easy annual editing.
 // We do not do separate ratings for each atlantic province, but rather one for the

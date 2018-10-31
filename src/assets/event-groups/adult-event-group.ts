@@ -1,6 +1,6 @@
-import {KeyedStaticCollection} from "../../app/keyed-static-collection";
-import {Rating} from "../../app/rating";
-import {EventGroup, RankingEvent} from "../../app/ranking-event";
+import {KeyedStaticCollection} from "../../app/utils/keyed-static-collection";
+import {Rating} from "../../app/utils/rating";
+import {EventGroup, RankingEvent} from "../../app/utils/ranking-event";
 
 export const ADULT_EVENT_GROUP: KeyedStaticCollection<EventGroup> =
   new KeyedStaticCollection<EventGroup>({

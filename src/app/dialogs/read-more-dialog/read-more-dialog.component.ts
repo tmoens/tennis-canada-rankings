@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
-import {AppState} from "../app-state";
-import {ConceptGroup} from "../concept";
+import {AppState} from "../../utils/app-state";
+import {ConceptGroup} from "../../utils/concept";
 
 @Component({
   selector: 'app-read-more-dialog',

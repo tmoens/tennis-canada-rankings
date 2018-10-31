@@ -1,5 +1,5 @@
-import { Province } from "../../app/province";
-import { KeyedStaticCollection } from "../../app/keyed-static-collection";
+import { Province } from "../../app/utils/province";
+import { KeyedStaticCollection } from "../../app/utils/keyed-static-collection";
 
 import {
   AB_BOYS_RATING,

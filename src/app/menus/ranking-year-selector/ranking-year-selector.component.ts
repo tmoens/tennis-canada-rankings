@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {AppState} from "../app-state";
-import {RankingYears} from "../ranking-years";
+import {AppState} from "../../utils/app-state";
+import {RankingYears} from "../../utils/ranking-years";
 
 @Component({
   selector: 'app-ranking-year-selector',

@@ -1,6 +1,6 @@
 import { Component, OnInit, OnChanges} from '@angular/core';
 import { AppState} from "../app-state";
-import { PROVINCES } from "../../assets/provinces/province-data";
+import { PROVINCES } from "../../../assets/provinces/province-data";
 import {Province} from "../province";
 import {KeyedStaticCollection} from "../keyed-static-collection";
 

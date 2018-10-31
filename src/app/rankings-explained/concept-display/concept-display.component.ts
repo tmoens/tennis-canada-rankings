@@ -1,8 +1,8 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { MatDialog } from "@angular/material";
-import { ReadMoreDialogComponent } from "../read-more-dialog/read-more-dialog.component";
-import {AppState} from "../app-state";
-import {Concept, ConceptGroup} from "../concept";
+import { ReadMoreDialogComponent } from "../../dialogs/read-more-dialog/read-more-dialog.component";
+import {AppState} from "../../utils/app-state";
+import {Concept, ConceptGroup} from "../../utils/concept";
 /*
   This component displays a set of rankings concepts. That is text describing
   some aspect of the ranking system.  For example Key Concepts of Adult rankings,

@@ -1,6 +1,6 @@
-import {EventGroup, RankingEvent} from "../../../app/ranking-event";
-import {KeyedStaticCollection} from "../../../app/keyed-static-collection";
-import {Rating} from "../../../app/rating";
+import {EventGroup, RankingEvent} from "../../../app/utils/ranking-event";
+import {KeyedStaticCollection} from "../../../app/utils/keyed-static-collection";
+import {Rating} from "../../../app/utils/rating";
 
 // ============== Events Supported in the Atlantics =====================
 const ATL_5_STAR: RankingEvent = new RankingEvent(

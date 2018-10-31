@@ -23,26 +23,26 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { MultiTranslateHttpLoader} from 'ngx-translate-multi-http-loader';
 
 // Service for access to application state and data.
-import { AppState } from "./app-state";
-import { FinishPositionLabeler } from "./finish-positions";
-import { RankingYears } from './ranking-years';
+import { AppState } from "./utils/app-state";
+import { FinishPositionLabeler } from "./utils/finish-positions";
+import { RankingYears } from './utils/ranking-years';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
-import { EventStructureDialog } from './event-structure-dialog/event-structure.component';
-import { ConceptDisplayComponent } from './concept-display/concept-display.component';
-import { PointsTableComponent } from './points-table/points-table.component';
+import { EventStructureDialog } from './dialogs/event-structure-dialog/event-structure.component';
+import { ConceptDisplayComponent } from './rankings-explained/concept-display/concept-display.component';
+import { PointsTableComponent } from './event-selector/points-table/points-table.component';
 import { RankingsExplainedComponent } from './rankings-explained/rankings-explained.component';
-import { RankingsLinkMenuComponent } from './rankings-link-menu/rankings-link-menu.component';
-import { ReadMoreDialogComponent } from './read-more-dialog/read-more-dialog.component';
-import { StateViewerComponent } from './state-viewer/state-viewer.component';
-import { ProvinceSelectorComponent } from './province-selector/province-selector.component';
-import { RankingYearSelectorComponent } from './ranking-year-selector/ranking-year-selector.component';
+import { RankingsLinkMenuComponent } from './menus/rankings-link-menu/rankings-link-menu.component';
+import { ReadMoreDialogComponent } from './dialogs/read-more-dialog/read-more-dialog.component';
+import { StateViewerComponent } from './utils/state-viewer/state-viewer.component';
+import { ProvinceSelectorComponent } from './menus/province-selector/province-selector.component';
+import { RankingYearSelectorComponent } from './menus/ranking-year-selector/ranking-year-selector.component';
 import { SplashComponent } from './splash/splash.component';
-import { SplashImageSelectorComponent } from './splash-image-selector/splash-image-selector.component';
+import { SplashImageSelectorComponent } from './splash/splash-image-selector/splash-image-selector.component';
 import { EventSelectorComponent } from './event-selector/event-selector.component';
-import { OpenEventListComponent } from './open-event-list/open-event-list.component';
+import { OpenEventListComponent } from './rankings-explained/open-event-list/open-event-list.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {

@@ -1,5 +1,13 @@
+/*
+   This is a list of Open events and their ratings.
+   It is a "special" bit because it only appears on the
+   rankings-explained page for Open ranking area.
+   It pulls data from a Google Sheet maintained by
+   Arun and Ari.  When that sheet is update the
+   lists change accordingly.
+ */
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {AppState} from "../app-state";
+import {AppState} from "../../utils/app-state";
 import {HttpClient} from "@angular/common/http";
 import {MatSort, MatTableDataSource} from "@angular/material";
 

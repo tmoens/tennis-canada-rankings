@@ -1,5 +1,5 @@
-import {KeyedStaticCollection} from "../app/keyed-static-collection";
-import {RankingGroup} from "../app/ranking-group";
+import {KeyedStaticCollection} from "../app/utils/keyed-static-collection";
+import {RankingGroup} from "../app/utils/ranking-group";
 import {
   ADULT_RANKING_CATEGORIES,
   JUNIOR_RANKING_CATEGORIES,

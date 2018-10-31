@@ -1,4 +1,4 @@
-import { RankingCategory } from '../app/ranking-category';
+import { RankingCategory } from '../app/utils/ranking-category';
 
 export const OPEN_RANKING_CATEGORIES: RankingCategory[] = [
   new RankingCategory('DFA0DC7A-EF43-404E-BD48-35E3247B3A41', 'AMSL1', '1262'),

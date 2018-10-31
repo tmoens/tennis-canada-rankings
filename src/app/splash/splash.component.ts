@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {AppState} from "../app-state";
+import {AppState} from "../utils/app-state";
 import {RANKING_GROUPS} from "../../assets/ranking-groups";
-import {KeyedStaticCollection} from "../keyed-static-collection";
-import {RankingGroup} from "../ranking-group";
+import {KeyedStaticCollection} from "../utils/keyed-static-collection";
+import {RankingGroup} from "../utils/ranking-group";
 
 @Component({
   selector: 'app-splash',

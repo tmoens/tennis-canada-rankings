@@ -1,10 +1,10 @@
 import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
-import { RankingGroup } from '../ranking-group';
-import { KeyedStaticCollection } from "../keyed-static-collection";
-import { AppState} from "../app-state";
-import { PROVINCES } from "../../assets/provinces/province-data";
-import {Province} from "../province";
-import {RANKING_GROUPS} from "../../assets/ranking-groups";
+import { RankingGroup } from '../../utils/ranking-group';
+import { KeyedStaticCollection } from "../../utils/keyed-static-collection";
+import { AppState} from "../../utils/app-state";
+import { PROVINCES } from "../../../assets/provinces/province-data";
+import {Province} from "../../utils/province";
+import {RANKING_GROUPS} from "../../../assets/ranking-groups";
 
 /**
  * 2018-02-28 Ted Moens

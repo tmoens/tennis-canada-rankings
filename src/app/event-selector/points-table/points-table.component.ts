@@ -1,9 +1,9 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
-import {EventGroup, RankingEvent} from "../ranking-event";
-import { FinishPositionLabeler } from "../finish-positions";
-import { AppState } from "../app-state";
-import {AgeGroup} from "../age-group";
-import {Province} from "../province";
+import {EventGroup, RankingEvent} from "../../utils/ranking-event";
+import { FinishPositionLabeler } from "../../utils/finish-positions";
+import { AppState } from "../../utils/app-state";
+import {AgeGroup} from "../../age-group";
+import {Province} from "../../utils/province";
 
 // The round over round reduction in points.  So, finalist gets .6 of winner,
 // semifinalist gets .6 of finalist and so on.

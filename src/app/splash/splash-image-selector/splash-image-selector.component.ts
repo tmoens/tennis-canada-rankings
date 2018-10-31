@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {AppState} from "../app-state";
+import {AppState} from "../../utils/app-state";
 
 @Component({
   selector: 'app-splash-image-selector',

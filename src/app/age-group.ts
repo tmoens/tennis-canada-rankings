@@ -1,4 +1,4 @@
-import {Rating} from "./rating";
+import {Rating} from "./utils/rating";
 
 // This can have more attributes later.  this is all i need for now.
 

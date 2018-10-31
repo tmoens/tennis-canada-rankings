@@ -1,5 +1,5 @@
 .en-about-rankings-button {
-  background-image: url("../../assets/images/Splash/en/aboutUp.jpg");
+  background-image: url("../../../assets/images/Splash/en/aboutUp.jpg");
   width: 85px;
   height: 32px;
   top: 10px;
@@ -8,15 +8,15 @@
   position:absolute;
 }
 .en-about-rankings-button:active {
-  background-image: url("../../assets/images/Splash/en/aboutDown.jpg");
+  background-image: url("../../../assets/images/Splash/en/aboutDown.jpg");
 }
 .en-about-rankings-button:hover{
   border:1px solid #FFFFFF;color:#000;
-  background-image: url("../../assets/images/Splash/en/aboutDown.jpg");
+  background-image: url("../../../assets/images/Splash/en/aboutDown.jpg");
 }
 
 .fr-about-rankings-button {
-  background-image: url("../../assets/images/Splash/fr/aboutUp.jpg");
+  background-image: url("../../../assets/images/Splash/fr/aboutUp.jpg");
   width: 95px;
   height: 32px;
   top: 10px;
@@ -25,11 +25,11 @@
   position:absolute;
 }
 .fr-about-rankings-button:active {
-  background-image: url("../../assets/images/Splash/fr/aboutDown.jpg");
+  background-image: url("../../../assets/images/Splash/fr/aboutDown.jpg");
 }
 .fr-about-rankings-button:hover{
   border:1px solid #FFFFFF;color:#000;
-  background-image: url("../../assets/images/Splash/fr/aboutDown.jpg");
+  background-image: url("../../../assets/images/Splash/fr/aboutDown.jpg");
 }
 
 .splash-img-small {
