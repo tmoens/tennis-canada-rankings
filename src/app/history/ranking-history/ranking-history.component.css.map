@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,QAAS;EACP,MAAM,EAAE,IAAI;;AAGd,SAAU;EACR,SAAS,EAAE,IAAI;EACf,YAAY,EAAC,GAAG;;AAElB,gBAAiB;EACf,YAAY,EAAC,GAAG;;AAGlB,UAAW;EACT,UAAU,EAAE,MAAM",
+"sources": ["ranking-history.component.scss"],
+"names": [],
+"file": "ranking-history.component.css"
+}

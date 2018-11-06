@@ -12,7 +12,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
-import {MatInputModule, MatListModule, MatSortModule, MatTableModule} from "@angular/material";
+import {MatExpansionModule, MatInputModule, MatListModule, MatSortModule, MatTableModule} from "@angular/material";
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -43,6 +43,8 @@ import { SplashComponent } from './splash/splash.component';
 import { SplashImageSelectorComponent } from './splash/splash-image-selector/splash-image-selector.component';
 import { EventSelectorComponent } from './event-selector/event-selector.component';
 import { OpenEventListComponent } from './rankings-explained/open-event-list/open-event-list.component';
+import { VrRankingCategorySelectorComponent } from './menus/vr-ranking-category-selector/vr-ranking-category-selector.component';
+import { RankingHistoryComponent } from './history/ranking-history/ranking-history.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -76,6 +78,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     SplashImageSelectorComponent,
     EventSelectorComponent,
     OpenEventListComponent,
+    VrRankingCategorySelectorComponent,
+    RankingHistoryComponent,
   ],
   imports: [
     BrowserModule,
@@ -87,6 +91,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatCardModule,
     MatDialogModule,
     MatDividerModule,
+    MatExpansionModule,
     MatFormFieldModule,
     MatGridListModule,
     MatIconModule,
