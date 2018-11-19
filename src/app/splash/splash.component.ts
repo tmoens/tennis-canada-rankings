@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AppState} from "../utils/app-state";
-import {RANKING_GROUPS} from "../../assets/ranking-groups";
-import {KeyedStaticCollection} from "../utils/keyed-static-collection";
-import {RankingGroup} from "../utils/ranking-group";
+import {AppState} from '../utils/app-state';
 
 @Component({
   selector: 'app-splash',
@@ -10,15 +7,13 @@ import {RankingGroup} from "../utils/ranking-group";
   styleUrls: ['./splash.component.css']
 })
 export class SplashComponent implements OnInit {
-  lang:string;
-  rankingGroups: KeyedStaticCollection<RankingGroup>;
+  lang: string;
 
-  constructor(public appState: AppState,) {
-    this.rankingGroups = RANKING_GROUPS;
+  constructor(public appState: AppState, ) {
     this.appState.selectedLanguage$.subscribe( l => {
       this.lang = l.prefix;
       }
-    )
+    );
   }
 
   ngOnInit() {

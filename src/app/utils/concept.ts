@@ -17,7 +17,7 @@ export class Concept {
     public _validFrom: number = 2013,
     public _validUntil: number = 9999,
   ) {
-  };
+  }
   get headerTextToken(): string {
     return this._headerTextToken;
   }
@@ -71,9 +71,9 @@ export class ConceptGroup {
     private _detailTextTokens: string[] = [],
     private _validFrom: number = 2013,
     private _validUntil: number = 9999,
-  ) {};
+  ) {}
 
-  addConcept(concept:Concept) {
+  addConcept(concept: Concept) {
     this.concepts.push(concept);
   }
 

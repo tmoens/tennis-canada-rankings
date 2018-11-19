@@ -1,6 +1,6 @@
-import { KeyedStaticCollection } from "./keyed-static-collection";
-import { Rating } from "./rating";
-import {ConceptGroup} from "./concept";
+import { KeyedStaticCollection } from './keyed-static-collection';
+import { Rating } from './rating';
+import {ConceptGroup} from './concept';
 
 /*
   A ranking event is any type of event which is supported by Tennis Canada Rankings.
@@ -9,15 +9,13 @@ import {ConceptGroup} from "./concept";
 
   All RankingEvents have ratings which indicate their strength relative to other
   events in the same ranking group (junior/senior/adult/wheelchair/open).
-
-  TODO some orderly way to attach concepts to events and groups.
 */
 
 export class RankingEvent {
   constructor(
     public name: string,
     public rating: Rating,
-    public baseDrawSize?: number) {};
+    public baseDrawSize?: number) {}
 
   getBaseDrawSize(): number {
     return (this.baseDrawSize) ? this.baseDrawSize : 0;
@@ -37,7 +35,7 @@ export enum EventGroupType {
  (which in turn is a named group of events or groups)
  The grouping just helps with coherent presentation in the rankings web site.
 */
-export class EventGroup{
+export class EventGroup {
   private _groupType: EventGroupType = EventGroupType.NONE;
   private _conceptGroup: ConceptGroup = null;
   constructor(
@@ -46,11 +44,11 @@ export class EventGroup{
     public subGroups: KeyedStaticCollection<EventGroup>[] = []) {
   }
 
-  numSubGroups():boolean {
+  numSubGroups(): boolean {
     return this.subGroups.length > 0;
   }
 
-  hasRankingEvents():boolean {
+  hasRankingEvents(): boolean {
     return this.rankingEvents.length > 0;
   }
   get groupType(): EventGroupType {

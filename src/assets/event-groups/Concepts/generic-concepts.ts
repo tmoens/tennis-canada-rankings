@@ -13,7 +13,7 @@ POINT_CALCULATION_CG.addConcept(new Concept(
 POINT_CALCULATION_CG.addConcept(new Concept(
   '_Other_Draw_Types_', ['_Other_Draw_Types_Detail_']));
 POINT_CALCULATION_CG.addConcept(new Concept(
-  '_View_Other_Point_Awards_', ['_View_Other_Point_Awards_Detail_']));
+  '_View_Other_Point_Awards_', ['_View_Other_Point_Awards_Detail_'],));
 POINT_CALCULATION_CG.addConcept(new Concept(
   '_DPC_Formula_', ['_DPC_Formula_Detail_', LB, '_DPC_Formula_Itself_']));
 

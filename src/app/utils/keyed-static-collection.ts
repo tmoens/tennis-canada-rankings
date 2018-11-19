@@ -50,6 +50,8 @@ export class KeyedStaticCollection<T> implements IKeyedStaticCollection<T> {
     return  this.values[0];
   }
 
+  // This next bit is bogosity. It requires the key to be a year, but ok it works.
+  // Not thinking carefully, I implemented it for
   // Get the value of the entry that has closest key equal to or lower than
   // the given key.
   // It is used in a list where a key missing from a sequence is assumed to

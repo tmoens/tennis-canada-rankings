@@ -1,10 +1,8 @@
 import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 import { RankingGroup } from '../../utils/ranking-group';
-import { KeyedStaticCollection } from "../../utils/keyed-static-collection";
-import { AppState} from "../../utils/app-state";
-import { PROVINCES } from "../../../assets/provinces/province-data";
-import {Province} from "../../utils/province";
-import {RANKING_GROUPS} from "../../../assets/ranking-groups";
+import { AppState} from '../../utils/app-state';
+import { PROVINCES } from '../../../assets/provinces/province-data';
+import {Province} from '../../utils/province';
 
 /**
  * 2018-02-28 Ted Moens
@@ -23,7 +21,7 @@ export class RankingsLinkMenuComponent implements OnInit {
   canada: Province;
 
   constructor(public appState: AppState) {
-    this.canada = PROVINCES.getItem("_CAN_");
+    this.canada = PROVINCES.getItem('_CAN_');
   }
 
   ngOnInit() {

@@ -19,13 +19,13 @@
 
 */
 
-import { KeyedStaticCollection } from "./keyed-static-collection";
+import { KeyedStaticCollection } from './keyed-static-collection';
 
 export class Rating {
   defaultRating: number;
   annualRatings?:  KeyedStaticCollection<number>;
 
-  constructor(defaultRating:number,
+  constructor(defaultRating: number,
               annualRatings?:  KeyedStaticCollection<number>) {
     this.defaultRating = defaultRating;
     if (annualRatings) {
@@ -37,10 +37,10 @@ export class Rating {
   // If we have a specific rating value for that year, great use it.
   // If we have a value for an earlier year, use that.
   // If we have no value for an earlier year, use the default.
-  getRating(year:string):number {
+  getRating(year: string): number {
     if (this.annualRatings) {
-      let v = this.annualRatings.getVersion(year);
-      if (v) return v;
+      const v = this.annualRatings.getVersion(year);
+      if (v) { return v; }
     }
     return this.defaultRating;
   }

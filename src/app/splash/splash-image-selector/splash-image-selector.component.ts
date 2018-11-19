@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {AppState} from "../../utils/app-state";
+import {AppState} from '../../utils/app-state';
 
 @Component({
   selector: 'app-splash-image-selector',
@@ -9,8 +9,8 @@ import {AppState} from "../../utils/app-state";
 export class SplashImageSelectorComponent implements OnInit {
 
   @Input() rankingGroupName: string;
-  language:string;
-  imagePath:string;
+  language: string;
+  imagePath: string;
 
   constructor(public appState: AppState) {
   }
@@ -26,7 +26,7 @@ export class SplashImageSelectorComponent implements OnInit {
   ngOnChange() {
   }
 
-  getImagePath(imageName:string, lang: string) {
+  getImagePath(imageName: string, lang: string) {
     return 'assets/images/Splash/' + lang + '/' + imageName + '.jpg';
   }
 }

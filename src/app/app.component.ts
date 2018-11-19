@@ -2,14 +2,14 @@ import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
 import { Province } from './utils/province';
-import { RankingGroup} from "./utils/ranking-group";
+import { RankingGroup} from './utils/ranking-group';
 import { RankingYears } from './utils/ranking-years';
-import { KeyedStaticCollection } from "./utils/keyed-static-collection";
-import { AppState } from "./utils/app-state";
+import { KeyedStaticCollection } from './utils/keyed-static-collection';
+import { AppState } from './utils/app-state';
 
-import { PROVINCES } from "../assets/provinces/province-data";
-import { RANKING_GROUPS } from "../assets/ranking-groups";
-import {ENGLISH, FRENCH} from "./utils/language";
+import { PROVINCES } from '../assets/provinces/province-data';
+import { RANKING_GROUPS } from '../assets/ranking-groups';
+import {ENGLISH, FRENCH} from './utils/language';
 
 @Component({
   selector: 'app-root',
@@ -19,7 +19,7 @@ import {ENGLISH, FRENCH} from "./utils/language";
 export class AppComponent {
   title = 'RogersRankings';
   rankingGroups: KeyedStaticCollection<RankingGroup>;
-  provinces:KeyedStaticCollection<Province>;
+  provinces: KeyedStaticCollection<Province>;
   sideMenuOpen: boolean;
 
   constructor(public translate: TranslateService,
@@ -40,7 +40,7 @@ export class AppComponent {
 
     // by default select whatever ranking group is first.
     this.rankingGroups = RANKING_GROUPS;
-    this.appState.selectRankingGroup(this.rankingGroups.getFirst());
+    this.appState.selectRankingGroup(RANKING_GROUPS.getFirst());
     this.sideMenuOpen = false;
   }
 
