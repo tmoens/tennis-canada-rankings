@@ -225,17 +225,6 @@ export const JUNIOR_RANKING_CATEGORIES: RankingCategory[] = [
   JMSU12, JFSU12, JMDU12, JFDU12,
 ];
 
-export const JR_CATEGORY_HIERARCHY = [
-  {
-    name: '_Boys_',
-    list: [JMSU18, JMSU16, JMSU14, JMSU12, JMDU18, JMDU16, JMDU14, JMDU12,],
-  },    {
-    name: '_Girls_',
-    list: [JFSU18, JFSU16, JFSU14, JFSU12, JFDU18, JFDU16, JFDU14, JFDU12,],
-  },
-]
-
-
 const JMS1718 = new RankingCategory('0400D2F9-F60E-43CB-BDD8-D246DAC9DB3D', 'JMS1718', '1687', 16);
 const JFS1718 = new RankingCategory('40B0D99D-1E1F-4088-8699-B893051941D1', 'JFS1718', '1688', 16);
 const JMS1516 = new RankingCategory('24BF3D64-EA7A-4F40-9619-920242D82726', 'JMS1516', '1692', 14);
@@ -244,6 +233,22 @@ const JMS1314 = new RankingCategory('4BB293B8-3369-4960-8BA1-AC323FFB78F1', 'JMS
 const JFS1314 = new RankingCategory('916F7BDD-66D8-47E9-8C9B-669D4EEDC2C6', 'JFS1314', '1698', 12);
 const JMS1112 = new RankingCategory('CA588EB3-6B09-433A-991E-59A881C56ABB', 'JMS1112', '1702', 10);
 const JFS1112 = new RankingCategory('42A2B056-1171-4430-B3A3-A6704CD26D3C', 'JFS1112', '1703', 10);
+
+export const JR_CATEGORY_HIERARCHY = [
+  {
+    name: '_Under_18_',
+    list: [JMSU18, JFSU18, JMDU18, JFDU18, JMS1718, JFS1718,],
+  },  {
+    name: '_Under_16_',
+    list: [JMSU16, JFSU16, JMDU16, JFDU16, JMS1516, JFS1516,],
+  },{
+    name: '_Under_14_',
+    list: [JMSU14, JFSU14, JMDU14, JFDU14, JMS1314, JFS1314,],
+  },{
+    name: '_Under_12_',
+    list: [JMSU12, JFSU12, JMDU12, JFDU12, JMS1112, JFS1112,],
+  },
+]
 
 export const JUNIOR_STRICT_CATEGORIES: RankingCategory[] = [
   JMS1718, JFS1718, JMS1516, JFS1516, JMS1314, JFS1314, JMS1112, JFS1112,
@@ -254,4 +259,3 @@ const WM = new RankingCategory('49AA80ED-AD7C-4CA9-8DF8-7CF01CB8904D', 'WM', '21
 const WQ = new RankingCategory('5415B64C-8C03-4651-96C5-54E01AC9F588', 'WQ', '2114');
 
 export const WHEELCHAIR_RANKING_CATEGORIES: RankingCategory[] = [WF, WM, WQ,];
-export const WC_CATEGORY_HIERARCHY =  [WF, WM, WQ,];

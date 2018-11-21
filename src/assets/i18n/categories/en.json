@@ -269,5 +269,21 @@
   "JMS1314_long_":  "Boys 13-14 Singles",
   "JFS1314_long_":  "Girls 13-14 Singles",
   "JMS1112_long_":  "Boys 11-12 Singles",
-  "JFS1112_long_":  "Girls 11-12 Singles"
+  "JFS1112_long_":  "Girls 11-12 Singles",
+  "_Under_18_":  "Under 18",
+  "_Under_16_":  "Under 16",
+  "_Under_14_":  "Under 14",
+  "_Under_12_":  "Under 12",
+  "_Over_30_":  "30 & Over",
+  "_Over_35_":  "35 & Over",
+  "_Over_40_":  "40 & Over",
+  "_Over_45_":  "45 & Over",
+  "_Over_50_":  "50 & Over",
+  "_Over_55_":  "55 & Over",
+  "_Over_60_":  "60 & Over",
+  "_Over_65_":  "65 & Over",
+  "_Over_70_":  "70 & Over",
+  "_Over_75_":  "75 & Over",
+  "_Over_80_":  "80 & Over",
+  "_Over_85_":  "85 & Over"
 }

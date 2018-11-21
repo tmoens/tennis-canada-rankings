@@ -269,5 +269,21 @@
   "JMS1314_long_":  "Garçons 13-14 ans en simple ",
   "JFS1314_long_":  "Filles 13-14 ans en simple",
   "JMS1112_long_":  "Garçons 11-12 ans en simple ",
-  "JFS1112_long_":  "Filles 11-12 ans en simple"
+  "JFS1112_long_":  "Filles 11-12 ans en simple",
+  "_Under_18_":  "18 ans et moins",
+  "_Under_16_":  "16 ans et moins",
+  "_Under_14_":  "14 ans et moins",
+  "_Under_12_":  "12 ans et moins",
+  "_Over_30_":  "30 ans et plus",
+  "_Over_35_":  "35 ans et plus",
+  "_Over_40_":  "40 ans et plus",
+  "_Over_45_":  "45 ans et plus",
+  "_Over_50_":  "50 ans et plus",
+  "_Over_55_":  "55 ans et plus",
+  "_Over_60_":  "60 ans et plus",
+  "_Over_65_":  "65 ans et plus",
+  "_Over_70_":  "70 ans et plus",
+  "_Over_75_":  "75 ans et plus",
+  "_Over_80_":  "80 ans et plus",
+  "_Over_85_":  "85 ans et plus"
 }

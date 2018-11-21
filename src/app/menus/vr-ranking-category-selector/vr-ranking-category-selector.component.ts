@@ -27,7 +27,7 @@ export class VrRankingCategorySelectorComponent implements OnInit {
       {name: '_Senior_', groups: SR_CATEGORY_HIERARCHY},
       {name: '_Wheelchair_', groups: WHEELCHAIR_RANKING_CATEGORIES},
     ]
-    this.selectedRankingCategory = OPEN_RANKING_CATEGORIES[0];
+    this.onCategorySelected(OPEN_RANKING_CATEGORIES[0]);
   }
   onCategorySelected(c: RankingCategory) {
     if (c == this.selectedRankingCategory) return;

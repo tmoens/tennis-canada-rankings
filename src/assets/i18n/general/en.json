@@ -219,5 +219,6 @@
   "_DPC_Formula_Itself_":  "p = wp * .6^(log2(fp))",
   "_rolling_52_weeks_":  "Ranking is Based on a Rolling 52 Week Point Accumulation",
   "_rolling_52_weeks_detail_":  "Points are accumulated from a player's results over the past 52 weeks. Results from each new week will be added and the results from the corresponding week of the previous year will be dropped. Players receive a ranking by playing at least one of the specified ranking events. ",
-  "_filter_":  "Filter"
+  "_filter_":  "Filter",
+  "_YOB_":  "YOB"
 }

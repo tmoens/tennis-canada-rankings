@@ -18,7 +18,7 @@ import {ENGLISH, FRENCH} from './utils/language';
 })
 export class AppComponent {
   title = 'RogersRankings';
-  rankingGroups: KeyedStaticCollection<RankingGroup>;
+  rankingGroups: RankingGroup[];
   provinces: KeyedStaticCollection<Province>;
   sideMenuOpen: boolean;
 
@@ -40,7 +40,7 @@ export class AppComponent {
 
     // by default select whatever ranking group is first.
     this.rankingGroups = RANKING_GROUPS;
-    this.appState.selectRankingGroup(RANKING_GROUPS.getFirst());
+    this.appState.selectRankingGroup(RANKING_GROUPS[0]);
     this.sideMenuOpen = false;
   }
 

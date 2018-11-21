@@ -26,11 +26,11 @@ export class FetchService {
    * @param date
    * @param province
    */
-  fetchRankings(category: RankingCategory, date: Date, province: Province):Observable<RankingsListDTO> {
+  fetchRankings(category: RankingCategory, date: string, province: Province):Observable<RankingsListDTO> {
     let url = `${this.serverURL}/VRRankingsPublication/list`;
     let params = new HttpParams()
       .set('code', category.vrCode)
-      .set('date', date.toISOString().substr(0, 10));
+      .set('date', date);
     if (!province.isCanada()) {
       params = params.set('province', province.abbrv);
     }

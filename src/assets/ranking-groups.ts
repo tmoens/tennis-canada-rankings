@@ -26,31 +26,29 @@ import {OPEN_KEY_CONCEPTS_CG, OPEN_OTHER_CG} from './concepts/open-concepts';
 import {SENIOR_KEY_CONCEPTS_CG, SENIOR_OTHER_CG, SENIOR_RATINGS_AND_POINTS_GC} from './concepts/senior-concepts';
 import {WHEELCHAIR_KEY_CONCEPTS_CG, WHEELCHAIR_OTHER_CG} from './concepts/wheelchair-concepts';
 
-export const RANKING_GROUPS: KeyedStaticCollection<RankingGroup> =
-  new KeyedStaticCollection<RankingGroup>(
-    {
-      '_Adult_': new RankingGroup('_Adult_', '127', 1,
-        ADULT_RANKING_CATEGORIES,
-        [ADULT_KEY_CONCEPTS_CG, ADULT_OTHER_CG],
-        [ADULT_EVENT_GROUP]),
-      '_Junior_': new RankingGroup('_Junior_', '143', 10000,
-        JUNIOR_RANKING_CATEGORIES,
-        [JUNIOR_KEY_CONCEPTS_CG, JUNIOR_RATINGS_CG, JUNIOR_DOMESTIC_EVENT_CG, JUNIOR_OTHER_EVENT_CG],
-        [
-          JUNIOR_REGIONAL_GROUP,
-          JUNIORS_IN_PROS_EVENT_GROUP,
-          JUNIOR_INTERNATIONAL_GROUP,
-        ]),
-      '_Open_': new RankingGroup('_Open_', '127', 1,
-        OPEN_RANKING_CATEGORIES,
-        [OPEN_KEY_CONCEPTS_CG, OPEN_OTHER_CG],
-        [OPEN_EVENT_GROUP]),
-      '_Senior_': new RankingGroup('_Senior_', '144', 1,
-        SENIOR_RANKING_CATEGORIES,
-        [SENIOR_KEY_CONCEPTS_CG, SENIOR_OTHER_CG, SENIOR_RATINGS_AND_POINTS_GC],
-        [SENIOR_EVENT_GROUP], ),
-      '_Wheelchair_': new RankingGroup('_Wheelchair_', '174', 1,
-        WHEELCHAIR_RANKING_CATEGORIES,
-        [WHEELCHAIR_KEY_CONCEPTS_CG, WHEELCHAIR_OTHER_CG],
-        [WHEELCHAIR_EVENT_GROUP], )
-    });
+export const RANKING_GROUPS = [
+  new RankingGroup('_Junior_', '143', 10000,
+    JUNIOR_RANKING_CATEGORIES,
+    [JUNIOR_KEY_CONCEPTS_CG, JUNIOR_RATINGS_CG, JUNIOR_DOMESTIC_EVENT_CG, JUNIOR_OTHER_EVENT_CG],
+    [
+      JUNIOR_REGIONAL_GROUP,
+      JUNIORS_IN_PROS_EVENT_GROUP,
+      JUNIOR_INTERNATIONAL_GROUP,
+    ]),
+  new RankingGroup('_Open_', '127', 1,
+    OPEN_RANKING_CATEGORIES,
+    [OPEN_KEY_CONCEPTS_CG, OPEN_OTHER_CG],
+    [OPEN_EVENT_GROUP]),
+  new RankingGroup('_Adult_', '127', 1,
+    ADULT_RANKING_CATEGORIES,
+    [ADULT_KEY_CONCEPTS_CG, ADULT_OTHER_CG],
+    [ADULT_EVENT_GROUP]),
+  new RankingGroup('_Senior_', '144', 1,
+    SENIOR_RANKING_CATEGORIES,
+    [SENIOR_KEY_CONCEPTS_CG, SENIOR_OTHER_CG, SENIOR_RATINGS_AND_POINTS_GC],
+    [SENIOR_EVENT_GROUP], ),
+  new RankingGroup('_Wheelchair_', '174', 1,
+    WHEELCHAIR_RANKING_CATEGORIES,
+    [WHEELCHAIR_KEY_CONCEPTS_CG, WHEELCHAIR_OTHER_CG],
+    [WHEELCHAIR_EVENT_GROUP], ),
+];

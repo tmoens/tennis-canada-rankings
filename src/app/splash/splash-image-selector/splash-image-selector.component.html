@@ -1,9 +1,5 @@
 <div>
-  <a mat-button color="accent" [routerLink]="['/rankings', rankingGroupName]">
-    <img [ngClass.lt-lg]="{ 'splash-img-small': true}" [src]="imagePath">
-    <a fxHide.lt-lg [ngClass]="{'en-about-rankings-button' : language == 'en',
-                  'fr-about-rankings-button' : language == 'fr'}"
-       [routerLink]="['/rankings', rankingGroupName]">
-    </a>
+  <a mat-button color="accent" [routerLink]="['/rankings', rankingGroup.name]">
+    <img [src]="imagePath">
   </a>
 </div>

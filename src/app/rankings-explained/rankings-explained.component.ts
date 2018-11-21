@@ -47,9 +47,13 @@ export class RankingsExplainedComponent implements OnChanges, OnInit {
     });
     this.route.params.subscribe(params => {
         if (params.rankingGroupName) {
-          this.rankingGroup = RANKING_GROUPS.getItem(params.rankingGroupName);
+          for (const rg of RANKING_GROUPS) {
+            if (params.rankingGroupName === rg.name) {
+              this.rankingGroup = rg;
+            }
+          }
         } else {
-          this.rankingGroup = RANKING_GROUPS.getFirst();
+          this.rankingGroup = RANKING_GROUPS[0];
         }
         this.appState.selectRankingGroup(this.rankingGroup);
         this.ngOnChanges();

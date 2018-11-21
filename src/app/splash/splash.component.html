@@ -1,5 +1,5 @@
 <!--
-  Two laysouts depending on screen size: for large, a row of three and a row of two
+  Two layouts depending on screen size: for large, a row of three and a row of two
   for small, a column of 5 and we need new images.
   AND It would be nice to use fxLayoutWrap to accomplish this without the duplication,
   but I failed there.
@@ -12,42 +12,29 @@
   <div fxLayoutAlign="row" fxLayoutGap="20px" fxLayout="center">
     <!-- TODO Pass a ranking group, not a name, like duh.-->
     <app-splash-image-selector
-      [rankingGroupName]="'_Junior_'">
+      [rankingGroup]="rankingGroups[0]">
     </app-splash-image-selector>
     <app-splash-image-selector
-      [rankingGroupName]="'_Adult_'">
+      [rankingGroup]="rankingGroups[1]">
     </app-splash-image-selector>
     <app-splash-image-selector
-      [rankingGroupName]="'_Open_'">
+      [rankingGroup]="rankingGroups[2]">
     </app-splash-image-selector>
   </div>
   <div fxLayoutAlign="row" fxLayoutGap="20px" fxLayout="center">
     <app-splash-image-selector
-      [rankingGroupName]="'_Senior_'">
+      [rankingGroup]="rankingGroups[3]">
     </app-splash-image-selector>
     <app-splash-image-selector
-      [rankingGroupName]="'_Wheelchair_'">
+      [rankingGroup]="rankingGroups[4]">
     </app-splash-image-selector>
   </div>
 </div>
-<div [ngClass]="{ 'en-bg' : lang == 'en', 'fr-bg': lang == 'fr' }"
+<div class="phone-bg"
      fxHide.gt-sm fxLayout="column"
-     fxLayoutGap="20px" fxLayoutAlign="start center">
-  <!-- A spacer to uncover the rogers rankings logo in the background. Sorry. -->
-  <div style="height: 160px;"></div>
-  <app-splash-image-selector
-    [rankingGroupName]="'_Junior_'">
-  </app-splash-image-selector>
-  <app-splash-image-selector
-    [rankingGroupName]="'_Adult_'">
-  </app-splash-image-selector>
-  <app-splash-image-selector
-    [rankingGroupName]="'_Open_'">
-  </app-splash-image-selector>
-  <app-splash-image-selector
-    [rankingGroupName]="'_Senior_'">
-  </app-splash-image-selector>
-  <app-splash-image-selector
-    [rankingGroupName]="'_Wheelchair_'">
+     fxLayoutGap="10px" fxLayoutAlign="start center">
+  <div style="height: 20px;"></div>
+  <app-splash-image-selector *ngFor="let g of rankingGroups"
+    [rankingGroup]="g" [size]="'small'">
   </app-splash-image-selector>
 </div>

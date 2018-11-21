@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { FormsModule } from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 import { MatButtonModule} from '@angular/material/button';
@@ -12,7 +12,15 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
-import {MatExpansionModule, MatInputModule, MatListModule, MatSortModule, MatTableModule} from "@angular/material";
+import {
+  MatDatepickerModule,
+  MatExpansionModule,
+  MatInputModule,
+  MatListModule,
+  MatProgressSpinnerModule,
+  MatSortModule,
+  MatTableModule
+} from "@angular/material";
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -89,6 +97,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     HttpClientModule,
     MatButtonModule,
     MatCardModule,
+    MatDatepickerModule,
     MatDialogModule,
     MatDividerModule,
     MatExpansionModule,
@@ -98,12 +107,14 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatInputModule,
     MatListModule,
     MatMenuModule,
+    MatProgressSpinnerModule,
     MatSelectModule,
     MatSidenavModule,
     MatSortModule,
     MatTableModule,
     MatTabsModule,
     MatToolbarModule,
+    ReactiveFormsModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -121,6 +132,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppState,
     FinishPositionLabeler,
     RankingYears,
+
   ],
   bootstrap: [AppComponent]
 })
