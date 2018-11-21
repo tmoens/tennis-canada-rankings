@@ -20,11 +20,11 @@ import {
   JUNIOR_KEY_CONCEPTS_CG,
   JUNIOR_OTHER_EVENT_CG,
   JUNIOR_RATINGS_CG,
-} from './event-groups/Concepts/junior-concepts';
-import {ADULT_KEY_CONCEPTS_CG, ADULT_OTHER_CG} from './event-groups/Concepts/adult-concepts';
-import {OPEN_KEY_CONCEPTS_CG, OPEN_OTHER_CG} from './event-groups/Concepts/open-concepts';
-import {SENIOR_KEY_CONCEPTS_CG, SENIOR_OTHER_CG, SENIOR_RATINGS_AND_POINTS_GC} from './event-groups/Concepts/senior-concepts';
-import {WHEELCHAIR_KEY_CONCEPTS_CG, WHEELCHAIR_OTHER_CG} from './event-groups/Concepts/wheelchair-concepts';
+} from './concepts/junior-concepts';
+import {ADULT_KEY_CONCEPTS_CG, ADULT_OTHER_CG} from './concepts/adult-concepts';
+import {OPEN_KEY_CONCEPTS_CG, OPEN_OTHER_CG} from './concepts/open-concepts';
+import {SENIOR_KEY_CONCEPTS_CG, SENIOR_OTHER_CG, SENIOR_RATINGS_AND_POINTS_GC} from './concepts/senior-concepts';
+import {WHEELCHAIR_KEY_CONCEPTS_CG, WHEELCHAIR_OTHER_CG} from './concepts/wheelchair-concepts';
 
 export const RANKING_GROUPS: KeyedStaticCollection<RankingGroup> =
   new KeyedStaticCollection<RankingGroup>(

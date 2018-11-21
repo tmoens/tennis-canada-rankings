@@ -1,16 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FetchService} from "../../fetch-service";
 import {Observable} from "rxjs";
-import {
-  JUNIOR_STRICT_CATEGORIES,
-  JUNIOR_RANKING_CATEGORIES,
-  ADULT_RANKING_CATEGORIES,
-  SENIOR_RANKING_CATEGORIES,
-  OPEN_RANKING_CATEGORIES,
-  WHEELCHAIR_RANKING_CATEGORIES,
-} from "../../../assets/rankings-categories";
 import {AppState} from "../../utils/app-state";
-import {RankingEvent} from "../../utils/ranking-event";
 import {RankingCategory} from "../../utils/ranking-category";
 
 @Component({
@@ -34,16 +25,8 @@ export class RankingHistoryComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.allCategories= [
-      {name: '_Junior_', list: JUNIOR_RANKING_CATEGORIES},
-      {name: '_Adult_', list: ADULT_RANKING_CATEGORIES},
-      {name: '_Open_', list: OPEN_RANKING_CATEGORIES},
-      {name: '_Senior_', list: SENIOR_RANKING_CATEGORIES},
-      {name: '_Wheelchair_', list: WHEELCHAIR_RANKING_CATEGORIES},
-    ]
     this.effectiveDate = new Date();
-    this.selectedRankingCategory = JUNIOR_RANKING_CATEGORIES[0];
-    // Watch for changes to the the selected ranking group or ranking year
+    // Watch for changes to the the selected province
     // in which case we reset the event selector
     this.state.selectedProvince$.subscribe(_ => {
       this.fetchRankingList();
@@ -51,18 +34,18 @@ export class RankingHistoryComponent implements OnInit {
   }
 
   onCategorySelected(c: RankingCategory) {
-    if (c == this.selectedRankingCategory) return;
     this.selectedRankingCategory = c;
     this.fetchRankingList();
   }
 
   fetchRankingList(){
+    if (!this.selectedRankingCategory) return;
     if (this.state.selectedProvince.isCanada()) {
       this.nationalFocus = true;
-      this.columnsToDisplay = ['nationalRank', 'name', 'province', 'points'];
+      this.columnsToDisplay = ['nationalRank', 'name', 'YOB', 'province', 'points'];
     } else {
       this.nationalFocus = false;
-      this.columnsToDisplay = ['nationalRank', 'provincialRank', 'name', 'province', 'points'];
+      this.columnsToDisplay = ['nationalRank', 'provincialRank', 'name', 'YOB', 'province', 'points'];
     }
     this.rl$ = this.fetchService.fetchRankings(this.selectedRankingCategory,
       this.effectiveDate,

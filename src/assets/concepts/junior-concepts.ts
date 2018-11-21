@@ -1,4 +1,4 @@
-import {Concept, ConceptGroup} from '../../../app/utils/concept';
+import {Concept, ConceptGroup} from '../../app/utils/concept';
 import {LB, POINT_CALC_C, RANKING_ELIGIBILITY_C, ROLLING_52_C} from './generic-concepts';
 let c: Concept;
 
@@ -32,8 +32,6 @@ c.expansionGroup = JUNIOR_NUM_EVENTS_CG;
 JUNIOR_KEY_CONCEPTS_CG.addConcept(c);
 JUNIOR_KEY_CONCEPTS_CG.addConcept(new Concept(
   '_National_and_Regional_Rankings_', ['_NRR_Details_']));
-JUNIOR_KEY_CONCEPTS_CG.addConcept(new Concept(
-  '_Draw_Size_', ['_Draw_Size_Details_']));
 JUNIOR_KEY_CONCEPTS_CG.addConcept(RANKING_ELIGIBILITY_C);
 
 // ------------------ Junior National age category ----------------
@@ -100,7 +98,7 @@ JUNIOR_INTL_FRL_CG.addConcept(new Concept(
 export const JUNIOR_RATINGS_CG = new ConceptGroup('_RAP_Title_');
 JUNIOR_RATINGS_CG.addConcept(new Concept(   '_Points_Benchmark_', ['_PB_Details_']));
 JUNIOR_RATINGS_CG.addConcept(new Concept(   '_Rating_',
-  ['_Rating_Detail_1_', LB, '_Rating_Detail_2_']));
+  ['_Rating_Detail_1_']));
 JUNIOR_RATINGS_CG.addConcept(POINT_CALC_C);
 c = new Concept(
   '_National_Age_Category_Ratings_',
@@ -108,7 +106,7 @@ c = new Concept(
 c.expansionGroup = JUNIOR_AGE_CATEGORY_CG;
 JUNIOR_RATINGS_CG.addConcept(c);
 JUNIOR_RATINGS_CG.addConcept(new Concept(
-  '_National_and_Regional_Rankings_', ['_NRR_Details_']));
+  '_Draw_Size_', ['_Draw_Size_Details_']));
 c = new Concept(   '_RLFBWD_', ['_RLFBWD_Domestic_rm_']);
 c.expansionGroup = JUNIOR_DOMESTIC_FRL_CG;
 JUNIOR_RATINGS_CG.addConcept(c);
@@ -161,12 +159,19 @@ JUNIOR_COMBINED_AG_EVENTS_CG.addConcept(new Concept(
     '_Combined_Events_Condition_3_', LB, '_Combined_Events_Detail_2_', LB
   ]));
 
+// ------------------ Junior Canadian Open events ----------------------
+export const JUNIOR_CDN_OPEN_CG = new ConceptGroup('_Open_Events_Dialog_Title_');
+JUNIOR_CDN_OPEN_CG.addConcept(new Concept(   '_Major_Open_Events_', ['_MOE_Details_1_']));
+JUNIOR_CDN_OPEN_CG.addConcept(new Concept(   null, ['_MOE_Details_2_']));
+JUNIOR_CDN_OPEN_CG.addConcept(new Concept(   '_Open_Event_Rating_', ['_OER_Details_21_']));
+JUNIOR_CDN_OPEN_CG.addConcept(new Concept(   null, ['_OER_Details_2_']));
+
 
 // ------------------ Junior Domestic Events Concepts ----------------------
 export const JUNIOR_DOMESTIC_EVENT_CG = new ConceptGroup('_Domestic_Events_');
 JUNIOR_DOMESTIC_EVENT_CG.addConcept(new Concept(
-  '_National_Junior_Events_', ['_NJE_Details_']));
-c = new Concept(null, ['_NJOS_Details_', '_NJOS_rm_']);
+  '_National_Championships_', ['_NJE_Details_']));
+c = new Concept('_National_Junior_Open_Series_', ['_NJOS_Details_', '_NJOS_rm_']);
 c.expansionGroup = JUNIOR_NAT_SERIES_CG;
 JUNIOR_DOMESTIC_EVENT_CG.addConcept(c);
 JUNIOR_DOMESTIC_EVENT_CG.addConcept(new Concept(
@@ -182,22 +187,19 @@ JUNIOR_DOMESTIC_EVENT_CG.addConcept(new Concept(   null,
 JUNIOR_DOMESTIC_EVENT_CG.addConcept(new Concept(   null,
   ['_Provincial_Events_Details_3_'],
   2019));
-c = new Concept(   null, ['_Combined_Events_Detail_', '_combined_events_rm_']);
+c = new Concept(   '_Combined_Events_Title_', ['_Combined_Events_Detail_', '_combined_events_rm_']);
 c.expansionGroup = JUNIOR_COMBINED_AG_EVENTS_CG;
 JUNIOR_DOMESTIC_EVENT_CG.addConcept(c);
+c = new Concept(   '_Canadian_Open_Events_',
+  ['_Canadian_Open_Event_Details_', LB, '_Canadian_Open_rm_'], 2019 );
+c.expansionGroup = JUNIOR_CDN_OPEN_CG;
+JUNIOR_DOMESTIC_EVENT_CG.addConcept(c);
 
-const EXCHANGE_RATE_CG = new ConceptGroup('_exchange_rate_');
-EXCHANGE_RATE_CG.addConcept(new Concept('_er_methodology_',
-  ['_er_methodology_detail_'], 2019));
-EXCHANGE_RATE_CG.addConcept(new Concept('_er_player_pool_',
-  ['_er_player_pool_detail_', '_er_player_pool_example_'], 2019));
-EXCHANGE_RATE_CG.addConcept(new Concept('_er_average_points_per_play_',
-  ['_er_average_points_per_play_detail_', '_er_average_points_per_play_example_'], 2019));
-EXCHANGE_RATE_CG.addConcept(new Concept('_er_rate_',
-  ['_er_rate_detail_', '_er_rate_example_'], 2019));
 
 // ------------------ Junior International Events ----------------------
+// Used 2013 to 2018
 export const JUNIOR_INTL_EVENTS_CG = new ConceptGroup('_International_Junior_Events_');
+JUNIOR_INTL_EVENTS_CG.addConcept(new Concept(null, ['_IJE_Rating_']));
 JUNIOR_INTL_EVENTS_CG.addConcept(new Concept(
   '_IJE_Player_Data_', ['_IJE_Player_Data_Detail_']));
 JUNIOR_INTL_EVENTS_CG.addConcept(new Concept(
@@ -209,14 +211,13 @@ JUNIOR_INTL_EVENTS_CG.addConcept(new Concept(
 JUNIOR_INTL_EVENTS_CG.addConcept(new Concept(
   '_IJE_No_Qualifying_Points_', ['_IJE_No_Qualifying_Points_Detail_']));
 
-// ------------------ Junior Canadian Open events ----------------------
-export const JUNIOR_CDN_OPEN_CG = new ConceptGroup('_Open_Events_Dialog_Title_');
-JUNIOR_CDN_OPEN_CG.addConcept(new Concept(   '_Major_Open_Events_', ['_MOE_Details_1_']));
-JUNIOR_CDN_OPEN_CG.addConcept(new Concept(   null, ['_MOE_Details_2_']));
-JUNIOR_CDN_OPEN_CG.addConcept(new Concept(   '_Open_Event_Rating_', ['_OER_Details_21_']));
-JUNIOR_CDN_OPEN_CG.addConcept(new Concept(   null, ['_OER_Details_2_']));
+// ------------------ USTA and Tennis Europe Events ----------------------
+// Used after 2018
+export const USTA_TE_EVENTS_CG = new ConceptGroup('_USTA_TE_events_');
+USTA_TE_EVENTS_CG.addConcept(new Concept('_TBD_', ['_TBD_']));
 
 // ------------------ Junior in Men's Pro events ----------------------
+// Used 2013 to 2018
 export const JUNIOR_MALE_PRO_CG = new ConceptGroup('_Male_Professional_Events_Title_');
 JUNIOR_MALE_PRO_CG.addConcept(new Concept(   '_Futures_15K_', ['_Futures_15K_Details_']));
 JUNIOR_MALE_PRO_CG.addConcept(new Concept(   '_ATP_15K+_', ['_ATP_15K+_Details_']));
@@ -226,6 +227,7 @@ JUNIOR_MALE_PRO_CG.addConcept(new Concept(   '_ATP_500_Example_', ['_ATP_500_Det
 JUNIOR_MALE_PRO_CG.addConcept(new Concept(   '_Data_Note_', ['_Data_Note_Details_']));
 
 // ------------------ Junior in Women's Pro events ----------------------
+// Used 2013 to 2018
 export const JUNIOR_FEMALE_PRO_CG = new ConceptGroup('_Female_Professional_Events_Title_');
 JUNIOR_FEMALE_PRO_CG.addConcept(new Concept(   '_ITF_25K_Benchmark_', ['_ITF_25K_Details_1_']));
 JUNIOR_FEMALE_PRO_CG.addConcept(new Concept(   null, ['_ITF_25K_Details_2_']));
@@ -235,15 +237,37 @@ JUNIOR_FEMALE_PRO_CG.addConcept(new Concept(   '_ITF_15K_Example_', ['_ITF_15K_E
 JUNIOR_FEMALE_PRO_CG.addConcept(new Concept(   '_WTA_International_Example_', ['_WTA_International_Example_Details_']));
 JUNIOR_FEMALE_PRO_CG.addConcept(new Concept(   '_WTA_Data_Note_', ['_WTA_Data_Note_Details_']));
 
+// ------------------ Exchange rates ----------------------
+// Used after 2018
+const EXCHANGE_RATE_CG = new ConceptGroup('_exchange_rate_');
+EXCHANGE_RATE_CG.addConcept(new Concept('_er_methodology_',
+  ['_er_methodology_detail_'], 2019));
+EXCHANGE_RATE_CG.addConcept(new Concept('_er_player_pool_',
+  ['_er_player_pool_detail_', LB, '_er_player_pool_example_'], 2019));
+EXCHANGE_RATE_CG.addConcept(new Concept('_er_average_points_per_play_',
+  ['_er_average_points_per_play_detail_', LB,
+    '_er_average_points_per_play_example_1_', LB, '_er_average_points_per_play_example_2_'], 2019));
+EXCHANGE_RATE_CG.addConcept(new Concept('_er_rate_',
+  ['_er_rate_detail_', LB, '_er_rate_example_'], 2019));
+EXCHANGE_RATE_CG.addConcept(new Concept('_er_adjustment_',
+  ['_er_adjustment_detail_', '_er_adjustment_example_'], 2019));
+EXCHANGE_RATE_CG.addConcept(new Concept('_indirect_exchange_rate_',
+  ['_indirect_exchange_rate_detail_'], 2019));
+
 // ------------------ Other Events Concepts ----------------------
-export const JUNIOR_OTHER_EVENT_CG = new ConceptGroup('_Other_Events_');
+export const JUNIOR_OTHER_EVENT_CG = new ConceptGroup('_international_events_');
 c = new Concept(
   '_International_Junior_Events_', [
-    '_IJE_Details_', LB, '_IJE_Details_2_', '_IJE_RM_']);
+    '_IJE_Details_', LB, '_IJE_Details_2_', '_IJE_RM_'], 2013, 2018);
 c.expansionGroup = JUNIOR_INTL_EVENTS_CG;
 JUNIOR_OTHER_EVENT_CG.addConcept(c);
-JUNIOR_OTHER_EVENT_CG.addConcept(new Concept(   '_Open_Events_', ['_Open_Event_Details_']));
-c = new Concept(   null, ['_Canadian_Open_rm_'], );
+c = new Concept(
+  '_USTA_TE_events_', [
+    '_IJE_Details_', LB, '_IJE_Details_2_', '_IJE_RM_'], 2019);
+c.expansionGroup = USTA_TE_EVENTS_CG;
+JUNIOR_OTHER_EVENT_CG.addConcept(c);
+c = new Concept(   '_Open_Events_',
+  ['_Open_Event_Details_', LB, '_Canadian_Open_rm_'], 2013, 2018 );
 c.expansionGroup = JUNIOR_CDN_OPEN_CG;
 JUNIOR_OTHER_EVENT_CG.addConcept(c);
 c = new Concept(   null, ['_Male_Pro_rm_'], 2013, 2018);
@@ -252,12 +276,10 @@ JUNIOR_OTHER_EVENT_CG.addConcept(c);
 c = new Concept(   null, ['_Female_Pro_rm_'], 2013, 2018);
 c.expansionGroup = JUNIOR_FEMALE_PRO_CG;
 JUNIOR_OTHER_EVENT_CG.addConcept(c);
-c = new Concept( '_exchange_rate_approach_', ['_exchange_rate_approach_detail_, _er_rm_'], 2019);
+c = new Concept( '_exchange_rate_approach_', [
+  '_exchange_rate_approach_detail_', '_exchange_rate_approach_rm_', LB,
+  '_boys_ITF_ER_', LB, '_girls_ITF_ER_', LB,
+  '_mens_TT_ER_', LB, '_womens_TT_ER_', LB,
+  '_ATP_ER_', LB, '_WTA_ER_'], 2019);
 c.expansionGroup = EXCHANGE_RATE_CG;
 JUNIOR_OTHER_EVENT_CG.addConcept(c);
-JUNIOR_OTHER_EVENT_CG.addConcept(new Concept('_boys_ITF_ER_', ['_boys_ITF_ER_details'], 2019));
-JUNIOR_OTHER_EVENT_CG.addConcept(new Concept('_girls_ITF_ER_', ['_girls_ITF_ER_details'], 2019));
-JUNIOR_OTHER_EVENT_CG.addConcept(new Concept('_mens_TT_ER_', ['_mens_TT_ER_details'], 2019));
-JUNIOR_OTHER_EVENT_CG.addConcept(new Concept('_womens_TT_ER_', ['_womens_TT_ER_details'], 2019));
-JUNIOR_OTHER_EVENT_CG.addConcept(new Concept('_ATP_ER_', ['_ATP_ER_details'], 2019));
-JUNIOR_OTHER_EVENT_CG.addConcept(new Concept('_WTA_ER_', ['_WTA_ER_details'], 2019));

@@ -1,24 +1,26 @@
 <!--
-  There are two navigation modes, the toolbar for gif screens and the sidenav for phones
+  There are two navigation modes, the toolbar for large screens and the sidenav for phones
 -->
-<div fxShow fxHide.lt-lg>
+<div fxShow fxHide.lt-md>
   <mat-toolbar>
     <a mat-button routerLink="/home" routerLinkActive="active" color="primary">Home</a>
     <app-province-selector></app-province-selector>
     <app-rankings-link-menu *ngFor="let rg of rankingGroups.getValues()" [rankingGroup]="rg"></app-rankings-link-menu>
     <app-ranking-year-selector></app-ranking-year-selector>
+    <a mat-button routerLink="/rankings/history" routerLinkActive="active" color="primary">{{'_Historical_Rankings_' | translate}}</a>
     <span class="fill-remaining-space"></span>
     <button mat-button color="primary" (click)="onLanguageChange()" >{{appState.selectedLanguage.buttonLabel}}</button>
   </mat-toolbar>
 </div>
 
-<div fxShow fxHide.gt-md>
+<div fxShow fxHide.gt-sm>
   <mat-toolbar>
     <button mat-icon-button (click)="sideMenu.toggle()" color="primary">
       <mat-icon>menu</mat-icon>
       <span class="mat-h2">{{'_Rogers_Rankings_'|translate}}</span>
     </button>
     <span class="fill-remaining-space"></span>
+    <app-ranking-year-selector></app-ranking-year-selector>
     <button mat-button color="primary" (click)="onLanguageChange()" >{{appState.selectedLanguage.buttonLabel}}</button>
   </mat-toolbar>
 </div>
@@ -27,8 +29,7 @@
     <a mat-button routerLink="/home" routerLinkActive="active" color="primary">Home</a>
     <app-province-selector></app-province-selector>
     <app-rankings-link-menu *ngFor="let rg of rankingGroups.getValues()" [rankingGroup]="rg"></app-rankings-link-menu>
-    <app-ranking-year-selector></app-ranking-year-selector>
-    <button mat-button color="primary" (click)="onLanguageChange()" >{{appState.selectedLanguage.buttonLabel}}</button>
+    <a mat-button routerLink="/rankings/history" routerLinkActive="active" color="primary">{{'_Historical_Rankings_' | translate}}</a>
   </mat-sidenav>
   <mat-sidenav-content>
     <router-outlet></router-outlet>

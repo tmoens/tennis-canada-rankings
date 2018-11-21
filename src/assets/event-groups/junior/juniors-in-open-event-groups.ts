@@ -1,7 +1,7 @@
 import {KeyedStaticCollection} from '../../../app/utils/keyed-static-collection';
 import {Rating} from '../../../app/utils/rating';
 import {EventGroup, EventGroupType, RankingEvent} from '../../../app/utils/ranking-event';
-import {JUNIOR_CDN_OPEN_CG, JUNIOR_FEMALE_PRO_CG, JUNIOR_MALE_PRO_CG} from '../Concepts/junior-concepts';
+import {JUNIOR_CDN_OPEN_CG, JUNIOR_FEMALE_PRO_CG, JUNIOR_MALE_PRO_CG} from '../../concepts/junior-concepts';
 
 // Conversion from Junior Girls nationals to ITF $25,000
 // ITF 25,000 are rated at .96 times Junior Grand slams, which are rated at 11.5 times

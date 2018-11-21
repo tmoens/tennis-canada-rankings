@@ -44,6 +44,7 @@ export class AppComponent {
     this.sideMenuOpen = false;
   }
 
+
   onLanguageChange() {
     if (this.appState.selectedLanguage.fr) {
       this.appState.selectLanguage(ENGLISH);

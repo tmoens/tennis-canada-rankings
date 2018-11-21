@@ -1,7 +1,7 @@
 <!--
   This is used for all the rankings groups to tell all the gorey details
   It is organized differently for screens and phones.
-  But there are really only tow main areas.  One for points table(s).
+  But there are really only two main areas.  One for points table(s).
   The other is a set of tabs for explaining all the concepts and rules
   for the selected ranking group.
 -->
@@ -12,7 +12,7 @@
   <div></div>
 
   <!-- logo area  (not shown on phone) -->
-  <div fxLayout="row" fxLayoutGap="60px" fxLayoutAlign="center" fxHide.lt-lg>
+  <div fxLayout="row" fxLayoutGap="60px" fxLayoutAlign="center" fxHide.lt-md>
     <img class="tclogo" [src]="canada.getLogoPath()">
     <img class="tclogo" *ngIf="appState.selectedProvince.abbrv != 'CAN'"
          [src]="appState.selectedProvince.getLogoPath()">
@@ -22,15 +22,17 @@
     Points table and rankings concepts - side by side on big screen
     arranged vertically on a small one
   -->
-  <div fxLayout="column" fxLayout.gt-md="row" fxLayoutGap="15px">
-    <div fxFlex.gt-md="45%">
+  <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="15px"
+       fxLayout.gt-sm="row" fxLayoutAlign.gt-sm="center start">
+    <div >
       <!-- This part is for showing the various points tables for the selected ranking group -->
       <app-event-selector></app-event-selector>
     </div>
     <!--
-      The "rankings concepts" tabs.
+      The "rankings concepts" which are displayed as tabs on big screens and
+      expansion panels on small screens.
     -->
-    <div fxFlex>
+    <div fxFlex fxHide.lt-md>
       <mat-tab-group (selectedTabChange)="onConceptGroupChange($event)" [selectedIndex]="selectedConceptIndex">
         <mat-tab *ngFor="let cg of rankingGroup.conceptGroups">
           <ng-template mat-tab-label>{{cg.headerTextToken | translate}}</ng-template>
@@ -45,9 +47,33 @@
         </div>
         <ng-template #showConcept>
           <app-concept-display [conceptGroup]="conceptGroup">
-        </app-concept-display>
+          </app-concept-display>
         </ng-template>
       </div>
+    </div>
+    <div fxFlex fxHide.gt-sm>
+      <mat-accordion>
+        <mat-expansion-panel *ngFor="let cg of rankingGroup.conceptGroups">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{cg.headerTextToken | translate}}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <div *ngIf="rankingGroup">
+              <app-concept-display [conceptGroup]="cg">
+              </app-concept-display>
+          </div>
+        </mat-expansion-panel>
+        <mat-expansion-panel *ngIf="rankingGroup.name == '_Open_'">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{'_Open_Events_' | translate}}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <app-open-event-list></app-open-event-list>
+        </mat-expansion-panel>
+      </mat-accordion>
     </div>
   </div>
 </div>
