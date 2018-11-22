@@ -1,18 +1,18 @@
-<div fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="center center">
-  <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px" fxFlexOffset="20px">
+<div fxLayout="column"  fxLayoutAlign="center center">
+  <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px" style="margin-top: 20px">
     <h2 class="mat-h2">{{'_Historical_Rankings_' | translate }}</h2>
     <h2 class="mat-h2" *ngIf="rl" >{{rl.publication.year}}</h2>
     <h2 class="mat-h2" *ngIf="rl" >{{'_Week_' | translate}} : {{rl.publication.week}}</h2>
   </div>
-  <div fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="center center">
+  <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="center center">
     <app-vr-ranking-category-selector (categorySelected)="onCategorySelected($event)"></app-vr-ranking-category-selector>
     <app-province-selector></app-province-selector>
     <form class="form-inline">
-      <mat-form-field>
+      <mat-form-field style="width: 110px" color="primary">
         <input matInput [matDatepicker]="rankingsDateDP" [formControl]="effectiveDateFC"
                [min]="beginningOfTime"
                [max]="today"
-               (dateChange)="onDateChange()">
+               (dateChange)="onDateChange()" >
         <mat-datepicker-toggle matSuffix [for]="rankingsDateDP"></mat-datepicker-toggle>
         <mat-datepicker #rankingsDateDP></mat-datepicker>
       </mat-form-field>

@@ -27,4 +27,6 @@ Build
 -----
 ng build --prod --base-href=/alphaRR2/
 
+or if using git-bash
+git-bash$ ng build --prod --base-href="//alphaRR2\\"
 

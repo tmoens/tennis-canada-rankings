@@ -11,4 +11,7 @@
 .center-me {
   text-align: center; }
 
+mat-form-field.mat-form-field {
+  font-size: 13px; }
+
 /*# sourceMappingURL=ranking-history.component.css.map */
