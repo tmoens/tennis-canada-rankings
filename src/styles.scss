@@ -1,5 +1,4 @@
 @import '../node_modules/@angular/material/theming';
-@import './app/app.component';
 // Note to self - import component .scss files here if you have component specific scss
 
 // From the documentation - mat-core should not be imported in other scss files
@@ -7,7 +6,9 @@
 
 @import './tc-tools-theme.scss';
 
+@import './app/app.component';
 @include angular-material-theme($tc-tools);
+@include rogers-rankings($tc-tools);
 
 /* You can add global styles to this file, and also import other style files */
 .fill-remaining-space {

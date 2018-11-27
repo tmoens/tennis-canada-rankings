@@ -1759,6 +1759,12 @@ th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
 .mat-simple-snackbar-action {
   color: #ffebec; }
 
+.color-primary {
+  color: #8b2c1d; }
+
+.color-accent {
+  color: #ffebec; }
+
 /* You can add global styles to this file, and also import other style files */
 .fill-remaining-space {
   flex: 1 1 auto; }
