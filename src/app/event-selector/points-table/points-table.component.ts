@@ -4,11 +4,12 @@ import { FinishPositionLabeler } from "../../utils/finish-positions";
 import { AppState } from "../../utils/app-state";
 import {AgeGroup} from "../../age-group";
 import {Province} from "../../utils/province";
+import {MIN_JR_REGIONAL_DRAW_SIZE} from "../../../assets/event-groups/junior/junior-provincial-event-groups";
 
 // The round over round reduction in points.  So, finalist gets .6 of winner,
 // semifinalist gets .6 of finalist and so on.
 const r = .6;
-const baselineFPs = [1,2,3,4,5,6,8,12,16,24,32,48,64,96,128];
+const baselineFPs = [1,2,3,4,6,8,12,16,24,32,48,64,96,128];
 @Component({
   selector: 'app-points-table',
   templateUrl: './points-table.component.html',
@@ -22,7 +23,8 @@ export class PointsTableComponent implements OnInit {
   @Input() drawSize: number = 128;
   @Input() province: Province;
   @Input() isJuniorRegional: boolean = true;
-  @Input() magicFP = 17;
+  @Input() magicFP = 5;
+  @Input() smallDrawSize = 8;
 
   // For the mat-table display
   pointTable: any[];
@@ -74,6 +76,9 @@ export class PointsTableComponent implements OnInit {
           } else {
             rating = rating * this.province.girlsRating.getRating(year);
           }
+          if (this.smallDrawSize < MIN_JR_REGIONAL_DRAW_SIZE) {
+            rating = rating * this.smallDrawSize / MIN_JR_REGIONAL_DRAW_SIZE;
+          }
         }
       }
 
@@ -100,7 +105,7 @@ export class PointsTableComponent implements OnInit {
 
     // now build an array to use as the data source of the table
     const table = [];
-    for (const fp of this.fpsToDisplay(this.drawSize, this.magicFP)) {
+    for (const fp of this.fpsToDisplay(this.drawSize, this.magicFP, this.smallDrawSize)) {
       table.push({
         longLabel:   this.fpLabeler.getLabelLong(fp),
         shortLabel: this.fpLabeler.getLabel(fp),
@@ -116,7 +121,8 @@ export class PointsTableComponent implements OnInit {
       Math.pow(r, Math.log2(fp));
   }
 
-  fpsToDisplay(drawSize, magicFP): number[] {
+  fpsToDisplay(drawSize, magicFP, smallDrawSize): number[] {
+    if (this.isJuniorRegional && smallDrawSize < MIN_JR_REGIONAL_DRAW_SIZE) drawSize = smallDrawSize;
     let list = [];
     let prevFP = 0;
     for (const fp of baselineFPs) {

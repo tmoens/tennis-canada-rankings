@@ -2,6 +2,8 @@ import {EventGroup, RankingEvent} from "../../../app/utils/ranking-event";
 import {KeyedStaticCollection} from "../../../app/utils/keyed-static-collection";
 import {Rating} from "../../../app/utils/rating";
 
+export const MIN_JR_REGIONAL_DRAW_SIZE = 8;
+
 // ============== Events Supported in the Atlantics =====================
 const ATL_5_STAR: RankingEvent = new RankingEvent(
   '_ATL_5_star_',

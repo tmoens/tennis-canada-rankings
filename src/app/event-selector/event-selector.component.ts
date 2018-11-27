@@ -9,6 +9,7 @@ import {PROVINCES} from "../../assets/provinces/province-data";
 import {MatDialog} from "@angular/material";
 import {EventStructureDialog} from "../dialogs/event-structure-dialog/event-structure.component";
 import {ReadMoreDialogComponent} from "../dialogs/read-more-dialog/read-more-dialog.component";
+import {MIN_JR_REGIONAL_DRAW_SIZE} from "../../assets/event-groups/junior/junior-provincial-event-groups";
 
 @Component({
   selector: 'app-event-selector',
@@ -42,8 +43,11 @@ export class EventSelectorComponent implements OnInit {
   year: string;
 
   // a convenience variable for when we are dealing with
-  // this special event group.
+  // this special event group. Also, this group can have
+  // a modified ratings if the draws are small.
   isJuniorRegional:boolean;
+  smallDrawSize: any;
+  smallDrawSizes: any[] = [];
 
   // available choices in for juniors
   juniorAgeGroups: AgeGroup[] = JUNIOR_AGE_GROUPS;
@@ -75,6 +79,11 @@ export class EventSelectorComponent implements OnInit {
     this.appState.selectedProvince$.subscribe(p => {
       this.onProvinceChange(p);
     });
+    this.smallDrawSizes.push({value: MIN_JR_REGIONAL_DRAW_SIZE, desc: MIN_JR_REGIONAL_DRAW_SIZE.toString() + " or more players"});
+    this.smallDrawSize = this.smallDrawSizes[0];
+    for (let i = MIN_JR_REGIONAL_DRAW_SIZE - 1; i > 1; i--) {
+      this.smallDrawSizes.push({value: i, desc: i.toString() + " players",})
+    }
   }
 
   ngOnInit() {
