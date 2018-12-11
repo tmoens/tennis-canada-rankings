@@ -159,6 +159,15 @@ JUNIOR_COMBINED_AG_EVENTS_CG.addConcept(new Concept(
     '_Combined_Events_Condition_3_', LB, '_Combined_Events_Detail_2_', LB
   ]));
 
+// ------------------ Junior Multi Age-Group Events -------------------
+export const JUNIOR_MULTI_AG_EVENTS_CG = new ConceptGroup('_multi_agegroup_events_');
+JUNIOR_MULTI_AG_EVENTS_CG.addConcept(new Concept(
+  '_multi_agegroup_events_', [
+    '_multi_agegroup_events_detail_1_', LB, '_multi_agegroup_events_detail_2_', LB,
+    '_multi_agegroup_events_condition_1_', LB, '_multi_agegroup_events_condition_2_', LB,
+    '_multi_agegroup_events_condition_3_'
+  ]));
+
 // ------------------ Junior Canadian Open events ----------------------
 export const JUNIOR_CDN_OPEN_CG = new ConceptGroup('_Open_Events_Dialog_Title_');
 JUNIOR_CDN_OPEN_CG.addConcept(new Concept(   '_Major_Open_Events_', ['_MOE_Details_1_']));
@@ -187,11 +196,19 @@ JUNIOR_DOMESTIC_EVENT_CG.addConcept(new Concept(   null,
 JUNIOR_DOMESTIC_EVENT_CG.addConcept(new Concept(   null,
   ['_Provincial_Events_Details_3_'],
   2019));
-c = new Concept(   '_Combined_Events_Title_', ['_Combined_Events_Detail_', '_combined_events_rm_']);
+
+c = new Concept(   '_Combined_Events_Title_',
+  ['_Combined_Events_Detail_', '_combined_events_rm_'], 2013, 2018);
 c.expansionGroup = JUNIOR_COMBINED_AG_EVENTS_CG;
 JUNIOR_DOMESTIC_EVENT_CG.addConcept(c);
+
+c = new Concept(   '_multi_agegroup_events_',
+  ['_multi_agegroup_events_detail_', '_multi_agegroup_events_rm_'], 2019);
+c.expansionGroup = JUNIOR_MULTI_AG_EVENTS_CG;
+JUNIOR_DOMESTIC_EVENT_CG.addConcept(c);
+
 c = new Concept(   '_Canadian_Open_Events_',
-  ['_Canadian_Open_Event_Details_', LB, '_Canadian_Open_rm_'], 2019 );
+  ['_Canadian_Open_Event_Details_', LB, '_Canadian_Open_rm_'],  );
 c.expansionGroup = JUNIOR_CDN_OPEN_CG;
 JUNIOR_DOMESTIC_EVENT_CG.addConcept(c);
 

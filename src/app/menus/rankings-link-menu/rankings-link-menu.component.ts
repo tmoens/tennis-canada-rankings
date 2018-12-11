@@ -19,12 +19,18 @@ import {Province} from '../../utils/province';
 export class RankingsLinkMenuComponent implements OnInit {
   @Input() rankingGroup: RankingGroup;
   canada: Province;
+  cols: number = 4;
 
   constructor(public appState: AppState) {
     this.canada = PROVINCES.getItem('_CAN_');
   }
 
   ngOnInit() {
+    // Rankings list menus generally have 4 columns (MS, FS, MD, FD)
+    // Wheelchair only has three.
+    if (this.rankingGroup.name == '_Wheelchair_') {
+      this.cols =3;
+    }
   }
 
 }

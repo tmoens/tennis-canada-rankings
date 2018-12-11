@@ -108,7 +108,7 @@ export class EventSelectorComponent implements OnInit {
     if (eg.numSubGroups()) {
       this.eventSubGroups = this.selectedEventGroup.subGroups.map( eg =>
         eg.getVersion(this.year));
-      this.isJuniorRegional =  (eg.name == "_jr_regional_eg_");
+      this.isJuniorRegional =  (eg.name == "_Domestic_Events_");
       if (this.isJuniorRegional) {
         // For the Junior Regional group there is one sub-group per PTA
         // So, we auto select the one that corresponds to the current context

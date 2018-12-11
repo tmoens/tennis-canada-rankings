@@ -48,7 +48,11 @@ export class PointsTableComponent implements OnInit {
 
   constructor(public appState: AppState,
               public fpLabeler: FinishPositionLabeler,
-              ) {
+              )
+  {
+    this.appState.selectedRankingYear$.subscribe(y => {
+      this.ngOnChanges();
+    });
   }
 
   ngOnInit() {

@@ -303,7 +303,7 @@ export const CAN_JUNIOR_EVENT_GROUP: KeyedStaticCollection<EventGroup> =
 export const JUNIOR_REGIONAL_GROUP: KeyedStaticCollection<EventGroup> =
   new KeyedStaticCollection<EventGroup>({
     '2013': new EventGroup(
-      '_jr_regional_eg_',
+      '_Domestic_Events_',
       [],
       [
         CAN_JUNIOR_EVENT_GROUP,
