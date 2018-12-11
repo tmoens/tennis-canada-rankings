@@ -45,5 +45,6 @@
   "_o_w350_description_":  "Second tier Canadian women's open events.  The winner receives 350 ranking points.",
   "_o_w100_":  "Women's 100",
   "_o_w100_abbrv_":  "W100",
-  "_o_w100_description_":  "Third tier Canadian women's open events.  The winner receives 100 ranking points."
+  "_o_w100_description_":  "Third tier Canadian women's open events.  The winner receives 100 ranking points.",
+  "_no_events_found_":  "No open events found for"
 }

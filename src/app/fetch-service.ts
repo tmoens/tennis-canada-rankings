@@ -26,7 +26,7 @@ export class FetchService {
    * @param date
    * @param province
    */
-  fetchRankings(category: RankingCategory, date: string, province: Province):Observable<RankingsListDTO> {
+  fetchRankings(category: RankingCategory, date: string, province: Province): Observable<RankingsListDTO> {
     let url = `${this.serverURL}/VRRankingsPublication/list`;
     let params = new HttpParams()
       .set('code', category.vrCode)
@@ -40,8 +40,22 @@ export class FetchService {
     console.log (JSON.stringify(params));
     return this.http.get<RankingsListDTO>(url, {headers: headers, params: params})
       .pipe(
-        tap(_ => console.log('just curious')),
         catchError(this.handleError('fetchRankingsList',null))
+      );
+  }
+
+  // Load the Open tournament List
+  // There is a workbook in google docs which supplies the list of all the Open tournaments in Canada.
+  // It has one worksheet per year.
+  // This function goes and gets the sheet for a given year as JSON object.
+  fetchOpenTournaments(year: number): Observable<any> {
+    // By convention, 2013 is the second worksheet, 2014 the third and so on.
+    const sheet = year - 2011;
+    return this.http.get(
+      'https://spreadsheets.google.com/feeds/list/0AnMBHcdDDoB8dHQzcUlaWFExVHBVaDMwYXRWLWtBWGc/' +
+      sheet.toString() + '/public/values?alt=json')
+      .pipe(
+        catchError(this.handleError('fetching open tournaments',null))
       );
   }
 
@@ -62,17 +76,6 @@ export class FetchService {
    */
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
-
-      // Here's the rub - there really is no generic thing we CAN do when
-      // an http call fails.  Do we pop up an alert?  Not really a good
-      // idea always.  Remote log? Ditto. So we just put something on the console
-      // and pass back whatever we were told to.  Then for each client
-      // that makes an HTTP call and gets their error (usually empty)
-      // result back - they can decide if they need to do anything.
-      // Which is all pretty strange, because for that they could have
-      // just used the returned observable and handled the error themselves.
-      // So maybe I am not getting it, but this whole generic handler seems
-      // pretty pointless.
       console.log('Operation: ' + operation + ' failed.');
       // Let the app keep running by returning what we were told to.
       return of(result as T);

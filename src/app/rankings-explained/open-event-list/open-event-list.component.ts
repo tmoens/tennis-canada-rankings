@@ -10,6 +10,9 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {AppState} from "../../utils/app-state";
 import {HttpClient} from "@angular/common/http";
 import {MatSort, MatTableDataSource} from "@angular/material";
+import {catchError} from "rxjs/operators";
+import {of} from "rxjs";
+import {FetchService} from "../../fetch-service";
 
 @Component({
   selector: 'app-open-event-list',
@@ -21,11 +24,13 @@ export class OpenEventListComponent implements OnInit {
   tournaments: OpenTournament[] = [];
   tableData = new MatTableDataSource(this.tournaments);
   columnsToDisplay: string[] = ['province', 'name', 'mrating', 'frating'];
+  showList = true;
 
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(public appState: AppState,
-              public http: HttpClient) {
+              public http: HttpClient,
+              public fetchService: FetchService,) {
   }
 
   ngOnInit() {
@@ -47,37 +52,38 @@ export class OpenEventListComponent implements OnInit {
   // Load the Open tournament List
   // There is a workbook in google docs which supplies the list of all the Open tournaments in Canada.
   // It has one worksheet per year.
-  // This function goes and gets the sheet for a given year as  JSON object.
+  // This function uses the fetchService to go and get the sheet for a given year as JSON object.
   // The JSON object is very bloated.
   // The meat of the spreadsheet is in the returned data.feed.entry
   // The fields are all the column names in lower case prefixed by gsx$
   // The column content is an object with a field named $t which contains the content as text.
   // The consumer of this object needs to know this structure.
-  // TODO error handling - what if there is a 2019 in the years menu
-  // but Tennis Canada has not done the sheet yet?
   fetchOpenTournaments(year:number) {
+    this.year = year;
     let tournaments: OpenTournament[] = [];
-    // 2013 is the second worksheet, 2014 the third and so on.
-    const sheet = year - 2011;
-    let r: number;
-    this.http.get(
-      'https://spreadsheets.google.com/feeds/list/0AnMBHcdDDoB8dHQzcUlaWFExVHBVaDMwYXRWLWtBWGc/' +
-      sheet.toString() + '/public/values?alt=json')
+    this.fetchService.fetchOpenTournaments(year)
       .subscribe(data => {
-        const feed: any = data['feed'];
-        // Take the returned JSON and stuff it in something more useful.
-        for (const t of feed.entry) {
-          const tournament: OpenTournament = new OpenTournament(
-            t.title['$t'],
-            t['gsx$prov']['$t'],
-            (t['gsx$men']['$t'] && "-" !== t['gsx$men']['$t']) ? t['gsx$men']['$t'] : null,
-            (t['gsx$women']['$t']  && "-" !== t['gsx$women']['$t']) ? t['gsx$women']['$t'] : null
-          );
-          tournaments.push(tournament);
-          // console.log(JSON.stringify(tournament))
+        if (data) {
+          const feed: any = data['feed'];
+          // Take the returned JSON and stuff it in something more useful.
+          for (const t of feed.entry) {
+            const tournament: OpenTournament = new OpenTournament(
+              t.title['$t'],
+              t['gsx$prov']['$t'],
+              (t['gsx$men']['$t'] && "-" !== t['gsx$men']['$t']) ? t['gsx$men']['$t'] : null,
+              (t['gsx$women']['$t'] && "-" !== t['gsx$women']['$t']) ? t['gsx$women']['$t'] : null
+            );
+            tournaments.push(tournament);
+            // console.log(JSON.stringify(tournament))
+          }
+          this.tableData.data = tournaments;
+          this.showList = true;
+        } else {
+          this.tableData.data =[];
+          this.showList = false;
         }
-        this.tableData.data = tournaments;
-      })
+    })
+
   }
 
   applyFilter(filterValue: string) {

@@ -1,4 +1,5 @@
 {
+
   "_Open_Events_":  "Tournois ouverts",
   "_Open_Events_List_":  "Liste des tournois ouverts",
   "_mens_rating_":  "Niveau masculin",
@@ -7,13 +8,14 @@
   "_Womens_Open_Events_":  "Tournois ouverts féminins",
   "_Open_Point_Table_Title_":  "Attribution des points pour les tournois ouverts",
   "_Open_Ranking_Scope_":  "Portée du classement ouvert",
-  "_Open_Ranking_Scope_Detail_":  "Les classements ouverts concernent le plus haut niveau du simple et du double masculin et féminin. La portée comprend les résultats des tournois canadiens de niveau "Open" ainsi que les résultats des Canadens de tous les niveaux de jeu professionnel. Les classements ouverts peuvent être consultés à l'échelle nationale ou par province. ",
+  "_Open_Ranking_Scope_Detail_":  "Les classements ouverts concernent le plus haut niveau du simple et du double masculin et féminin. La portée comprend les résultats des tournois canadiens de niveau “Open” ainsi que les résultats des Canadens de tous les niveaux de jeu professionnel. Les classements ouverts peuvent être consultés à l'échelle nationale ou par province. ",
   "_Open_Event_Ratings_":  "Niveaux des tournois ouverts",
   "_Open_Event_Ratings_Synopsis_":  "Il y a trois niveaux de tournois ouverts féminins offertes au Canada : les tournois 1000, les tournois 350 et les tournois 100. Les gagnantes reçoivent respectivement 1000, 350 et 100 points. Comme il y a davantage de tournois ouverts masculins, un niveau de tournois s'ajoute : les tournois 200. Les tournois ouverts sont réévalués chaque année et cotés selon la force historique de leur tirage.",
   "_Pro_Points_":  "Points attribués aux tournois professionnels",
   "_Pro_Points_Detail_1_":  "Les tournois professionnels masculins et féminins de l'ATP et de la WTA donnent des points. Chaque point obtenu dans un tournoi professionnel vaut 1 000 points pour le classement ouvert.",
   "_Pro_Points_Detail_2_":  "Cette règle signifie que le perdant du premier tour d'un tournoi professionnel reçoit le même nombre de points que le vainqueur du plus haut niveau de tournois ouverts canadiens (tournois 1000).",
   "_Pro_Points_Detail_3_":  "Tennis Canada accordera 75 points pour chaque match gagné en qualification (par exemple, si un joueur remporte deux matchs de qualification, il recevra 150 points de classement). N. B. Comme il n’est pas facile de suivre toutes les épreuves de qualification en dehors du Canada, le joueur est responsable de communiquer avec son association provinciale pour lui fournir le nom et les dates du tournoi.",
+  "_Pro_Points_Detail_4_":  "The ITF Transition Tour came into being in 2019. Canadian Open men receive 80 rankings points for each transition tour point they earn. Canadian Open women receive 43 rankings points for each transition tour point they earn.",
   "_open_num_events_":  "Trois meilleurs tournois",
   "_open_num_events_detail_":  "Tennis Canada veut récompenser la qualité des résultats par rapport à la quantité afin de ne pas favoriser les joueurs qui performent à un niveau médiocre dans plusieurs tournois plutôt que ceux qui réussissent très bien dans quelques tournois. Par conséquent, seuls les trois meilleurs résultats d'un joueur comptent pour son classement. ",
   "_Open_Draw_Size_":  "Taille des tableaux",
@@ -43,5 +45,6 @@
   "_o_w350_description_":  "Deuxième niveau de tournois ouverts canadiens pour les femmes. La gagnante reçoit 350 points de classement.",
   "_o_w100_":  "Femmes 100 ",
   "_o_w100_abbrv_":  "F100 ",
-  "_o_w100_description_":  "Troisième niveau de tournois ouverts canadiens pour les femmes. La gagnante reçoit 100 points de classement, "
+  "_o_w100_description_":  "Troisième niveau de tournois ouverts canadiens pour les femmes. La gagnante reçoit 100 points de classement, ",
+  "_no_events_found_":  "No open events found for"
 }
