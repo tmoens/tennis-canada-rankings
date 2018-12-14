@@ -173,17 +173,6 @@
   "_Cancel_":  "Cancel",
   "_FAQ_":  "FAQ",
   "_Frequently_Asked_Questions_":  "Frequently Asked Questions",
-  "_q_new_system_":  "Why is there a new ranking system?",
-  "_a_new system_":  " We found that the head to head system did not encourage enough competitive play.  The new system awards points for progress in a tournament without ever penalizing a player for a poor result.  Players can build their rankings quickly by playing more and performing well.",
-  "_q_my_ranking_":  " Why did my ranking go down (or up)?",
-  "_a_my_ranking_":  "If you did not play many events last year, you will likely find that your ranking dropped, perhaps significantly.  The head to head system did not require you to play many matches to maintain a ranking.  In the new system, as in the professional rankings, if you do not play, you will not be able to maintain a ranking.  By playing a few tournaments, you will soon be able to build your ranking to reflect your quality as a player.",
-  "_q_my_initial_ranking_":  " How did you calculate my initial ranking?",
-  "_a_my_initial_ranking_":  "We loaded the system with your results from sanctioned tournament play in 2013. While we were able to load almost all tournaments from 2013, some small number could not be imported.  Your initial ranking for 2014 was calculated exactly as it will be calculated in 2014. Points are awarded based on a combination of factors:  how far you progress; the age group of the event; the level of the event. The web site below provides lots of detail about this. ",
-  "_q_many_rankings_":  "Why are there so many different rankings?",
-  "_a_many_rankings_":  "We are introducing rankings for Adult play in skill level tournaments, Senior rankings in every age category, doubles rankings provincial rankings in every category.  Each group has different play patterns and competitive structures in place and the rankings are adapted to each.  This website has a very careful description of how Open, Junior, Adult and Senior rankings are built.",
-  "_q_ranking_and_seeding_":  " Will the new rankings will be used to seed tournaments?",
-  "_a_ranking_and_seeding_":  "Many provincial tennis associations will be using the rankings to seed tournaments as of Jan 13, 2014 but others are rolling out on a different timeline. Please contact your provincial tennis association for further information.",
-  "_adult_rankings_notice_":  "The scope of the Adult Rankings is primarily provincial and the system is new in many provinces. As there is as yet no national standard for 5.0, 4.5, 4.0, 3.5, 3.0 and 2.5 tournaments and no national tournament structure for these levels, the national rankings are not considered “official”.",
   "_open_rankings_notice_":  "The Open Rankings are available provincially and nationally as of Feb 14, 2014. The rankings methodology will be continually under review for improvement. If you would like to comment, please use the feedback button under the “More...” menu at the top right of your screen.",
   "_historical_rankings_notice_":  "This area is under development and may not be fully functional at all times. The historical rankings presented here include only players who competed in at least one match that affected their ranking during the course of the year.",
   "_historical_draws_notice_":  "This are is under development. Many historical draws have been recreated and tested, but the process is ongoing.",
@@ -218,5 +207,7 @@
   "_rolling_52_weeks_":  "Ranking is Based on a Rolling 52 Week Point Accumulation",
   "_rolling_52_weeks_detail_":  "Points are accumulated from a player's results over the past 52 weeks. Results from each new week will be added and the results from the corresponding week of the previous year will be dropped. Players receive a ranking by playing at least one of the specified ranking events. ",
   "_filter_":  "Filter",
-  "_YOB_":  "YOB"
+  "_YOB_":  "YOB",
+  "_players_":  "players",
+  "_or_more_players_":  "or more players"
 }

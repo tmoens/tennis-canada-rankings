@@ -1,3 +1,15 @@
+/**
+ * This component provides set of selectors that allow the user to narrow down
+ * exactly which event type she wants to see a points table for.  Because it
+ * works ona phone it is structured so that both the selectors and the point
+ * tables fit on a single page.
+ *
+ * The seemingly excessive complication stems from the fact that we have
+ * different ranking methods fo adult, junior, senior, open and wheelchair
+ * and within juniors in particular we rank so many events - both
+ * domestic and international.
+ */
+
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {AppState} from "../utils/app-state";
 import {EventGroup, RankingEvent} from "../utils/ranking-event";
@@ -54,11 +66,11 @@ export class EventSelectorComponent implements OnInit {
   selectedAgeGroup: AgeGroup;
 
   // SelectedDrawSize
-  baseDrawSize:number = 128;
-  selectedDrawSize:number = 128;
+  baseDrawSize: number = 128;
+  selectedDrawSize: number = 128;
 
   // FinishPosition
-  selectedFinishPosition:number = 1;
+  selectedFinishPosition: number = 1;
 
   constructor(public appState: AppState,
               public eventStructureDialog: MatDialog,

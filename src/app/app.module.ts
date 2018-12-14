@@ -40,7 +40,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { EventStructureDialog } from './dialogs/event-structure-dialog/event-structure.component';
 import { ConceptDisplayComponent } from './rankings-explained/concept-display/concept-display.component';
-import { PointsTableComponent } from './event-selector/points-table/points-table.component';
+import { PointsTableComponent } from './phone-event-selector/phone-points-table/points-table.component';
 import { RankingsExplainedComponent } from './rankings-explained/rankings-explained.component';
 import { RankingsLinkMenuComponent } from './menus/rankings-link-menu/rankings-link-menu.component';
 import { ReadMoreDialogComponent } from './dialogs/read-more-dialog/read-more-dialog.component';
@@ -49,10 +49,14 @@ import { ProvinceSelectorComponent } from './menus/province-selector/province-se
 import { RankingYearSelectorComponent } from './menus/ranking-year-selector/ranking-year-selector.component';
 import { SplashComponent } from './splash/splash.component';
 import { SplashImageSelectorComponent } from './splash/splash-image-selector/splash-image-selector.component';
-import { EventSelectorComponent } from './event-selector/event-selector.component';
+import { EventSelectorComponent } from './phone-event-selector/event-selector.component';
 import { OpenEventListComponent } from './rankings-explained/open-event-list/open-event-list.component';
 import { VrRankingCategorySelectorComponent } from './menus/vr-ranking-category-selector/vr-ranking-category-selector.component';
 import { RankingHistoryComponent } from './history/ranking-history/ranking-history.component';
+import { AdultPtComponent } from './lg-points-tables/adult-pt/adult-pt.component';
+import { WheelchairPtComponent } from './lg-points-tables/wheelchair-pt/wheelchair-pt.component';
+import { SeniorPtComponent } from './lg-points-tables/senior-pt/senior-pt.component';
+import { JuniorPtComponent } from './lg-points-tables/junior-pt/junior-pt.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -88,6 +92,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     OpenEventListComponent,
     VrRankingCategorySelectorComponent,
     RankingHistoryComponent,
+    AdultPtComponent,
+    WheelchairPtComponent,
+    SeniorPtComponent,
+    JuniorPtComponent,
   ],
   imports: [
     BrowserModule,

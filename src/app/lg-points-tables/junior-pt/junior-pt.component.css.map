@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,QAAS;EACP,MAAM,EAAE,IAAI;;AAGd,SAAU;EACR,SAAS,EAAE,IAAI;EACf,YAAY,EAAC,GAAG;EAChB,UAAU,EAAE,KAAK;;AAGnB,gBAAiB;EACf,YAAY,EAAC,GAAG;EAChB,UAAU,EAAE,MAAM;;AAGpB,aAAc;EACZ,KAAK,EAAE,QAAQ;;AAGjB,kBAAmB;EACjB,KAAK,EAAE,KAAK;;AAGd,kBAAmB;EACjB,KAAK,EAAE,KAAK",
+"sources": ["junior-pt.component.scss"],
+"names": [],
+"file": "junior-pt.component.css"
+}

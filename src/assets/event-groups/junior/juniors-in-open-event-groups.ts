@@ -80,6 +80,17 @@ eg = new EventGroup(
     new RankingEvent('_Ch_150_', new Rating(110 * u18ToATPConversion)),
     new RankingEvent('_Ch_125_+H_', new Rating(110 * u18ToATPConversion)),
     new RankingEvent('_Ch_125_', new Rating(100 * u18ToATPConversion)),
+  ]);
+eg.groupType = EventGroupType.JR_IN_MENS_PRO;
+eg.conceptGroup = JUNIOR_MALE_PRO_CG;
+const ATP_EVENT_GROUP: KeyedStaticCollection<EventGroup> =
+  new KeyedStaticCollection<EventGroup>({
+    '2013': eg
+  });
+
+eg = new EventGroup(
+  '_ATP2_eg_',
+  [
     new RankingEvent('_Ch_100_+H_', new Rating(100 * u18ToATPConversion)),
     new RankingEvent('_Ch_100_', new Rating(90 * u18ToATPConversion)),
     new RankingEvent('_Ch_75_+H_', new Rating(90 * u18ToATPConversion)),
@@ -91,7 +102,7 @@ eg = new EventGroup(
   ]);
 eg.groupType = EventGroupType.JR_IN_MENS_PRO;
 eg.conceptGroup = JUNIOR_MALE_PRO_CG;
-const ATP_EVENT_GROUP: KeyedStaticCollection<EventGroup> =
+const ATP2_EVENT_GROUP: KeyedStaticCollection<EventGroup> =
   new KeyedStaticCollection<EventGroup>({
     '2013': eg
   });
@@ -105,8 +116,15 @@ export const JUNIORS_IN_PROS_EVENT_GROUP: KeyedStaticCollection<EventGroup> =
         WTA_EVENT_GROUP,
         WITF_EVENT_GROUP,
         ATP_EVENT_GROUP,
+        ATP2_EVENT_GROUP,
         JR_IN_OPEN_EG,
       ]
     ),
-    '2019': jrInOpenEG
+    '2019': new EventGroup(
+      '_jr_in_open_eg_',
+      [],
+      [
+        JR_IN_OPEN_EG,
+      ]
+    ),
   });

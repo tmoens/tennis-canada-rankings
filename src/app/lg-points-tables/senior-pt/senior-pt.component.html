@@ -1,0 +1,29 @@
+<div class="mat-elevation-z3" style="padding: 8px; margin: 5px">
+  <div fxLayout="column" fxLayoutGap="20px" fxLayoutAlign="center start" >
+    <div class="mat-subheading-1" fxFlexAlign="center">
+      {{'_Point_Awards_' | translate}} {{'_for_' | translate }}
+      {{rankingGroup.name|translate}} {{'_Events_' | translate}}
+    </div>
+    <div>
+      <div class="mat-elevation-z1">
+        <table class="mat-table">
+          <tr class="mat-row">
+            <th class="mat-header-cell"></th>
+            <th class="mat-header-cell" *ngFor="let h of headerRow">{{h | translate}}</th>
+          </tr>
+          <tr *ngFor="let r of pointsTable; let i = index" class="mat-row">
+            <th class="mat-header-cell">{{headerColumn[i] | translate}}</th>
+            <td class="mat-cell"  *ngFor="let c of r" [class.special-cell]="c.special"> {{c.value | number: '1.0-0'}}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div fxLayout="row" fxFlexAlign="center" fxLayoutAlign="start start" fxLayoutGap="15px">
+      <mat-form-field class="form-field-narrow">
+        <input matInput type="number" [(ngModel)]="customFinishPosition"
+               [placeholder]="'_custom_fp_'| translate"
+               maxlength="3" min="1" [max]="32" (ngModelChange)="buildPointsTable()">
+      </mat-form-field>
+    </div>
+  </div>
+</div>

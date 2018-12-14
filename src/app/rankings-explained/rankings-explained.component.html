@@ -1,5 +1,6 @@
 <!--
   This is used for all the rankings groups to tell all the gorey details
+  about how the rankings are computed and built.
   It is organized differently for screens and phones.
   But there are really only two main areas.  One for points table(s).
   The other is a set of tabs for explaining all the concepts and rules
@@ -24,9 +25,17 @@
   -->
   <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="15px"
        fxLayout.gt-sm="row" fxLayoutAlign.gt-sm="center start">
-    <div >
-      <!-- This part is for showing the various points tables for the selected ranking group -->
+    <div fxHide.gt-sm>
+      <!-- This part is for showing the various points tables for the selected ranking group  on the phone -->
       <app-event-selector></app-event-selector>
+    </div>
+    <div fxHide.lt-md>
+      <!-- This part is for showing the various points tables for the selected ranking group on a bigger screen -->
+      <app-adult-pt *ngIf="rankingGroup.name == '_Adult_'" [rankingGroup]="rankingGroup"></app-adult-pt>
+      <app-wheelchair-pt *ngIf="rankingGroup.name == '_Wheelchair_'" [rankingGroup]="rankingGroup"></app-wheelchair-pt>
+      <app-senior-pt *ngIf="rankingGroup.name == '_Senior_'" [rankingGroup]="rankingGroup"></app-senior-pt>
+      <app-senior-pt *ngIf="rankingGroup.name == '_Open_'" [rankingGroup]="rankingGroup"></app-senior-pt>
+      <app-junior-pt *ngIf="rankingGroup.name == '_Junior_'" [rankingGroup]="rankingGroup"></app-junior-pt>
     </div>
     <!--
       The "rankings concepts" which are displayed as tabs on big screens and

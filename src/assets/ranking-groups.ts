@@ -25,12 +25,14 @@ import {ADULT_KEY_CONCEPTS_CG, ADULT_OTHER_CG} from './concepts/adult-concepts';
 import {OPEN_KEY_CONCEPTS_CG, OPEN_OTHER_CG} from './concepts/open-concepts';
 import {SENIOR_KEY_CONCEPTS_CG, SENIOR_OTHER_CG, SENIOR_RATINGS_AND_POINTS_GC} from './concepts/senior-concepts';
 import {WHEELCHAIR_KEY_CONCEPTS_CG, WHEELCHAIR_OTHER_CG} from './concepts/wheelchair-concepts';
+import {JUNIOR_NATIONALS_GROUP} from "./event-groups/junior/junior-national-event-groups";
 
 export const RANKING_GROUPS = [
   new RankingGroup('_Junior_', '143', 10000,
     JUNIOR_RANKING_CATEGORIES,
     [JUNIOR_KEY_CONCEPTS_CG, JUNIOR_RATINGS_CG, JUNIOR_DOMESTIC_EVENT_CG, JUNIOR_OTHER_EVENT_CG],
     [
+      JUNIOR_NATIONALS_GROUP,
       JUNIOR_REGIONAL_GROUP,
       JUNIORS_IN_PROS_EVENT_GROUP,
       JUNIOR_INTERNATIONAL_GROUP,

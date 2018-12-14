@@ -1,0 +1,20 @@
+.mat-row {
+  height: 30px; }
+
+.mat-cell {
+  font-size: 12px;
+  padding-left: 8px;
+  text-align: right; }
+
+.mat-header-cell {
+  padding-left: 8px;
+  text-align: center; }
+
+.special-cell {
+  color: darkblue; }
+
+.mat-form-field {
+  font-size: 12px;
+  width: 100px; }
+
+/*# sourceMappingURL=adult-pt.component.css.map */

@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,QAAS;EACP,MAAM,EAAE,IAAI;;AAGd,SAAU;EACR,SAAS,EAAE,IAAI;EACf,YAAY,EAAC,GAAG;EAChB,UAAU,EAAE,KAAK;;AAGnB,gBAAiB;EACf,YAAY,EAAC,GAAG;EAChB,UAAU,EAAE,MAAM;;AAGpB,aAAc;EACZ,KAAK,EAAE,QAAQ;;AAGjB,eAAgB;EACd,SAAS,EAAE,IAAI;EACf,KAAK,EAAE,KAAK",
+"sources": ["adult-pt.component.scss"],
+"names": [],
+"file": "adult-pt.component.css"
+}

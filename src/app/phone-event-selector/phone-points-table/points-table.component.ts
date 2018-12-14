@@ -1,3 +1,7 @@
+/**
+ * This is a single column points table designed to fit on a phone.
+ * It shows the point awards for a single type event.
+ */
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import {EventGroup, RankingEvent} from "../../utils/ranking-event";
 import { FinishPositionLabeler } from "../../utils/finish-positions";

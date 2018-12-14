@@ -13,9 +13,15 @@ OPEN_KEY_CONCEPTS_CG.addConcept(new Concept(
   '_Pro_Points_', [
     '_Pro_Points_Detail_1_', LB,
     '_Pro_Points_Detail_2_', LB,
+    '_Pro_Points_Detail_3_'
+  ], 2013, 2018));
+OPEN_KEY_CONCEPTS_CG.addConcept(new Concept(
+  '_Pro_Points_', [
+    '_Pro_Points_Detail_1_', LB,
+    '_Pro_Points_Detail_2_', LB,
     '_Pro_Points_Detail_3_', LB,
     '_Pro_Points_Detail_4_'
-  ]));
+  ], 2019));
 OPEN_KEY_CONCEPTS_CG.addConcept(RANKING_ELIGIBILITY_C);
 
 // ------------------ Open Other Concepts -----------------
