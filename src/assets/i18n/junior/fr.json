@@ -1,5 +1,4 @@
 {
-
   "_junior_competitive_structure_":  "Structure de compétition",
   "_RM_International_":  "Plus de renseignements sur les tournois internationaux juniors",
   "_RSF_":  "Indice de force régionale",
@@ -158,6 +157,8 @@
   "_RLFBWD_Domestic_Title_":  "Tournois canadiens au sein de votre catégorie d'âge",
   "_RLFBWD_Domestic_PU_Title_":  "Tournois canadiens au sein d'une catégorie d'âge au-dessus de la vôtre",
   "_RLFBWD_International_Title_":  "Tournois internationaux",
+  "_FR_ITF_title_2019_":  "Tournois ITF",
+  "_FR_ITF_detail_2019_1_":  "Since 2019, in ITF tournaments, junior points are awarded based on ITF points earned. So, the following rules only apply USTA and Tennis Europe tournaments.",
   "_FR_Participation_Required_":  "Participation requise",
   "_FR_PR_Details_":  "Afin de gagner des points, un joueur doit participer à un tournoi. Si un joueur se retire du tournoi lors de son premier match, aucun point sera attribué. ",
   "_Win_Required_PU_":  "Victoire requise",
@@ -184,7 +185,8 @@
   "_jr_in_open_eg_title_":  "Juniors dans les tournois pro et ouverts",
   "_WTA_eg_":  "WTA",
   "_WITF_eg_":  "ITF féminin",
-  "_ATP_eg_":  "ATP",
+  "_ATP_eg_":  "ATP Tier 1",
+  "_ATP2_eg_":  "ATP Tier 2",
   "_jr_open_eg_":  "Tournois canadiens ouverts",
   "_jr_open_w_":  "Tournois canadiens ouverts féminins",
   "_jr_open_w_abbrv_":  "Ouverts féminins",
@@ -198,7 +200,7 @@
   "_boys_ITF_ER_":  "Pour les garçons, 1 point junior de l'ITF vaut 150 points au classement junior canadien.",
   "_girls_ITF_ER_":  "Pour les filles, 1 point junior de l'ITF vaut  points au classement junior canadien.",
   "_mens_TT_ER_":  "Pour les garçons, 1 point du circuit de transition de l'ITF vaut 600 points au classement junior canadien.",
-  "_womens_TT_ER_":  "Pour les filles, 1 point du circuit de transition de l'ITF vaut 320 points au classement junior canadien.",
+  "_womens_TT_ER_":  "Pour les filles, 1 point du circuit de transition de l'ITF vaut 300 points au classement junior canadien.",
   "_ATP_ER_":  "1 point de l'ATP vaut 7 500 points au classement junior canadien.",
   "_WTA_ER_":  "1 point de la WTA vaut 2 500 points au classement junior canadien.",
   "_exchange_rate_":  "Taux de conversion",

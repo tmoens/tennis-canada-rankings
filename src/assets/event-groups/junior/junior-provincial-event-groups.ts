@@ -285,7 +285,7 @@ const BC_NJOS: RankingEvent = new RankingEvent(
   new Rating(0.216));
 const ON_NJOS: RankingEvent = new RankingEvent(
   '_ON_JOS_',
-  new Rating(0.3828));
+  new Rating(0.2508));
 const QC_NJOS: RankingEvent = new RankingEvent(
   '_QC_JOS_',
   new Rating(0.216));
@@ -294,7 +294,7 @@ const QC_NJOS: RankingEvent = new RankingEvent(
 export const CAN_JUNIOR_EVENT_GROUP: KeyedStaticCollection<EventGroup> =
   new KeyedStaticCollection<EventGroup>({
     '2013': new EventGroup("_CAN_",
-      [CAN_NATIONALS, BC_NJOS, ON_NJOS, QC_NJOS,]
+      [CAN_NATIONALS]
     ),
   });
 

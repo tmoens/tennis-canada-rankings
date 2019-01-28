@@ -1,5 +1,4 @@
 {
-
   "_junior_competitive_structure_":  "Competitive Structure",
   "_RM_International_":  "Read more about international junior event ratings",
   "_RSF_":  "Regional strength factor",
@@ -158,6 +157,8 @@
   "_RLFBWD_Domestic_Title_":  "Domestic Events, Playing in Own Age Group",
   "_RLFBWD_Domestic_PU_Title_":  "Domestic Events Playing Above Own Age Group",
   "_RLFBWD_International_Title_":  "International Events",
+  "_FR_ITF_title_2019_":  "ITF Tournaments",
+  "_FR_ITF_detail_2019_1_":  "Since 2019, in ITF tournaments, junior points are awarded based on ITF points earned. So, the following rules only apply USTA and Tennis Europe tournaments.",
   "_FR_Participation_Required_":  "Participation Required",
   "_FR_PR_Details_":  "In order to earn points a player must participate in an event.  So if a player withdraws from an event or yields a walkover or default in his or her first match on court, no points are awarded.",
   "_Win_Required_PU_":  "Win Required",
@@ -184,7 +185,8 @@
   "_jr_in_open_eg_title_":  "Juniors Playing Pro & Open",
   "_WTA_eg_":  "WTA",
   "_WITF_eg_":  "Womens ITF",
-  "_ATP_eg_":  "ATP",
+  "_ATP_eg_":  "ATP Tier 1",
+  "_ATP2_eg_":  "ATP Tier 2",
   "_jr_open_eg_":  "Canadian Open",
   "_jr_open_w_":  "Canadian Open Women",
   "_jr_open_w_abbrv_":  "Open Women",
@@ -198,7 +200,7 @@
   "_boys_ITF_ER_":  "1 ITF junior boy's point earns 150 Canadian junior boys rankings points.",
   "_girls_ITF_ER_":  "1 ITF junior girl's point earns 200 Canadian junior girl's rankings points.",
   "_mens_TT_ER_":  "1 ITF men's transition tour point earns 600 Canadian junior boy's rankings points.",
-  "_womens_TT_ER_":  "1 ITF women's transition tour point earns 320 Canadian junior girl's rankings points.",
+  "_womens_TT_ER_":  "1 ITF women's transition tour point earns 300 Canadian junior girl's rankings points.",
   "_ATP_ER_":  "1 ATP point earns 7,500 Canadian junior boy's rankings point.",
   "_WTA_ER_":  "1 WTA point earns 2,500 Canadian junior girl's rankings point.",
   "_exchange_rate_":  "Exchange Rate",

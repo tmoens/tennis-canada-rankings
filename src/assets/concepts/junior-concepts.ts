@@ -78,6 +78,8 @@ export const JUNIOR_INTL_FRL_CG = new ConceptGroup('_RLFBWD_');
 JUNIOR_INTL_FRL_CG.addConcept(new Concept(
   '_RLFBWD_International_Title_', []));
 JUNIOR_INTL_FRL_CG.addConcept(new Concept(
+  '_FR_ITF_title_2019_', ['_FR_ITF_detail_2019_1_']));
+JUNIOR_INTL_FRL_CG.addConcept(new Concept(
   '_FR_Participation_Required_', ['_FR_PR_Details_']));
 JUNIOR_INTL_FRL_CG.addConcept(new Concept(
   '_FRL_', ['_FRL_International_']));
