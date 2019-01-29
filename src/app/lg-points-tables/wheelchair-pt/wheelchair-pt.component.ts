@@ -39,32 +39,31 @@ export class WheelchairPtComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.buildPointsTable();
-    this.appState.selectedRankingYear$.subscribe( _ => this.buildPointsTable());
+    this.appState.selectedRankingYear$.subscribe( _ => this.onRankingYearChange());
   }
 
-  onSelectSubGroup(sg: EventGroup) {
-    this.selectedSubGroup = sg;
-    this.selectedEvent = sg.rankingEvents[0];
-    this.buildPointsTable();
-  }
-
-  buildPointsTable() {
-    let wheelchairEventGroup = WHEELCHAIR_EVENT_GROUP;
+  onRankingYearChange() {
     let year = this.appState.selectedRankingYear
     // Wheelchair has exactly one event group
-    this.selectedEventGroup = wheelchairEventGroup.getVersion(year);
+    this.selectedEventGroup = WHEELCHAIR_EVENT_GROUP.getVersion(year);
     // There are several sub-groups, each with one event only.
     this.subGroups = this.selectedEventGroup.subGroups.map(eg =>
       eg.getVersion(this.appState.selectedRankingYear));
 
     // In wheelchair there is a separate sub event group for every type of event.
     this.selectedSubGroup = this.subGroups[0];
+    this.buildPointsTable();
+  }
 
-    // this is the event
+  onSelectSubGroup(sg: EventGroup) {
+    this.selectedSubGroup = sg;
+    this.buildPointsTable();
+  }
+
+  buildPointsTable() {
+    // In wheelchair, every subgroup has only one event
     this.selectedEvent = this.selectedSubGroup.rankingEvents[0];
-// In wheelchair every event group has just one event.
-    let rating: number = this.selectedEvent.rating.getRating(year);
+    let rating: number = this.selectedEvent.rating.getRating(this.appState.selectedRankingYear);
     let baseDrawSize = this.selectedEvent.getBaseDrawSize();
     let drawSizes: number[] = arrayInsert(this.drawSizes, this.customDrawSize);
     let fps: number[] = arrayInsert(this.finishPositions, this.customFinishPosition);
