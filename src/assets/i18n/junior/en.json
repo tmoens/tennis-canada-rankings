@@ -1,4 +1,5 @@
 {
+
   "_junior_competitive_structure_":  "Competitive Structure",
   "_RM_International_":  "Read more about international junior event ratings",
   "_RSF_":  "Regional strength factor",
@@ -88,7 +89,7 @@
   "_multi_agegroup_events_detail_":  "Many events involve players from multiple age groups. Some such events will be downgraded if there are too few players in the actual event age-group.",
   "_multi_agegroup_events_rm_":  "Read more about multi age-group events.",
   "_multi_agegroup_events_detail_1_":  "Many events involve players from multiple age groups. Normally such events are rated for the age group of the oldest participants. However, some such events are notably weaker. This can happen when events are combined or there are simply not enough players to run events in each age category.  We must avoid the lower age group players building a strong ranking simply by playing in such events.",
-  "_multi_agegroup_events_detail_2_":  "Therefore Multi age-group events will be downgraded (by one age group) when any of the following conditions apply:",
+  "_multi_agegroup_events_detail_2_":  "Therefore Multi age-group events will be downgraded (by one age group) when all of the following conditions apply:",
   "_multi_agegroup_events_condition_1_":  "less than  25% of the players are in the age category of the event",
   "_multi_agegroup_events_condition_2_":  "less than 50% of the players are in the age group of the event or the age group below.",
   "_multi_agegroup_events_condition_3_":  "fewer than 8 players in total are in the age group of the event or the age group below.",

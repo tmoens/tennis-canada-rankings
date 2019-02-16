@@ -1,4 +1,5 @@
 {
+
   "_junior_competitive_structure_":  "Structure de compétition",
   "_RM_International_":  "Plus de renseignements sur les tournois internationaux juniors",
   "_RSF_":  "Indice de force régionale",
@@ -88,7 +89,7 @@
   "_multi_agegroup_events_detail_":  "De nombreux tournois réunissent des joueurs de différentes catégories d'âge. Certains d'entre eux seront déclassés s'il y a trop peu de joueurs dans la catégorie d'âge du tournoi. ",
   "_multi_agegroup_events_rm_":  "Plus sur les tournois multi-âges",
   "_multi_agegroup_events_detail_1_":  "De nombreux tournois réunissent des joueurs de différentes catégories d'âge. Normalement, ces tournois sont évalués pour la catégorie d'âge des participants les plus âgés. Toutefois, certaines de ces tournois sont nettement plus faibles. Cela peut se produire lorsque les épreuves sont combinées ou qu'il n'y a tout simplement pas assez de joueurs pour organiser des épreuves dans chaque catégorie d'âge. Nous devons éviter que les joueurs du groupe d'âge inférieur se forgent un bon classement en ne participant qu'à de tels tournois.",
-  "_multi_agegroup_events_detail_2_":  "Par conséquent, les tournois multi-âges seront déclassés (par groupe d'âge) lorsque l'une des conditions suivantes s'applique :",
+  "_multi_agegroup_events_detail_2_":  "Therefore Multi age-group events will be downgraded (by one age group) when all of the following conditions apply:",
   "_multi_agegroup_events_condition_1_":  "moins de 25 % des joueurs sont dans la catégorie d'âge du tournoi",
   "_multi_agegroup_events_condition_2_":  "moins de 50 % des joueurs sont dans la catégorie d'âge du tournoi ou dans la catégorie d'âge inférieure",
   "_multi_agegroup_events_condition_3_":  "moins de 8 joueurs font partie de la catégorie d'âge du tournoi ou de la catégorie d'âge inférieure.",
