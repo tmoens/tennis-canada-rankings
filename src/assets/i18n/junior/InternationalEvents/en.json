@@ -1,7 +1,7 @@
-{
-  "_international_events_":  "International Events",
+{"_international_events_":  "International Events",
   "_jr_int_eg_":  "Junior International",
   "_jr_int_eg_title_":  "Junior International",
+  "_jr_int_eg_events_rm_":  "Read about the supported",
   "_International_Junior_Events_":  "International (ITF, USTA and Tennis Europe) Junior Events",
   "_IJE_Details_":  "A selected set of internationally rated junior events will also be included in the national rankings. The ratings for these events are based on the historical performance of top Canadian players at these events. We also considered the relative ratings of these events by their sanctioning body.",
   "_IJE_Details_2_":  "Players who participate in USTA and Tennis Europe events must inform Tennis Canada of their participation by e-mailing tournaments@tenniscanada.com to ensure that the appropriate points will be awarded.",
@@ -60,6 +60,18 @@
   "_TE_Ctgy1_abbrv_":  "TE Ctgy 1",
   "_TE_Ctgy1_":  "Tennis Europe Category 1",
   "_TE_Ctgy1_description_":  "Tennis Canada awards points for the top four Tennis Europe Under 16 events.  These are the International Foligno, International Montecanti, Torneo Avvenire Milano and Pont des Generations.",
+  "_TE_Ctgy1A_U14_abbrv_":  "TE Ctgy 1A",
+  "_TE_Ctgy1A_U14_":  "Top Tennis Europe Category 1A",
+  "_TE_Ctgy1A_U14_description_":  "Tennis Canada awards premium points for the top Tennis Europe Under 14 events.  These are Petits As, Open du Stade Francais, Windmill Cup, International Deutsche Tennismeistrschaften U14 Duren. Please see the Junior International boys and girls U14 points tables for awards.",
+  "_TE_Ctgy1B_U14_abbrv_":  "TE Ctgy 1B",
+  "_TE_Ctgy1B_U14_":  "Top Tennis Europe Category 1B",
+  "_TE_Ctgy1B_U14_description_":  "Reduced points are also awarded for the second tier of TE Category 1 tournaments.  Please see the Junior International boys and girls U14 points tables for awards.",
+  "_TE_Ctgy1A_U12_abbrv_":  "TE Ctgy 1A",
+  "_TE_Ctgy1A_U12_":  "Top Tennis Europe Category 1A",
+  "_TE_Ctgy1A_U12_description_":  "Tennis Canada awards premium points for the top Tennis Europe Under 12 events.  These are Auray, Jufa 2019 EU Junior Tour, Sparkasse Bambini Cup, Porto San Giorgio. Please see the Junior International boys and girls U12 points tables for awards.",
+  "_TE_Ctgy1B_U12_abbrv_":  "TE Ctgy 1B",
+  "_TE_Ctgy1B_U12_":  "Top Tennis Europe Category 1B",
+  "_TE_Ctgy1B_U12_description_":  "Reduced points are also awarded for the second tier of TE Category 1 tournaments.  Please see the Junior International boys and girls U12 points tables for awards.",
   "_Eddie_Herr_abbrv_":  "Eddie Herr",
   "_Eddie_Herr_":  "Eddie Herr",
   "_Eddie_Herr_description_":  "International Junior Tennis Championships.",
@@ -74,5 +86,5 @@
   "_TE_Ctgy2_description_":  "These are the second tier of junior events in Europe,  The draws are not as strong as Category 1 events.",
   "_TE_Ctgy3_abbrv_":  "TE Ctgy3",
   "_TE_Ctgy3_":  "Tennis Europe Category 3",
-  "_TE_Ctgy3_description_":  "These are the most numerous and accessible international events offed in Europe."
+  "_TE_Ctgy3_description_":  "These are the most numerous and accessible international events offered in Europe."
 }

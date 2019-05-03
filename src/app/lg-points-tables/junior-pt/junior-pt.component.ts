@@ -49,6 +49,10 @@ export class JuniorPtComponent implements OnInit {
   smallDrawSize: any;
   smallDrawSizes: any[] = [];
 
+  // a convenience variable for when we are dealing with
+  // this special event group.
+  isJuniorInternational: boolean;
+
   // available choices in for juniors
   juniorAgeGroups: AgeGroup[] = JUNIOR_AGE_GROUPS;
   selectedAgeGroup: AgeGroup;
@@ -129,6 +133,7 @@ export class JuniorPtComponent implements OnInit {
 
   onSelectEventGroup(eg: EventGroup) {
     this.isJuniorRegional = false;
+    this.isJuniorInternational = false;
     this.selectedEventGroup = eg;
     this.eventSubGroups = this.selectedEventGroup.subGroups.map( eg =>
       eg.getVersion(this.year));
@@ -144,9 +149,11 @@ export class JuniorPtComponent implements OnInit {
       // otherwise, just select the first sub group
       this.onSelectEventSubGroup(this.eventSubGroups[0]);
     }
+    this.isJuniorInternational =  (eg.name == "_jr_int_eg_");
   }
 
   onSelectEventSubGroup(esg: EventGroup) {
+    this.hasSecondHeaderRow = false;
     if (this.isJuniorRegional) {
       this.selectedProvince = PROVINCES.getItem(esg.name)
       this.hasSecondHeaderRow = (this.selectedProvince.abbrv === 'BC' || this.selectedProvince.abbrv === 'AB');

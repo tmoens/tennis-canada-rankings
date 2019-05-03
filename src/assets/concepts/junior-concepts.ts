@@ -282,7 +282,7 @@ c.expansionGroup = JUNIOR_INTL_EVENTS_CG;
 JUNIOR_OTHER_EVENT_CG.addConcept(c);
 c = new Concept(
   '_USTA_TE_events_', [
-    '_IJE_Details_', LB, '_IJE_Details_2_', '_IJE_RM_'], 2019);
+    '_IJE_Details_', LB, '_IJE_Details_2_'], 2019);
 c.expansionGroup = USTA_TE_EVENTS_CG;
 JUNIOR_OTHER_EVENT_CG.addConcept(c);
 c = new Concept(   '_Open_Events_',

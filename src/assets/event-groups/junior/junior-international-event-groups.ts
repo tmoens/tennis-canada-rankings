@@ -53,8 +53,8 @@ const INTERNATIONAL_U16_BOYS_EVENT_GROUP: KeyedStaticCollection<EventGroup> =
       '_U16_b_int_eg_',
       [
         new RankingEvent('_Orange_Bowl_', new Rating(2.3)),
-        new RankingEvent('_TE_Ctgy1_', new Rating(1)),
         new RankingEvent('_Eddie_Herr_', new Rating(2)),
+        new RankingEvent('_TE_Ctgy1_', new Rating(1)),
       ]
     )
 
@@ -74,8 +74,8 @@ const INTERNATIONAL_U16_GIRLS_EVENT_GROUP: KeyedStaticCollection<EventGroup> =
       '_U16_g_int_eg_',
       [
         new RankingEvent('_Orange_Bowl_', new Rating(2.3)),
-        new RankingEvent('_TE_Ctgy1_', new Rating(1)),
         new RankingEvent('_Eddie_Herr_', new Rating(2)),
+        new RankingEvent('_TE_Ctgy1_', new Rating(1)),
       ]
     )
   });
@@ -94,8 +94,11 @@ const INTERNATIONAL_U14_BOYS_EVENT_GROUP: KeyedStaticCollection<EventGroup> =
     '2019': new EventGroup(
       '_U14_b_int_eg_',
       [
-        new RankingEvent('_TE_Ctgy1_', new Rating(0.52)),
-        new RankingEvent('_TE_Ctgy2_', new Rating(0.21)),
+        new RankingEvent('_Orange_Bowl_', new Rating(0.52)),
+        new RankingEvent('_Eddie_Herr_', new Rating(0.21)),
+        new RankingEvent('_TE_Ctgy1A_U14_', new Rating(0.52)),
+        new RankingEvent('_TE_Ctgy1B_U14_', new Rating(0.16)),
+        new RankingEvent('_TE_Ctgy2_', new Rating(0.09)),
       ]
     )
   });
@@ -114,8 +117,11 @@ const INTERNATIONAL_U14_GIRLS_EVENT_GROUP: KeyedStaticCollection<EventGroup> =
     '2019': new EventGroup(
       '_U14_g_int_eg_',
       [
-        new RankingEvent('_TE_Ctgy1_', new Rating(0.74)),
-        new RankingEvent('_TE_Ctgy2_', new Rating(0.36)),
+        new RankingEvent('_Orange_Bowl_', new Rating(0.74)),
+        new RankingEvent('_Eddie_Herr_', new Rating(0.36)),
+        new RankingEvent('_TE_Ctgy1A_U14_', new Rating(0.74)),
+        new RankingEvent('_TE_Ctgy1B_U14_', new Rating(0.27)),
+        new RankingEvent('_TE_Ctgy2_', new Rating(0.13)),
       ]
     )
   });
@@ -135,7 +141,8 @@ const INTERNATIONAL_U12_BOYS_EVENT_GROUP: KeyedStaticCollection<EventGroup> =
       [
         new RankingEvent('_Orange_Bowl_', new Rating(0.17)),
         new RankingEvent('_Eddie_Herr_', new Rating(0.106)),
-        new RankingEvent('_TE_Ctgy3_', new Rating(0.025)),
+        new RankingEvent('_TE_Ctgy1A_U12_', new Rating(0.106)),
+        new RankingEvent('_TE_Ctgy1B_U12_', new Rating(0.025)),
       ]
     )
   });
@@ -155,7 +162,8 @@ const INTERNATIONAL_U12_GIRLS_EVENT_GROUP: KeyedStaticCollection<EventGroup> =
       [
         new RankingEvent('_Orange_Bowl_', new Rating(0.17)),
         new RankingEvent('_Eddie_Herr_', new Rating(0.106)),
-        new RankingEvent('_TE_Ctgy3_', new Rating(0.05)),
+        new RankingEvent('_TE_Ctgy1A_U12_', new Rating(0.106)),
+        new RankingEvent('_TE_Ctgy1B_U12_', new Rating(0.05)),
       ]
     )
   });

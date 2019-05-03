@@ -1,5 +1,5 @@
 <div class="mat-elevation-z3" style="padding: 8px; margin: 5px">
-  <div fxLayout="column" fxLayoutGap="20px" fxLayoutAlign="start center" >
+  <div fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="start center" >
     <div class="mat-subheading-1" fxFlexAlign="center">
       {{'_Point_Awards_' | translate}} {{'_for_' | translate }}
       {{rankingGroup.name|translate}} {{'_Events_' | translate}}
@@ -71,6 +71,11 @@
         {{ '_for_'|translate}} {{ selectedProvince.name|translate }}:
         {{ '_Girls_'|translate}} {{ selectedProvince.girlsRating.getRating(year)}},
         {{ '_Boys_'|translate}} {{ selectedProvince.boysRating.getRating(year)}}
+      </p>
+    </div>
+    <div *ngIf="isJuniorInternational">
+      <p class="mat-body color-primary pointer-the-cursor" (click)="onShowEventStructure(selectedEventSubGroup)">
+        {{'_jr_int_eg_events_rm_' | translate }} {{selectedEventGroup.name | translate }} {{selectedEventSubGroup.name | translate }} {{'_Events_' | translate }}
       </p>
     </div>
 
