@@ -27,11 +27,16 @@
         <table class="mat-table">
           <tr class="mat-row">
             <th class="mat-header-cell"></th>
-            <th class="mat-header-cell" *ngFor="let h of headerRow">{{h | translate}}</th>
+            <th class="mat-header-cell" *ngFor="let h of headerRow; let i = index">
+              {{h | translate}}
+              <div *ngIf="hasSecondHeaderRow">{{secondHeaderRow[i] | translate}}</div>
+            </th>
           </tr>
           <tr *ngFor="let r of pointsTable; let i = index" class="mat-row">
             <th class="mat-header-cell">{{headerColumn[i] | translate}}</th>
-            <td class="mat-cell"  *ngFor="let c of r" [class.special-cell]="c.special"> {{c.value | number: '1.0-0'}}</td>
+            <td class="mat-cell"  *ngFor="let c of r" [class.special-cell]="c.special">
+              {{c.value | number: '1.0-0'}}
+            </td>
           </tr>
         </table>
       </div>

@@ -53,7 +53,14 @@ export class JuniorPtComponent implements OnInit {
   juniorAgeGroups: AgeGroup[] = JUNIOR_AGE_GROUPS;
   selectedAgeGroup: AgeGroup;
 
+  // The row on top of the points table
   headerRow: any[];
+  // 2019-05-02 Against my will.
+  // Alberta and BC have two header rows for their junior events.
+  // One row for name, one for stars.
+  hasSecondHeaderRow: boolean = false;
+  secondHeaderRow: any[];
+
   headerColumn: any[];
   customFinishPosition: number = 13;
   pointsTable: any[];
@@ -90,6 +97,7 @@ export class JuniorPtComponent implements OnInit {
 
   // only junior regional events use a regional (provincial) rating
   onProvinceChange(p:Province){
+    this.hasSecondHeaderRow = false;
     this.selectedProvince = p;
     if (this.isJuniorRegional) {
       // For the Junior Regional group there is one sub-group per PTA
@@ -97,6 +105,7 @@ export class JuniorPtComponent implements OnInit {
       this.onSelectEventSubGroup(this.eventSubGroups.find(eg => {
         return eg.name == this.appState.selectedProvince.name;
       }));
+      this.hasSecondHeaderRow = (p.abbrv === 'BC' || p.abbrv === 'AB');
     }
   }
 
@@ -140,6 +149,7 @@ export class JuniorPtComponent implements OnInit {
   onSelectEventSubGroup(esg: EventGroup) {
     if (this.isJuniorRegional) {
       this.selectedProvince = PROVINCES.getItem(esg.name)
+      this.hasSecondHeaderRow = (this.selectedProvince.abbrv === 'BC' || this.selectedProvince.abbrv === 'AB');
     }
     this.selectedEventSubGroup = esg;
     this.events = esg.rankingEvents;
@@ -173,6 +183,7 @@ export class JuniorPtComponent implements OnInit {
     let ratingsRow: number[] = this.buildRatingsRow();
     // Build a header row using the event names
     this.headerRow = this.buildHeaderRow();
+    if (this.hasSecondHeaderRow) this.secondHeaderRow = this.buildSecondHeaderRow();
     this.headerColumn = [];
     let table = [];
     let fps: number[] = arrayInsert(finishPositions, this.customFinishPosition);
@@ -202,6 +213,14 @@ export class JuniorPtComponent implements OnInit {
     const row = [];
     for (const  e of this.selectedEventSubGroup.rankingEvents) {
       row.push( e.name + 'abbrv_');
+    }
+    return row;
+  }
+
+  buildSecondHeaderRow(): string[] {
+    const row = [];
+    for (const  e of this.selectedEventSubGroup.rankingEvents) {
+      row.push( e.name + 'stars_');
     }
     return row;
   }
