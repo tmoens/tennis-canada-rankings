@@ -1,3 +1,9 @@
+Source Code
+-----------
+Source code is stored in my (Ted Moens') git repo at
+ssh://git@tswebwork.com:6022/home/git/rogersRankings.git
+I can give/grant access if needed.
+
 Static Data
 -----------
 All of the data for the main part of the "Tennis Canada Rankings Explained" site
@@ -22,6 +28,10 @@ in question does not change.  You only need to create a version in the year in w
 it changes.  That's pretty rough, but look at
 assets/event-groups/junior/junior-provincial-event-groups.js to get the idea.
 
+Deploy
+------
+Just log in to the server, pull the repo
+npm install and npm update
 
 Build
 -----
