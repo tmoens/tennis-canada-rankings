@@ -52,7 +52,6 @@ import { SplashImageSelectorComponent } from './splash/splash-image-selector/spl
 import { EventSelectorComponent } from './phone-event-selector/event-selector.component';
 import { OpenEventListComponent } from './rankings-explained/open-event-list/open-event-list.component';
 import { VrRankingCategorySelectorComponent } from './menus/vr-ranking-category-selector/vr-ranking-category-selector.component';
-import { RankingHistoryComponent } from './history/ranking-history/ranking-history.component';
 import { AdultPtComponent } from './lg-points-tables/adult-pt/adult-pt.component';
 import { WheelchairPtComponent } from './lg-points-tables/wheelchair-pt/wheelchair-pt.component';
 import { SeniorPtComponent } from './lg-points-tables/senior-pt/senior-pt.component';
@@ -91,7 +90,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     EventSelectorComponent,
     OpenEventListComponent,
     VrRankingCategorySelectorComponent,
-    RankingHistoryComponent,
     AdultPtComponent,
     WheelchairPtComponent,
     SeniorPtComponent,

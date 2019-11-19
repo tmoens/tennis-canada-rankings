@@ -13,36 +13,11 @@ const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
   providedIn: 'root'
 })
 export class FetchService {
-  private serverURL = environment.serverPrefix;
 
   constructor(
     private http: HttpClient,
   )
   { }
-
-  /**
-   * Go get a rankings list for a particular category at a given date for a specific province
-   * @param category
-   * @param date
-   * @param province
-   */
-  fetchRankings(category: RankingCategory, date: string, province: Province): Observable<RankingsListDTO> {
-    let url = `${this.serverURL}/VRRankingsPublication/list`;
-    let params = new HttpParams()
-      .set('code', category.vrCode)
-      .set('date', date);
-    if (!province.isCanada()) {
-      params = params.set('province', province.abbrv);
-    }
-    if (category.lower) {
-      params = params.append('minAge', category.lower.toString());
-    }
-    console.log (JSON.stringify(params));
-    return this.http.get<RankingsListDTO>(url, {headers: headers, params: params})
-      .pipe(
-        catchError(this.handleError('fetchRankingsList',null))
-      );
-  }
 
   // Load the Open tournament List
   // There is a workbook in google docs which supplies the list of all the Open tournaments in Canada.
