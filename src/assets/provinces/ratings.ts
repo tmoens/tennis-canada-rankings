@@ -80,7 +80,7 @@ export const MB_BOYS_RATING: Rating = new Rating(1,
     2017: 0.0524,
     2018: 0.0516,
     2019: 0.054,
-    2020: 0.05,
+    2020: 0.052,
   }));
 export const MB_GIRLS_RATING: Rating = new Rating(1,
   new KeyedStaticCollection<number>({
@@ -157,7 +157,7 @@ export const SK_GIRLS_RATING: Rating = new Rating(1,
     2017: 0.0556,
     2018: 0.058,
     2019: 0.065,
-    2020: 0.056,
+    2020: 0.066,
   }));
 export const CAN_BOYS_RATING: Rating = new Rating(1,
   new KeyedStaticCollection<number>({}));
