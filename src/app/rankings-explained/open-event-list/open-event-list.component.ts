@@ -26,7 +26,7 @@ export class OpenEventListComponent implements OnInit {
   columnsToDisplay: string[] = ['province', 'name', 'mrating', 'frating'];
   showList = true;
 
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatSort, { static: false }) sort: MatSort;
 
   constructor(public appState: AppState,
               public http: HttpClient,
