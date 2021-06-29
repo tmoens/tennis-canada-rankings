@@ -16,11 +16,9 @@
   <mat-toolbar>
     <button mat-icon-button (click)="sideMenu.toggle()" color="primary">
       <mat-icon>menu</mat-icon>
-      <span class="mat-h2">{{'_Rogers_Rankings_'|translate}}</span>
+      <span class="mat-h2">{{'_Sponsor_Rankings_'|translate}}</span>
     </button>
     <span class="fill-remaining-space"></span>
-    <app-ranking-year-selector></app-ranking-year-selector>
-    <button mat-button color="primary" (click)="onLanguageChange()" >{{appState.selectedLanguage.buttonLabel}}</button>
   </mat-toolbar>
 </div>
 <mat-sidenav-container style="min-height: 500px">
@@ -28,6 +26,8 @@
     <a mat-button routerLink="/home" routerLinkActive="active" color="primary">Home</a>
     <app-province-selector></app-province-selector>
     <app-rankings-link-menu *ngFor="let rg of rankingGroups" [rankingGroup]="rg"></app-rankings-link-menu>
+    <app-ranking-year-selector></app-ranking-year-selector>
+    <button mat-button color="primary" (click)="onLanguageChange()" >{{appState.selectedLanguage.buttonLabel}}</button>
   </mat-sidenav>
   <mat-sidenav-content>
     <router-outlet></router-outlet>

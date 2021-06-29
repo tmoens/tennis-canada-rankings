@@ -17,7 +17,7 @@ import {ENGLISH, FRENCH} from './utils/language';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'RogersRankings';
+  title = 'NationalBankRankings';
   rankingGroups: RankingGroup[];
   provinces: KeyedStaticCollection<Province>;
   sideMenuOpen: boolean;

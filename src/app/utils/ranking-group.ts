@@ -18,7 +18,7 @@ export class RankingGroup {
   }
 
   getLogoPath(langPrefix: string): string {
-    return 'assets/images/RankingGroups/' + langPrefix + '/' + this.name + '.jpg';
+    return 'assets/images/RankingGroups/' + langPrefix + '/' + this.name + '.png';
   }
 }
 

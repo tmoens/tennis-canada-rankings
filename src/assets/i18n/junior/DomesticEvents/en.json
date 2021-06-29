@@ -1,4 +1,5 @@
-{"_Domestic_Events_":  "Domestic Events",
+{
+  "_Domestic_Events_":  "Domestic Events",
   "_Competitive_Structure_Detail_":  "As of 2017, the junior competitive structure has been harmonized across Canada. ",
   "_5_star_":  "Provincial Championships ★★★★★",
   "_5_star_abbrv_":  "Provincials",
@@ -11,12 +12,6 @@
   "_3_star_abbrv_":  "★★★",
   "_2_star_":  "Two Star",
   "_2_star_abbrv_":  "★★",
-
-
-
-
-
-
   "_event_structure_rm_":  "Read about Junior events in",
   "_PR_Boys_Provincial_Championships_":  "Boys Provincial Championships",
   "_PR_Girls_Provincial_Championships_":  "Girls Provincial Championships",
@@ -104,7 +99,6 @@
   "_BC_2_star_2018_abbrv_":  "Dev",
   "_BC_2_star_2018_stars_":  "★★",
   "_BC_2_star_2018_description_":  "This series of events is designed for players wishing to compete beyond the Rogers Rookie Tour and Future Stars Tour.  Players can now attain national ranking points in a tournament format.  Players are guaranteed 2 match play opportunities with modified scoring if necessary.  The winner such an event receives the same number of points as the finalist of a Competition Series event.",
-
   "_ON_5_star_":  "Provincial Championships ★★★★★",
   "_ON_5_star_abbrv_":  "Provincials",
   "_ON_5_star_description_":  "There are 2 Junior Closed Provincial Championships held each year at a 5 star value (1 indoor & 1 outdoor).  Each Provincial Championship will offer a qualifying event as well as a feed-in consolation event in which all will award ranking points. ",
@@ -148,7 +142,7 @@
   "_QC_Ratings_Adjustment_Detail_":  "In case the strength of a tournament is between a regular and a regional tournament, the tournament will receive the points of a finalist of a regular provincial.",
   "_PR_5_star_":  "Prairie  Championships",
   "_PR_5_star_abbrv_":  "Prairies",
-  "_PR_5_star_description_":  "These include the Prairie Outdoor Junior Championships in Manitoba and the Prairie Indoor Junior Championships in Saskatchewan. These two are part of a circuit of 8 identified tournaments, of which 5 are mandatory for players to qualify for the Nationals. The top 3 players from Manitoba and Saskatchewan will be selected based on Rogers Ranking (as long as they have played the “5 out of 8” of these tournaments). The Prairie Championships are rated at 0.102 as compared to the National Championships and are OPEN to players from other provinces.",
+  "_PR_5_star_description_":  "These include the Prairie Outdoor Junior Championships in Manitoba and the Prairie Indoor Junior Championships in Saskatchewan. These two are part of a circuit of 8 identified tournaments, of which 5 are mandatory for players to qualify for the Nationals. The top 3 players from Manitoba and Saskatchewan will be selected based on Ranking (as long as they have played the “5 out of 8” of these tournaments). The Prairie Championships are rated at 0.102 as compared to the National Championships and are OPEN to players from other provinces.",
   "_PR_5_star_note_":  "The Prairie Regional Championships are not always contested in every gender/age group. ",
   "_PR_4_star_":  "Junior Open Tour (★★★★)",
   "_PR_4_star_abbrv_":  "★★★★",

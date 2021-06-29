@@ -1,4 +1,5 @@
-{"_Domestic_Events_":  "Tournois canadiens",
+{
+  "_Domestic_Events_":  "Tournois canadiens",
   "_Competitive_Structure_Detail_":  "Depuis le début de 2017, la structure de compétition est harmonisée pour tout le pays.",
   "_5_star_":  "Championnats provinciaux ★★★★★",
   "_5_star_abbrv_":  "Championnats provinciaux ★★★★★",
@@ -11,6 +12,7 @@
   "_3_star_abbrv_":  "★★★",
   "_2_star_":  "2 étoiles",
   "_2_star_abbrv_":  "★★",
+  "_event_structure_rm_":  "Renseignements sur les tournois juniors dans",
   "_PR_Boys_Provincial_Championships_":  "Championnats provinciaux - garçons",
   "_PR_Girls_Provincial_Championships_":  "Championnats provinciaux - filles",
   "_PR_Prov_Selection_Events_":  "Tournois provinciaux de sélection",
@@ -140,7 +142,7 @@
   "_QC_Ratings_Adjustment_Detail_":  "Dans l’éventualité où le niveau du tournoi se situerait entre le niveau provincial régulier et régional, le tournoi recevra une cote équivalente au finaliste d’un tournoi provincial régulier.",
   "_PR_5_star_":  "Championnats des Prairies",
   "_PR_5_star_abbrv_":  "Prairies",
-  "_PR_5_star_description_":  "Ils comprennent les Championnats juniors d’été des Prairies, au Manitoba, et les Championnats juniors en salle des Prairies, en Saskatchewan. Ces deux épreuves font partie d’un circuit de huit tournois, dont cinq sont obligatoires si les joueurs veulent se qualifier pour les championnats canadiens. Les trois premiers joueurs du Manitoba et de la Saskatchewan seront choisis selon les classements Rogers (pourvu qu’ils aient disputé cinq des huit tournois). Les Championnats des Prairies possèdent une cote de 0,102 comparativement aux Championnats canadiens et sont OUVERTS aux joueurs des autres provinces.",
+  "_PR_5_star_description_":  "Ils comprennent les Championnats juniors d’été des Prairies, au Manitoba, et les Championnats juniors en salle des Prairies, en Saskatchewan. Ces deux épreuves font partie d’un circuit de huit tournois, dont cinq sont obligatoires si les joueurs veulent se qualifier pour les championnats canadiens. Les trois premiers joueurs du Manitoba et de la Saskatchewan seront choisis selon les classements (pourvu qu’ils aient disputé cinq des huit tournois). Les Championnats des Prairies possèdent une cote de 0,102 comparativement aux Championnats canadiens et sont OUVERTS aux joueurs des autres provinces.",
   "_PR_5_star_note_":  "Les championnats régionaux des Prairies n'ont pas toujours lieu pour toutes les catégories d'âge chez les garçons et les filles.",
   "_PR_4_star_":  "Circuit Open junior (★★★★)",
   "_PR_4_star_abbrv_":  "★★★★",
