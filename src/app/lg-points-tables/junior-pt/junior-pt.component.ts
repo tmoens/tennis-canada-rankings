@@ -11,7 +11,7 @@ import {MIN_JR_REGIONAL_DRAW_SIZE} from "../../../assets/event-groups/junior/jun
 import {PROVINCES} from "../../../assets/provinces/province-data";
 import {EventStructureDialog} from "../../dialogs/event-structure-dialog/event-structure.component";
 import {ReadMoreDialogComponent} from "../../dialogs/read-more-dialog/read-more-dialog.component";
-import {MatDialog} from "@angular/material";
+import {MatDialog} from "@angular/material/dialog";
 
 const finishPositions: number[] = [1,2,3,4,8,16,32,64,128];
 const r = .6;

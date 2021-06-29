@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
-import { MatDialog } from "@angular/material";
+import { MatDialog } from "@angular/material/dialog";
 import { ReadMoreDialogComponent } from "../../dialogs/read-more-dialog/read-more-dialog.component";
 import {AppState} from "../../utils/app-state";
 import {Concept, ConceptGroup} from "../../utils/concept";

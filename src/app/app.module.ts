@@ -12,15 +12,6 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
-import {
-  MatDatepickerModule,
-  MatExpansionModule,
-  MatInputModule,
-  MatListModule,
-  MatProgressSpinnerModule,
-  MatSortModule,
-  MatTableModule
-} from "@angular/material";
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -56,6 +47,13 @@ import { AdultPtComponent } from './lg-points-tables/adult-pt/adult-pt.component
 import { WheelchairPtComponent } from './lg-points-tables/wheelchair-pt/wheelchair-pt.component';
 import { SeniorPtComponent } from './lg-points-tables/senior-pt/senior-pt.component';
 import { JuniorPtComponent } from './lg-points-tables/junior-pt/junior-pt.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatInputModule} from '@angular/material/input';
+import {MatListModule} from '@angular/material/list';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatSortModule} from '@angular/material/sort';
+import {MatTableModule} from '@angular/material/table';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -143,3 +141,4 @@ export function HttpLoaderFactory(http: HttpClient) {
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

@@ -9,10 +9,11 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {AppState} from "../../utils/app-state";
 import {HttpClient} from "@angular/common/http";
-import {MatSort, MatTableDataSource} from "@angular/material";
 import {catchError} from "rxjs/operators";
 import {of} from "rxjs";
 import {FetchService} from "../../fetch-service";
+import {MatTableDataSource} from '@angular/material/table';
+import {MatSort} from '@angular/material/sort';
 
 @Component({
   selector: 'app-open-event-list',
