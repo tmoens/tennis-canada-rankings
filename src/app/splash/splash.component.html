@@ -1,16 +1,19 @@
 <!--
   Two layouts depending on screen size: for large, a row of three and a row of two
   for small, a column of 5 and we need new images.
-  AND It would be nice to use fxLayoutWrap to accomplish this without the duplication,
-  but I failed there.
 -->
+
+<!--  Large layout -->
+<!-- The classes en-bg and fr-bg are just used to get the right image from assets. -->
 <div [ngClass]="{ 'en-bg' : lang == 'en', 'fr-bg': lang == 'fr' }"
      fxHide.lt-md fxLayout="column"
      fxLayoutGap="20px" fxLayoutAlign="start center">
   <!-- A spacer to uncover the rankings logo in the background. Sorry. -->
-  <div style="height: 160px;"></div>
+  <div style="height: 200px;"></div>
   <div fxLayoutAlign="row" fxLayoutGap="20px" fxLayout="center">
-    <!-- TODO Pass a ranking group, not a name, like duh.-->
+    <!-- The rankingGroups are Open, Senior, Adult, Junior and Wheelchair -->
+    <!-- The app-splash-image-selector just uses and image to create a big
+         button to navigate to the rankings information for that group -->
     <app-splash-image-selector
       [rankingGroup]="rankingGroups[0]">
     </app-splash-image-selector>
@@ -30,6 +33,9 @@
     </app-splash-image-selector>
   </div>
 </div>
+
+<!--  Phone Layout -->
+<!-- The background image for the phone has no logo so no French/English -->
 <div class="phone-bg"
      fxHide.gt-sm fxLayout="column"
      fxLayoutGap="10px" fxLayoutAlign="start center">
