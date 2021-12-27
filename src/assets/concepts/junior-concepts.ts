@@ -174,8 +174,10 @@ JUNIOR_MULTI_AG_EVENTS_CG.addConcept(new Concept(
 export const JUNIOR_CDN_OPEN_CG = new ConceptGroup('_Open_Events_Dialog_Title_');
 JUNIOR_CDN_OPEN_CG.addConcept(new Concept(   '_Major_Open_Events_', ['_MOE_Details_1_']));
 JUNIOR_CDN_OPEN_CG.addConcept(new Concept(   null, ['_MOE_Details_2_']));
-JUNIOR_CDN_OPEN_CG.addConcept(new Concept(   '_Open_Event_Rating_', ['_OER_Details_21_']));
-JUNIOR_CDN_OPEN_CG.addConcept(new Concept(   null, ['_OER_Details_2_']));
+JUNIOR_CDN_OPEN_CG.addConcept(new Concept(   '_Open_Event_Rating_', ['_OER_Details_21_'], 2013, 2021));
+JUNIOR_CDN_OPEN_CG.addConcept(new Concept(   null, ['_OER_Details_2_'], 2013, 2021));
+JUNIOR_CDN_OPEN_CG.addConcept(new Concept(   '_Open_Event_Rating_', ['_OER_Details_21_2022_'], 2022));
+JUNIOR_CDN_OPEN_CG.addConcept(new Concept(   null, ['_OER_Details_2_2022_'], 2022));
 
 
 // ------------------ Junior Domestic Events Concepts ----------------------

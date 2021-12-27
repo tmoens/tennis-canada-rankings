@@ -1,5 +1,4 @@
 {
-
   "_junior_competitive_structure_":  "Structure de compétition",
   "_RM_International_":  "Plus de renseignements sur les tournois internationaux juniors",
   "_RSF_":  "Indice de force régionale",
@@ -107,6 +106,8 @@
   "_Open_Event_Rating_":  "Indice des tournois ouverts",
   "_OER_Details_21_":  "Il est rare qu'un garçon junior atteigne la finale d'un tournoi ouvert. C'est pourquoi il obtient le même nombre de points que le gagnant des Championnats canadiens 18 ans.",
   "_OER_Details_2_":  "Les tournois ouverts féminins sont moins relevés que les tournois ouverts masculins. Ainsi, une junior qui remporte un tournoi ouvert (ce qui n'est pas rare) obtient le même nombre de points qu'une demi-finaliste aux Championnats canadiens 18 ans.",
+  "_OER_Details_21_2022_":  "In 2022 the awards for juniors playing well in Open 1000 events was reduced significantly.  This reflects the fact that, during COVID, the adult participation in these events was minimal and consequently, by playing Open events, some juniors were able to build rankings that were not reflective of their skill level. A study was done to come up with new piont awards.  It remains the case Junior girls compete more successfully in Open 1000 events than Junior Boys do.  Consequently their awards are lower.",
+  "_OER_Details_2_2022_":  "A boy winning an Open 1000 event will be awarded 5,000 junior ranking points (down from 16,667). A girl wnning an Open 1000 event will be awarded 2,000 points (down from 5,000).",
   "_Regional_Strength_Factors_Title_":  "Indice de force provinciale et régionale",
   "_RSF_Details_1_":  "Il est évident que le fait de remporter un championnat provincial n'a pas la même valeur d'une province à l'autre. Pour être juste, il faut que l'attribution des points diffère d'un championnat régional ou provincial à un autre.",
   "_RSF_Details_2_":  "L'indice d'attribution des points aux championnats de chaque province ou région est fondé sur la performance des joueurs de cette province ou de cette région aux Championnats canadiens des trois dernières années.",
@@ -193,6 +194,7 @@
   "_jr_open_w_abbrv_":  "Ouverts féminins",
   "_jr_open_m_":  "Tournois canadiens ouverts masculins",
   "_jr_open_m_abbrv_":  "Ouverts masculins",
+  "_jr_in_domestic_open_eg_":  "Tournois ouverts 1000",
   "_jr_eg_":  "Juniors  ",
   "_jr_eg_title_":  "Juniors ",
   "_exchange_rate_approach_":  "Approche du taux de conversion",

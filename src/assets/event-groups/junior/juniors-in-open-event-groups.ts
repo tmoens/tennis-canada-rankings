@@ -1,7 +1,23 @@
 import {KeyedStaticCollection} from '../../../app/utils/keyed-static-collection';
 import {Rating} from '../../../app/utils/rating';
 import {EventGroup, EventGroupType, RankingEvent} from '../../../app/utils/ranking-event';
-import {JUNIOR_CDN_OPEN_CG, JUNIOR_FEMALE_PRO_CG, JUNIOR_MALE_PRO_CG} from '../../concepts/junior-concepts';
+import {JUNIOR_FEMALE_PRO_CG, JUNIOR_MALE_PRO_CG} from '../../concepts/junior-concepts';
+
+/**
+ * This file contains information on how to convert results for Canadian Juniors playing
+ * in various types of international tournaments to canadian ranking points.
+ *
+ * Note that from 2013 to 2018, this was done in a somewhat complex way which involved
+ * rating the external event type and then converting the results accordingly.
+ *
+ * Starting in 2019 all of this changed. We moved to a system that simply uses an
+ * "exchange rate" to convert external point awards to canadian junior point awards.
+ * So there are exchange rate for ATP, WTA, and ITF points to junior points.
+ *
+ * Consequently, the bulk of what is in the file is not relevant after 2018
+ * but is kept for historical purposes.  In fact, the rankings web site will
+ * still accurately show what the conversions were prior in 2018 and earlier.
+ */
 
 // Conversion from Junior Girls nationals to ITF $25,000
 // ITF 25,000 are rated at .96 times Junior Grand slams, which are rated at 11.5 times
@@ -10,17 +26,25 @@ import {JUNIOR_CDN_OPEN_CG, JUNIOR_FEMALE_PRO_CG, JUNIOR_MALE_PRO_CG} from '../.
 // (0.96 * 11.5) is really 11.04;
 const u18ToWTAConversion = 11 / 50;
 
-const jrInOpenEG: EventGroup = new EventGroup(
-  '_jr_open_eg_',
-  [
-    new RankingEvent('_jr_open_w_', new Rating(.36)),
-    new RankingEvent('_jr_open_m_', new Rating(1.6667)),
-  ]);
-jrInOpenEG.groupType = EventGroupType.JR_IN_OPEN;
-jrInOpenEG.conceptGroup = JUNIOR_CDN_OPEN_CG;
+// The ratings for juniors in open events was unchanged from 2013 until covid when
+// adult participation in Open events dropped and juniors were getting to0 rich
+// playing open.
 const JR_IN_OPEN_EG: KeyedStaticCollection<EventGroup> =
   new KeyedStaticCollection<EventGroup>({
-    '2013': jrInOpenEG
+    '2013': new EventGroup(
+      '_jr_in_domestic_open_eg_',
+      [
+        new RankingEvent('_jr_open_w_', new Rating(.36)),
+        new RankingEvent('_jr_open_m_', new Rating(1.6667)),
+      ]
+    ),
+    '2022': new EventGroup(
+      '_jr_in_domestic_open_eg_',
+      [
+        new RankingEvent('_jr_open_w_', new Rating(.2)),
+        new RankingEvent('_jr_open_m_', new Rating(.5)),
+      ]
+    ),
   });
 
 let eg: EventGroup;
@@ -121,7 +145,7 @@ export const JUNIORS_IN_PROS_EVENT_GROUP: KeyedStaticCollection<EventGroup> =
       ]
     ),
     '2019': new EventGroup(
-      '_jr_in_open_eg_',
+      '_jr_in_domestic_open_eg_',
       [],
       [
         JR_IN_OPEN_EG,

@@ -1,13 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
+import { HttpClient} from '@angular/common/http';
 import { Observable, of} from "rxjs";
-import {Province} from "./utils/province";
-import {RankingCategory} from "./utils/ranking-category";
-import {environment} from "../environments/environment";
-import {catchError, tap} from "rxjs/operators";
-
-const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-
+import {catchError} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -40,15 +34,13 @@ export class FetchService {
    * @param operation - name of the operation that failed
    * @param result - optional value to return as the observable result
    */
-  /*
-   * This generic handler was copied from the Angular tutorial.
-   * And as a note to future, even thicker, self who will be going WTF?...
-   * We use it to handle errors for all our http calls.  But all
-   * our HTTP Calls return different types!  And the error handler
-   * has to return the right type.  So, the error handler is
-   * parameterized such that you can tell it what to return when
-   * it is finished doing it's business.
-   */
+  // * This generic handler was copied from the Angular tutorial.
+  // * And as a note to future, even thicker, self who will be going WTF?...
+  // * We use it to handle errors for all our http calls.  But all
+  // * our HTTP Calls return different types!  And the error handler
+  // * has to return the right type.  So, the error handler is
+  // * parameterized such that you can tell it what to return when
+  // * it is finished doing it's business.
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.log('Operation: ' + operation + ' failed.');
