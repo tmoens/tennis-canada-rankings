@@ -5,4 +5,5 @@
 
 export const environment = {
   production: false,
+  serverPrefix: 'http://localhost:3037',
 };

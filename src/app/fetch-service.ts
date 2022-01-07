@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { Observable, of} from "rxjs";
 import {catchError} from "rxjs/operators";
+import {environment} from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -14,18 +15,15 @@ export class FetchService {
   { }
 
   // Load the Open tournament List
-  // There is a workbook in google docs which supplies the list of all the Open tournaments in Canada.
-  // It has one worksheet per year.
-  // This function goes and gets the sheet for a given year as JSON object.
   fetchOpenTournaments(year: number): Observable<any> {
-    // By convention, 2013 is the second worksheet, 2014 the third and so on.
-    const sheet = year - 2011;
-    return this.http.get(
-      'https://spreadsheets.google.com/feeds/list/0AnMBHcdDDoB8dHQzcUlaWFExVHBVaDMwYXRWLWtBWGc/' +
-      sheet.toString() + '/public/values?alt=json')
+    return this.http.get(environment.serverPrefix + '/open-tournaments/' + String(year),
+      {
+        observe: 'body',
+        responseType: 'json',
+      })
       .pipe(
-        catchError(this.handleError('fetching open tournaments',null))
-      );
+        catchError(this.handleError('Fetching open tournament list for year: ${year}', []))
+      )
   }
 
   /**
@@ -43,7 +41,7 @@ export class FetchService {
   // * it is finished doing it's business.
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
-      console.log('Operation: ' + operation + ' failed.');
+      console.log(`Operation: ${operation} failed. Error: ${JSON.stringify(error)}`);
       // Let the app keep running by returning what we were told to.
       return of(result as T);
     };
