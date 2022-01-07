@@ -3,12 +3,13 @@
  *
  * Super simple table - the columns are various levles of seniors events.
  */
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {EventGroup, RankingEvent} from "../../utils/ranking-event";
 import {AppState} from "../../utils/app-state";
 import {FinishPositionLabeler} from "../../utils/finish-positions";
 import {RankingGroup} from "../../utils/ranking-group";
 import {arrayInsert} from "../../utils/arrayInsert";
+import {Subscription} from 'rxjs';
 
 const   finishPositions: number[] = [1,2,3,4,5,8,16,32];
 const r = .6;
@@ -18,7 +19,7 @@ const r = .6;
   templateUrl: './senior-pt.component.html',
   styleUrls: ['./senior-pt.component.css']
 })
-export class SeniorPtComponent implements OnInit {
+export class SeniorPtComponent implements OnInit, OnDestroy {
   @Input() rankingGroup: RankingGroup;
   selectedEventGroup: EventGroup;
   selectedEvent: RankingEvent;
@@ -30,9 +31,18 @@ export class SeniorPtComponent implements OnInit {
               public fpLabeler: FinishPositionLabeler) {
   }
 
+  // The subscription to the year change events
+  yearChangeSubscription: Subscription;
+
   ngOnInit() {
     this.buildPointsTable();
-    this.appState.selectedRankingYear$.subscribe( _ => this.buildPointsTable());
+    this.yearChangeSubscription = this.appState.selectedRankingYear$.subscribe( _ => {
+      this.buildPointsTable()
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.yearChangeSubscription.unsubscribe();
   }
 
   buildPointsTable() {

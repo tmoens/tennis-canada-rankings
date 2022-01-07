@@ -1,8 +1,9 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import {Component, OnInit, Input, OnDestroy} from '@angular/core';
 import { MatDialog } from "@angular/material/dialog";
 import { ReadMoreDialogComponent } from "../../dialogs/read-more-dialog/read-more-dialog.component";
 import {AppState} from "../../utils/app-state";
 import {Concept, ConceptGroup} from "../../utils/concept";
+import {Subscription} from 'rxjs';
 /*
   This component displays a set of rankings concepts. That is text describing
   some aspect of the ranking system.  For example Key Concepts of Adult rankings,
@@ -18,7 +19,7 @@ import {Concept, ConceptGroup} from "../../utils/concept";
   templateUrl: './concept-display.component.html',
   styleUrls: ['./concept-display.component.css']
 })
-export class ConceptDisplayComponent implements OnInit {
+export class ConceptDisplayComponent implements OnInit, OnDestroy {
 
   // These two variables are essentially the query criteria to fetch
   // the set of concepts to be displayed.
@@ -27,15 +28,22 @@ export class ConceptDisplayComponent implements OnInit {
   // these are the fetched concepts
   concepts: Concept[];
 
+  // The subscription to the year change and province change events
+  yearChangeSubscription: Subscription;
+
   constructor(public appState: AppState,
               public readMore: MatDialog) { }
 
   ngOnInit() {
     // Watch for changes to the the selected or ranking year in which case
     // we reset the concepts that are valid for the selected year.
-    this.appState.selectedRankingYear$.subscribe(y => {
+    this.yearChangeSubscription = this.appState.selectedRankingYear$.subscribe(_ => {
       this.ngOnChanges();
     });
+  }
+
+  ngOnDestroy(): void {
+    this.yearChangeSubscription.unsubscribe();
   }
 
   ngOnChanges() {

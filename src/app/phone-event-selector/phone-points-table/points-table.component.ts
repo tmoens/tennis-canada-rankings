@@ -2,13 +2,14 @@
  * This is a single column points table designed to fit on a phone.
  * It shows the point awards for a single type event.
  */
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import {Component, OnInit, Input, OnDestroy, OnChanges} from '@angular/core';
 import {EventGroup, RankingEvent} from "../../utils/ranking-event";
 import { FinishPositionLabeler } from "../../utils/finish-positions";
 import { AppState } from "../../utils/app-state";
 import {AgeGroup} from "../../age-group";
 import {Province} from "../../utils/province";
 import {MIN_JR_REGIONAL_DRAW_SIZE} from "../../../assets/event-groups/junior/junior-provincial-event-groups";
+import {Subscription} from 'rxjs';
 
 // The round over round reduction in points.  So, finalist gets .6 of winner,
 // semifinalist gets .6 of finalist and so on.
@@ -19,7 +20,7 @@ const baselineFPs = [1,2,3,4,6,8,12,16,24,32,48,64,96,128];
   templateUrl: './points-table.component.html',
   styleUrls: ['./points-table.component.scss']
 })
-export class PointsTableComponent implements OnInit {
+export class PointsTableComponent implements OnInit, OnDestroy, OnChanges {
   @Input() eventGroup: EventGroup;
   @Input() eventSubGroup: EventGroup;
   @Input() event: RankingEvent;
@@ -50,11 +51,15 @@ export class PointsTableComponent implements OnInit {
   // are we using the event group or the sub-group
   egInUse: EventGroup;
 
+  // The subscription to the year change and province change events
+  yearChangeSubscription: Subscription;
+  year: string;
   constructor(public appState: AppState,
               public fpLabeler: FinishPositionLabeler,
               )
   {
-    this.appState.selectedRankingYear$.subscribe(y => {
+    this.yearChangeSubscription = this.appState.selectedRankingYear$.subscribe(y => {
+      this.year = y;
       this.ngOnChanges();
     });
   }
@@ -63,11 +68,12 @@ export class PointsTableComponent implements OnInit {
     this.ngOnChanges();
   }
 
+  ngOnDestroy(): void {
+    this.yearChangeSubscription.unsubscribe();
+  }
+
   // Whenever one of the inputs changes...
   ngOnChanges() {
-    // for convenience:
-    const year = this.appState.selectedRankingYear;
-
     // are we using the event group or the sub-group
     this.egInUse = (this.eventSubGroup) ? this.eventSubGroup : this.eventGroup;
 
@@ -75,14 +81,14 @@ export class PointsTableComponent implements OnInit {
     let rating: number = 1;
     // use the event's rating.
     if (this.event) {
-      rating = rating * this.event.rating.getRating(year);
+      rating = rating * this.event.rating.getRating(this.year);
       if (this.isJuniorRegional) {
         if (this.ageGroup) {
-          rating = rating * this.ageGroup.rating.getRating(year);
+          rating = rating * this.ageGroup.rating.getRating(this.year);
           if (this.ageGroup.gender == "M") {
-            rating = rating * this.province.boysRating.getRating(year);
+            rating = rating * this.province.boysRating.getRating(this.year);
           } else {
-            rating = rating * this.province.girlsRating.getRating(year);
+            rating = rating * this.province.girlsRating.getRating(this.year);
           }
           if (this.smallDrawSize < MIN_JR_REGIONAL_DRAW_SIZE) {
             rating = rating * this.smallDrawSize / MIN_JR_REGIONAL_DRAW_SIZE;

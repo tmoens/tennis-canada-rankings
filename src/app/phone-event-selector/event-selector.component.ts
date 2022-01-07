@@ -1,11 +1,15 @@
 /**
+ * This is used on a phone layout only.  On a larger layout, each category
+ * has its own event selectors and points tables, though in retrospect
+ * that seems strange.
+ *
  * This component provides set of selectors that allow the user to narrow down
- * exactly which event type she wants to see a points table for.  Because it
+ * exactly which event type she wants to see a point table for.  Because it
  * works ona phone it is structured so that both the selectors and the point
  * tables fit on a single page.
  *
  * The seemingly excessive complication stems from the fact that we have
- * different ranking methods fo adult, junior, senior, open and wheelchair
+ * different ranking methods for adult, junior, senior, open and wheelchair
  * and within juniors in particular we rank so many events - both
  * domestic and international.
  */
@@ -76,7 +80,7 @@ export class EventSelectorComponent implements OnInit {
               public eventStructureDialog: MatDialog,
               public readMoreDialog:MatDialog,
               ) {
-    // Watch for changes to the the selected ranking group or ranking year
+    // Watch for changes to the selected ranking group or ranking year
     // in which case we reset the event selector
     this.appState.selectedRankingYear$.subscribe(y => {
       this.year = y;

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {RankingGroup} from "../../utils/ranking-group";
 import {EventGroup, RankingEvent} from "../../utils/ranking-event";
 import {AppState} from "../../utils/app-state";
@@ -12,6 +12,7 @@ import {PROVINCES} from "../../../assets/provinces/province-data";
 import {EventStructureDialog} from "../../dialogs/event-structure-dialog/event-structure.component";
 import {ReadMoreDialogComponent} from "../../dialogs/read-more-dialog/read-more-dialog.component";
 import {MatDialog} from "@angular/material/dialog";
+import {Subscription} from 'rxjs';
 
 const finishPositions: number[] = [1,2,3,4,8,16,32,64,128];
 const r = .6;
@@ -22,7 +23,7 @@ const basePoints = 10000;
   templateUrl: './junior-pt.component.html',
   styleUrls: ['./junior-pt.component.css']
 })
-export class JuniorPtComponent implements OnInit {
+export class JuniorPtComponent implements OnInit, OnDestroy {
   @Input() rankingGroup: RankingGroup;
   // The event groups in this ranking group
   eventGroups: EventGroup[];
@@ -68,6 +69,11 @@ export class JuniorPtComponent implements OnInit {
   headerColumn: any[];
   customFinishPosition: number = 13;
   pointsTable: any[];
+
+  // The subscription to the year change and province change events
+  yearChangeSubscription: Subscription;
+  provinceChangeSubscription: Subscription;
+
   constructor(public appState: AppState,
               public eventStructureDialog: MatDialog,
               public readMoreDialog:MatDialog,
@@ -84,19 +90,29 @@ export class JuniorPtComponent implements OnInit {
 
   ngOnInit() {
     // If the user changes rankings year at the top level we need to refresh.
-    this.appState.selectedRankingYear$.subscribe(y => {
+    this.yearChangeSubscription = this.appState.selectedRankingYear$.subscribe(y => {
       this.onRankingsYearChange(y)
     });
     // If the user changes the selected province we may need
     // to make some changes as well.
-    this.appState.selectedProvince$.subscribe(p => {
+    this.provinceChangeSubscription = this.appState.selectedProvince$.subscribe(p => {
       this.onProvinceChange(p);
     });
   }
 
+  ngOnDestroy(): void {
+    this.yearChangeSubscription.unsubscribe();
+    this.provinceChangeSubscription.unsubscribe();
+  }
+
   onRankingsYearChange(y) {
-    this.year = y;
-    this.refresh();
+    if (this.year !== y) {
+      this.year = y;
+      this.eventGroups = this.rankingGroup.eventGroups.map(eg =>
+        eg.getVersion(this.year));
+      this.onSelectEventGroup(this.eventGroups[0]);
+      this.buildPointsTable();
+    }
   }
 
   // only junior regional events use a regional (provincial) rating
@@ -111,23 +127,6 @@ export class JuniorPtComponent implements OnInit {
       }));
       this.hasSecondHeaderRow = (p.abbrv === 'BC' || p.abbrv === 'AB');
     }
-  }
-
-  refresh() {
-    this.year = this.appState.selectedRankingYear;
-    this.eventGroups = this.rankingGroup.eventGroups.map(eg =>
-      eg.getVersion(this.year));
-    this.onSelectEventGroup(this.eventGroups[0]);
-
-    this.appState.selectedRankingYear$.subscribe( y => {
-      this.year = y;
-      this.buildPointsTable()
-    });
-    // If the user changes the selected province we may need
-    // to make some changes as well.
-    this.appState.selectedProvince$.subscribe(p => {
-      this.onProvinceChange(p);
-    });
     this.buildPointsTable();
   }
 

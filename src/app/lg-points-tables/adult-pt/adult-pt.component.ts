@@ -12,6 +12,7 @@ import {AppState} from "../../utils/app-state";
 import {ADULT_EVENT_GROUP} from "../../../assets/event-groups/adult-event-group";
 import {EventGroup, RankingEvent} from "../../utils/ranking-event";
 import {arrayInsert} from "../../utils/arrayInsert";
+import {Subscription} from 'rxjs';
 
 const r = .6;
 
@@ -32,6 +33,10 @@ export class AdultPtComponent implements OnInit {
   pointsTable: any[];
   year: string;
   @Input() rankingGroup: RankingGroup;
+
+  // The subscription to the year change events
+  yearChangeSubscription: Subscription;
+
   constructor(public appState: AppState,
               public fpLabeler: FinishPositionLabeler) {
   }
@@ -40,7 +45,13 @@ export class AdultPtComponent implements OnInit {
     this.eg = ADULT_EVENT_GROUP.getVersion(this.appState.selectedRankingYear);
     this.selectedEvent = this.eg.rankingEvents[0];
     this.buildPointsTable();
-    this.appState.selectedRankingYear$.subscribe( _ => this.buildPointsTable());
+    this.yearChangeSubscription = this.appState.selectedRankingYear$.subscribe( _ => {
+      this.buildPointsTable()
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.yearChangeSubscription.unsubscribe();
   }
 
   buildPointsTable() {

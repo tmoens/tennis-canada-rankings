@@ -4,13 +4,14 @@
  * Simple table - the columns are various draw sizes.
  * There is also a selector for which type of WC event to show.
  */
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {RankingGroup} from "../../utils/ranking-group";
 import {AppState} from "../../utils/app-state";
 import {FinishPositionLabeler} from "../../utils/finish-positions";
 import {EventGroup, RankingEvent} from "../../utils/ranking-event";
 import {arrayInsert} from "../../utils/arrayInsert";
 import {WHEELCHAIR_EVENT_GROUP} from "../../../assets/event-groups/wheelchair-event-group";
+import {Subscription} from 'rxjs';
 
 
 const r = .6;
@@ -20,7 +21,7 @@ const r = .6;
   templateUrl: './wheelchair-pt.component.html',
   styleUrls: ['./wheelchair-pt.component.css']
 })
-export class WheelchairPtComponent implements OnInit {
+export class WheelchairPtComponent implements OnInit, OnDestroy {
   selectedEventGroup: EventGroup;
   subGroups: EventGroup[];
   selectedSubGroup: EventGroup;
@@ -38,8 +39,17 @@ export class WheelchairPtComponent implements OnInit {
               public fpLabeler: FinishPositionLabeler) {
   }
 
+  // The subscription to the year change and province change events
+  yearChangeSubscription: Subscription;
+
   ngOnInit() {
-    this.appState.selectedRankingYear$.subscribe( _ => this.onRankingYearChange());
+    this.yearChangeSubscription = this.appState.selectedRankingYear$.subscribe( _ => {
+      this.onRankingYearChange();
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.yearChangeSubscription.unsubscribe();
   }
 
   onRankingYearChange() {

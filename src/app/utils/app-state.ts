@@ -49,8 +49,5 @@ export class AppState {
   selectLanguage(l:Language) {
     this.selectedLanguage = l;
     this.selectedLanguage$.next(l);
-
   }
-
-
 }
