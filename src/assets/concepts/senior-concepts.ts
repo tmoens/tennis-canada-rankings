@@ -1,5 +1,5 @@
-import {Concept, ConceptGroup} from "../../app/utils/concept";
-import {LB, POINT_CALC_C, RANKING_ELIGIBILITY_C, ROLLING_52_C} from "./generic-concepts";
+import {Concept, ConceptGroup} from '../../app/utils/concept';
+import {LB, POINT_CALC_C, RANKING_ELIGIBILITY_C, ROLLING_52_C} from './generic-concepts';
 
 // ================== Senior Rankings =======================
 // ------------------ Senior Key Concepts -------------------
@@ -11,7 +11,7 @@ SENIOR_KEY_CONCEPTS_CG.addConcept(new Concept(
 SENIOR_KEY_CONCEPTS_CG.addConcept(new Concept(
   '_Ranked_Categories_', ['_Ranked_Categories_Synopsis_']));
 SENIOR_KEY_CONCEPTS_CG.addConcept(RANKING_ELIGIBILITY_C);
-SENIOR_KEY_CONCEPTS_CG.addConcept(new Concept(   
+SENIOR_KEY_CONCEPTS_CG.addConcept(new Concept(
   '_National_Team_Selection_', ['_National_Team_Selection_Detail_']));
 
 // ------------------ Senior Event Structure -------------------
@@ -21,20 +21,29 @@ SENIOR_RATINGS_AND_POINTS_GC.addConcept(new Concept(
 SENIOR_RATINGS_AND_POINTS_GC.addConcept(new Concept(
   '_s_national_indoor_', ['_s_national_indoor_description_']));
 SENIOR_RATINGS_AND_POINTS_GC.addConcept(new Concept(
+  '_s_prov_tier_1_2022_',
+  ['_s_prov_tier_1_description_2022_'], 2022));
+SENIOR_RATINGS_AND_POINTS_GC.addConcept(new Concept(
+  '_s_prov_tier_2_2022_',
+  ['_s_prov_tier_2_description_2022_'], 2022));
+SENIOR_RATINGS_AND_POINTS_GC.addConcept(new Concept(
+  '_s_prov_tier_3_2022_',
+  ['_s_prov_tier_3_description_2022_'], 2022));
+SENIOR_RATINGS_AND_POINTS_GC.addConcept(new Concept(
+  '_s_prov_tier_1_2019_',
+  ['_s_prov_tier_1_description_2019_'], 2019, 2021));
+SENIOR_RATINGS_AND_POINTS_GC.addConcept(new Concept(
+  '_s_prov_tier_2_2019_',
+  ['_s_prov_tier_2_description_2019_'], 2019, 2021));
+SENIOR_RATINGS_AND_POINTS_GC.addConcept(new Concept(
+  '_s_prov_tier_3_2019_',
+  ['_s_prov_tier_3_description_2019_'], 2019, 2021));
+SENIOR_RATINGS_AND_POINTS_GC.addConcept(new Concept(
   '_s_itf_', ['_s_itf_description_'], 2013, 2018));
 SENIOR_RATINGS_AND_POINTS_GC.addConcept(new Concept(
   '_s_prov_tier_1_', ['_s_prov_tier_1_description_'], 2013, 2018));
 SENIOR_RATINGS_AND_POINTS_GC.addConcept(new Concept(
-  '_s_prov_tier_1_2019_',
-  ['_s_prov_tier_1_description_2019_'], 2019));
-SENIOR_RATINGS_AND_POINTS_GC.addConcept(new Concept(
   '_s_prov_tier_2_', ['_s_prov_tier_2_description_'], 2013, 2018));
-SENIOR_RATINGS_AND_POINTS_GC.addConcept(new Concept(
-  '_s_prov_tier_2_2019_',
-  ['_s_prov_tier_2_description_2019_'], 2019));
-SENIOR_RATINGS_AND_POINTS_GC.addConcept(new Concept(
-  '_s_prov_tier_3_2019_',
-  ['_s_prov_tier_3_description_2019_'], 2019));
 SENIOR_RATINGS_AND_POINTS_GC.addConcept(new Concept(
   '_International_Events_', ['_International_Events_Details_']));
 SENIOR_RATINGS_AND_POINTS_GC.addConcept(POINT_CALC_C);
