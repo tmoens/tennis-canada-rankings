@@ -1,5 +1,5 @@
-import {Concept, ConceptGroup} from "../../app/utils/concept";
-import {FIRST_ROUND_BYES_C, LB, POINT_CALC_C, RANKING_ELIGIBILITY_C, ROLLING_52_C} from "./generic-concepts";
+import {Concept, ConceptGroup} from '../../app/utils/concept';
+import {FIRST_ROUND_BYES_C, LB, POINT_CALC_C, RANKING_ELIGIBILITY_C, ROLLING_52_C} from './generic-concepts';
 
 // ================== Open Rankings ========================
 // ------------------ Open Key Concepts --------------------
@@ -7,7 +7,11 @@ export const OPEN_KEY_CONCEPTS_CG = new ConceptGroup('_KCT_Title_');
 OPEN_KEY_CONCEPTS_CG.addConcept(new Concept(
   '_Open_Ranking_Scope_', ['_Open_Ranking_Scope_Detail_']));
 OPEN_KEY_CONCEPTS_CG.addConcept(new Concept(
-  '_Open_Event_Ratings_', ['_Open_Event_Ratings_Synopsis_']));
+  '_Open_Event_Ratings_', ['_Open_Event_Ratings_Synopsis_'
+  ], 2013, 2021));
+OPEN_KEY_CONCEPTS_CG.addConcept(new Concept(
+  '_Open_Event_Ratings_', ['_Open_Event_Ratings_Synopsis_2022_'
+  ], 2022));
 OPEN_KEY_CONCEPTS_CG.addConcept(POINT_CALC_C);
 OPEN_KEY_CONCEPTS_CG.addConcept(new Concept(
   '_Pro_Points_', [
