@@ -1,4 +1,5 @@
 {
+
   "_junior_competitive_structure_":  "Structure de compétition",
   "_RM_International_":  "Plus de renseignements sur les tournois internationaux juniors",
   "_RSF_":  "Indice de force régionale",
@@ -151,7 +152,6 @@
   "_Cdn_Open_abbrv_":  "Tournois canadiens ouverts",
   "_Cdn_Open_":  "Tournois canadiens ouverts",
   "_Cdn_Open_description_":  "Les juniors peuvent obtenir des points dans les tournois ouverts 1000 de premier niveau. Pour consulter la liste de toutes ces épreuves, cliquez sur l’onglet À propos des classements ouverts sur la page d’accueil puis sur l’onglet Tournois ouverts. ",
-
   "_RLFBWD_":  "Défaites au premier tour, exemption, défauts, retraits et abandons ",
   "_RLFBWD_Domestic_rm_":  "Renseignements sur les tournois canadiens au sein de votre catégorie d'âge",
   "_RLFBWD_Domestic_PU_rm_":  "Renseignements sur les tournois canadiens dans un catégorie d'âge au-dessus de la vôtre",
@@ -198,6 +198,7 @@
   "_jr_eg_":  "Juniors  ",
   "_jr_eg_title_":  "Juniors ",
   "_exchange_rate_approach_":  "Approche du taux de conversion",
+  "_exchange_rate_approach_detail_2022_":  "Tennis Canada attribue des points de classement junior pour la performance des juniors canadiens qui participent aux épreuves juniors de l'ITF, ainsi qu'aux épreuves des circuits professionnels de l'ATP et de la WTA. Ces points sont attribués en convertissant les points ITF, ATP et WTA en points de classement canadien junior.",
   "_exchange_rate_approach_detail_":  "Tennis Canada attribue des points de classement junior pour la performance des juniors canadiens qui participent aux épreuves juniors de l'ITF, au circuit de transition de l'ITF ainsi qu'aux épreuves des circuits professionnels de l'ATP et de la WTA. Ces points sont attribués en convertissant les points ITF, ATP et WTA en points de classement canadien junior.",
   "_exchange_rate_approach_rm_":  "Renseignements sur le calcul des taux de conversion",
   "_boys_ITF_ER_":  "Pour les garçons, 1 point junior de l'ITF vaut 150 points au classement junior canadien.",

@@ -1,4 +1,5 @@
 {
+
   "_junior_competitive_structure_":  "Competitive Structure",
   "_RM_International_":  "Read more about international junior event ratings",
   "_RSF_":  "Regional strength factor",
@@ -144,14 +145,13 @@
   "_sfc_detail_2019_14":  "This means that BC's provincial championships would be rated at 17.0% of nat the national championships in the same age group.",
   "_Strength_Factor_Recalculation_":  "Recalculation of the Nationals Performance Rating",
   "_SFR_Details_":  "NPRs for each province or region are recalculated anually based on the past three year's results at nationals.  In this way, a region can build its NPR as it produces stronger players.",
-  "_Play_Up_Exception_":  "When a player “plays up” they can only gain points if they win at least one match (not including byes or defaults). This is to avoid the possibility of players building a ranking by “playing up” and losing.",
+  "_Play_Up_Exception_":  "When a player “plays up” they can only gain points if they win at least one match (not including byes, defaults or walkovers). This is to avoid the possibility of players building a ranking by “playing up” and losing.",
   "_junior_category_select_tooltip_":  "Point awards differ between age categories.",
   "_junior_gender_select_tooltip_":  "Point awards differ between genders as girls tend to develop more quickly.",
   "_junior_draw_size_tooltip_":  "Point awards are reduced for draws smaller than 8.",
   "_Cdn_Open_abbrv_":  "Cdn Open",
   "_Cdn_Open_":  "Canadian Open Events",
   "_Cdn_Open_description_":  "Juniors can earn points in top tier Canadian Open 1000 events. For a list of these events click on the About Rankings on the Open Rankings and click on the Open Events tab.",
-
   "_RLFBWD_":  "First Round Losses, Byes, Walkovers, Withdraws & Defaults",
   "_RLFBWD_Domestic_rm_":  "Learn how these are treated in domestic events when playing in own age group.",
   "_RLFBWD_Domestic_PU_rm_":  "Learn how these are treated in domestic events when playing above own age group.",
@@ -198,6 +198,7 @@
   "_jr_eg_":  "Junior",
   "_jr_eg_title_":  "Junior",
   "_exchange_rate_approach_":  "Exchange Rate Approach",
+  "_exchange_rate_approach_detail_2022_":  "Tennis Canada awards junior ranking points for performance for Canadian juniors playing in ITF Junior, and men's and women's professional events. These points are awarded by converting ITF, ATP and WTA points earned to Canadian Junior ranking points.",
   "_exchange_rate_approach_detail_":  "Tennis Canada awards junior ranking points for performance for Canadian juniors playing in ITF Junior, ITF Transition Tour, and men's and women's professional events. These points are awarded by converting ITF, TT, ATP and WTA points earned to Canadian Junior ranking points.",
   "_exchange_rate_approach_rm_":  "Learn about how the exchange rates were calculated.",
   "_boys_ITF_ER_":  "1 ITF junior boy's point earns 150 Canadian junior boys rankings points.",

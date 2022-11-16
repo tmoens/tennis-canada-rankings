@@ -24,7 +24,12 @@ OPEN_KEY_CONCEPTS_CG.addConcept(new Concept(
     '_Pro_Points_Detail_1_', LB,
     '_Pro_Points_Detail_2_', LB,
     '_Pro_Points_Detail_4_'
-  ], 2019));
+  ], 2019, 2021));
+OPEN_KEY_CONCEPTS_CG.addConcept(new Concept(
+  '_Pro_Points_', [
+    '_Pro_Points_Detail_1_', LB,
+    '_Pro_Points_Detail_2_', LB,
+  ], 2022));
 OPEN_KEY_CONCEPTS_CG.addConcept(RANKING_ELIGIBILITY_C);
 
 // ------------------ Open Other Concepts -----------------
