@@ -1,5 +1,5 @@
-import {Rating} from "../../app/utils/rating";
-import {KeyedStaticCollection} from "../../app/utils/keyed-static-collection";
+import {Rating} from '../../app/utils/rating';
+import {KeyedStaticCollection} from '../../app/utils/keyed-static-collection';
 
 // These are the provincial rating factors.  They are grouped for easy annual editing.
 // We do not do separate ratings for each atlantic province, but rather one for the
@@ -10,13 +10,14 @@ export const ATLANTICS_BOYS_RATING: Rating = new Rating(1,
     2013: 0.101,
     2014: 0.101,
     2015: 0.101,
-    2016: 0.101,
+    2016: 0.106,
     2017: 0.0556,
     2018: 0.0572,
     2019: 0.058,
     2020: 0.064,
     2021: 0.064,
     2022: 0.105,
+    2023: 0.097,
   }));
 export const ATLANTICS_GIRLS_RATING: Rating = new Rating(1,
   new KeyedStaticCollection<number>({
@@ -30,6 +31,7 @@ export const ATLANTICS_GIRLS_RATING: Rating = new Rating(1,
     2020: 0.051,
     2021: 0.051,
     2022: 0.051,
+    2023: 0.052,
   }));
 export const AB_BOYS_RATING: Rating = new Rating(1,
   new KeyedStaticCollection<number>({
@@ -43,6 +45,7 @@ export const AB_BOYS_RATING: Rating = new Rating(1,
     2020: 0.076,
     2021: 0.076,
     2022: 0.1,
+    2023: 0.102,
   }));
 export const AB_GIRLS_RATING: Rating = new Rating(1,
   new KeyedStaticCollection<number>({
@@ -56,6 +59,7 @@ export const AB_GIRLS_RATING: Rating = new Rating(1,
     2020: 0.201,
     2021: 0.201,
     2022: 0.212,
+    2023: 0.166,
   }));
 export const BC_BOYS_RATING: Rating = new Rating(1,
   new KeyedStaticCollection<number>({
@@ -69,6 +73,7 @@ export const BC_BOYS_RATING: Rating = new Rating(1,
     2020: 0.227,
     2021: 0.227,
     2022: 0.273,
+    2023: 0.265,
   }));
 export const BC_GIRLS_RATING: Rating = new Rating(1,
   new KeyedStaticCollection<number>({
@@ -82,6 +87,7 @@ export const BC_GIRLS_RATING: Rating = new Rating(1,
     2020: 0.174,
     2021: 0.174,
     2022: 0.2,
+    2023: 0.212,
   }));
 export const MB_BOYS_RATING: Rating = new Rating(1,
   new KeyedStaticCollection<number>({
@@ -95,6 +101,7 @@ export const MB_BOYS_RATING: Rating = new Rating(1,
     2020: 0.052,
     2021: 0.052,
     2022: 0.074,
+    2023: 0.059,
   }));
 export const MB_GIRLS_RATING: Rating = new Rating(1,
   new KeyedStaticCollection<number>({
@@ -108,6 +115,7 @@ export const MB_GIRLS_RATING: Rating = new Rating(1,
     2020: 0.066,
     2021: 0.066,
     2022: 0.061,
+    2023: 0.053,
   }));
 export const ON_BOYS_RATING: Rating = new Rating(1,
   new KeyedStaticCollection<number>({
@@ -121,6 +129,7 @@ export const ON_BOYS_RATING: Rating = new Rating(1,
     2020: 0.462,
     2021: 0.462,
     2022: 0.342,
+    2023: 0.358,
   }));
 export const ON_GIRLS_RATING: Rating = new Rating(1,
   new KeyedStaticCollection<number>({
@@ -134,6 +143,7 @@ export const ON_GIRLS_RATING: Rating = new Rating(1,
     2020: 0.485,
     2021: 0.485,
     2022: 0.469,
+    2023: 0.453,
   }));
 export const QC_BOYS_RATING: Rating = new Rating(1,
   new KeyedStaticCollection<number>({
@@ -147,6 +157,7 @@ export const QC_BOYS_RATING: Rating = new Rating(1,
     2020: 0.369,
     2021: 0.369,
     2022: 0.349,
+    2023: 0.322,
   }));
 export const QC_GIRLS_RATING: Rating = new Rating(1,
   new KeyedStaticCollection<number>({
@@ -160,6 +171,7 @@ export const QC_GIRLS_RATING: Rating = new Rating(1,
     2020: 0.267,
     2021: 0.267,
     2022: 0.248,
+    2023: 0.293,
   }));
 export const SK_BOYS_RATING: Rating = new Rating(1,
   new KeyedStaticCollection<number>({
@@ -173,6 +185,7 @@ export const SK_BOYS_RATING: Rating = new Rating(1,
     2020: 0.052,
     2021: 0.052,
     2022: 0.074,
+    2023: 0.096,
   }));
 export const SK_GIRLS_RATING: Rating = new Rating(1,
   new KeyedStaticCollection<number>({
@@ -186,6 +199,7 @@ export const SK_GIRLS_RATING: Rating = new Rating(1,
     2020: 0.056,
     2021: 0.056,
     2022: 0.061,
+    2023: 0.070,
   }));
 export const CAN_BOYS_RATING: Rating = new Rating(1,
   new KeyedStaticCollection<number>({}));
