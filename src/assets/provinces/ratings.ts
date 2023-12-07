@@ -17,7 +17,8 @@ export const ATLANTICS_BOYS_RATING: Rating = new Rating(1,
     2020: 0.064,
     2021: 0.064,
     2022: 0.105,
-    2023: 0.097,
+    2023: 0.073,
+    2024: 0.095,
   }));
 export const ATLANTICS_GIRLS_RATING: Rating = new Rating(1,
   new KeyedStaticCollection<number>({
@@ -32,6 +33,7 @@ export const ATLANTICS_GIRLS_RATING: Rating = new Rating(1,
     2021: 0.051,
     2022: 0.051,
     2023: 0.052,
+    2024: 0.056,
   }));
 export const AB_BOYS_RATING: Rating = new Rating(1,
   new KeyedStaticCollection<number>({
@@ -46,6 +48,7 @@ export const AB_BOYS_RATING: Rating = new Rating(1,
     2021: 0.076,
     2022: 0.1,
     2023: 0.102,
+    2024: 0.126,
   }));
 export const AB_GIRLS_RATING: Rating = new Rating(1,
   new KeyedStaticCollection<number>({
@@ -60,6 +63,7 @@ export const AB_GIRLS_RATING: Rating = new Rating(1,
     2021: 0.201,
     2022: 0.212,
     2023: 0.166,
+    2024: 0.159,
   }));
 export const BC_BOYS_RATING: Rating = new Rating(1,
   new KeyedStaticCollection<number>({
@@ -74,6 +78,7 @@ export const BC_BOYS_RATING: Rating = new Rating(1,
     2021: 0.227,
     2022: 0.273,
     2023: 0.265,
+    2024: 0.205,
   }));
 export const BC_GIRLS_RATING: Rating = new Rating(1,
   new KeyedStaticCollection<number>({
@@ -88,6 +93,7 @@ export const BC_GIRLS_RATING: Rating = new Rating(1,
     2021: 0.174,
     2022: 0.2,
     2023: 0.212,
+    2024: 0.252,
   }));
 export const MB_BOYS_RATING: Rating = new Rating(1,
   new KeyedStaticCollection<number>({
@@ -102,6 +108,7 @@ export const MB_BOYS_RATING: Rating = new Rating(1,
     2021: 0.052,
     2022: 0.074,
     2023: 0.106,
+    2024: 0.077,
   }));
 export const MB_GIRLS_RATING: Rating = new Rating(1,
   new KeyedStaticCollection<number>({
@@ -116,6 +123,7 @@ export const MB_GIRLS_RATING: Rating = new Rating(1,
     2021: 0.066,
     2022: 0.061,
     2023: 0.074,
+    2024: 0.1,
   }));
 export const ON_BOYS_RATING: Rating = new Rating(1,
   new KeyedStaticCollection<number>({
@@ -130,6 +138,7 @@ export const ON_BOYS_RATING: Rating = new Rating(1,
     2021: 0.462,
     2022: 0.342,
     2023: 0.358,
+    2024: 0.395,
   }));
 export const ON_GIRLS_RATING: Rating = new Rating(1,
   new KeyedStaticCollection<number>({
@@ -144,6 +153,7 @@ export const ON_GIRLS_RATING: Rating = new Rating(1,
     2021: 0.485,
     2022: 0.469,
     2023: 0.453,
+    2024: 0.399,
   }));
 export const QC_BOYS_RATING: Rating = new Rating(1,
   new KeyedStaticCollection<number>({
@@ -158,6 +168,7 @@ export const QC_BOYS_RATING: Rating = new Rating(1,
     2021: 0.369,
     2022: 0.349,
     2023: 0.322,
+    2024: 0.351,
   }));
 export const QC_GIRLS_RATING: Rating = new Rating(1,
   new KeyedStaticCollection<number>({
@@ -172,6 +183,7 @@ export const QC_GIRLS_RATING: Rating = new Rating(1,
     2021: 0.267,
     2022: 0.248,
     2023: 0.293,
+    2024: 0.285,
   }));
 export const SK_BOYS_RATING: Rating = new Rating(1,
   new KeyedStaticCollection<number>({
@@ -186,6 +198,7 @@ export const SK_BOYS_RATING: Rating = new Rating(1,
     2021: 0.052,
     2022: 0.074,
     2023: 0.106,
+    2024: 0.077,
   }));
 export const SK_GIRLS_RATING: Rating = new Rating(1,
   new KeyedStaticCollection<number>({
@@ -200,6 +213,7 @@ export const SK_GIRLS_RATING: Rating = new Rating(1,
     2021: 0.056,
     2022: 0.061,
     2023: 0.074,
+    2024: 0.1,
   }));
 export const CAN_BOYS_RATING: Rating = new Rating(1,
   new KeyedStaticCollection<number>({}));
