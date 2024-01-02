@@ -16,7 +16,7 @@ SEP_CATEGORY_CG.addConcept(new Concept(null, [
 export const ADULT_KEY_CONCEPTS_CG = new ConceptGroup('_KCT_Title_');
 ADULT_KEY_CONCEPTS_CG.addConcept(new Concept(
   '_Adult_Ranking_Scope_',
-  ['_Adult_Ranking_Scope_Detail_']));
+  ['_Adult_Ranking_Scope_Detail_', '_Adult_Ranking_Scope_Detail_1_']));
 
 ADULT_KEY_CONCEPTS_CG.addConcept(new Concept(
   '_Adult_Ranking_Focus_',
