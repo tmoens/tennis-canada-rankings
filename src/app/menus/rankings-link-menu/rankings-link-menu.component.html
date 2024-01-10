@@ -22,7 +22,7 @@
         </button>
       </div>
       <div fxLayout="row">
-        <mat-grid-list fxFlex="340px" [cols]="cols" rowHeight="20px" *ngIf="!appState.selectedProvince.isCanada()">
+        <mat-grid-list fxFlex="640px" [cols]="cols" rowHeight="20px" *ngIf="!appState.selectedProvince.isCanada()">
           <mat-grid-tile *ngFor="let rc of rankingGroup.rankingCategories" >
             <a mat-button   [href]="rc.getVRURL(appState.selectedProvince, rankingGroup)" color="primary" target="_blank">
               {{rc.id |translate }}
@@ -38,7 +38,7 @@
         </button>
       </div>
       <div fxLayout="row">
-        <mat-grid-list fxFlex="340px" [cols]="cols" rowHeight="20px">
+        <mat-grid-list fxFlex="640px" [cols]="cols" rowHeight="20px">
           <mat-grid-tile *ngFor="let rc of rankingGroup.rankingCategories" >
             <a mat-button   [href]="rc.getVRURL(canada, rankingGroup)" color="primary" target="_blank">
               {{rc.id |translate }}
