@@ -17,7 +17,7 @@ export const ATLANTICS_BOYS_RATING: Rating = new Rating(1,
     2020: 0.064,
     2021: 0.064,
     2022: 0.105,
-    2023: 0.073,
+    2023: 0.097,
     2024: 0.095,
   }));
 export const ATLANTICS_GIRLS_RATING: Rating = new Rating(1,
