@@ -14,18 +14,18 @@
  * domestic and international.
  */
 
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {AppState} from "../utils/app-state";
-import {EventGroup, RankingEvent} from "../utils/ranking-event";
-import {RankingGroup} from "../utils/ranking-group";
-import {Province} from "../utils/province";
-import {AgeGroup} from "../age-group";
-import {JUNIOR_AGE_GROUPS} from "../../assets/age-groups";
-import {PROVINCES} from "../../assets/provinces/province-data";
-import {MatDialog} from "@angular/material/dialog";
-import {EventStructureDialog} from "../dialogs/event-structure-dialog/event-structure.component";
-import {ReadMoreDialogComponent} from "../dialogs/read-more-dialog/read-more-dialog.component";
-import {MIN_JR_REGIONAL_DRAW_SIZE} from "../../assets/event-groups/junior/junior-provincial-event-groups";
+import {Component, OnChanges, OnInit, ViewEncapsulation} from '@angular/core';
+import {AppState} from '../utils/app-state';
+import {EventGroup, RankingEvent} from '../utils/ranking-event';
+import {RankingGroup} from '../utils/ranking-group';
+import {Province} from '../utils/province';
+import {AgeGroup} from '../age-group';
+import {JUNIOR_AGE_GROUPS} from '../../assets/age-groups';
+import {PROVINCES} from '../../assets/provinces/province-data';
+import {MatDialog} from '@angular/material/dialog';
+import {EventStructureDialog} from '../dialogs/event-structure-dialog/event-structure.component';
+import {ReadMoreDialogComponent} from '../dialogs/read-more-dialog/read-more-dialog.component';
+import {MIN_JR_REGIONAL_DRAW_SIZE} from '../../assets/event-groups/junior/junior-provincial-event-groups';
 
 @Component({
   selector: 'app-event-selector',
@@ -33,7 +33,7 @@ import {MIN_JR_REGIONAL_DRAW_SIZE} from "../../assets/event-groups/junior/junior
   styleUrls: ['./event-selector.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class EventSelectorComponent implements OnInit {
+export class EventSelectorComponent implements OnInit, OnChanges {
   // The currently selected ranking group - possibly should be an Input
   rankingGroup: RankingGroup;
 
@@ -61,7 +61,7 @@ export class EventSelectorComponent implements OnInit {
   // a convenience variable for when we are dealing with
   // this special event group. Also, this group can have
   // a modified ratings if the draws are small.
-  isJuniorRegional:boolean;
+  isJuniorRegional: boolean;
   smallDrawSize: any;
   smallDrawSizes: any[] = [];
 
@@ -70,15 +70,15 @@ export class EventSelectorComponent implements OnInit {
   selectedAgeGroup: AgeGroup;
 
   // SelectedDrawSize
-  baseDrawSize: number = 128;
-  selectedDrawSize: number = 128;
+  baseDrawSize = 128;
+  selectedDrawSize = 128;
 
   // FinishPosition
-  selectedFinishPosition: number = 1;
+  selectedFinishPosition = 1;
 
   constructor(public appState: AppState,
               public eventStructureDialog: MatDialog,
-              public readMoreDialog:MatDialog,
+              public readMoreDialog: MatDialog,
               ) {
     // Watch for changes to the selected ranking group or ranking year
     // in which case we reset the event selector
@@ -95,10 +95,10 @@ export class EventSelectorComponent implements OnInit {
     this.appState.selectedProvince$.subscribe(p => {
       this.onProvinceChange(p);
     });
-    this.smallDrawSizes.push({value: MIN_JR_REGIONAL_DRAW_SIZE, desc: MIN_JR_REGIONAL_DRAW_SIZE.toString() + " or more players"});
+    this.smallDrawSizes.push({value: MIN_JR_REGIONAL_DRAW_SIZE, desc: MIN_JR_REGIONAL_DRAW_SIZE.toString() + ' or more players'});
     this.smallDrawSize = this.smallDrawSizes[0];
     for (let i = MIN_JR_REGIONAL_DRAW_SIZE - 1; i > 1; i--) {
-      this.smallDrawSizes.push({value: i, desc: i.toString() + " players",})
+      this.smallDrawSizes.push({value: i, desc: i.toString() + ' players', });
     }
   }
 
@@ -122,9 +122,9 @@ export class EventSelectorComponent implements OnInit {
     this.isJuniorRegional = false;
     this.selectedEventGroup = eg;
     if (eg.numSubGroups()) {
-      this.eventSubGroups = this.selectedEventGroup.subGroups.map( eg =>
-        eg.getVersion(this.year));
-      this.isJuniorRegional =  (eg.name == "_Domestic_Events_");
+      this.eventSubGroups = this.selectedEventGroup.subGroups.map( eventGroup =>
+        eventGroup.getVersion(this.year));
+      this.isJuniorRegional =  (eg.name === '_Domestic_Events_');
       if (this.isJuniorRegional) {
         // For the Junior Regional group there is one sub-group per PTA
         // So, we auto select the one that corresponds to the current context
@@ -133,7 +133,7 @@ export class EventSelectorComponent implements OnInit {
         this.onProvinceChange(this.appState.selectedProvince);
         this.onSelectAgeGroup(this.juniorAgeGroups[0]);
       } else {
-        // otherwise, just select the first sub group
+        // otherwise, just select the first sub-group
         this.onSelectEventSubGroup(this.eventSubGroups[0]);
       }
     } else {
@@ -145,20 +145,20 @@ export class EventSelectorComponent implements OnInit {
   }
 
   // only junior regional events use a regional (provincial) rating
-  onProvinceChange(p:Province){
+  onProvinceChange(p: Province) {
     this.selectedProvince = p;
     if (this.isJuniorRegional) {
       // For the Junior Regional group there is one sub-group per PTA
       // So, we auto select the one that corresponds to the selected province.
       this.onSelectEventSubGroup(this.eventSubGroups.find(eg => {
-        return eg.name == this.appState.selectedProvince.name;
+        return eg.name === this.appState.selectedProvince.name;
       }));
     }
   }
 
   onSelectEventSubGroup(esg: EventGroup) {
     if (this.isJuniorRegional) {
-      this.selectedProvince = PROVINCES.getItem(esg.name)
+      this.selectedProvince = PROVINCES.getItem(esg.name);
 
     }
     this.selectedEventSubGroup = esg;
@@ -173,7 +173,7 @@ export class EventSelectorComponent implements OnInit {
 
   }
 
-  onSelectAgeGroup(ag:AgeGroup){
+  onSelectAgeGroup(ag: AgeGroup) {
     this.selectedAgeGroup = ag;
   }
 
@@ -187,7 +187,7 @@ export class EventSelectorComponent implements OnInit {
     this.eventStructureDialog.open(EventStructureDialog, {
       width: '600px',
       data: {eventGroup: eg, province: this.selectedProvince, year: this.year}
-    })
+    });
   }
 
   onReadMore() {
@@ -196,7 +196,7 @@ export class EventSelectorComponent implements OnInit {
         {
           width: '600px',
           data: {conceptGroup: this.selectedEventSubGroup.conceptGroup}
-        })
+        });
     }
   }
 }

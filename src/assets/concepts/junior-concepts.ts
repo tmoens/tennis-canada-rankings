@@ -306,6 +306,11 @@ c.expansionGroup = EXCHANGE_RATE_CG;
 JUNIOR_OTHER_EVENT_CG.addConcept(c);
 c = new Concept( '_exchange_rate_approach_', [
   '_exchange_rate_approach_detail_2022_', '_exchange_rate_approach_rm_', LB,
-  '_ATP_ER_', LB, '_WTA_ER_'], 2022);
+  '_ATP_ER_', LB, '_WTA_ER_'], 2022, 2023);
+c.expansionGroup = EXCHANGE_RATE_CG;
+JUNIOR_OTHER_EVENT_CG.addConcept(c);
+c = new Concept( '_exchange_rate_approach_', [
+  '_exchange_rate_approach_detail_2022_', '_exchange_rate_approach_rm_', LB,
+  '_ATP_ER_', LB, '_WTA_ER_', LB, '_boys_ITF_ER_', LB, '_girls_ITF_ER_'], 2024);
 c.expansionGroup = EXCHANGE_RATE_CG;
 JUNIOR_OTHER_EVENT_CG.addConcept(c);

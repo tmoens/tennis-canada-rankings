@@ -15,7 +15,8 @@ export class RankingEvent {
   constructor(
     public name: string,
     public rating: Rating,
-    public baseDrawSize?: number) {}
+    public baseDrawSize?: number,
+    public hasUrl = false) {}
 
   getBaseDrawSize(): number {
     return (this.baseDrawSize) ? this.baseDrawSize : 0;
@@ -26,8 +27,6 @@ export enum EventGroupType {
   NONE,
   JR_IN_WOMENS_PRO,
   JR_IN_MENS_PRO,
-  JR_IN_OPEN,
-  JR_REGIONAL,
 }
 
 /*
@@ -48,9 +47,6 @@ export class EventGroup {
     return this.subGroups.length > 0;
   }
 
-  hasRankingEvents(): boolean {
-    return this.rankingEvents.length > 0;
-  }
   get groupType(): EventGroupType {
     return this._groupType;
   }

@@ -3,18 +3,18 @@
  * It shows the point awards for a single type event.
  */
 import {Component, OnInit, Input, OnDestroy, OnChanges} from '@angular/core';
-import {EventGroup, RankingEvent} from "../../utils/ranking-event";
-import { FinishPositionLabeler } from "../../utils/finish-positions";
-import { AppState } from "../../utils/app-state";
-import {AgeGroup} from "../../age-group";
-import {Province} from "../../utils/province";
-import {MIN_JR_REGIONAL_DRAW_SIZE} from "../../../assets/event-groups/junior/junior-provincial-event-groups";
+import {EventGroup, RankingEvent} from '../../utils/ranking-event';
+import { FinishPositionLabeler } from '../../utils/finish-positions';
+import { AppState } from '../../utils/app-state';
+import {AgeGroup} from '../../age-group';
+import {Province} from '../../utils/province';
+import {MIN_JR_REGIONAL_DRAW_SIZE} from '../../../assets/event-groups/junior/junior-provincial-event-groups';
 import {Subscription} from 'rxjs';
 
 // The round over round reduction in points.  So, finalist gets .6 of winner,
 // semifinalist gets .6 of finalist and so on.
 const r = .6;
-const baselineFPs = [1,2,3,4,6,8,12,16,24,32,48,64,96,128];
+const baselineFPs = [1, 2, 3, 4, 6, 8, 12, 16, 24, 32, 48, 64, 96, 128];
 @Component({
   selector: 'app-points-table',
   templateUrl: './points-table.component.html',
@@ -25,9 +25,9 @@ export class PointsTableComponent implements OnInit, OnDestroy, OnChanges {
   @Input() eventSubGroup: EventGroup;
   @Input() event: RankingEvent;
   @Input() ageGroup: AgeGroup;
-  @Input() drawSize: number = 128;
+  @Input() drawSize = 128;
   @Input() province: Province;
-  @Input() isJuniorRegional: boolean = true;
+  @Input() isJuniorRegional = true;
   @Input() magicFP = 5;
   @Input() smallDrawSize = 8;
 
@@ -48,16 +48,16 @@ export class PointsTableComponent implements OnInit, OnDestroy, OnChanges {
   // The rating of the event in question with all factors built in
   rating: number;
 
-  // are we using the event group or the sub-group
+  // are we using the event group or the subgroup
   egInUse: EventGroup;
 
   // The subscription to the year change and province change events
   yearChangeSubscription: Subscription;
   year: string;
-  constructor(public appState: AppState,
-              public fpLabeler: FinishPositionLabeler,
-              )
-  {
+  constructor(
+    public appState: AppState,
+    public fpLabeler: FinishPositionLabeler,
+  ) {
     this.yearChangeSubscription = this.appState.selectedRankingYear$.subscribe(y => {
       this.year = y;
       this.ngOnChanges();
@@ -74,18 +74,18 @@ export class PointsTableComponent implements OnInit, OnDestroy, OnChanges {
 
   // Whenever one of the inputs changes...
   ngOnChanges() {
-    // are we using the event group or the sub-group
+    // are we using the event group or the subgroup
     this.egInUse = (this.eventSubGroup) ? this.eventSubGroup : this.eventGroup;
 
     // Calculate the rating of the event in question
-    let rating: number = 1;
+    let rating = 1;
     // use the event's rating.
     if (this.event) {
       rating = rating * this.event.rating.getRating(this.year);
       if (this.isJuniorRegional) {
         if (this.ageGroup) {
           rating = rating * this.ageGroup.rating.getRating(this.year);
-          if (this.ageGroup.gender == "M") {
+          if (this.ageGroup.gender === 'M') {
             rating = rating * this.province.boysRating.getRating(this.year);
           } else {
             rating = rating * this.province.girlsRating.getRating(this.year);
@@ -102,12 +102,12 @@ export class PointsTableComponent implements OnInit, OnDestroy, OnChanges {
        * A tournament where drawSize = baseDrawSize has a ratings adjustment factor of 1
        * Larger draws - higher adjustment factor.  Smaller draws - lower adjustment.
        * The following formula makes it so that the winner points in a draw of 16 are the same as
-       * runner up points in a draw of 32.
+       * runner-up points in a draw of 32.
        */
       if (this.event.baseDrawSize) {
         rating = rating *
-          (Math.pow(r,Math.log(this.event.baseDrawSize)/Math.log(2) -
-            Math.log(this.drawSize)/Math.log(2)));
+          (Math.pow(r, Math.log(this.event.baseDrawSize) / Math.log(2) -
+            Math.log(this.drawSize) / Math.log(2)));
       }
     }
 
@@ -129,18 +129,18 @@ export class PointsTableComponent implements OnInit, OnDestroy, OnChanges {
   }
 
 
-  calc(fp:number):number {
+  calc(fp: number): number {
     return this.baselinePoints *
       this.rating *
       Math.pow(r, Math.log2(fp));
   }
 
-  fpsToDisplay(drawSize, magicFP, smallDrawSize): number[] {
-    if (this.isJuniorRegional && smallDrawSize < MIN_JR_REGIONAL_DRAW_SIZE) drawSize = smallDrawSize;
-    let list = [];
+  fpsToDisplay(drawSize: number, magicFP: number, smallDrawSize: number): number[] {
+    if (this.isJuniorRegional && smallDrawSize < MIN_JR_REGIONAL_DRAW_SIZE) { drawSize = smallDrawSize; }
+    const list = [];
     let prevFP = 0;
     for (const fp of baselineFPs) {
-      if (magicFP > prevFP && magicFP < fp && magicFP < drawSize) list.push(this.magicFP);
+      if (magicFP > prevFP && magicFP < fp && magicFP < drawSize) { list.push(this.magicFP); }
       if (fp < drawSize) {
         list.push(fp);
         prevFP = fp;
