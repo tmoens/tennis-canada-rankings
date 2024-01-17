@@ -172,22 +172,27 @@ export const ADULT_RANKING_CATEGORIES: RankingCategory[] = [
 export const ADULT_CATEGORY_HIERARCHY = [
   {
     name: '5.0',
-    list: [AMSL2, AFSL2, AMDL2, AFDL2,],
-  }, {
+    list: [ AMSL2, AFSL2, AMDL2, AFDL2 ],
+  },
+  {
     name: '4.5',
-    list: [  AMSL3, AFSL3, AMDL3, AFDL3,],
-  },{
+    list: [ AMSL3, AFSL3, AMDL3, AFDL3 ],
+  },
+  {
     name: '4.0',
-    list: [  AMSL4, AFSL4, AMDL4, AFDL4,],
-  },{
+    list: [ AMSL4, AFSL4, AMDL4, AFDL4 ],
+  },
+  {
     name: '3.5',
-    list: [  AMSL5, AFSL5, AMDL5, AFDL5,],
-  },{
+    list: [ AMSL5, AFSL5, AMDL5, AFDL5 ],
+  },
+  {
     name: '3.0',
-    list: [  AMSL6, AFSL6, AMDL6, AFDL6,],
-  },{
+    list: [ AMSL6, AFSL6, AMDL6, AFDL6 ],
+  },
+  {
     name: '2.5',
-    list: [  AMSL7, AFSL7, AMDL7, AFDL7,],
+    list: [ AMSL7, AFSL7, AMDL7, AFDL7 ],
   },
 ]
 

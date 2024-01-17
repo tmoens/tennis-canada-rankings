@@ -1,28 +1,46 @@
+<!--This produces a menu for each rankings group: Junior, Open, Adult, Masters and Wheelchair.-->
+<!--The menu is tabular and has links to the "About" page for the rankings.-->
+<!--It also has links to every category in the rankings group. So Girls U18 singles to Boys U12 Doubles-->
+<!--for the Juniors.-->
+<!--It relies on the Rankings Group object which lists all the categories in a group-->
 <div>
+  <!-- The name of the rankings group goes in the dropdown menu title.  "Open" for example. -->
   <button mat-button color="primary" [matMenuTriggerFor]="menu">
     <span>{{rankingGroup.name | translate}}</span>
     <mat-icon>arrow_drop_down</mat-icon>
   </button>
+
+
   <mat-menu #menu="matMenu" class="rg-menu">
     <div fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="center center">
+
+      <!-- The first row is a link to the "About" page and to the VR "Top 10" for the rankings group. -->
       <div fxLayout="row" fxLayoutGap="3px">
         <div>
           <a mat-button color="primary" [routerLink]="['/rankings', rankingGroup.name]">
             {{"_About_" | translate }} {{rankingGroup.name | translate}} {{'_Rankings_' | translate}}
           </a>
         </div>
-        <div><a mat-button [href]="rankingGroup.getURL(appState.selectedProvince)" color="primary" target="_blank">{{"_Top_10_" | translate }}</a></div>
+        <div>
+          <a mat-button [href]="rankingGroup.getURL(appState.selectedProvince)" color="primary" target="_blank">{{"_Top_10_" | translate }}
+          </a>
+        </div>
       </div>
       <div><mat-divider></mat-divider></div>
 
+      <!-- The next section shows the rankings links for the selected province (if the selected province is not Canada) -->
       <div *ngIf="!appState.selectedProvince.isCanada()">
+
+        <!-- Show a flag of the selected province -->
         <button mat-button disabled>
           <img [src]="appState.selectedProvince.getFlagPath()">
           {{appState.selectedProvince.name | translate}} {{"_Rankings_" | translate}}
         </button>
       </div>
+
+      <!-- Show a table of links to all the VR *provincial* rankings categories of the group in question -->
       <div fxLayout="row">
-        <mat-grid-list fxFlex="640px" [cols]="cols" rowHeight="20px" *ngIf="!appState.selectedProvince.isCanada()">
+        <mat-grid-list fxFlex="340px" [cols]="cols" rowHeight="20px" *ngIf="!appState.selectedProvince.isCanada()">
           <mat-grid-tile *ngFor="let rc of rankingGroup.rankingCategories" >
             <a mat-button   [href]="rc.getVRURL(appState.selectedProvince, rankingGroup)" color="primary" target="_blank">
               {{rc.id |translate }}
@@ -30,6 +48,9 @@
           </mat-grid-tile>
         </mat-grid-list>
       </div>
+
+      <!-- The next section is exactly the same as the previous section except it shows links to the national -->
+      <!-- Rather than provincial rankings. -->
       <div>
         <button mat-button disabled>
           <img [src]="canada.getFlagPath()">
@@ -38,7 +59,7 @@
         </button>
       </div>
       <div fxLayout="row">
-        <mat-grid-list fxFlex="640px" [cols]="cols" rowHeight="20px">
+        <mat-grid-list fxFlex="340px" [cols]="cols" rowHeight="20px">
           <mat-grid-tile *ngFor="let rc of rankingGroup.rankingCategories" >
             <a mat-button   [href]="rc.getVRURL(canada, rankingGroup)" color="primary" target="_blank">
               {{rc.id |translate }}
