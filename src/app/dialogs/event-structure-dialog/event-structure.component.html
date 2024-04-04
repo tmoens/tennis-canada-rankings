@@ -9,34 +9,35 @@
   _Orange_Bowl_link_text_ is the token to be used in an <a>link text</a>
   _Orange_Bowl_link_url_ is the url to be used in the href
 -->
-<div mat-dialog-header fxLayout="row" fxLayoutAlign="start">
-  <div fxLayout="row" fxLayoutGap="7px" fxLayoutAlign="start center">
-    <span class="mat-h2">{{eventGroup.name | translate}}
-      {{ "_junior_competitive_structure_" | translate}}
+<div class="lo-row">
+  <div class="lo-row lo-gap5">
+    <span class="mat-h2">{{ eventGroup.name | translate }}
+      {{ "_junior_competitive_structure_" | translate }}
       </span>
   </div>
   <div class="fill-remaining-space"></div>
-  <img class="tclogo" [src]="province.getLogoPath()">
+  <img class="tclogo" [src]="province.getLogoPath()" alt="Provincial Logo">
 </div>
 <div mat-dialog-content>
   <div *ngFor="let rankingEvent of eventGroup.rankingEvents">
-    <div class="mat-body-2">{{rankingEvent.name |translate}}</div>
-    <div class="mat-body-1">{{rankingEvent.name + "description_" |translate}}</div>
+    <div class="mat-body-2">{{ rankingEvent.name |translate }}</div>
+    <div class="mat-body-1">{{ rankingEvent.name + "description_" |translate }}</div>
     <div class="mat-body-1" *ngIf="rankingEvent.hasUrl">
-      <a [href]="rankingEvent.name + 'link_url_' | translate" target="_blank">{{rankingEvent.name + "link_text_" | translate}}</a>
+      <a [href]="rankingEvent.name + 'link_url_' | translate"
+         target="_blank">{{ rankingEvent.name + "link_text_" | translate }}</a>
     </div>
     <div *ngIf="rankingEvent.name.includes('_5_star_')">
-      <p class="mat-body-1"> {{year}} {{'_Boys_'| translate }} {{rankingEvent.name | translate }}
-      {{'_PR_are_rated_at_' | translate }} {{ province.boysRating.getRating(year)}}
-        {{'_PR_vs_nat_champs_' | translate }}.
-      {{'_Girls_' | translate}} {{rankingEvent.name | translate }} {{'_PR_are_rated_at_' | translate }}
-      {{ province.girlsRating.getRating(year)}}.
+      <p class="mat-body-1"> {{ year }} {{ '_Boys_'| translate }} {{ rankingEvent.name | translate }}
+        {{ '_PR_are_rated_at_' | translate }} {{ province.boysRating.getRating(year) }}
+        {{ '_PR_vs_nat_champs_' | translate }}.
+        {{ '_Girls_' | translate }} {{ rankingEvent.name | translate }} {{ '_PR_are_rated_at_' | translate }}
+        {{ province.girlsRating.getRating(year) }}.
       </p>
     </div>
   </div>
 </div>
-<div fxLayout="row" fxLayoutAlign="end">
+<div class="lo-row lo-justify-end">
   <div mat-dialog-actions>
-    <button mat-button color="primary" [mat-dialog-close] cdkFocusInitial>{{'_Done_'|translate}}</button>
+    <button mat-button color="primary" [mat-dialog-close]="''">{{ '_Done_'|translate }}</button>
   </div>
 </div>

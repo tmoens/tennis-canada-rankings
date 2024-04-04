@@ -1,7 +1,8 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
-import {AppState} from "../../utils/app-state";
-import {ConceptGroup} from "../../utils/concept";
+import {Component, OnInit, Inject} from '@angular/core';
+import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {AppState} from '../../utils/app-state';
+
+import {ConceptGroup} from '../../utils/conceptGroup';
 
 @Component({
   selector: 'app-read-more-dialog',
@@ -16,6 +17,7 @@ export class ReadMoreDialogComponent implements OnInit {
               @Inject(MAT_DIALOG_DATA) public data: any) {
     this.conceptGroup = data.conceptGroup as ConceptGroup;
   }
+
   ngOnInit() {
   }
 }

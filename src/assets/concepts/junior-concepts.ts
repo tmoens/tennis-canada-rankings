@@ -1,5 +1,7 @@
-import {Concept, ConceptGroup} from '../../app/utils/concept';
+import {Concept} from '../../app/utils/concept';
 import {LB, POINT_CALC_C, RANKING_ELIGIBILITY_C, ROLLING_52_C} from './generic-concepts';
+import {ConceptGroup} from '../../app/utils/conceptGroup';
+
 let c: Concept;
 
 // ================== Junior Rankings =======================
@@ -98,8 +100,8 @@ JUNIOR_INTL_FRL_CG.addConcept(new Concept(
 
 // ------------------ Junior Ratings and Point Awards Concepts ----
 export const JUNIOR_RATINGS_CG = new ConceptGroup('_RAP_Title_');
-JUNIOR_RATINGS_CG.addConcept(new Concept(   '_Points_Benchmark_', ['_PB_Details_']));
-JUNIOR_RATINGS_CG.addConcept(new Concept(   '_Rating_',
+JUNIOR_RATINGS_CG.addConcept(new Concept('_Points_Benchmark_', ['_PB_Details_']));
+JUNIOR_RATINGS_CG.addConcept(new Concept('_Rating_',
   ['_Rating_Detail_1_']));
 JUNIOR_RATINGS_CG.addConcept(POINT_CALC_C);
 c = new Concept(
@@ -109,46 +111,46 @@ c.expansionGroup = JUNIOR_AGE_CATEGORY_CG;
 JUNIOR_RATINGS_CG.addConcept(c);
 JUNIOR_RATINGS_CG.addConcept(new Concept(
   '_Draw_Size_', ['_Draw_Size_Details_']));
-c = new Concept(   '_RLFBWD_', ['_RLFBWD_Domestic_rm_']);
+c = new Concept('_RLFBWD_', ['_RLFBWD_Domestic_rm_']);
 c.expansionGroup = JUNIOR_DOMESTIC_FRL_CG;
 JUNIOR_RATINGS_CG.addConcept(c);
-c = new Concept(   null, ['_RLFBWD_Domestic_PU_rm_']);
+c = new Concept(null, ['_RLFBWD_Domestic_PU_rm_']);
 c.expansionGroup = JUNIOR_PLAY_UP_FRL_CG;
 JUNIOR_RATINGS_CG.addConcept(c);
-c = new Concept(   null, ['_RLFBWD_Intl_rm_']);
+c = new Concept(null, ['_RLFBWD_Intl_rm_']);
 c.expansionGroup = JUNIOR_INTL_FRL_CG;
 JUNIOR_RATINGS_CG.addConcept(c);
 
 
 // ------------------ National Junior Open Series Points ---------------
 export const JUNIOR_NAT_SERIES_CG = new ConceptGroup('_NJOS_Point_Awards_');
-JUNIOR_NAT_SERIES_CG.addConcept(new Concept(   '_NJOS_PA_ON_', ['_NJOS_PA_ON_Detail_']));
-JUNIOR_NAT_SERIES_CG.addConcept(new Concept(   '_NJOS_PA_QC_', ['_NJOS_PA_QC_Detail_']));
-JUNIOR_NAT_SERIES_CG.addConcept(new Concept(   '_NJOS_PA_BC_', ['_NJOS_PA_BC_Detail_']));
+JUNIOR_NAT_SERIES_CG.addConcept(new Concept('_NJOS_PA_ON_', ['_NJOS_PA_ON_Detail_']));
+JUNIOR_NAT_SERIES_CG.addConcept(new Concept('_NJOS_PA_QC_', ['_NJOS_PA_QC_Detail_']));
+JUNIOR_NAT_SERIES_CG.addConcept(new Concept('_NJOS_PA_BC_', ['_NJOS_PA_BC_Detail_']));
 
 // ------------------ Junior Provincial Strength Factor ---------------
 export const JUNIOR_PSF_CG = new ConceptGroup('_Regional_Strength_Factors_Title_');
-JUNIOR_PSF_CG.addConcept(new Concept(   '_Regional_Strength_Factors_Title_',
+JUNIOR_PSF_CG.addConcept(new Concept('_Regional_Strength_Factors_Title_',
   ['_RSF_Details_1_', LB, '_RSF_Details_2_', LB, '_RSF_Details_3'],
   2013, 2018));
-JUNIOR_PSF_CG.addConcept(new Concept(   '_Regional_Strength_Factors_Title_',
+JUNIOR_PSF_CG.addConcept(new Concept('_Regional_Strength_Factors_Title_',
   ['_RSF_Details_1_', LB, '_RSF_Details_2019_2_', LB,
     '_RSF_Details_2019_3_', LB, '_RSF_Details_2019_4_'],
   2019));
-JUNIOR_PSF_CG.addConcept(new Concept(   '_Strength_Factor_Calculation_',
+JUNIOR_PSF_CG.addConcept(new Concept('_Strength_Factor_Calculation_',
   ['_SFC_Step1_', LB, '_SFC_Step1_Details_', LB, '_SFC_Step1_Example_', LB,
-  '_SFC_Step2_', LB, '_SFC_Step2_Details_1_', LB, '_SFC_Step2_Details_2_', LB,
-  '_SFC_Step2_Example_2_', LB, '_SFC_Step2_Example_2_', LB, '_SFC_Step2_More_', LB,
-  '_SFC_Step3_', LB, '_SFC_Step3_Details_', LB, '_SFC_Step3_Example_'],
+    '_SFC_Step2_', LB, '_SFC_Step2_Details_1_', LB, '_SFC_Step2_Details_2_', LB,
+    '_SFC_Step2_Example_2_', LB, '_SFC_Step2_Example_2_', LB, '_SFC_Step2_More_', LB,
+    '_SFC_Step3_', LB, '_SFC_Step3_Details_', LB, '_SFC_Step3_Example_'],
   2013, 2018));
-JUNIOR_PSF_CG.addConcept(new Concept(   '_Strength_Factor_Calculation_',
-  [    '_sfc_detail_2019_1', LB, '_sfc_detail_2019_2', LB, '_sfc_detail_2019_3', LB,
+JUNIOR_PSF_CG.addConcept(new Concept('_Strength_Factor_Calculation_',
+  ['_sfc_detail_2019_1', LB, '_sfc_detail_2019_2', LB, '_sfc_detail_2019_3', LB,
     '_sfc_detail_2019_4', LB, '_sfc_detail_2019_5', LB, '_sfc_detail_2019_6', LB,
     '_sfc_detail_2019_7', LB, '_sfc_detail_2019_8', LB, '_sfc_detail_2019_9', LB,
     '_sfc_detail_2019_10', LB, '_sfc_detail_2019_11', LB, '_sfc_detail_2019_12', LB,
-    '_sfc_detail_2019_13' , LB, '_sfc_detail_2019_14'],
+    '_sfc_detail_2019_13', LB, '_sfc_detail_2019_14'],
   2019));
-  JUNIOR_PSF_CG.addConcept(new Concept(   '_Strength_Factor_Recalculation_',
+JUNIOR_PSF_CG.addConcept(new Concept('_Strength_Factor_Recalculation_',
   ['_SFR_Details_'],
   2013, 2018));
 
@@ -172,12 +174,12 @@ JUNIOR_MULTI_AG_EVENTS_CG.addConcept(new Concept(
 
 // ------------------ Junior Canadian Open events ----------------------
 export const JUNIOR_CDN_OPEN_CG = new ConceptGroup('_Open_Events_Dialog_Title_');
-JUNIOR_CDN_OPEN_CG.addConcept(new Concept(   '_Major_Open_Events_', ['_MOE_Details_1_']));
-JUNIOR_CDN_OPEN_CG.addConcept(new Concept(   null, ['_MOE_Details_2_']));
-JUNIOR_CDN_OPEN_CG.addConcept(new Concept(   '_Open_Event_Rating_', ['_OER_Details_21_'], 2013, 2021));
-JUNIOR_CDN_OPEN_CG.addConcept(new Concept(   null, ['_OER_Details_2_'], 2013, 2021));
-JUNIOR_CDN_OPEN_CG.addConcept(new Concept(   '_Open_Event_Rating_', ['_OER_Details_21_2022_'], 2022));
-JUNIOR_CDN_OPEN_CG.addConcept(new Concept(   null, ['_OER_Details_2_2022_'], 2022));
+JUNIOR_CDN_OPEN_CG.addConcept(new Concept('_Major_Open_Events_', ['_MOE_Details_1_']));
+JUNIOR_CDN_OPEN_CG.addConcept(new Concept(null, ['_MOE_Details_2_']));
+JUNIOR_CDN_OPEN_CG.addConcept(new Concept('_Open_Event_Rating_', ['_OER_Details_21_'], 2013, 2021));
+JUNIOR_CDN_OPEN_CG.addConcept(new Concept(null, ['_OER_Details_2_'], 2013, 2021));
+JUNIOR_CDN_OPEN_CG.addConcept(new Concept('_Open_Event_Rating_', ['_OER_Details_21_2022_'], 2022));
+JUNIOR_CDN_OPEN_CG.addConcept(new Concept(null, ['_OER_Details_2_2022_'], 2022));
 
 
 // ------------------ Junior Domestic Events Concepts ----------------------
@@ -189,30 +191,30 @@ c.expansionGroup = JUNIOR_NAT_SERIES_CG;
 JUNIOR_DOMESTIC_EVENT_CG.addConcept(c);
 JUNIOR_DOMESTIC_EVENT_CG.addConcept(new Concept(
   '_Provincial_Events_', ['_Provincial_Events_Details_1_']));
-c = new Concept(   null,
+c = new Concept(null,
   ['_Provincial_Events_Details_2_', '_Provincial_Strength_Factor_RM_']);
 c.expansionGroup = JUNIOR_PSF_CG;
 JUNIOR_DOMESTIC_EVENT_CG.addConcept(c);
 // TODO MAP of provincial events.
-JUNIOR_DOMESTIC_EVENT_CG.addConcept(new Concept(   null,
+JUNIOR_DOMESTIC_EVENT_CG.addConcept(new Concept(null,
   ['_Provincial_Events_Details_3_', '_Provincial_Events_Details_4_'],
   2013, 2018));
-JUNIOR_DOMESTIC_EVENT_CG.addConcept(new Concept(   null,
+JUNIOR_DOMESTIC_EVENT_CG.addConcept(new Concept(null,
   ['_Provincial_Events_Details_3_'],
   2019));
 
-c = new Concept(   '_Combined_Events_Title_',
+c = new Concept('_Combined_Events_Title_',
   ['_Combined_Events_Detail_', '_combined_events_rm_'], 2013, 2018);
 c.expansionGroup = JUNIOR_COMBINED_AG_EVENTS_CG;
 JUNIOR_DOMESTIC_EVENT_CG.addConcept(c);
 
-c = new Concept(   '_multi_agegroup_events_',
+c = new Concept('_multi_agegroup_events_',
   ['_multi_agegroup_events_detail_', '_multi_agegroup_events_rm_'], 2019);
 c.expansionGroup = JUNIOR_MULTI_AG_EVENTS_CG;
 JUNIOR_DOMESTIC_EVENT_CG.addConcept(c);
 
-c = new Concept(   '_Canadian_Open_Events_',
-  ['_Canadian_Open_Event_Details_', LB, '_Canadian_Open_rm_'],  );
+c = new Concept('_Canadian_Open_Events_',
+  ['_Canadian_Open_Event_Details_', LB, '_Canadian_Open_rm_']);
 c.expansionGroup = JUNIOR_CDN_OPEN_CG;
 JUNIOR_DOMESTIC_EVENT_CG.addConcept(c);
 
@@ -240,23 +242,23 @@ USTA_TE_EVENTS_CG.addConcept(new Concept('_TBD_', ['_TBD_']));
 // ------------------ Junior in Men's Pro events ----------------------
 // Used 2013 to 2018
 export const JUNIOR_MALE_PRO_CG = new ConceptGroup('_Male_Professional_Events_Title_');
-JUNIOR_MALE_PRO_CG.addConcept(new Concept(   '_Futures_15K_', ['_Futures_15K_Details_']));
-JUNIOR_MALE_PRO_CG.addConcept(new Concept(   '_ATP_15K+_', ['_ATP_15K+_Details_']));
-JUNIOR_MALE_PRO_CG.addConcept(new Concept(   '_Futures_25K_Example_', ['_Futures_25k_Details_']));
-JUNIOR_MALE_PRO_CG.addConcept(new Concept(   '_Challenger_50K_Example_', ['_Challenger_50K_Details_']));
-JUNIOR_MALE_PRO_CG.addConcept(new Concept(   '_ATP_500_Example_', ['_ATP_500_Details_']));
-JUNIOR_MALE_PRO_CG.addConcept(new Concept(   '_Data_Note_', ['_Data_Note_Details_']));
+JUNIOR_MALE_PRO_CG.addConcept(new Concept('_Futures_15K_', ['_Futures_15K_Details_']));
+JUNIOR_MALE_PRO_CG.addConcept(new Concept('_ATP_15K+_', ['_ATP_15K+_Details_']));
+JUNIOR_MALE_PRO_CG.addConcept(new Concept('_Futures_25K_Example_', ['_Futures_25k_Details_']));
+JUNIOR_MALE_PRO_CG.addConcept(new Concept('_Challenger_50K_Example_', ['_Challenger_50K_Details_']));
+JUNIOR_MALE_PRO_CG.addConcept(new Concept('_ATP_500_Example_', ['_ATP_500_Details_']));
+JUNIOR_MALE_PRO_CG.addConcept(new Concept('_Data_Note_', ['_Data_Note_Details_']));
 
 // ------------------ Junior in Women's Pro events ----------------------
 // Used 2013 to 2018
 export const JUNIOR_FEMALE_PRO_CG = new ConceptGroup('_Female_Professional_Events_Title_');
-JUNIOR_FEMALE_PRO_CG.addConcept(new Concept(   '_ITF_25K_Benchmark_', ['_ITF_25K_Details_1_']));
-JUNIOR_FEMALE_PRO_CG.addConcept(new Concept(   null, ['_ITF_25K_Details_2_']));
-JUNIOR_FEMALE_PRO_CG.addConcept(new Concept(   null, ['_ITF_25K_Details_3_']));
-JUNIOR_FEMALE_PRO_CG.addConcept(new Concept(   '_Other_ITF_And_WTA_Events_', ['_Other_ITF_And_WTA_Events_Details_']));
-JUNIOR_FEMALE_PRO_CG.addConcept(new Concept(   '_ITF_15K_Example_', ['_ITF_15K_Example_Details_']));
-JUNIOR_FEMALE_PRO_CG.addConcept(new Concept(   '_WTA_International_Example_', ['_WTA_International_Example_Details_']));
-JUNIOR_FEMALE_PRO_CG.addConcept(new Concept(   '_WTA_Data_Note_', ['_WTA_Data_Note_Details_']));
+JUNIOR_FEMALE_PRO_CG.addConcept(new Concept('_ITF_25K_Benchmark_', ['_ITF_25K_Details_1_']));
+JUNIOR_FEMALE_PRO_CG.addConcept(new Concept(null, ['_ITF_25K_Details_2_']));
+JUNIOR_FEMALE_PRO_CG.addConcept(new Concept(null, ['_ITF_25K_Details_3_']));
+JUNIOR_FEMALE_PRO_CG.addConcept(new Concept('_Other_ITF_And_WTA_Events_', ['_Other_ITF_And_WTA_Events_Details_']));
+JUNIOR_FEMALE_PRO_CG.addConcept(new Concept('_ITF_15K_Example_', ['_ITF_15K_Example_Details_']));
+JUNIOR_FEMALE_PRO_CG.addConcept(new Concept('_WTA_International_Example_', ['_WTA_International_Example_Details_']));
+JUNIOR_FEMALE_PRO_CG.addConcept(new Concept('_WTA_Data_Note_', ['_WTA_Data_Note_Details_']));
 
 // ------------------ Exchange rates ----------------------
 // Used after 2018
@@ -287,29 +289,29 @@ c = new Concept(
     '_IJE_Details_', LB, '_IJE_Details_2_'], 2019);
 c.expansionGroup = USTA_TE_EVENTS_CG;
 JUNIOR_OTHER_EVENT_CG.addConcept(c);
-c = new Concept(   '_Open_Events_',
-  ['_Open_Event_Details_', LB, '_Canadian_Open_rm_'], 2013, 2018 );
+c = new Concept('_Open_Events_',
+  ['_Open_Event_Details_', LB, '_Canadian_Open_rm_'], 2013, 2018);
 c.expansionGroup = JUNIOR_CDN_OPEN_CG;
 JUNIOR_OTHER_EVENT_CG.addConcept(c);
-c = new Concept(   null, ['_Male_Pro_rm_'], 2013, 2018);
+c = new Concept(null, ['_Male_Pro_rm_'], 2013, 2018);
 c.expansionGroup = JUNIOR_MALE_PRO_CG;
 JUNIOR_OTHER_EVENT_CG.addConcept(c);
-c = new Concept(   null, ['_Female_Pro_rm_'], 2013, 2018);
+c = new Concept(null, ['_Female_Pro_rm_'], 2013, 2018);
 c.expansionGroup = JUNIOR_FEMALE_PRO_CG;
 JUNIOR_OTHER_EVENT_CG.addConcept(c);
-c = new Concept( '_exchange_rate_approach_', [
+c = new Concept('_exchange_rate_approach_', [
   '_exchange_rate_approach_detail_', '_exchange_rate_approach_rm_', LB,
   '_boys_ITF_ER_', LB, '_girls_ITF_ER_', LB,
   '_mens_TT_ER_', LB, '_womens_TT_ER_', LB,
   '_ATP_ER_', LB, '_WTA_ER_'], 2019, 2021);
 c.expansionGroup = EXCHANGE_RATE_CG;
 JUNIOR_OTHER_EVENT_CG.addConcept(c);
-c = new Concept( '_exchange_rate_approach_', [
+c = new Concept('_exchange_rate_approach_', [
   '_exchange_rate_approach_detail_2022_', '_exchange_rate_approach_rm_', LB,
   '_ATP_ER_', LB, '_WTA_ER_'], 2022, 2023);
 c.expansionGroup = EXCHANGE_RATE_CG;
 JUNIOR_OTHER_EVENT_CG.addConcept(c);
-c = new Concept( '_exchange_rate_approach_', [
+c = new Concept('_exchange_rate_approach_', [
   '_exchange_rate_approach_detail_2022_', '_exchange_rate_approach_rm_', LB,
   '_ATP_ER_', LB, '_WTA_ER_', LB, '_boys_ITF_ER_', LB, '_girls_ITF_ER_'], 2024);
 c.expansionGroup = EXCHANGE_RATE_CG;

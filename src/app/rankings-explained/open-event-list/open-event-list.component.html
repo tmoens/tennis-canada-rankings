@@ -1,36 +1,35 @@
 <!-- Long story, but the matSort has to come outside the *ngIf in order for it to be -->
 <!-- available in the ngAfterViewInit hook -->
 <div matSort>
-
   <div *ngIf="tournaments.length >0; else noData">
     <mat-form-field>
-      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+      <input matInput (keyup)="applyFilter($event)" placeholder="Filter">
     </mat-form-field>
 
     <table mat-table [dataSource]="tableData">
 
       <!-- Province column -->
       <ng-container matColumnDef="province">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'_Province_' | translate}}</th>
-        <td mat-cell *matCellDef="let t">{{t.province}}</td>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ '_Province_' | translate }}</th>
+        <td mat-cell *matCellDef="let t">{{ t.province }}</td>
       </ng-container>
 
       <!-- Tournament Name column -->
       <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'_Tournament_Name_' | translate}}</th>
-        <td mat-cell *matCellDef="let t">{{t.name}}</td>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ '_Tournament_Name_' | translate }}</th>
+        <td mat-cell *matCellDef="let t">{{ t.name }}</td>
       </ng-container>
 
       <!-- Men's Rating column -->
       <ng-container matColumnDef="mrating">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'_mens_rating_' | translate}}</th>
-        <td mat-cell *matCellDef="let t">{{t.mrating}}</td>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ '_mens_rating_' | translate }}</th>
+        <td mat-cell *matCellDef="let t">{{ t.mrating }}</td>
       </ng-container>
 
       <!-- Women's Rating Column -->
       <ng-container matColumnDef="frating">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'_womens_rating_' | translate}}</th>
-        <td mat-cell *matCellDef="let t">{{t.frating}}</td>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ '_womens_rating_' | translate }}</th>
+        <td mat-cell *matCellDef="let t">{{ t.frating }}</td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
@@ -39,5 +38,5 @@
   </div>
 </div>
 <ng-template #noData>
-  <p class="mat-body-2">{{'_no_events_found_' | translate}} {{year}}.</p>
+  <p class="mat-body-2">{{ '_no_events_found_' | translate }} {{ year }}.</p>
 </ng-template>

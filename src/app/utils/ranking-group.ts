@@ -2,7 +2,8 @@ import {EventGroup} from './ranking-event';
 import {Province} from './province';
 import {RankingCategory} from './ranking-category';
 import {KeyedStaticCollection} from './keyed-static-collection';
-import {ConceptGroup} from './concept';
+
+import {ConceptGroup} from './conceptGroup';
 
 export class RankingGroup {
   constructor(public name: string,

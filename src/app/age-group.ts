@@ -1,9 +1,9 @@
-import {Rating} from "./utils/rating";
+import {Rating} from './utils/rating';
 
-// This can have more attributes later.  this is all i need for now.
+// This can have more attributes later.
 
 export class AgeGroup {
-  constructor(public name:string,
+  constructor(public name: string,
               public gender: string,
               public rating: Rating) {}
 }

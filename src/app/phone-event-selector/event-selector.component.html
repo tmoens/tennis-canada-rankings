@@ -1,54 +1,72 @@
+<!-- This screen is for a phone. It lets the users see a point awards table for a particular type of event -->
+<!-- There are a *lot* of event types.  For example, 2 Star Junior Girls events in Nova Scotia is one type. -->
+<!-- The initial context is a particular Rankings Group i.e. Junior, Open, Wheelchair, Masters or Adult -->
 <div class="mat-elevation-z3" style="padding: 8px; margin: 5px">
-  <div fxLayout="column" fxLayoutGap="20px" fxLayoutAlign="start start" >
-    <div class="mat-subheading-1" fxFlexAlign="center">
-      {{'_Point_Awards_' | translate}} {{'_for_' | translate }}
-      {{rankingGroup.name|translate}} {{'_Events_' | translate}}
+  <div class="lo-column lo-gap10 lo-align-center">
+
+    <!-- Title area -->
+    <div class="mat-subheading-1">
+      {{ '_Point_Awards_' | translate }} {{ '_for_' | translate }}
+      {{ rankingGroup.name|translate }} {{ '_Events_' | translate }}
     </div>
-    <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="15px">
+
+    <!-- This area lets the user refine which event they are interested in withing the Rankings Category -->
+    <div class="lo-row lo-gap20">
       <div>
+
+        <!-- If there is more than one event group within the Rankings Category, let the user select one -->
         <div *ngIf="eventGroups.length > 1">
           <mat-form-field class="adjustment">
             <mat-select [placeholder]="'_event_group_' | translate"
-                        [(value)]="selectedEventGroup" name="item"
+                        [(value)]="selectedEventGroup"
                         (selectionChange)="onSelectEventGroup($event.value)">
-              <mat-option *ngFor="let item of eventGroups" [value]="item">{{item.name | translate}}</mat-option>
+              <mat-option *ngFor="let item of eventGroups" [value]="item">{{ item.name | translate }}</mat-option>
             </mat-select>
           </mat-form-field>
         </div>
+
+        <!-- If there are more than one event sub-groups within the selected event group, let the user select one -->
         <div *ngIf="eventSubGroups && eventSubGroups.length > 1">
           <mat-form-field>
             <mat-select [placeholder]="'_event_sub_group_' | translate"
-                        [(value)]="selectedEventSubGroup" name="item"
+                        [(value)]="selectedEventSubGroup"
                         (selectionChange)="onSelectEventSubGroup($event.value)">
-              <mat-option *ngFor="let item of eventSubGroups" [value]="item">{{item.name | translate}}</mat-option>
+              <mat-option *ngFor="let item of eventSubGroups" [value]="item">{{ item.name | translate }}</mat-option>
             </mat-select>
           </mat-form-field>
         </div>
+
+        <!-- If there is more than one event in the event group (or sub-group) let the user choose one -->
         <div *ngIf="events && events.length > 1">
           <mat-form-field>
             <mat-select [placeholder]="'_event_type_' | translate"
-                        [(value)]="selectedEvent" name="item"
+                        [(value)]="selectedEvent"
                         (selectionChange)="onSelectEvent($event.value)">
-              <mat-option *ngFor="let item of events" [value]="item">{{item.name | translate}}</mat-option>
+              <mat-option *ngFor="let item of events" [value]="item">{{ item.name | translate }}</mat-option>
             </mat-select>
           </mat-form-field>
         </div>
+
+        <!-- For junior regional events there needs to be an age group selector -->
         <div *ngIf="isJuniorRegional">
           <mat-form-field>
             <mat-select [placeholder]="'_Age_Group_' | translate"
-                        [(value)]="selectedAgeGroup" name="item"
+                        [(value)]="selectedAgeGroup"
                         (selectionChange)="onSelectAgeGroup($event.value)">
-              <mat-option *ngFor="let item of juniorAgeGroups" [value]="item">{{item.name | translate}}</mat-option>
+              <mat-option *ngFor="let item of juniorAgeGroups" [value]="item">{{ item.name | translate }}</mat-option>
             </mat-select>
           </mat-form-field>
           <div></div>
           <mat-form-field>
-            <mat-select [placeholder]="'_custom_ds_' | translate"
-                        [(value)]="smallDrawSize" name="notsure">
-            <mat-option *ngFor="let sds of smallDrawSizes" [value]="sds">{{sds.desc | translate}}</mat-option>
+            <mat-select [placeholder]="'_custom_ds_' | translate" [(value)]="smallDrawSize">
+              <mat-option *ngFor="let sds of smallDrawSizes" [value]="sds">{{ sds.desc | translate }}</mat-option>
             </mat-select>
           </mat-form-field>
         </div>
+
+        <!-- For the cases where the draw size can affect the point awards, allow the user to look at the point -->
+        <!-- awards for unusual draw sizes. -->
+        <!-- NOTE: this is primarily used by TC staff and TDs to set the correct winner points for an event -->
         <div *ngIf="baseDrawSize">
           <mat-form-field>
             <input matInput type="number" [(ngModel)]="selectedDrawSize"
@@ -56,6 +74,9 @@
                    maxlength="3" min="1" max="128" (change)="onDrawSizeChange()">
           </mat-form-field>
         </div>
+
+        <!-- For some types of draws it is possible to establish very fine-grained finish positions. -->
+        <!-- This allows the user to choose a finish position that is not on the default points table. -->
         <mat-form-field>
           <input matInput type="number" [(ngModel)]="selectedFinishPosition"
                  [placeholder]="'_custom_fp_'| translate"
@@ -63,21 +84,24 @@
         </mat-form-field>
         <div *ngIf="selectedEventSubGroup && selectedEventSubGroup.groupType">
         <span class="mat-body color-primary pointer-the-cursor" (click)="onReadMore()">
-          {{selectedEventSubGroup.conceptGroup.headerTextToken | translate}}
+          {{ selectedEventSubGroup.conceptGroup.headerTextToken | translate }}
         </span>
         </div>
         <div *ngIf="isJuniorRegional">
-          <p class="mat-body color-primary pointer-the-cursor" style="width: 180px" (click)="onShowEventStructure(selectedEventSubGroup)">
-            {{'_event_structure_rm_' | translate }} {{selectedProvince.name |translate }}
+          <p class="mat-body color-primary pointer-the-cursor" style="width: 180px"
+             (click)="onShowEventStructure(selectedEventSubGroup)">
+            {{ '_event_structure_rm_' | translate }} {{ selectedProvince.name |translate }}
           </p>
-          <p class="mat-body" style="width: 180px">{{year}}
-            {{'_RSF_' | translate}}
-            {{ '_for_'|translate}} {{ selectedProvince.name|translate }}:
-            {{ '_Girls_'|translate}} {{ selectedProvince.girlsRating.getRating(year)}},
-            {{ '_Boys_'|translate}} {{ selectedProvince.boysRating.getRating(year)}}
+          <p class="mat-body" style="width: 180px">{{ year }}
+            {{ '_RSF_' | translate }}
+            {{ '_for_'|translate }} {{ selectedProvince.name|translate }}:
+            {{ '_Girls_'|translate }} {{ selectedProvince.girlsRating.getRating(year) }},
+            {{ '_Boys_'|translate }} {{ selectedProvince.boysRating.getRating(year) }}
           </p>
         </div>
       </div>
+
+      <!-- And finally the points table -->
       <div>
         <app-points-table
           [eventGroup]="selectedEventGroup"

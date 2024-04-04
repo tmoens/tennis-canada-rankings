@@ -1,6 +1,6 @@
 /**
  * Insert a number in an ordered array of numbers
- * ==> return a new array don't mutate the one given.
+ * ==> returns a new array doesn't mutate the one given.
  * @param a - an array of number assumed to be in order
  * @param item - the item to be inserted in order
  */

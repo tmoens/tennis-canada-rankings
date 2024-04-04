@@ -1,5 +1,7 @@
-import {Concept, ConceptGroup} from "../../app/utils/concept";
-import {FIRST_ROUND_BYES_C, LB, POINT_CALC_C, RANKING_ELIGIBILITY_C, ROLLING_52_C} from "./generic-concepts";
+import {Concept} from '../../app/utils/concept';
+import {FIRST_ROUND_BYES_C, LB, POINT_CALC_C, RANKING_ELIGIBILITY_C, ROLLING_52_C} from './generic-concepts';
+import {ConceptGroup} from '../../app/utils/conceptGroup';
+
 let c: Concept;
 // ================== Adult Rankings =======================
 // ------------------ Adult Draw Size Dialog ---------------

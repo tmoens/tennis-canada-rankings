@@ -1,12 +1,12 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {AppState} from '../../utils/app-state';
-import {RankingGroup} from "../../utils/ranking-group";
+import {RankingGroup} from '../../utils/ranking-group';
 import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-splash-image-selector',
   templateUrl: './splash-image-selector.component.html',
-  styleUrls: ['./splash-image-selector.component.css']
+  styleUrls: ['./splash-image-selector.component.scss']
 })
 export class SplashImageSelectorComponent implements OnInit, OnDestroy {
 

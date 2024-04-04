@@ -1,12 +1,13 @@
-import { Component, OnInit, OnChanges} from '@angular/core';
-import { MatTabChangeEvent } from '@angular/material/tabs';
-import { RankingGroup} from "../utils/ranking-group";
-import { AppState} from "../utils/app-state";
-import {PROVINCES} from "../../assets/provinces/province-data";
-import {Province} from "../utils/province";
-import {RANKING_GROUPS} from "../../assets/ranking-groups";
-import {ActivatedRoute} from "@angular/router";
-import {ConceptGroup} from "../utils/concept";
+import {Component, OnInit, OnChanges} from '@angular/core';
+import {MatTabChangeEvent} from '@angular/material/tabs';
+import {RankingGroup} from '../utils/ranking-group';
+import {AppState} from '../utils/app-state';
+import {PROVINCES} from '../../assets/provinces/province-data';
+import {Province} from '../utils/province';
+import {RANKING_GROUPS} from '../../assets/ranking-groups';
+import {ActivatedRoute} from '@angular/router';
+
+import {ConceptGroup} from '../utils/conceptGroup';
 
 @Component({
   selector: 'app-rankings-explained',
@@ -21,24 +22,22 @@ export class RankingsExplainedComponent implements OnChanges, OnInit {
 
   // special case for "open" where there is an extra tab for
   // open events
-  showingOpenEvents:boolean = false;
+  showingOpenEvents = false;
 
   // The app allows the user to look at rankings history.
   // This is a local rememory of the selected ranking year
   rankingYear: string;
 
 
-  // The concept groups for the selected ranking group
-  // are presented as tabs (on the right) in the order of the
-  // concept groups within the ranking group.
-  // So the n'th tab corresponds to the n'th concept group.
+  // The concept groups for the selected ranking group are presented as tabs (on the right) in the order of the
+  // concept groups within the ranking group. So the n'th tab corresponds to the n'th concept group.
   // Track which tab is selected.
   conceptGroup: ConceptGroup;
   selectedConceptIndex = 0;
 
   constructor(public appState: AppState,
               private route: ActivatedRoute) {
-    this.canada = PROVINCES.getItem("_CAN_");
+    this.canada = PROVINCES.getItem('_CAN_');
 
     // Watch for the ranking year to change and act accordingly.
     this.appState.selectedRankingYear$.subscribe(y => {

@@ -1,5 +1,6 @@
-import {Concept, ConceptGroup} from "../../app/utils/concept";
-import {FIRST_ROUND_BYES_C, LB, RANKING_ELIGIBILITY_C, ROLLING_52_C} from "./generic-concepts";
+import {Concept} from '../../app/utils/concept';
+import {FIRST_ROUND_BYES_C, LB, RANKING_ELIGIBILITY_C, ROLLING_52_C} from './generic-concepts';
+import {ConceptGroup} from '../../app/utils/conceptGroup';
 
 // ================== Wheelchair Rankings =======================
 // ------------------ Wheelchair Key Concepts -------------------
