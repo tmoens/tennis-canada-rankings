@@ -1,14 +1,15 @@
 <!--------------------- Rankings Year Menu  -------------------->
 <div>
   <button mat-button color="primary" [matMenuTriggerFor]="rankingsYearMenu">
-    {{appState.selectedRankingYear}}
+    {{ appState.selectedRankingYear }}
     <mat-icon>arrow_drop_down</mat-icon>
   </button>
+
   <mat-menu #rankingsYearMenu="matMenu">
-    <div fxLayout="column" fxLayoutAlign="start start" fxFlexOffset="10px">
+    <div class="lo-column lo-gap10 lo-align-center lo-justify-center">
       <button mat-button *ngFor="let y of rankingYears.rankingYears" color="primary"
               (click)="appState.selectRankingYear(y)">
-        {{y}}
+        {{ y }}
       </button>
     </div>
   </mat-menu>

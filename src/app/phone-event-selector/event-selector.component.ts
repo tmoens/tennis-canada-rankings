@@ -1,17 +1,17 @@
 /**
  * This is used on a phone layout only.  On a larger layout, each category
- * has its own event selectors and points tables, though in retrospect
- * that seems strange.
+ * has its own event selectors and points tables.  They are in the directory
+ * lg-point-tables.
  *
  * This component provides set of selectors that allow the user to narrow down
  * exactly which event type she wants to see a point table for.  Because it
- * works ona phone it is structured so that both the selectors and the point
- * tables fit on a single page.
+ * works on a phone it is structured so that both the selectors and the point
+ * tables fit within a single page.
  *
- * The seemingly excessive complication stems from the fact that we have
- * different ranking methods for adult, junior, senior, open and wheelchair
- * and within juniors in particular we rank so many events - both
- * domestic and international.
+ * The seemingly excessive complication stems from the fact that Tennis Canada
+ * has different ranking methods for adult, junior, senior, open and wheelchair
+ * and within juniors in particular we rank so many events - both * domestic
+ * and international.
  */
 
 import {Component, OnChanges, OnInit, ViewEncapsulation} from '@angular/core';
@@ -23,7 +23,7 @@ import {AgeGroup} from '../age-group';
 import {JUNIOR_AGE_GROUPS} from '../../assets/age-groups';
 import {PROVINCES} from '../../assets/provinces/province-data';
 import {MatDialog} from '@angular/material/dialog';
-import {EventStructureDialog} from '../dialogs/event-structure-dialog/event-structure.component';
+import {EventStructureDialogComponent} from '../dialogs/event-structure-dialog/event-structure.component';
 import {ReadMoreDialogComponent} from '../dialogs/read-more-dialog/read-more-dialog.component';
 import {MIN_JR_REGIONAL_DRAW_SIZE} from '../../assets/event-groups/junior/junior-provincial-event-groups';
 
@@ -79,7 +79,7 @@ export class EventSelectorComponent implements OnInit, OnChanges {
   constructor(public appState: AppState,
               public eventStructureDialog: MatDialog,
               public readMoreDialog: MatDialog,
-              ) {
+  ) {
     // Watch for changes to the selected ranking group or ranking year
     // in which case we reset the event selector
     this.appState.selectedRankingYear$.subscribe(y => {
@@ -98,7 +98,7 @@ export class EventSelectorComponent implements OnInit, OnChanges {
     this.smallDrawSizes.push({value: MIN_JR_REGIONAL_DRAW_SIZE, desc: MIN_JR_REGIONAL_DRAW_SIZE.toString() + ' or more players'});
     this.smallDrawSize = this.smallDrawSizes[0];
     for (let i = MIN_JR_REGIONAL_DRAW_SIZE - 1; i > 1; i--) {
-      this.smallDrawSizes.push({value: i, desc: i.toString() + ' players', });
+      this.smallDrawSizes.push({value: i, desc: i.toString() + ' players'});
     }
   }
 
@@ -122,9 +122,9 @@ export class EventSelectorComponent implements OnInit, OnChanges {
     this.isJuniorRegional = false;
     this.selectedEventGroup = eg;
     if (eg.numSubGroups()) {
-      this.eventSubGroups = this.selectedEventGroup.subGroups.map( eventGroup =>
+      this.eventSubGroups = this.selectedEventGroup.subGroups.map(eventGroup =>
         eventGroup.getVersion(this.year));
-      this.isJuniorRegional =  (eg.name === '_Domestic_Events_');
+      this.isJuniorRegional = (eg.name === '_Domestic_Events_');
       if (this.isJuniorRegional) {
         // For the Junior Regional group there is one sub-group per PTA
         // So, we auto select the one that corresponds to the current context
@@ -159,7 +159,6 @@ export class EventSelectorComponent implements OnInit, OnChanges {
   onSelectEventSubGroup(esg: EventGroup) {
     if (this.isJuniorRegional) {
       this.selectedProvince = PROVINCES.getItem(esg.name);
-
     }
     this.selectedEventSubGroup = esg;
     this.events = esg.rankingEvents;
@@ -184,7 +183,7 @@ export class EventSelectorComponent implements OnInit, OnChanges {
   }
 
   onShowEventStructure(eg) {
-    this.eventStructureDialog.open(EventStructureDialog, {
+    this.eventStructureDialog.open(EventStructureDialogComponent, {
       width: '600px',
       data: {eventGroup: eg, province: this.selectedProvince, year: this.year}
     });

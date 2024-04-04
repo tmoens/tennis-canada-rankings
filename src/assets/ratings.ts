@@ -1,7 +1,7 @@
 // These ratings are used in several different places.
 
-import {KeyedStaticCollection} from "../app/utils/keyed-static-collection";
-import {Rating} from "../app/utils/rating";
+import {KeyedStaticCollection} from '../app/utils/keyed-static-collection';
+import {Rating} from '../app/utils/rating';
 
 export const BU18_RATING =
   new Rating(1);

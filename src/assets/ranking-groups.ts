@@ -1,4 +1,3 @@
-import {KeyedStaticCollection} from '../app/utils/keyed-static-collection';
 import {RankingGroup} from '../app/utils/ranking-group';
 import {
   ADULT_RANKING_CATEGORIES,
@@ -48,9 +47,9 @@ export const RANKING_GROUPS = [
   new RankingGroup('_Senior_', '144', 1,
     SENIOR_RANKING_CATEGORIES,
     [SENIOR_KEY_CONCEPTS_CG, SENIOR_OTHER_CG, SENIOR_RATINGS_AND_POINTS_GC],
-    [SENIOR_EVENT_GROUP], ),
+    [SENIOR_EVENT_GROUP]),
   new RankingGroup('_Wheelchair_', '174', 1,
     WHEELCHAIR_RANKING_CATEGORIES,
     [WHEELCHAIR_KEY_CONCEPTS_CG, WHEELCHAIR_OTHER_CG],
-    [WHEELCHAIR_EVENT_GROUP], ),
+    [WHEELCHAIR_EVENT_GROUP]),
 ];

@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAAA,WAAY;EACV,UAAU,EAAE,IAAI;;AAElB,WAAY;EACV,UAAU,EAAE,KAAK;EACjB,aAAa,EAAE,KAAK;;AAItB,mBAAoB;EAClB,MAAM,EAAE,OAAO;;AAGjB,OAAQ;EACN,MAAM,EAAE,GAAG",
-"sources": ["concept-display.component.scss"],
-"names": [],
-"file": "concept-display.component.css"
-}

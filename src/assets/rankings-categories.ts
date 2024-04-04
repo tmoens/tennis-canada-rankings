@@ -1,4 +1,4 @@
-import { RankingCategory } from '../app/utils/ranking-category';
+import {RankingCategory} from '../app/utils/ranking-category';
 
 const AMSL1 = new RankingCategory('DFA0DC7A-EF43-404E-BD48-35E3247B3A41', 'AMSL1', '1262');
 const AFSL1 = new RankingCategory('2FCBFECF-65CF-4ED8-B0D6-8C2E1C8F45EC', 'AFSL1', '1263');
@@ -6,7 +6,7 @@ const AMDL1 = new RankingCategory('7884F488-B413-48F6-A154-678865DC2F9B', 'AMDL1
 const AFDL1 = new RankingCategory('C9904813-DC48-4448-8708-6433A51958DE', 'AFDL1', '1265');
 // const AXDL1 = new RankingCategory('DE23B1E7-BB09-4554-9F9D-7F5E4EC1B3BC', 'AXDL1', '1266');
 
-export const OPEN_RANKING_CATEGORIES: RankingCategory[] = [AMSL1, AFSL1, AMDL1, AFDL1,];
+export const OPEN_RANKING_CATEGORIES: RankingCategory[] = [AMSL1, AFSL1, AMDL1, AFDL1];
 
 // const SMS = new RankingCategory('BCE13EE4-BE4C-4BA5-BC6A-FC5B01F84674', 'SMS', '1712');
 // const SFS = new RankingCategory('84A72232-AB23-47FD-9134-F23A45F1DAFA', 'SFS', '1713');
@@ -91,42 +91,42 @@ export const SENIOR_RANKING_CATEGORIES: RankingCategory[] = [
 export const SR_CATEGORY_HIERARCHY = [
   {
     name: '_Over_30_',
-    list: [SMSO30, SFSO30, SMDO30, SFDO30,],
-  },{
+    list: [SMSO30, SFSO30, SMDO30, SFDO30],
+  }, {
     name: '_Over_35_',
-    list: [SMSO35, SFSO35, SMDO35, SFDO35,],
-  },{
+    list: [SMSO35, SFSO35, SMDO35, SFDO35],
+  }, {
     name: '_Over_40_',
-    list: [SMSO40, SFSO40, SMDO40, SFDO40,],
-  },{
+    list: [SMSO40, SFSO40, SMDO40, SFDO40],
+  }, {
     name: '_Over_45_',
-    list: [SMSO45, SFSO45, SMDO45, SFDO45,],
-  },{
+    list: [SMSO45, SFSO45, SMDO45, SFDO45],
+  }, {
     name: '_Over_50_',
-    list: [SMSO50, SFSO50, SMDO50, SFDO50,],
-  },{
+    list: [SMSO50, SFSO50, SMDO50, SFDO50],
+  }, {
     name: '_Over_55_',
-    list: [SMSO55, SFSO55, SMDO55, SFDO55,],
-  },{
+    list: [SMSO55, SFSO55, SMDO55, SFDO55],
+  }, {
     name: '_Over_60_',
-    list: [SMSO60, SFSO60, SMDO60, SFDO60,],
-  },{
+    list: [SMSO60, SFSO60, SMDO60, SFDO60],
+  }, {
     name: '_Over_65_',
-    list: [SMSO65, SFSO65, SMDO65, SFDO65,],
-  },{
+    list: [SMSO65, SFSO65, SMDO65, SFDO65],
+  }, {
     name: '_Over_70_',
-    list: [SMSO70, SFSO70, SMDO70, SFDO70,],
-  },{
+    list: [SMSO70, SFSO70, SMDO70, SFDO70],
+  }, {
     name: '_Over_75_',
-    list: [SMSO75, SFSO75, SMDO75, SFDO75,],
-  },{
+    list: [SMSO75, SFSO75, SMDO75, SFDO75],
+  }, {
     name: '_Over_80_',
-    list: [SMSO80, SFSO80, SMDO80, SFDO80,],
-  },{
+    list: [SMSO80, SFSO80, SMDO80, SFDO80],
+  }, {
     name: '_Over_85_',
-    list: [SMSO85, SFSO85, SMDO85, SFDO85,],
+    list: [SMSO85, SFSO85, SMDO85, SFDO85],
   },
-]
+];
 
 
 const AMSL2 = new RankingCategory('806D9088-45E3-4CFD-B7CD-AEAB5A597AD6', 'AMSL2', '1267');
@@ -172,29 +172,29 @@ export const ADULT_RANKING_CATEGORIES: RankingCategory[] = [
 export const ADULT_CATEGORY_HIERARCHY = [
   {
     name: '5.0',
-    list: [ AMSL2, AFSL2, AMDL2, AFDL2 ],
+    list: [AMSL2, AFSL2, AMDL2, AFDL2],
   },
   {
     name: '4.5',
-    list: [ AMSL3, AFSL3, AMDL3, AFDL3 ],
+    list: [AMSL3, AFSL3, AMDL3, AFDL3],
   },
   {
     name: '4.0',
-    list: [ AMSL4, AFSL4, AMDL4, AFDL4 ],
+    list: [AMSL4, AFSL4, AMDL4, AFDL4],
   },
   {
     name: '3.5',
-    list: [ AMSL5, AFSL5, AMDL5, AFDL5 ],
+    list: [AMSL5, AFSL5, AMDL5, AFDL5],
   },
   {
     name: '3.0',
-    list: [ AMSL6, AFSL6, AMDL6, AFDL6 ],
+    list: [AMSL6, AFSL6, AMDL6, AFDL6],
   },
   {
     name: '2.5',
-    list: [ AMSL7, AFSL7, AMDL7, AFDL7 ],
+    list: [AMSL7, AFSL7, AMDL7, AFDL7],
   },
-]
+];
 
 
 // const JMS = new RankingCategory('A089EE48-CE61-44EA-8ABD-134D3AF9F1E1', 'JMS', '1682');
@@ -242,25 +242,21 @@ const JFS1112 = new RankingCategory('42A2B056-1171-4430-B3A3-A6704CD26D3C', 'JFS
 export const JR_CATEGORY_HIERARCHY = [
   {
     name: '_Under_18_',
-    list: [JMSU18, JFSU18, JMDU18, JFDU18, JMS1718, JFS1718,],
-  },  {
+    list: [JMSU18, JFSU18, JMDU18, JFDU18, JMS1718, JFS1718],
+  }, {
     name: '_Under_16_',
-    list: [JMSU16, JFSU16, JMDU16, JFDU16, JMS1516, JFS1516,],
-  },{
+    list: [JMSU16, JFSU16, JMDU16, JFDU16, JMS1516, JFS1516],
+  }, {
     name: '_Under_14_',
-    list: [JMSU14, JFSU14, JMDU14, JFDU14, JMS1314, JFS1314,],
-  },{
+    list: [JMSU14, JFSU14, JMDU14, JFDU14, JMS1314, JFS1314],
+  }, {
     name: '_Under_12_',
-    list: [JMSU12, JFSU12, JMDU12, JFDU12, JMS1112, JFS1112,],
+    list: [JMSU12, JFSU12, JMDU12, JFDU12, JMS1112, JFS1112],
   },
-]
-
-export const JUNIOR_STRICT_CATEGORIES: RankingCategory[] = [
-  JMS1718, JFS1718, JMS1516, JFS1516, JMS1314, JFS1314, JMS1112, JFS1112,
 ];
 
 const WF = new RankingCategory('8D8F9E5D-F357-43BB-A142-4CB2418EF3CD', 'WF', '2113');
 const WM = new RankingCategory('49AA80ED-AD7C-4CA9-8DF8-7CF01CB8904D', 'WM', '2112');
 const WQ = new RankingCategory('5415B64C-8C03-4651-96C5-54E01AC9F588', 'WQ', '2114');
 
-export const WHEELCHAIR_RANKING_CATEGORIES: RankingCategory[] = [WF, WM, WQ,];
+export const WHEELCHAIR_RANKING_CATEGORIES: RankingCategory[] = [WF, WM, WQ];

@@ -1,21 +1,21 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import {Component, OnInit, Inject} from '@angular/core';
 import {EventGroup} from '../../utils/ranking-event';
 import {Province} from '../../utils/province';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 
 @Component({
-  selector: 'event-structure-dialog',
+  selector: 'app-event-structure-dialog',
   templateUrl: './event-structure.component.html',
   styleUrls: ['./event-structure.component.scss']
 })
-export class EventStructureDialog implements OnInit {
+export class EventStructureDialogComponent implements OnInit {
   hasLink = false;
   eventGroup: EventGroup;
   province: Province;
   year: string;
 
   constructor(
-    public dialogRef: MatDialogRef<EventStructureDialog>,
+    public dialogRef: MatDialogRef<EventStructureDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
   ) {
     this.eventGroup = data.eventGroup as EventGroup;

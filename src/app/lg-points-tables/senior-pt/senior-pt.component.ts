@@ -1,23 +1,23 @@
 /**
- * Large screen points table for seniors events.  Works perfectly for Open events too.
+ * Large screen points table for seniors events.  Works for Open events too.
  *
- * Super simple table - the columns are various levles of seniors events.
+ * Super simple table - the columns are various levels of seniors events.
  */
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
-import {EventGroup, RankingEvent} from "../../utils/ranking-event";
-import {AppState} from "../../utils/app-state";
-import {FinishPositionLabeler} from "../../utils/finish-positions";
-import {RankingGroup} from "../../utils/ranking-group";
-import {arrayInsert} from "../../utils/arrayInsert";
+import {EventGroup, RankingEvent} from '../../utils/ranking-event';
+import {AppState} from '../../utils/app-state';
+import {FinishPositionLabeler} from '../../utils/finish-positions';
+import {RankingGroup} from '../../utils/ranking-group';
+import {arrayInsert} from '../../utils/arrayInsert';
 import {Subscription} from 'rxjs';
 
-const   finishPositions: number[] = [1,2,3,4,5,8,16,32];
+const finishPositions: number[] = [1, 2, 3, 4, 5, 8, 16, 32];
 const r = .6;
 
 @Component({
   selector: 'app-senior-pt',
   templateUrl: './senior-pt.component.html',
-  styleUrls: ['./senior-pt.component.css']
+  styleUrls: ['./senior-pt.component.scss']
 })
 export class SeniorPtComponent implements OnInit, OnDestroy {
   @Input() rankingGroup: RankingGroup;
@@ -25,8 +25,9 @@ export class SeniorPtComponent implements OnInit, OnDestroy {
   selectedEvent: RankingEvent;
   headerRow: any[];
   headerColumn: any[];
-  customFinishPosition: number = 4;
+  customFinishPosition = 4;
   pointsTable: any[];
+
   constructor(public appState: AppState,
               public fpLabeler: FinishPositionLabeler) {
   }
@@ -36,8 +37,8 @@ export class SeniorPtComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.buildPointsTable();
-    this.yearChangeSubscription = this.appState.selectedRankingYear$.subscribe( _ => {
-      this.buildPointsTable()
+    this.yearChangeSubscription = this.appState.selectedRankingYear$.subscribe(_ => {
+      this.buildPointsTable();
     });
   }
 
@@ -49,11 +50,11 @@ export class SeniorPtComponent implements OnInit, OnDestroy {
     const year: string = this.appState.selectedRankingYear;
     // Seniors have has exactly one event group
     this.selectedEventGroup = this.rankingGroup.eventGroups[0].getVersion(year);
-    let fps: number[] = arrayInsert(finishPositions, this.customFinishPosition);
+    const fps: number[] = arrayInsert(finishPositions, this.customFinishPosition);
 
     this.headerRow = this.buildHeaderRow();
     this.headerColumn = [];
-    let table = [];
+    const table = [];
     for (const fp of fps) {
       this.headerColumn.push(this.fpLabeler.getLabel(fp));
       const row: any[] = [];
@@ -71,14 +72,14 @@ export class SeniorPtComponent implements OnInit, OnDestroy {
 
   buildHeaderRow(): string[] {
     const row = [];
-    for (const  e of this.selectedEventGroup.rankingEvents) {
-      row.push( e.name + 'abbrv_');
+    for (const e of this.selectedEventGroup.rankingEvents) {
+      row.push(e.name + 'abbrv_');
     }
     return row;
   }
 
 
-  calcPoints( fp: number,  rating: number) {
+  calcPoints(fp: number, rating: number) {
     return rating * Math.pow(r, Math.log2(fp));
   }
 

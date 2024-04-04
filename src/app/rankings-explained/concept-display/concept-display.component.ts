@@ -1,9 +1,11 @@
-import {Component, OnInit, Input, OnDestroy} from '@angular/core';
-import { MatDialog } from "@angular/material/dialog";
-import { ReadMoreDialogComponent } from "../../dialogs/read-more-dialog/read-more-dialog.component";
-import {AppState} from "../../utils/app-state";
-import {Concept, ConceptGroup} from "../../utils/concept";
+import {Component, OnInit, Input, OnDestroy, OnChanges} from '@angular/core';
+import {MatDialog} from '@angular/material/dialog';
+import {ReadMoreDialogComponent} from '../../dialogs/read-more-dialog/read-more-dialog.component';
+import {AppState} from '../../utils/app-state';
+import {Concept} from '../../utils/concept';
 import {Subscription} from 'rxjs';
+import {ConceptGroup} from '../../utils/conceptGroup';
+
 /*
   This component displays a set of rankings concepts. That is text describing
   some aspect of the ranking system.  For example Key Concepts of Adult rankings,
@@ -12,14 +14,14 @@ import {Subscription} from 'rxjs';
   This can happen in several places, so the code is factored out to here.
 
   2018-10-24 things change from year to year - so when a person looks at 2014
-  rankings - the text should show what was correct in 2014. Gonna try to make it work.
+  rankings - the text should show what was correct in 2014.
 */
 @Component({
   selector: 'app-concept-display',
   templateUrl: './concept-display.component.html',
-  styleUrls: ['./concept-display.component.css']
+  styleUrls: ['./concept-display.component.scss']
 })
-export class ConceptDisplayComponent implements OnInit, OnDestroy {
+export class ConceptDisplayComponent implements OnInit, OnDestroy, OnChanges {
 
   // These two variables are essentially the query criteria to fetch
   // the set of concepts to be displayed.
@@ -32,10 +34,11 @@ export class ConceptDisplayComponent implements OnInit, OnDestroy {
   yearChangeSubscription: Subscription;
 
   constructor(public appState: AppState,
-              public readMore: MatDialog) { }
+              public readMore: MatDialog) {
+  }
 
   ngOnInit() {
-    // Watch for changes to the the selected or ranking year in which case
+    // Watch for changes to the selected or ranking year in which case
     // we reset the concepts that are valid for the selected year.
     this.yearChangeSubscription = this.appState.selectedRankingYear$.subscribe(_ => {
       this.ngOnChanges();
@@ -47,13 +50,13 @@ export class ConceptDisplayComponent implements OnInit, OnDestroy {
   }
 
   ngOnChanges() {
-    this.concepts = this.conceptGroup.getValidConcepts(parseInt(this.appState.selectedRankingYear,10));
+    this.concepts = this.conceptGroup.getValidConcepts(parseInt(this.appState.selectedRankingYear, 10));
   }
 
-  onReadMore(concept:Concept) {
+  onReadMore(concept: Concept) {
     this.readMore.open(ReadMoreDialogComponent, {
       width: '600px',
-      data: { conceptGroup: concept.expansionGroup } ,
-    })
+      data: {conceptGroup: concept.expansionGroup},
+    });
   }
 }

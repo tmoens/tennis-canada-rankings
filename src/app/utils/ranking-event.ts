@@ -1,6 +1,7 @@
-import { KeyedStaticCollection } from './keyed-static-collection';
-import { Rating } from './rating';
-import {ConceptGroup} from './concept';
+import {KeyedStaticCollection} from './keyed-static-collection';
+import {Rating} from './rating';
+
+import {ConceptGroup} from './conceptGroup';
 
 /*
   A ranking event is any type of event which is supported by Tennis Canada Rankings.
@@ -16,7 +17,8 @@ export class RankingEvent {
     public name: string,
     public rating: Rating,
     public baseDrawSize?: number,
-    public hasUrl = false) {}
+    public hasUrl = false) {
+  }
 
   getBaseDrawSize(): number {
     return (this.baseDrawSize) ? this.baseDrawSize : 0;
@@ -37,9 +39,10 @@ export enum EventGroupType {
 export class EventGroup {
   private _groupType: EventGroupType = EventGroupType.NONE;
   private _conceptGroup: ConceptGroup = null;
+
   constructor(
     public name: string,
-    public rankingEvents:  RankingEvent[] = [],
+    public rankingEvents: RankingEvent[] = [],
     public subGroups: KeyedStaticCollection<EventGroup>[] = []) {
   }
 

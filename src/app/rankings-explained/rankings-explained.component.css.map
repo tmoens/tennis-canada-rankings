@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAGA,uDAAuD;EACrD,SAAS,EAAE,gBAAe;EAC1B,OAAO,EAAE,iBAAgB",
-"sources": ["rankings-explained.component.scss"],
-"names": [],
-"file": "rankings-explained.component.css"
-}

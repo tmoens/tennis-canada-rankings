@@ -15,7 +15,7 @@ import {JUNIOR_FEMALE_PRO_CG, JUNIOR_MALE_PRO_CG} from '../../concepts/junior-co
  * So there are exchange rate for ATP, WTA, and ITF points to junior points.
  *
  * Consequently, the bulk of what is in the file is not relevant after 2018
- * but is kept for historical purposes.  In fact, the rankings web site will
+ * but is kept for historical purposes.  In fact, the rankings website will
  * still accurately show what the conversions were prior in 2018 and earlier.
  */
 

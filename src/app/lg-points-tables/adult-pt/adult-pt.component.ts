@@ -5,13 +5,13 @@
  * Super simple table - the columns are various draw sizes.
  */
 
-import {Component, Input, OnInit} from '@angular/core';
-import {RankingGroup} from "../../utils/ranking-group";
-import {FinishPositionLabeler} from "../../utils/finish-positions";
-import {AppState} from "../../utils/app-state";
-import {ADULT_EVENT_GROUP} from "../../../assets/event-groups/adult-event-group";
-import {EventGroup, RankingEvent} from "../../utils/ranking-event";
-import {arrayInsert} from "../../utils/arrayInsert";
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {RankingGroup} from '../../utils/ranking-group';
+import {FinishPositionLabeler} from '../../utils/finish-positions';
+import {AppState} from '../../utils/app-state';
+import {ADULT_EVENT_GROUP} from '../../../assets/event-groups/adult-event-group';
+import {EventGroup, RankingEvent} from '../../utils/ranking-event';
+import {arrayInsert} from '../../utils/arrayInsert';
 import {Subscription} from 'rxjs';
 
 const r = .6;
@@ -19,17 +19,17 @@ const r = .6;
 @Component({
   selector: 'app-adult-pt',
   templateUrl: './adult-pt.component.html',
-  styleUrls: ['./adult-pt.component.css']
+  styleUrls: ['./adult-pt.component.scss']
 })
-export class AdultPtComponent implements OnInit {
+export class AdultPtComponent implements OnInit, OnDestroy {
   eg: EventGroup;
   selectedEvent: RankingEvent;
   drawSizes: number[] = [2, 4, 8, 16, 32, 64];
-  finishPositions: number[] = [1,2,3,4,6,8,12,16,32,64,128];
+  finishPositions: number[] = [1, 2, 3, 4, 6, 8, 12, 16, 32, 64, 128];
   headerRow: any[];
   headerColumn: any[];
-  customDrawSize: number = 16;
-  customFinishPosition: number = 16;
+  customDrawSize = 16;
+  customFinishPosition = 16;
   pointsTable: any[];
   year: string;
   @Input() rankingGroup: RankingGroup;
@@ -45,8 +45,8 @@ export class AdultPtComponent implements OnInit {
     this.eg = ADULT_EVENT_GROUP.getVersion(this.appState.selectedRankingYear);
     this.selectedEvent = this.eg.rankingEvents[0];
     this.buildPointsTable();
-    this.yearChangeSubscription = this.appState.selectedRankingYear$.subscribe( _ => {
-      this.buildPointsTable()
+    this.yearChangeSubscription = this.appState.selectedRankingYear$.subscribe(_ => {
+      this.buildPointsTable();
     });
   }
 
@@ -55,17 +55,17 @@ export class AdultPtComponent implements OnInit {
   }
 
   buildPointsTable() {
-    let rating: number = this.selectedEvent.rating.getRating(this.appState.selectedRankingYear);
-    let baseDrawSize = this.selectedEvent.getBaseDrawSize();
-    let drawSizes: number[] = arrayInsert(this.drawSizes, this.customDrawSize);
-    let fps: number[] = arrayInsert(this.finishPositions, this.customFinishPosition);
+    const rating: number = this.selectedEvent.rating.getRating(this.appState.selectedRankingYear);
+    const baseDrawSize = this.selectedEvent.getBaseDrawSize();
+    const drawSizes: number[] = arrayInsert(this.drawSizes, this.customDrawSize);
+    const fps: number[] = arrayInsert(this.finishPositions, this.customFinishPosition);
 
     this.headerRow = this.buildHeaderRow(drawSizes);
     this.headerColumn = [];
-    let table = [];
+    const table = [];
     for (const fp of fps) {
       this.headerColumn.push(this.fpLabeler.getLabel(fp));
-      if (this.customFinishPosition == fp) {
+      if (this.customFinishPosition === fp) {
         table.push(this.buildPointsTableRow(drawSizes, rating, baseDrawSize, fp));
       } else {
         table.push(this.buildPointsTableRow(drawSizes, rating, baseDrawSize, fp));
@@ -78,7 +78,7 @@ export class AdultPtComponent implements OnInit {
   buildHeaderRow(drawSizes: number[]): string[] {
     const row = [];
     for (const ds of drawSizes) {
-      row.push( ds.toString());
+      row.push(ds.toString());
     }
     return row;
   }
@@ -89,7 +89,7 @@ export class AdultPtComponent implements OnInit {
       if (fp > ds) {
         row.push('');
       } else {
-        if (ds == this.customDrawSize || fp == this.customFinishPosition) {
+        if (ds === this.customDrawSize || fp === this.customFinishPosition) {
           row.push({value: this.calcPoints(rating, baseDrawSize, fp, ds), special: true});
         } else {
           row.push({value: this.calcPoints(rating, baseDrawSize, fp, ds)});
@@ -99,9 +99,9 @@ export class AdultPtComponent implements OnInit {
     return row;
   }
 
-  calcPoints(basePoints: number, baseDrawSize: number, fp: number,  drawSize: number) {
+  calcPoints(basePoints: number, baseDrawSize: number, fp: number, drawSize: number) {
     return basePoints * Math.pow(r, Math.log2(fp)) *
-      (Math.pow(r,Math.log(baseDrawSize)/Math.log(2) - Math.log(drawSize)/Math.log(2)))
+      (Math.pow(r, Math.log(baseDrawSize) / Math.log(2) - Math.log(drawSize) / Math.log(2)));
   }
 
 }

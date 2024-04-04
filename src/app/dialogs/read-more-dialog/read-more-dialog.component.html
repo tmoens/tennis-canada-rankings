@@ -1,12 +1,12 @@
-<div mat-dialog-header>
-  <h1 mat-dialog-title>{{conceptGroup.headerTextToken | translate}}</h1>
+<div>
+  <h1 mat-dialog-title>{{ conceptGroup.headerTextToken | translate }}</h1>
 </div>
 <div mat-dialog-content>
   <app-concept-display [conceptGroup]="conceptGroup">
   </app-concept-display>
 </div>
-<div fxLayout="row" fxLayoutAlign="end">
+<div class="lo-row lo-justify-end">
   <div mat-dialog-actions>
-    <button mat-button color="primary" [mat-dialog-close] cdkFocusInitial>{{'_Done_'|translate}}</button>
+    <button mat-button color="primary" [mat-dialog-close]="''">{{ '_Done_'|translate }}</button>
   </div>
 </div>

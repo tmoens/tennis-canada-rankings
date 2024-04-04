@@ -1,37 +1,38 @@
-<!--
-  There are two navigation modes, the toolbar for large screens and the sidenav for phones
--->
-<div fxShow fxHide.lt-md>
+<!-- For large screens, there is a toolbar with menus (which is hidden on small screens). -->
+<div class="hide-on-small">
   <mat-toolbar>
     <a mat-button routerLink="/home" routerLinkActive="active" color="primary">Home</a>
     <app-province-selector></app-province-selector>
     <app-rankings-link-menu *ngFor="let rg of rankingGroups" [rankingGroup]="rg"></app-rankings-link-menu>
     <app-ranking-year-selector></app-ranking-year-selector>
     <span class="fill-remaining-space"></span>
-    <button mat-button color="primary" (click)="onLanguageChange()" >{{appState.selectedLanguage.buttonLabel}}</button>
+    <button mat-button color="primary" (click)="onLanguageChange()">{{ appState.selectedLanguage.buttonLabel }}</button>
   </mat-toolbar>
 </div>
 
-<div fxShow fxHide.gt-sm>
+<!-- For small screens, there is no room for all the menus, so they are all in a sidebar which can be toggled -->
+<!-- in a small toolbar. The sidenav menu is not needed on large screens. -->
+<div class="hide-on-large">
   <mat-toolbar>
     <button mat-icon-button (click)="sideMenu.toggle()" color="primary">
       <mat-icon>menu</mat-icon>
-      <span class="mat-h2">{{'_Sponsor_Rankings_'|translate}}</span>
+      <span class="mat-h2">{{ '_Sponsor_Rankings_'|translate }}</span>
     </button>
     <span class="fill-remaining-space"></span>
   </mat-toolbar>
 </div>
+
 <mat-sidenav-container style="min-height: 500px">
+  <!-- The sidenav is where you find all the menus on the small screen. -->
   <mat-sidenav #sideMenu mode="over" [(opened)]="sideMenuOpen">
     <a mat-button routerLink="/home" routerLinkActive="active" color="primary">Home</a>
     <app-province-selector></app-province-selector>
     <app-rankings-link-menu *ngFor="let rg of rankingGroups" [rankingGroup]="rg"></app-rankings-link-menu>
     <app-ranking-year-selector></app-ranking-year-selector>
-    <button mat-button color="primary" (click)="onLanguageChange()" >{{appState.selectedLanguage.buttonLabel}}</button>
+    <button mat-button color="primary" (click)="onLanguageChange()">{{ appState.selectedLanguage.buttonLabel }}</button>
   </mat-sidenav>
+  <!-- The sidenav content is where the meat of the website lives. -->
   <mat-sidenav-content>
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
-
-<!--<app-state-viewer></app-state-viewer>-->

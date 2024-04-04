@@ -1,5 +1,6 @@
-import {Concept, ConceptGroup} from '../../app/utils/concept';
+import {Concept} from '../../app/utils/concept';
 import {LB, POINT_CALC_C, RANKING_ELIGIBILITY_C, ROLLING_52_C} from './generic-concepts';
+import {ConceptGroup} from '../../app/utils/conceptGroup';
 
 // ================== Senior Rankings =======================
 // ------------------ Senior Key Concepts -------------------

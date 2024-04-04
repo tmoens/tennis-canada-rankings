@@ -4,9 +4,9 @@
  rankings-explained page for Open ranking area.
  */
 import {AfterViewInit, Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
-import {AppState} from "../../utils/app-state";
-import {HttpClient} from "@angular/common/http";
-import {FetchService} from "../../fetch-service";
+import {AppState} from '../../utils/app-state';
+import {HttpClient} from '@angular/common/http';
+import {FetchService} from '../../fetch-service';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatSort} from '@angular/material/sort';
 import {OpenTournamentDto} from './tournament-dto';
@@ -15,7 +15,7 @@ import {Subscription} from 'rxjs';
 @Component({
   selector: 'app-open-event-list',
   templateUrl: './open-event-list.component.html',
-  styleUrls: ['./open-event-list.component.css']
+  styleUrls: ['./open-event-list.component.scss']
 })
 export class OpenEventListComponent implements OnInit, AfterViewInit, OnDestroy {
   year: number;
@@ -28,7 +28,8 @@ export class OpenEventListComponent implements OnInit, AfterViewInit, OnDestroy 
 
   constructor(public appState: AppState,
               public http: HttpClient,
-              public fetchService: FetchService,) {
+              public fetchService: FetchService,
+  ) {
   }
 
   // The subscription to the year change events
@@ -51,16 +52,17 @@ export class OpenEventListComponent implements OnInit, AfterViewInit, OnDestroy 
   }
 
   // Load the Open tournament List
-  fetchOpenTournaments(year:number) {
+  fetchOpenTournaments(year: number) {
     this.year = year;
     this.fetchService.fetchOpenTournaments(year)
       .subscribe((tournaments: OpenTournamentDto[]) => {
         this.tournaments = tournaments;
         this.tableData.data = this.tournaments;
-      })
+      });
   }
 
-  applyFilter(filterValue: string) {
-    this.tableData.filter = filterValue.trim().toLowerCase();
+  applyFilter(event: Event) {
+    const element = event.target as HTMLInputElement;
+    this.tableData.filter = element.value.trim().toLowerCase();
   }
 }

@@ -1,9 +1,11 @@
-import {Injectable} from "@angular/core";
-import { RankingGroup } from "./ranking-group";
-import { Province } from "./province";
-import {EventGroup} from "./ranking-event";
-import {Language} from "./language";
-import {BehaviorSubject} from "rxjs";
+import {Injectable} from '@angular/core';
+import {RankingGroup} from './ranking-group';
+import {Province} from './province';
+import {EventGroup} from './ranking-event';
+import {Language} from './language';
+import {BehaviorSubject} from 'rxjs';
+
+// The app state just keeps track of the user's current focus.
 
 @Injectable()
 export class AppState {
@@ -26,12 +28,12 @@ export class AppState {
     this.selectedLanguage$ = new BehaviorSubject(null as Language);
   }
 
-  selectRankingGroup(rankingGroup:RankingGroup) {
+  selectRankingGroup(rankingGroup: RankingGroup) {
     this.selectedRankingGroup = rankingGroup;
     this.selectedRankingGroup$.next(rankingGroup);
   }
 
-  selectRankingYear(rankingYear:string) {
+  selectRankingYear(rankingYear: string) {
     this.selectedRankingYear = rankingYear;
     this.selectedRankingYear$.next(rankingYear);
   }
@@ -41,12 +43,12 @@ export class AppState {
     this.selectedProvince$.next(p);
   }
 
-  selectEventGroup(eg:EventGroup) {
+  selectEventGroup(eg: EventGroup) {
     this.selectedEventGroup = eg;
     this.selectedEventGroup$.next(eg);
   }
 
-  selectLanguage(l:Language) {
+  selectLanguage(l: Language) {
     this.selectedLanguage = l;
     this.selectedLanguage$.next(l);
   }

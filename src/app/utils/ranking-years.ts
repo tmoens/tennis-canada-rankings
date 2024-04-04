@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import { AppState} from "./app-state";
+import { AppState} from './app-state';
 
 /*
   This is just a list of years (as strings) going from this year back
@@ -16,11 +16,13 @@ export class RankingYears {
   rankingYears: string[] = [];
   constructor(public appState: AppState) {
     const d = (new Date());
-    let thisYear: number = d.getFullYear();
+    const thisYear: number = d.getFullYear();
     let startYear: number = thisYear;
 
-    // add next year come October (month 9 according to Date)
-    if (d.getMonth() >= 9) startYear = startYear + 1;
+    // starting in October (month 9 according to Date) add another year to the rankings year dropdown
+    if (d.getMonth() >= 9) {
+      startYear = startYear + 1;
+    }
 
     for (let y = startYear; y > 2012; y--) {
       this.rankingYears.push(y.toString());

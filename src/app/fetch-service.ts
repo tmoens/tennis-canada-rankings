@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
-import { Observable, of} from "rxjs";
-import {catchError} from "rxjs/operators";
+import { Observable, of} from 'rxjs';
+import {catchError} from 'rxjs/operators';
 import {environment} from '../environments/environment';
 
 @Injectable({
@@ -11,8 +11,7 @@ export class FetchService {
 
   constructor(
     private http: HttpClient,
-  )
-  { }
+  ) { }
 
   // Load the Open tournament List
   fetchOpenTournaments(year: number): Observable<any> {
@@ -23,7 +22,7 @@ export class FetchService {
       })
       .pipe(
         catchError(this.handleError('Fetching open tournament list for year: ${year}', []))
-      )
+      );
   }
 
   /**
