@@ -2,7 +2,6 @@ import {NgModule} from '@angular/core';
 import {A11yModule} from '@angular/cdk/a11y';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {FlexLayoutModule} from '@angular/flex-layout';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule, HttpClient} from '@angular/common/http';
 import {MatButtonModule} from '@angular/material/button';
@@ -93,7 +92,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     A11yModule,
     BrowserModule,
     BrowserAnimationsModule,
-    FlexLayoutModule,
     FormsModule,
     HttpClientModule,
     MatButtonModule,
@@ -125,15 +123,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     }),
     AppRoutingModule
   ],
-  entryComponents: [
-    EventStructureDialogComponent,
-    ReadMoreDialogComponent,
-  ],
   providers: [
     AppState,
     FinishPositionLabeler,
     RankingYears,
-
   ],
   bootstrap: [AppComponent]
 })

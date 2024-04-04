@@ -1,20 +1,20 @@
-import { Component } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
+import {Component} from '@angular/core';
+import {TranslateService} from '@ngx-translate/core';
 
-import { Province } from './utils/province';
-import { RankingGroup} from './utils/ranking-group';
-import { RankingYears } from './utils/ranking-years';
-import { KeyedStaticCollection } from './utils/keyed-static-collection';
-import { AppState } from './utils/app-state';
+import {Province} from './utils/province';
+import {RankingGroup} from './utils/ranking-group';
+import {RankingYears} from './utils/ranking-years';
+import {KeyedStaticCollection} from './utils/keyed-static-collection';
+import {AppState} from './utils/app-state';
 
-import { PROVINCES } from '../assets/provinces/province-data';
-import { RANKING_GROUPS } from '../assets/ranking-groups';
+import {PROVINCES} from '../assets/provinces/province-data';
+import {RANKING_GROUPS} from '../assets/ranking-groups';
 import {ENGLISH, FRENCH} from './utils/language';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   title = 'NationalBankRankings';
