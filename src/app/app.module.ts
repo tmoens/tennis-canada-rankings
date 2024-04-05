@@ -24,7 +24,6 @@ import {MatLegacyInputModule as MatInputModule} from '@angular/material/legacy-i
 // import {MatLegacyTableModule as MatTableModule} from '@angular/material/legacy-table';
 // import {MatLegacyDialogModule as MatDialogModule} from '@angular/material/legacy-dialog';
 
-
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {MultiTranslateHttpLoader} from 'ngx-translate-multi-http-loader';
 
