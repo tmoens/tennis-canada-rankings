@@ -14,15 +14,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatSortModule} from '@angular/material/sort';
 
 // Angular 14 to 15 migration, the following modules became Legacy and I had to convert back from Legacy
-import {MatLegacyFormFieldModule as MatFormFieldModule} from '@angular/material/legacy-form-field';
-import {MatLegacySelectModule as MatSelectModule} from '@angular/material/legacy-select';
-import {MatLegacyInputModule as MatInputModule} from '@angular/material/legacy-input';
-// import {MatLegacyMenuModule as MatMenuModule} from '@angular/material/legacy-menu';
-// import {MatLegacyTabsModule as MatTabsModule} from '@angular/material/legacy-tabs';
-// import {MatLegacyListModule as MatListModule} from '@angular/material/legacy-list'; !unused!
-// import {MatLegacyProgressSpinnerModule as MatProgressSpinnerModule} from '@angular/material/legacy-progress-spinner'; !unused!
-// import {MatLegacyTableModule as MatTableModule} from '@angular/material/legacy-table';
-// import {MatLegacyDialogModule as MatDialogModule} from '@angular/material/legacy-dialog';
+// import {MatLegacySelectModule as MatSelectModule} from '@angular/material/legacy-select';
+// import {MatLegacyInputModule as MatInputModule} from '@angular/material/legacy-input';
 
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {MultiTranslateHttpLoader} from 'ngx-translate-multi-http-loader';
@@ -56,6 +49,9 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatTableModule} from '@angular/material/table';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
