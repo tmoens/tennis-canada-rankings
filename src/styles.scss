@@ -1,14 +1,28 @@
-@import '../node_modules/@angular/material/theming';
-// Note to self - import component .scss files here if you have component specific scss
+@use '@angular/material' as mat;
+@use 'app/app.component' as app;
 
-// From the documentation - mat-core should not be imported in other scss files
-@include mat-core();
+// Defines CSS resets, ARIA attributes, and animations. It should be included exactly once.
+@include mat.core();
 
-@import './tc-tools-theme.scss';
+$tc-typography: mat.define-typography-config();
+@include mat.all-component-typographies($tc-typography);
 
-@import './app/app.component';
-@include angular-material-theme($tc-tools);
-@include rogers-rankings($tc-tools);
+$tc-primary: mat.define-palette(mat.$blue-palette);
+$tc-accent: mat.define-palette(mat.$yellow-palette, A200, A100, A400);
+$tc-warn: mat.define-palette(mat.$red-palette);
+
+$tc-theme: mat.define-light-theme((
+  color: (
+    primary: $tc-primary,
+    accent: $tc-accent,
+  ),
+  density: 0,
+));
+
+@include mat.all-component-themes($tc-theme);
+
+// The whole application now has access to the defined theme (contained in $tc-tools)
+@include app.rogers-rankings($tc-theme);
 
 img.tclogo {
   height: 84px;

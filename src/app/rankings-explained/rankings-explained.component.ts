@@ -1,5 +1,5 @@
 import {Component, OnInit, OnChanges} from '@angular/core';
-import {MatTabChangeEvent} from '@angular/material/tabs';
+import {MatLegacyTabChangeEvent as MatTabChangeEvent} from '@angular/material/legacy-tabs';
 import {RankingGroup} from '../utils/ranking-group';
 import {AppState} from '../utils/app-state';
 import {PROVINCES} from '../../assets/provinces/province-data';

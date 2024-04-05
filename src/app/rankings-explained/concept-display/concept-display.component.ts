@@ -1,10 +1,11 @@
 import {Component, OnInit, Input, OnDestroy, OnChanges} from '@angular/core';
-import {MatDialog} from '@angular/material/dialog';
+// import {MatLegacyDialog as MatDialog} from '@angular/material/legacy-dialog';
 import {ReadMoreDialogComponent} from '../../dialogs/read-more-dialog/read-more-dialog.component';
 import {AppState} from '../../utils/app-state';
 import {Concept} from '../../utils/concept';
 import {Subscription} from 'rxjs';
 import {ConceptGroup} from '../../utils/conceptGroup';
+import {MatDialog} from '@angular/material/dialog';
 
 /*
   This component displays a set of rankings concepts. That is text describing

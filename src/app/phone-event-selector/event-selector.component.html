@@ -83,9 +83,9 @@
                  maxlength="3" min="1" [max]="selectedDrawSize">
         </mat-form-field>
         <div *ngIf="selectedEventSubGroup && selectedEventSubGroup.groupType">
-        <span class="mat-body color-primary pointer-the-cursor" (click)="onReadMore()">
-          {{ selectedEventSubGroup.conceptGroup.headerTextToken | translate }}
-        </span>
+                  <span class="mat-body color-primary pointer-the-cursor" (click)="onReadMore()">
+                    {{ selectedEventSubGroup.conceptGroup.headerTextToken | translate }}
+                  </span>
         </div>
         <div *ngIf="isJuniorRegional">
           <p class="mat-body color-primary pointer-the-cursor" style="width: 180px"
