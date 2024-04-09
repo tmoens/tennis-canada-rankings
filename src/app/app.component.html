@@ -1,5 +1,5 @@
 <!-- For large screens, there is a toolbar with menus (which is hidden on small screens). -->
-<section class="mat-typography mat-app-background">
+<section class="mat-typography mat-app-background app-container">
   <div class="hide-on-small">
     <mat-toolbar>
       <a mat-button routerLink="/home" routerLinkActive="active" color="primary">Home</a>
@@ -36,7 +36,9 @@
     </mat-sidenav>
     <!-- The sidenav content is where the meat of the website lives. -->
     <mat-sidenav-content>
-      <router-outlet></router-outlet>
+      <div style="max-width: 1500px">
+        <router-outlet></router-outlet>
+      </div>
     </mat-sidenav-content>
   </mat-sidenav-container>
 </section>

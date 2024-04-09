@@ -25,7 +25,7 @@ export class AdultPtComponent implements OnInit, OnDestroy {
   eg: EventGroup;
   selectedEvent: RankingEvent;
   drawSizes: number[] = [2, 4, 8, 16, 32, 64];
-  finishPositions: number[] = [1, 2, 3, 4, 6, 8, 12, 16, 32, 64, 128];
+  finishPositions: number[] = [1, 2, 3, 4, 6, 8, 12, 16, 32, 64];
   headerRow: any[];
   headerColumn: any[];
   customDrawSize = 16;

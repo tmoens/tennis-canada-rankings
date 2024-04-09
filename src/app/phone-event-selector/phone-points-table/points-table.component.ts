@@ -4,8 +4,8 @@
  */
 import {Component, OnInit, Input, OnDestroy, OnChanges} from '@angular/core';
 import {EventGroup, RankingEvent} from '../../utils/ranking-event';
-import { FinishPositionLabeler } from '../../utils/finish-positions';
-import { AppState } from '../../utils/app-state';
+import {FinishPositionLabeler} from '../../utils/finish-positions';
+import {AppState} from '../../utils/app-state';
 import {AgeGroup} from '../../age-group';
 import {Province} from '../../utils/province';
 import {MIN_JR_REGIONAL_DRAW_SIZE} from '../../../assets/event-groups/junior/junior-provincial-event-groups';
@@ -15,6 +15,7 @@ import {Subscription} from 'rxjs';
 // semifinalist gets .6 of finalist and so on.
 const r = .6;
 const baselineFPs = [1, 2, 3, 4, 6, 8, 12, 16, 24, 32, 48, 64, 96, 128];
+
 @Component({
   selector: 'app-points-table',
   templateUrl: './points-table.component.html',
@@ -54,6 +55,7 @@ export class PointsTableComponent implements OnInit, OnDestroy, OnChanges {
   // The subscription to the year change and province change events
   yearChangeSubscription: Subscription;
   year: string;
+
   constructor(
     public appState: AppState,
     public fpLabeler: FinishPositionLabeler,
@@ -121,9 +123,10 @@ export class PointsTableComponent implements OnInit, OnDestroy, OnChanges {
     const table = [];
     for (const fp of this.fpsToDisplay(this.drawSize, this.magicFP, this.smallDrawSize)) {
       table.push({
-        longLabel:   this.fpLabeler.getLabelLong(fp),
+        longLabel: this.fpLabeler.getLabelLong(fp),
         shortLabel: this.fpLabeler.getLabel(fp),
-        points: this.calc(fp)});
+        points: this.calc(fp)
+      });
     }
     this.pointTable = table;
   }
@@ -136,15 +139,19 @@ export class PointsTableComponent implements OnInit, OnDestroy, OnChanges {
   }
 
   fpsToDisplay(drawSize: number, magicFP: number, smallDrawSize: number): number[] {
-    if (this.isJuniorRegional && smallDrawSize < MIN_JR_REGIONAL_DRAW_SIZE) { drawSize = smallDrawSize; }
+    if (this.isJuniorRegional && smallDrawSize < MIN_JR_REGIONAL_DRAW_SIZE) {
+      drawSize = smallDrawSize;
+    }
     const list = [];
     let prevFP = 0;
     for (const fp of baselineFPs) {
-      if (magicFP > prevFP && magicFP < fp && magicFP < drawSize) { list.push(this.magicFP); }
+      if (magicFP > prevFP && magicFP < fp && magicFP < drawSize) {
+        list.push(this.magicFP);
+      }
       if (fp < drawSize) {
         list.push(fp);
         prevFP = fp;
-      }  else {
+      } else {
         list.push(drawSize);
         break;
       }

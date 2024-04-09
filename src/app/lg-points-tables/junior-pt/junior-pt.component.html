@@ -2,48 +2,26 @@
   <div class="lo-column lo-gap20 lo-align-center lo-justify-start">
 
     <!-- Table title -->
-    <div class="mat-subheading-1">
+    <div class="mat-headline-6">
       {{ '_Point_Awards_' | translate }} {{ '_for_' | translate }}
       {{ rankingGroup.name | translate }} {{ '_Events_' | translate }}
     </div>
 
-    <!-- There are so very many types of events that can award point to juniors, so the user -->
-    <!-- has to say what type of junior events they are interested in.  This area allows the -->
-    <!-- user to choose between international, national, provincial types of events and in -->
-    <!-- some cases their sub-types. Things get a little icky from a code perspective. -->
-    <div class="lo-row lo-gap20">
-      <mat-form-field class="form-field-medium">
-        <mat-select [placeholder]="'_event_group_' | translate"
-                    [(value)]="selectedEventGroup"
-                    (selectionChange)="onSelectEventGroup($event.value)">
-          <mat-option *ngFor="let item of eventGroups" [value]="item">{{ item.name | translate }}</mat-option>
-        </mat-select>
-      </mat-form-field>
-      <div *ngIf="eventSubGroups && eventSubGroups.length > 1">
-        <mat-form-field class="form-field-medium">
-          <mat-select [placeholder]="'_event_sub_group_' | translate"
-                      [(value)]="selectedEventSubGroup"
-                      (selectionChange)="onSelectEventSubGroup($event.value)">
-            <mat-option *ngFor="let item of eventSubGroups" [value]="item">{{ item.name | translate }}</mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
-    </div>
 
     <!-- Once the user has chosen an event type, this is the points table for that event type. -->
     <div>
       <div class="mat-elevation-z1">
         <table class="mat-table">
-          <tr class="mat-row">
-            <th class="mat-header-cell"></th>
-            <th class="mat-header-cell" *ngFor="let h of headerRow; let i = index">
+          <tr class="point-table-row">
+            <th class="point-table-header-cells"></th>
+            <th class="point-table-header-cells" *ngFor="let h of headerRow; let i = index">
               {{ h | translate }}
               <div *ngIf="hasSecondHeaderRow">{{ secondHeaderRow[i] | translate }}</div>
             </th>
           </tr>
-          <tr *ngFor="let r of pointsTable; let i = index" class="mat-row">
-            <th class="mat-header-cell">{{ headerColumn[i] | translate }}</th>
-            <td class="mat-cell" *ngFor="let c of r" [class.special-cell]="c.special">
+          <tr *ngFor="let r of pointsTable; let i = index" class="point-table-row">
+            <th class="point-table-header-cells">{{ headerColumn[i] | translate }}</th>
+            <td class="point-table-cell" *ngFor="let c of r" [class.point-table-special-cell]="c.special">
               {{ c.value | number: '1.0-0' }}
             </td>
           </tr>
@@ -51,36 +29,57 @@
       </div>
     </div>
 
-    <!-- This section allows the user to specify age group, draw size and finish position they -->
-    <!-- are interested in. The options here change depending on the type of event the user is looking at.  -->
+    <!-- There are so very many types of events that can award point to juniors, so the user -->
+    <!-- has to say what type of junior events they are interested in.  This area allows the -->
+    <!-- user to choose between international, national, provincial types of events and in -->
+    <!-- some cases their sub-types. Things get a little icky from a code perspective. -->
     <div class="lo-row lo-gap20">
-
-      <!-- For provincial level events, the user can select and age group -->
-      <mat-form-field *ngIf="isJuniorRegional" class="form-field-narrow">
-        <mat-select [placeholder]="'_Age_Group_' | translate"
-                    [(value)]="selectedAgeGroup"
-                    (selectionChange)="onSelectAgeGroup($event.value)">
-          <mat-option *ngFor="let item of juniorAgeGroups" [value]="item">{{ item.name | translate }}</mat-option>
+      <mat-form-field appearance="outline">
+        <mat-label>{{ '_event_group_' | translate }}</mat-label>
+        <mat-select [(value)]="selectedEventGroup" (selectionChange)="onSelectEventGroup($event.value)">
+          <mat-option *ngFor="let item of eventGroups" [value]="item">{{ item.name | translate }}</mat-option>
         </mat-select>
       </mat-form-field>
+      <div *ngIf="eventSubGroups && eventSubGroups.length > 1">
+        <mat-form-field appearance="outline" class="form-field-medium">
+          <mat-label>{{ '_event_sub_group_' | translate }}</mat-label>
+          <mat-select [(value)]="selectedEventSubGroup" (selectionChange)="onSelectEventSubGroup($event.value)">
+            <mat-option *ngFor="let item of eventSubGroups" [value]="item">{{ item.name | translate }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
 
-      <!-- User can set a specific finish position in case that finish position is not in the table -->
-      <mat-form-field class="form-field-narrow">
-        <input matInput type="number" [(ngModel)]="customFinishPosition"
-               [placeholder]="'_custom_fp_'| translate"
-               maxlength="3" min="1" [max]="128" (ngModelChange)="buildPointsTable()">
+    <!-- This section allows the user to specify age group and draw size for domestic events -->
+    <div class="lo-row lo-gap20" *ngIf="isJuniorRegional">
+
+      <!-- For provincial level events, the user can select and age group -->
+      <mat-form-field appearance="outline" class="form-field-medium">
+        <mat-label>{{ '_Age_Group_' | translate }}</mat-label>
+        <mat-select [(value)]="selectedAgeGroup" (selectionChange)="onSelectAgeGroup($event.value)">
+          <mat-option *ngFor="let item of juniorAgeGroups" [value]="item">{{ item.name | translate }}</mat-option>
+        </mat-select>
       </mat-form-field>
 
       <!-- For provincial events, the point awards are reduced for small draw sizes.  The user -->
       <!-- can select smaller draw sizes here.  This is mostly used by tournament administrators -->
       <!-- to set the proper point awards for the small events in their tournaments. -->
-      <mat-form-field *ngIf="isJuniorRegional" class="form-field-narrow">
-        <mat-select [placeholder]="'_custom_ds_' | translate"
-                    [(value)]="smallDrawSize"
-                    (selectionChange)="buildPointsTable()">
+      <mat-form-field appearance="outline" class="form-field-medium">
+        <mat-label>{{ '_custom_ds_' | translate }}</mat-label>
+        <mat-select [(value)]="smallDrawSize" (selectionChange)="buildPointsTable()">
           <mat-option *ngFor="let sds of smallDrawSizes" [value]="sds">{{ sds.value }} {{ sds.desc | translate }}
           </mat-option>
         </mat-select>
+      </mat-form-field>
+    </div>
+
+    <!-- This section allows the user to specify a custom finish position they are interested in. -->
+    <div class="lo-row lo-gap20">
+      <!-- User can set a specific finish position in case that finish position is not in the table -->
+      <mat-form-field appearance="outline">
+        <mat-label>{{ '_custom_fp_' | translate }}</mat-label>
+        <input matInput type="number" [(ngModel)]="customFinishPosition"
+               maxlength="3" min="1" [max]="128" (ngModelChange)="buildPointsTable()">
       </mat-form-field>
     </div>
 

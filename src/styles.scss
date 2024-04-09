@@ -7,8 +7,41 @@
 $tc-typography: mat.define-typography-config();
 @include mat.all-component-typographies($tc-typography);
 
-$tc-primary: mat.define-palette(mat.$blue-palette);
-$tc-accent: mat.define-palette(mat.$yellow-palette, A200, A100, A400);
+$tc-brown-palette: (
+  50 : #f1e6e4,
+  100 : #dcc0bb,
+  200 : #c5968e,
+  300 : #ae6b61,
+  400 : #9c4c3f,
+  500 : #8b2c1d,
+  600 : #83271a,
+  700 : #782115,
+  800 : #6e1b11,
+  900 : #5b100a,
+  A100 : #ff958f,
+  A200 : #ff655c,
+  A400 : #ff3529,
+  A700 : #ff1d0f,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #ffffff,
+    400 : #ffffff,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #ffffff,
+    A700 : #ffffff,
+  )
+);
+
+$tc-primary: mat.define-palette($tc-brown-palette, 500);
+$tc-accent: mat.define-palette(mat.$red-palette, A200, A100, A400);
 $tc-warn: mat.define-palette(mat.$red-palette);
 
 $tc-theme: mat.define-light-theme((
@@ -21,8 +54,38 @@ $tc-theme: mat.define-light-theme((
 
 @include mat.all-component-themes($tc-theme);
 
-// The whole application now has access to the defined theme (contained in $tc-tools)
-@include app.rogers-rankings($tc-theme);
+// Continue if primary and accent are not null
+// This just allows me to color arbitrary things according to the app theme.
+.color-primary {
+  color: mat.get-color-from-palette($tc-primary, 900); // 500 is typically the default color
+}
+
+
+// This limits the overall app width to a comfortable reading width and centers it in the web browser
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto; /* This centers the container */
+  width: 100%;
+}
+
+.mdc-text-field {
+  background-color: white;
+  padding: 0;
+}
+
+// These are the form field widths we use repeatedly (particularly in the points tables).
+.form-field-narrow {
+  width: 100px
+}
+
+.form-field-medium {
+  width: 150px
+}
+
+.form-field-large {
+  width: 200px
+}
+
 
 img.tclogo {
   height: 84px;
@@ -39,8 +102,6 @@ img.tclogo {
 // When Angular decided not to support FlexLayout anymore, the following css was added in place of the FlexLayout
 // part of the html directives in the system.
 // Ideally
-
-
 .lo-row {
   display: flex;
   flex-direction: row;
@@ -152,6 +213,32 @@ img.tclogo {
   flex-shrink: 0;
 }
 
+// These are for styling the points tables.
+.point-table-header-cells {
+  padding-left: 8px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.point-table-cell {
+  font-size: 12px;
+  padding-left: 8px;
+  text-align: right;
+}
+
+.point-table-row {
+  height: 30px;
+}
+
+.point-table-special-cell {
+  color: #0f5adb;
+}
+
+.mat-form-field {
+  font-size: 12px;
+  width: 100px
+}
+
 @media screen and (max-width: 959px) {
   .hide-on-small {
     display: none;
@@ -173,5 +260,4 @@ img.tclogo {
     display: flex;
     flex-direction: row;
   }
-
 }
