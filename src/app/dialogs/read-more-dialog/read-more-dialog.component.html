@@ -1,9 +1,8 @@
-<div>
-  <h1 mat-dialog-title>{{ conceptGroup.headerTextToken | translate }}</h1>
+<div mat-dialog-title>
+  <div class="mat-h2">{{ conceptGroup.headerTextToken | translate }}</div>
 </div>
 <div mat-dialog-content>
-  <app-concept-display [conceptGroup]="conceptGroup">
-  </app-concept-display>
+  <app-concept-display [conceptGroup]="conceptGroup"></app-concept-display>
 </div>
 <div class="lo-row lo-justify-end">
   <div mat-dialog-actions>

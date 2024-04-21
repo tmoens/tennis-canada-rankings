@@ -5,7 +5,7 @@
   <div class="lo-column lo-gap10 lo-align-center">
 
     <!-- Title area -->
-    <div class="mat-subheading-1">
+    <div class="mat-headline-6">
       {{ '_Point_Awards_' | translate }} {{ '_for_' | translate }}
       {{ rankingGroup.name|translate }} {{ '_Events_' | translate }}
     </div>
@@ -16,9 +16,9 @@
 
         <!-- If there is more than one event group within the Rankings Category, let the user select one -->
         <div *ngIf="eventGroups.length > 1">
-          <mat-form-field class="adjustment">
-            <mat-select [placeholder]="'_event_group_' | translate"
-                        [(value)]="selectedEventGroup"
+          <mat-form-field appearance="outline">
+            <mat-label>{{ '_event_group_' | translate }}</mat-label>
+            <mat-select [(value)]="selectedEventGroup"
                         (selectionChange)="onSelectEventGroup($event.value)">
               <mat-option *ngFor="let item of eventGroups" [value]="item">{{ item.name | translate }}</mat-option>
             </mat-select>
@@ -27,9 +27,9 @@
 
         <!-- If there are more than one event sub-groups within the selected event group, let the user select one -->
         <div *ngIf="eventSubGroups && eventSubGroups.length > 1">
-          <mat-form-field>
-            <mat-select [placeholder]="'_event_sub_group_' | translate"
-                        [(value)]="selectedEventSubGroup"
+          <mat-form-field appearance="outline">
+            <mat-label>{{ '_event_sub_group_' | translate }}</mat-label>
+            <mat-select [(value)]="selectedEventSubGroup"
                         (selectionChange)="onSelectEventSubGroup($event.value)">
               <mat-option *ngFor="let item of eventSubGroups" [value]="item">{{ item.name | translate }}</mat-option>
             </mat-select>
@@ -38,9 +38,9 @@
 
         <!-- If there is more than one event in the event group (or sub-group) let the user choose one -->
         <div *ngIf="events && events.length > 1">
-          <mat-form-field>
-            <mat-select [placeholder]="'_event_type_' | translate"
-                        [(value)]="selectedEvent"
+          <mat-form-field appearance="outline">
+            <mat-label>{{ '_event_type_' | translate }}</mat-label>
+            <mat-select [(value)]="selectedEvent"
                         (selectionChange)="onSelectEvent($event.value)">
               <mat-option *ngFor="let item of events" [value]="item">{{ item.name | translate }}</mat-option>
             </mat-select>
@@ -49,16 +49,17 @@
 
         <!-- For junior regional events there needs to be an age group selector -->
         <div *ngIf="isJuniorRegional">
-          <mat-form-field>
-            <mat-select [placeholder]="'_Age_Group_' | translate"
-                        [(value)]="selectedAgeGroup"
+          <mat-form-field appearance="outline">
+            <mat-label>{{ '_Age_Group_' | translate }}</mat-label>
+            <mat-select [(value)]="selectedAgeGroup"
                         (selectionChange)="onSelectAgeGroup($event.value)">
               <mat-option *ngFor="let item of juniorAgeGroups" [value]="item">{{ item.name | translate }}</mat-option>
             </mat-select>
           </mat-form-field>
           <div></div>
-          <mat-form-field>
-            <mat-select [placeholder]="'_custom_ds_' | translate" [(value)]="smallDrawSize">
+          <mat-form-field appearance="outline">
+            <mat-label>{{ '_custom_ds_' | translate }}</mat-label>
+            <mat-select [(value)]="smallDrawSize">
               <mat-option *ngFor="let sds of smallDrawSizes" [value]="sds">{{ sds.desc | translate }}</mat-option>
             </mat-select>
           </mat-form-field>
@@ -68,24 +69,24 @@
         <!-- awards for unusual draw sizes. -->
         <!-- NOTE: this is primarily used by TC staff and TDs to set the correct winner points for an event -->
         <div *ngIf="baseDrawSize">
-          <mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>{{ '_custom_ds_' | translate }}</mat-label>
             <input matInput type="number" [(ngModel)]="selectedDrawSize"
-                   [placeholder]="'_custom_ds_'| translate"
                    maxlength="3" min="1" max="128" (change)="onDrawSizeChange()">
           </mat-form-field>
         </div>
 
         <!-- For some types of draws it is possible to establish very fine-grained finish positions. -->
         <!-- This allows the user to choose a finish position that is not on the default points table. -->
-        <mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>{{ '_custom_fp_' | translate }}</mat-label>
           <input matInput type="number" [(ngModel)]="selectedFinishPosition"
-                 [placeholder]="'_custom_fp_'| translate"
                  maxlength="3" min="1" [max]="selectedDrawSize">
         </mat-form-field>
         <div *ngIf="selectedEventSubGroup && selectedEventSubGroup.groupType">
-        <span class="mat-body color-primary pointer-the-cursor" (click)="onReadMore()">
-          {{ selectedEventSubGroup.conceptGroup.headerTextToken | translate }}
-        </span>
+                  <span class="mat-body color-primary pointer-the-cursor" (click)="onReadMore()">
+                    {{ selectedEventSubGroup.conceptGroup.headerTextToken | translate }}
+                  </span>
         </div>
         <div *ngIf="isJuniorRegional">
           <p class="mat-body color-primary pointer-the-cursor" style="width: 180px"

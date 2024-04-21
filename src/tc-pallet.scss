@@ -1,5 +1,3 @@
-@import '../node_modules/@angular/material/theming';
-
 $tc-red: (
   50 : #ffe1e2,
   100 : #feb4b7,
@@ -65,8 +63,3 @@ $tc-brown: (
     A700 : #ffffff,
   )
 );
-
-$tc-tools-primary: mat-palette($tc-brown);
-$tc-tools-accent: mat-palette($tc-red, A200, A100, A400);
-$tc-tools-warn: mat-palette($mat-red);
-$tc-tools: mat-light-theme($tc-tools-primary, $tc-tools-accent, $tc-tools-warn);

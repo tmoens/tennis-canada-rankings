@@ -4,25 +4,18 @@ import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule, HttpClient} from '@angular/common/http';
-import {MatButtonModule} from '@angular/material/button';
-import {MatCardModule} from '@angular/material/card';
-import {MatDialogModule} from '@angular/material/dialog';
 import {MatDividerModule} from '@angular/material/divider';
-import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatIconModule} from '@angular/material/icon';
-import {MatMenuModule} from '@angular/material/menu';
-import {MatSelectModule} from '@angular/material/select';
 import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatTabsModule} from '@angular/material/tabs';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatExpansionModule} from '@angular/material/expansion';
-import {MatInputModule} from '@angular/material/input';
-import {MatListModule} from '@angular/material/list';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatSortModule} from '@angular/material/sort';
-import {MatTableModule} from '@angular/material/table';
+
+// Angular 14 to 15 migration, the following modules became Legacy and I had to convert back from Legacy
+// import {MatLegacySelectModule as MatSelectModule} from '@angular/material/legacy-select';
+// import {MatLegacyInputModule as MatInputModule} from '@angular/material/legacy-input';
 
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {MultiTranslateHttpLoader} from 'ngx-translate-multi-http-loader';
@@ -51,6 +44,14 @@ import {AdultPtComponent} from './lg-points-tables/adult-pt/adult-pt.component';
 import {WheelchairPtComponent} from './lg-points-tables/wheelchair-pt/wheelchair-pt.component';
 import {SeniorPtComponent} from './lg-points-tables/senior-pt/senior-pt.component';
 import {JuniorPtComponent} from './lg-points-tables/junior-pt/junior-pt.component';
+import {MatButtonModule} from '@angular/material/button';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatTableModule} from '@angular/material/table';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -94,8 +95,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
+
     MatButtonModule,
-    MatCardModule,
     MatDatepickerModule,
     MatDialogModule,
     MatDividerModule,
@@ -104,9 +105,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatGridListModule,
     MatIconModule,
     MatInputModule,
-    MatListModule,
     MatMenuModule,
-    MatProgressSpinnerModule,
     MatSelectModule,
     MatSidenavModule,
     MatSortModule,

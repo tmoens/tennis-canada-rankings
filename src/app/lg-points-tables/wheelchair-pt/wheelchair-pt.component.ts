@@ -27,7 +27,7 @@ export class WheelchairPtComponent implements OnInit, OnDestroy {
   selectedSubGroup: EventGroup;
   selectedEvent: RankingEvent;
   drawSizes: number[] = [2, 3, 4, 5, 6, 7, 8, 12, 16];
-  finishPositions: number[] = [1, 2, 3, 4, 5, 6, 12, 16];
+  finishPositions: number[] = [1, 2, 3, 4, 5, 6, 8, 12, 16];
   headerRow: any[];
   headerColumn: any[];
   customDrawSize = 4;
@@ -83,8 +83,10 @@ export class WheelchairPtComponent implements OnInit, OnDestroy {
     this.headerColumn = [];
     const table = [];
     for (const fp of fps) {
-      this.headerColumn.push(this.fpLabeler.getLabel(fp));
-      table.push(this.buildPointsTableRow(drawSizes, rating, baseDrawSize, fp));
+      if (fp <= this.customDrawSize) {
+        this.headerColumn.push(this.fpLabeler.getLabel(fp));
+        table.push(this.buildPointsTableRow(drawSizes, rating, baseDrawSize, fp));
+      }
     }
     this.pointsTable = table;
   }
@@ -92,7 +94,9 @@ export class WheelchairPtComponent implements OnInit, OnDestroy {
   buildHeaderRow(drawSizes: number[]): string[] {
     const row = [];
     for (const ds of drawSizes) {
-      row.push(ds.toString());
+      if (ds <= this.customDrawSize) {
+        row.push(ds.toString());
+      }
     }
     return row;
   }
@@ -100,13 +104,15 @@ export class WheelchairPtComponent implements OnInit, OnDestroy {
   buildPointsTableRow(drawSizes: number[], rating: number, baseDrawSize: number, fp: number): any {
     const row: any[] = [];
     for (const ds of drawSizes) {
-      if (fp > ds) {
-        row.push('');
-      } else {
-        if (ds === this.customDrawSize || fp === this.customFinishPosition) {
-          row.push({value: this.calcPoints(rating, baseDrawSize, fp, ds), special: true});
+      if (ds <= this.customDrawSize) {
+        if (fp > ds) {
+          row.push('');
         } else {
-          row.push({value: this.calcPoints(rating, baseDrawSize, fp, ds)});
+          if (ds === this.customDrawSize || fp === this.customFinishPosition) {
+            row.push({value: this.calcPoints(rating, baseDrawSize, fp, ds), special: true});
+          } else {
+            row.push({value: this.calcPoints(rating, baseDrawSize, fp, ds)});
+          }
         }
       }
     }

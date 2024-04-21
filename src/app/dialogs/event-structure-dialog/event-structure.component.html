@@ -9,18 +9,21 @@
   _Orange_Bowl_link_text_ is the token to be used in an <a>link text</a>
   _Orange_Bowl_link_url_ is the url to be used in the href
 -->
-<div class="lo-row">
-  <div class="lo-row lo-gap5">
+<div mat-dialog-title>
+  <div class="lo-row lo-align-start lo-gap10">
+    <div>
     <span class="mat-h2">{{ eventGroup.name | translate }}
       {{ "_junior_competitive_structure_" | translate }}
       </span>
+    </div>
+    <div class="fill-remaining-space"></div>
+    <img class="tclogo" [src]="province.getLogoPath()" alt="Provincial Logo">
   </div>
-  <div class="fill-remaining-space"></div>
-  <img class="tclogo" [src]="province.getLogoPath()" alt="Provincial Logo">
 </div>
+
 <div mat-dialog-content>
   <div *ngFor="let rankingEvent of eventGroup.rankingEvents">
-    <div class="mat-body-2">{{ rankingEvent.name |translate }}</div>
+    <div class="mat-subheader">{{ rankingEvent.name |translate }}</div>
     <div class="mat-body-1">{{ rankingEvent.name + "description_" |translate }}</div>
     <div class="mat-body-1" *ngIf="rankingEvent.hasUrl">
       <a [href]="rankingEvent.name + 'link_url_' | translate"

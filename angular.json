@@ -22,8 +22,7 @@
               "src/favicon.ico"
             ],
             "styles": [
-              "src/styles.scss",
-              "src/tc-tools-theme.css"
+              "src/styles.scss"
             ],
             "scripts": []
           },
@@ -72,8 +71,7 @@
             "tsConfig": "src/tsconfig.spec.json",
             "scripts": [],
             "styles": [
-              "src/styles.scss",
-              "src/tc-tools-theme.css"
+              "src/styles.scss"
             ],
             "assets": [
               "src/assets",

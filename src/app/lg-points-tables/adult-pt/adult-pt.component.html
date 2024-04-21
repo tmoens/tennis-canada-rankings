@@ -2,7 +2,7 @@
   <div class="lo-column lo-gap20 lo-align-center lo-justify-start">
 
     <!-- Title of the table -->
-    <div class="mat-subheading-1">
+    <div class="mat-headline-6">
       {{ '_Point_Awards_' | translate }} {{ '_for_' | translate }}
       {{ rankingGroup.name | translate }} {{ '_Events_' | translate }}
     </div>
@@ -11,13 +11,14 @@
     <div>
       <div class="mat-elevation-z1">
         <table class="mat-table">
-          <tr class="mat-row">
-            <th class="mat-header-cell">{{ '_Draw_Size_' | translate }}</th>
-            <th class="mat-header-cell" *ngFor="let h of headerRow">{{ h }}</th>
+          <tr class="point-table-row">
+            <th class="point-table-header-cells">{{ '_Draw_Size_' | translate }}</th>
+            <th class="point-table-header-cells" *ngFor="let h of headerRow">{{ h }}</th>
           </tr>
-          <tr *ngFor="let r of pointsTable; let i = index" class="mat-row">
-            <th class="mat-header-cell">{{ headerColumn[i] | translate }}</th>
-            <td class="mat-cell" *ngFor="let c of r" [class.special-cell]="c.special">{{ c.value | number: '1.0-0' }}
+          <tr *ngFor="let r of pointsTable; let i = index" class="point-table-row">
+            <th class="point-table-header-cells">{{ headerColumn[i] | translate }}</th>
+            <td class="point-table-cell" *ngFor="let c of r"
+                [class.point-table-special-cell]="c.special">{{ c.value | number: '1.0-0' }}
             </td>
           </tr>
         </table>
@@ -27,14 +28,14 @@
     <!-- An area where the user can specify finish positions and draw sizes that are not -->
     <!-- in the table by default. -->
     <div class="lo-row lo-gap20">
-      <mat-form-field>
+      <mat-form-field appearance="outline" class="form-field-medium">
+        <mat-label>{{ '_custom_fp_' | translate }}</mat-label>
         <input matInput type="number" [(ngModel)]="customFinishPosition"
-               [placeholder]="'_custom_fp_'| translate"
                maxlength="3" min="1" [max]="customDrawSize" (ngModelChange)="buildPointsTable()">
       </mat-form-field>
-      <mat-form-field>
+      <mat-form-field appearance="outline" class="form-field-medium">
+        <mat-label>{{ '_custom_ds_' | translate }}</mat-label>
         <input matInput type="number" [(ngModel)]="customDrawSize"
-               [placeholder]="'_custom_ds_'| translate"
                maxlength="3" min="1" max="128" (ngModelChange)="buildPointsTable()">
       </mat-form-field>
     </div>
