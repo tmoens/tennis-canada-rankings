@@ -1,5 +1,4 @@
 import {Component, OnInit, Input, OnDestroy, OnChanges} from '@angular/core';
-// import {MatLegacyDialog as MatDialog} from '@angular/material/legacy-dialog';
 import {ReadMoreDialogComponent} from '../../dialogs/read-more-dialog/read-more-dialog.component';
 import {AppState} from '../../utils/app-state';
 import {Concept} from '../../utils/concept';

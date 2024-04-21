@@ -1,5 +1,4 @@
 import {Component, OnInit, OnChanges} from '@angular/core';
-import {MatLegacyTabChangeEvent as MatTabChangeEvent} from '@angular/material/legacy-tabs';
 import {RankingGroup} from '../utils/ranking-group';
 import {AppState} from '../utils/app-state';
 import {PROVINCES} from '../../assets/provinces/province-data';
@@ -8,6 +7,7 @@ import {RANKING_GROUPS} from '../../assets/ranking-groups';
 import {ActivatedRoute} from '@angular/router';
 
 import {ConceptGroup} from '../utils/conceptGroup';
+import {MatTabChangeEvent} from '@angular/material/tabs';
 
 @Component({
   selector: 'app-rankings-explained',

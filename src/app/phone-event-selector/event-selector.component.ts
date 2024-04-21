@@ -22,7 +22,6 @@ import {Province} from '../utils/province';
 import {AgeGroup} from '../age-group';
 import {JUNIOR_AGE_GROUPS} from '../../assets/age-groups';
 import {PROVINCES} from '../../assets/provinces/province-data';
-// import {MatLegacyDialog as MatDialog} from '@angular/material/legacy-dialog';
 import {EventStructureDialogComponent} from '../dialogs/event-structure-dialog/event-structure.component';
 import {ReadMoreDialogComponent} from '../dialogs/read-more-dialog/read-more-dialog.component';
 import {MIN_JR_REGIONAL_DRAW_SIZE} from '../../assets/event-groups/junior/junior-provincial-event-groups';

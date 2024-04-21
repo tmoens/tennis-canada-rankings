@@ -7,10 +7,10 @@ import {AfterViewInit, Component, OnDestroy, OnInit, ViewChild} from '@angular/c
 import {AppState} from '../../utils/app-state';
 import {HttpClient} from '@angular/common/http';
 import {FetchService} from '../../fetch-service';
-import {MatLegacyTableDataSource as MatTableDataSource} from '@angular/material/legacy-table';
 import {MatSort} from '@angular/material/sort';
 import {OpenTournamentDto} from './tournament-dto';
 import {Subscription} from 'rxjs';
+import {MatTableDataSource} from '@angular/material/table';
 
 @Component({
   selector: 'app-open-event-list',
