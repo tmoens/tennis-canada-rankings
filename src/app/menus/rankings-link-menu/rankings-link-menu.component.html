@@ -40,7 +40,7 @@
       <!-- That is, if the user is focused on National rankings, this par of the menu does not appear -->
       <!-- Whereas if they are looking at, say, Alberta rankings, this part will appear.-->
       <div class="lo-row">
-        <mat-grid-list class="lo-width340" [cols]="cols" rowHeight="20px" *ngIf="!appState.selectedProvince.isCanada()">
+        <mat-grid-list class="lo-width500" [cols]="cols" rowHeight="20px" *ngIf="!appState.selectedProvince.isCanada()">
           <mat-grid-tile *ngFor="let rc of rankingGroup.rankingCategories">
             <a mat-button [href]="rc.getVRURL(appState.selectedProvince, rankingGroup)" color="primary" target="_blank">
               {{ rc.id |translate }}
@@ -59,7 +59,7 @@
         </button>
       </div>
       <div class="lo-row">
-        <mat-grid-list class="lo-width340" [cols]="cols" rowHeight="20px">
+        <mat-grid-list class="lo-width500" [cols]="cols" rowHeight="20px">
           <mat-grid-tile *ngFor="let rc of rankingGroup.rankingCategories">
             <a mat-button [href]="rc.getVRURL(canada, rankingGroup)" color="primary" target="_blank">
               {{ rc.id |translate }}

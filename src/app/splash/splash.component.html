@@ -6,9 +6,11 @@
 <!--  Large layout -->
 <!-- The classes en-bg and fr-bg are just used to get the right image from assets. -->
 <div [ngClass]="{ 'en-bg' : lang == 'en', 'fr-bg': lang == 'fr' }"
-     class="hide-on-small lo-column lo-gap20 lo-align-center lo-justify-center">
+     class="hide-on-small lo-column lo-gap20 lo-align-center lo-justify-start">
   <!-- A spacer to uncover the rankings logo in the background. Sorry. -->
   <div style="height: 170px;"></div>
+
+  <!--  two rows of images for the rankings groups -->
   <div class="lo-row lo-gap20 lo-align-center">
     <!-- The rankingGroups are Open, Senior, Adult, Junior and Wheelchair -->
     <!-- The app-splash-image-selector just uses and image to create a big

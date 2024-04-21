@@ -1,13 +1,16 @@
 <div>
   <button mat-button color="primary" [matMenuTriggerFor]="provinceMenu">
     <img [src]="appState.selectedProvince.getFlagPath()" alt="Flag">
-    {{ appState.selectedProvince.name|translate }}
+    {{ appState.selectedProvince.name | translate }}
     <mat-icon>arrow_drop_down</mat-icon>
   </button>
   <mat-menu #provinceMenu="matMenu">
     <div class="lo-column lo-gap5">
       <button mat-menu-item *ngFor="let k of provinces.getKeys()" (click)="onSelectProvince(k)">
-        <img [src]='provinces.getItem(k).getFlagPath()' alt="Flag">{{ provinces.getItem(k).name|translate }}
+        <div class="lo-row lo-align-center">
+          <img [src]='provinces.getItem(k).getFlagPath()' alt="Flag">
+          <span>&nbsp;{{ provinces.getItem(k).name|translate }}</span>
+        </div>
       </button>
     </div>
   </mat-menu>

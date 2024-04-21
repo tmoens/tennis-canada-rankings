@@ -24,9 +24,7 @@ export class SplashImageSelectorComponent implements OnInit, OnDestroy {
 
   // Watch for language changes to change any image with embedded text
   ngOnInit() {
-    console.log('Initializing splash image selector');
     this.languageChangeSubscription = this.appState.selectedLanguage$.subscribe(l => {
-        console.log('noting language change in splash image selector');
         this.language = l.prefix;
         this.imagePath = this.getImagePath(this.rankingGroup.name, this.language);
       }
@@ -34,7 +32,6 @@ export class SplashImageSelectorComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    console.log('Destroying splash image selector');
     this.languageChangeSubscription.unsubscribe();
   }
 

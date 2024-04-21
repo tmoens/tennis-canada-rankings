@@ -1,4 +1,4 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {RankingGroup} from '../../utils/ranking-group';
 import {EventGroup, RankingEvent} from '../../utils/ranking-event';
 import {AppState} from '../../utils/app-state';
@@ -77,6 +77,7 @@ export class JuniorPtComponent implements OnInit, OnDestroy {
   constructor(public appState: AppState,
               public eventStructureDialog: MatDialog,
               public fpLabeler: FinishPositionLabeler,
+              public cdr: ChangeDetectorRef,
   ) {
     this.smallDrawSizes.push({
       value: MIN_JR_REGIONAL_DRAW_SIZE,
@@ -98,6 +99,7 @@ export class JuniorPtComponent implements OnInit, OnDestroy {
     this.provinceChangeSubscription = this.appState.selectedProvince$.subscribe(p => {
       this.onProvinceChange(p);
     });
+    this.cdr.detectChanges();
   }
 
   ngOnDestroy(): void {
