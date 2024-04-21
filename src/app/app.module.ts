@@ -95,7 +95,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
-
     MatButtonModule,
     MatDatepickerModule,
     MatDialogModule,
