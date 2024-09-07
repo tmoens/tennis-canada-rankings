@@ -1,14 +1,15 @@
 <div *ngFor="let c of concepts">
-  <div class="mat-body-2" *ngIf="c.headerTextToken">{{c.headerTextToken | translate}}</div>
-  <p class="mat-body-1">
-    <span  *ngFor="let dtt of c.detailTextTokens">
+  <div class="mat-subtitle-2" *ngIf="c.headerTextToken">{{ c.headerTextToken | translate }}</div>
+  <p class="mat-body-2">
+    <span *ngFor="let dtt of c.detailTextTokens">
       <div class="spacer" *ngIf="dtt == '__lb__'; else check_rm"></div>
       <ng-template #check_rm>
-        <span *ngIf="dtt.toLowerCase().indexOf('_rm_') > 0; else normal" class="color-primary pointer-the-cursor" (click)="onReadMore(c)">
-          {{dtt |translate}}
+        <span *ngIf="dtt.toLowerCase().indexOf('_rm_') > 0; else normal" class="color-primary pointer-the-cursor"
+              (click)="onReadMore(c)">
+          {{ dtt |translate }}
         </span>
       </ng-template>
-      <ng-template #normal class="mat-body-1">{{dtt | translate}}</ng-template>
+      <ng-template #normal class="mat-body-1">{{ dtt | translate }}</ng-template>
     </span>
   </p>
 </div>
