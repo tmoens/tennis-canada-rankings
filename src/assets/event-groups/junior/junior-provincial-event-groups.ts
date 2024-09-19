@@ -173,6 +173,15 @@ const PR_5_STAR: RankingEvent = new RankingEvent(
 const PR_4_STAR: RankingEvent = new RankingEvent(
   '_PR_4_star_',
   new Rating(0.6));
+const PR_3_5_STAR: RankingEvent = new RankingEvent(
+  '_PR_3-5_star_',
+  new Rating(0.216));
+const PR_3_STAR: RankingEvent = new RankingEvent(
+  '_PR_3_star_',
+  new Rating(0.07776));
+const PR_2_STAR: RankingEvent = new RankingEvent(
+  '_PR_2_star_',
+  new Rating(0.046656));
 const SK_CHALLENGER: RankingEvent = new RankingEvent(
   '_SK_3_star_',
   new Rating(0.1296));
@@ -180,7 +189,7 @@ const SK_CHALLENGER: RankingEvent = new RankingEvent(
 export const MB_JUNIOR_EVENT_GROUP: KeyedStaticCollection<EventGroup> =
   new KeyedStaticCollection<EventGroup>({
     '2013': new EventGroup('_MB_',
-      [PR_5_STAR, PR_4_STAR]
+      [PR_5_STAR, PR_4_STAR, PR_3_5_STAR, PR_3_STAR, PR_2_STAR]
     ),
 
   });
@@ -188,8 +197,7 @@ export const MB_JUNIOR_EVENT_GROUP: KeyedStaticCollection<EventGroup> =
 export const SK_JUNIOR_EVENT_GROUP: KeyedStaticCollection<EventGroup> =
   new KeyedStaticCollection<EventGroup>({
     '2013': new EventGroup('_SK_',
-      [PR_5_STAR, PR_4_STAR, SK_CHALLENGER,
-      ]
+      [PR_5_STAR, PR_4_STAR, PR_3_5_STAR, SK_CHALLENGER, PR_2_STAR]
     ),
   });
 
