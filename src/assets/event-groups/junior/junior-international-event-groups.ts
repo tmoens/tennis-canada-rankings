@@ -63,6 +63,8 @@ const INTERNATIONAL_U16_BOYS_EVENT_GROUP: KeyedStaticCollection<EventGroup> =
         new RankingEvent('_Orange_Bowl_', new Rating(2.3), 0, true),
         new RankingEvent('_Eddie_Herr_', new Rating(2), 0, true),
         new RankingEvent('_TE_Ctgy1_', new Rating(1)),
+        new RankingEvent('_TE_Ctgy1B_', new Rating(0.338)),
+        new RankingEvent('_TE_Ctgy2_', new Rating(0.166)),
       ]
     )
   });
@@ -91,6 +93,8 @@ const INTERNATIONAL_U16_GIRLS_EVENT_GROUP: KeyedStaticCollection<EventGroup> =
         new RankingEvent('_Orange_Bowl_', new Rating(2.3), 0, true),
         new RankingEvent('_Eddie_Herr_', new Rating(2), 0, true),
         new RankingEvent('_TE_Ctgy1_', new Rating(1)),
+        new RankingEvent('_TE_Ctgy1B_', new Rating(0.333)),
+        new RankingEvent('_TE_Ctgy2_', new Rating(0.170)),
       ]
     )
   });
@@ -187,6 +191,7 @@ const INTERNATIONAL_U12_BOYS_EVENT_GROUP: KeyedStaticCollection<EventGroup> =
         new RankingEvent('_Eddie_Herr_', new Rating(0.106), 0, true),
         new RankingEvent('_TE_Ctgy1A_U12_', new Rating(0.106)),
         new RankingEvent('_TE_Ctgy1B_U12_', new Rating(0.025)),
+        new RankingEvent('_TE_Ctgy2_', new Rating(0.0125)),
       ]
     )
   });
@@ -217,6 +222,7 @@ const INTERNATIONAL_U12_GIRLS_EVENT_GROUP: KeyedStaticCollection<EventGroup> =
         new RankingEvent('_Eddie_Herr_', new Rating(0.106), 0, true),
         new RankingEvent('_TE_Ctgy1A_U12_', new Rating(0.106)),
         new RankingEvent('_TE_Ctgy1B_U12_', new Rating(0.05)),
+        new RankingEvent('_TE_Ctgy2_', new Rating(0.0250)),
       ]
     )
   });
