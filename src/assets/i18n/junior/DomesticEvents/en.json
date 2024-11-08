@@ -147,6 +147,15 @@
   "_PR_4_star_":  "Junior Open Tour (★★★★)",
   "_PR_4_star_abbrv_":  "★★★★",
   "_PR_4_star_description_":  "Manitoba and Saskatchewan will host up to 5 tournaments each in this category. 6 out of these 10 tournaments will be part of the mandatory “5 out of 8” required to qualify for the Nationals. These will be rated at 60% of the “Prairie Championships”. These events are open to players from other provinces. To see the complete list of these 8 tournaments please visit the Provincial website.",
+  "_PR_3-5_star_":  "Junior Open Tour (★★★+)",
+  "_PR_3-5_star_abbrv_":  "★★★+",
+  "_PR_3-5_star_description_":  "This level is for players looking to transition into the Provincial & National Selection levels. The three star Junior Open Tour + is standard scoring, best of three sets. At this level, competitors are guaranteed two matches; and will be provided with a main draw and doubles or main draw and consolation. All events are offered at a 3 star+ value. The rating for these events is set such that the winner receives points equal to a player who reaches the semi-finals of a selection event.",
+  "_PR_3_star_":  "Junior Open Tour (★★★)",
+  "_PR_3_star_abbrv_":  "★★★",
+  "_PR_3_star_description_":  "This series of events is oriented towards more competitive and experienced players looking to enter the ranks of the top 30 in Manitoba and Saskatchewan.   The winners of an event receives the same number of points as a quarter finalist in a Selection Series event. ",
+  "_PR_2_star_":  "Junior Open Tour (★★)",
+  "_PR_2_star_abbrv_":  "★★",
+  "_PR_2_star_description_":  "These are entry level competitive events that are significantly weaker then the Three Star events. The winner of a Two Star event receives the same number of points as a quarter-finalist in a Three Star event.",
   "_SK_3_star_":  "Challengers (★★★)",
   "_SK_3_star_abbrv_":  "★★★",
   "_SK_3_star_description_":  "Entry level competitive events in Saskatchewan are called “Challenger” events. These are significantly weaker than the “Junior Open Tour” events and are rated such that the winner will earn the same points as a “Junior Open Tour” Quarter-Finalist. These events are open to players from other provinces.",
@@ -170,5 +179,5 @@
   "_ATL_3_star_2018_description_":  "There are events held in each of the four Atlantic provinces which are part of their respective provincial junior circuits which are rated at the ★★★ level. The winner receives same points as a ★★★+ semi-finalist.",
   "_ATL_2_star_2018_":  "2 Star Events ★★",
   "_ATL_2_star_2018_abbrv_":  "★★",
-  "_ATL_2_star_2018_description_":  "Description TBD. Winner receives same points as a ★★★ finalist."
+  "_ATL_2_star_2018_description_":  "Description TBD. Winner receives same points as a ★★★ finalist." 
 }
