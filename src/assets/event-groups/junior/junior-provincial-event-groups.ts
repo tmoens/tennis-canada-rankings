@@ -192,17 +192,17 @@ export const MB_JUNIOR_EVENT_GROUP: KeyedStaticCollection<EventGroup> =
       [PR_5_STAR, PR_4_STAR]
     ),
     '2024': new EventGroup('_MB_',
-      [PR_5_STAR, PR_4_STAR,PR_3_5_STAR,PR_3_STAR,PR_2_STAR]
+      [PR_5_STAR, PR_4_STAR, PR_3_5_STAR, PR_3_STAR, PR_2_STAR]
     ),
   });
 
 export const SK_JUNIOR_EVENT_GROUP: KeyedStaticCollection<EventGroup> =
   new KeyedStaticCollection<EventGroup>({
     '2013': new EventGroup('_SK_',
-      [PR_5_STAR, PR_4_STAR,SK_CHALLENGER]
+      [PR_5_STAR, PR_4_STAR, SK_CHALLENGER]
     ),
     '2024': new EventGroup('_SK_',
-      [PR_5_STAR, PR_4_STAR,PR_3_5_STAR,SK_CHALLENGER,PR_2_STAR]
+      [PR_5_STAR, PR_4_STAR, PR_3_5_STAR, SK_CHALLENGER, PR_2_STAR]
     ),
   });
 
