@@ -12,8 +12,11 @@ The app will automatically reload if you change any of the source files.
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-Use the `-prod` flag for a production build.
+When building for development use `ng build` to build the project.
+
+When building for production, you need to use `ng build --configuration=production`.
+
+The build artifacts will be stored in the `dist/` directory.
 
 ## Testing
 
@@ -149,6 +152,7 @@ Then, where we had a *KeyedStaticCollection* that referred to `_s_prov_tier_1_` 
 ```
 
 Then for 2019 we add (that is, we do not replace)
+
 ```shell
   new KeyedStaticCollection<EventGroup>({
   '2019': new EventGroup(
@@ -160,11 +164,7 @@ Then for 2019 we add (that is, we do not replace)
   ]
 ),
 ```
+
 Now if the user elects to look at the ranking year 2016 (or any year from 2013 to 2018), they see it as it was (i.e. they
-see the description that came into effect in 2013. 
+see the description that came into effect in 2013.
 But if the user looks at ranking year 2019 or later, they see the description that came into effect in 2019.
-
-
-
-
-
