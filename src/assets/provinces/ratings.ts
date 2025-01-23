@@ -131,7 +131,7 @@ export const MB_GIRLS_RATING: Rating = new Rating(1,
     2022: 0.061,
     2023: 0.074,
     2024: 0.1,
-    2025: 0.069,
+    2025: 0.112,
   }));
 export const ON_BOYS_RATING: Rating = new Rating(1,
   new KeyedStaticCollection<number>({
@@ -227,7 +227,7 @@ export const SK_GIRLS_RATING: Rating = new Rating(1,
     2022: 0.061,
     2023: 0.074,
     2024: 0.1,
-    2025: 0.102,
+    2025: 0.112,
   }));
 export const CAN_BOYS_RATING: Rating = new Rating(1,
   new KeyedStaticCollection<number>({}));
