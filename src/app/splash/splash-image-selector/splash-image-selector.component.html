@@ -1,5 +1,6 @@
 <div>
-  <a mat-button color="accent" [routerLink]="['/rankings', rankingGroup.name]" style="height: 320px">
+  <a mat-button color="accent" [routerLink]="['/rankings', rankingGroup.name]" 
+  [ngStyle]="{ height: size === 'small' ? '100px' : '320px' }">
     <img [src]="imagePath" [alt]="rankingGroup.name">
   </a>
 </div>
